@@ -1,0 +1,92 @@
+{
+    "title": "Create Test",
+    "name": "Test",
+    "jsonPage": "viewTest",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newTest"],
+    "fields": [{
+        "name": "Coach Test",
+        "type": "text",
+        "tableRef": "coachTest",
+        "placeholder": "Enter coachTest",
+        "id": "coachTest",
+        "url": ""
+    }, {
+        "name": "Coach",
+        "type": "selectFromTable",
+        "tableRef": "coach",
+        "searchApi": "searchCall",
+        "placeholder": "Enter coach",
+        "id": "coach",
+        "validation": ["required", "trim", "unique"],
+        "url": "coach/search"
+    }, {
+        "name": "Athlete",
+        "type": "selectFromTable",
+        "tableRef": "athlete",
+        "searchApi": "searchCall",
+        "placeholder": "Enter athlete",
+        "id": "athlete",
+        "validation": ["required", "trim", "unique"],
+        "url": "athlete/search"
+    }, {
+        "name": "Start Date",
+        "type": "date",
+        "tableRef": "startDate",
+        "placeholder": "Enter startDate",
+        "id": "startDate",
+        "url": ""
+    }, {
+        "name": "End Date",
+        "type": "date",
+        "tableRef": "endDate",
+        "placeholder": "Enter endDate",
+        "id": "endDate",
+        "url": ""
+    }, {
+        "name": "Details",
+        "type": "text",
+        "tableRef": "details",
+        "placeholder": "Enter details",
+        "id": "details",
+        "url": ""
+    }, {
+        "name": "Status",
+        "type": "tags",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "status",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Pending", "Processing"]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitTest",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTest"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTest"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Test/save"
+    },
+    "preApi": {
+        "url": "Test/getOne",
+        "params": "_id"
+    }
+}

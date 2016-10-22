@@ -1,0 +1,316 @@
+{
+    "title": "Edit Coach",
+    "name": "Coach",
+    "jsonPage": "viewCoach",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "name",
+        "url": ""
+    }, {
+        "name": "Surname",
+        "type": "text",
+        "tableRef": "surname",
+        "placeholder": "Enter surname",
+        "id": "surname",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Email",
+        "type": "email",
+        "tableRef": "email",
+        "placeholder": "Enter email",
+        "id": "email",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Mobile",
+        "type": "text",
+        "tableRef": "mobile",
+        "placeholder": "Enter mobile",
+        "id": "mobile",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Password",
+        "type": "password",
+        "tableRef": "password",
+        "placeholder": "Enter password",
+        "id": "password",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Gender",
+        "type": "tags",
+        "tableRef": "gender",
+        "placeholder": "Enter gender",
+        "id": "gender",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Male", "Female"]
+    }, {
+        "name": "Date of birth",
+        "type": "date",
+        "tableRef": "dob",
+        "placeholder": "Enter dob",
+        "id": "dob",
+        "url": ""
+    }, {
+        "name": "Country",
+        "type": "text",
+        "tableRef": "country",
+        "placeholder": "Enter country",
+        "id": "country",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+
+    }, {
+        "name": "Credentials",
+        "type": "textarea",
+        "tableRef": "credentials",
+        "placeholder": "Enter credentials",
+        "id": "credentials",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Years of Coaching",
+        "type": "number",
+        "tableRef": "yearsOfCoaching",
+        "placeholder": "Enter yearsOfCoaching",
+        "id": "yearsOfCoaching",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Coaching Focus",
+        "type": "selectFromTable",
+        "tableRef": "coachingFocus",
+        "searchApi": "searchCall",
+        "placeholder": "Enter coachingFocus",
+        "id": "coachingFocus",
+        "validation": ["required", "trim", "unique"],
+        "url": "coachingFocus/search"
+    }, {
+        "name": "Specialisations",
+        "type": "selectFromTable",
+        "tableRef": "specialisations",
+        "searchApi": "searchCall",
+        "placeholder": "Enter specialisations",
+        "id": "specialisations",
+        "validation": ["required", "trim", "unique"],
+        "url": "specialisations/search"
+    }, {
+        "name": "Specialisation other",
+        "type": "textarea",
+        "tableRef": "specialisationOther",
+        "placeholder": "Enter specialisationOther",
+        "id": "specialisationOther",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Free Text CV",
+        "type": "textarea",
+        "tableRef": "freeTextCV",
+        "placeholder": "Enter freeTextCV",
+        "id": "freeTextCV",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "CV",
+        "type": "file",
+        "option": "single",
+        "tableRef": "CV",
+        "placeholder": "Enter CV",
+        "id": "CV",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Profile Pic",
+        "type": "image",
+        "option": "single",
+        "tableRef": "profilePic",
+        "placeholder": "Enter profilePic",
+        "id": "profilePic",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Access Token",
+        "type": "text",
+        "tableRef": "accessToken",
+        "placeholder": "Enter accessToken",
+        "id": "accessToken",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Experience",
+        "type": "number",
+        "tableRef": "experience",
+        "placeholder": "Enter experience",
+        "id": "experience",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Expertise",
+        "type": "textarea",
+        "tableRef": "expertise",
+        "placeholder": "Enter expertise",
+        "id": "expertise",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+
+    }, {
+        "name": "Achievements",
+        "type": "textarea",
+        "tableRef": "achievements",
+        "placeholder": "Enter achievements",
+        "id": "achievements",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+
+    }, {
+        "name": "Coaching Limit",
+        "type": "number",
+        "tableRef": "coachingLimit",
+        "placeholder": "Enter coachingLimit",
+        "id": "coachingLimit",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Coach Asking Price",
+        "type": "number",
+        "tableRef": "coachAskingPrice",
+        "placeholder": "Enter coachAskingPrice",
+        "id": "coachAskingPrice",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Profile Status",
+        "type": "tags",
+        "tableRef": "profileStatus",
+        "placeholder": "Enter profileStatus",
+        "id": "profileStatus",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Pending", "Active", "Rejected"]
+    }, {
+        "name": "Paypal id",
+        "type": "text",
+        "tableRef": "paypalId",
+        "placeholder": "Enter paypalId",
+        "id": "paypalId",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+
+    }, {
+        "name": "Paypal Token",
+        "type": "text",
+        "tableRef": "paypalToken",
+        "placeholder": "Enter paypalToken",
+        "id": "paypalToken",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+
+    }, {
+        "name": "Notification Coach",
+        "type": "box",
+        "tableRef": "notificationCoach",
+        "validation": ["", "trim", "unique"],
+        "fields": [{
+            "name": "Status",
+            "type": "tags",
+            "tableRef": "status",
+            "placeholder": "Enter status",
+            "id": "status",
+            "validation": ["required", "trim", "unique"],
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["Read", "Unread"]
+        }, {
+            "name": "Type",
+            "type": "text",
+            "tableRef": "type",
+            "placeholder": "Enter type",
+            "id": "type",
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Url",
+            "type": "text",
+            "tableRef": "url",
+            "placeholder": "Enter url",
+            "id": "url",
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Title",
+            "type": "text",
+            "tableRef": "title",
+            "placeholder": "Enter title",
+            "id": "title",
+            "onView": false,
+            "url": ""
+        }, {
+            "name": "Description",
+            "type": "textarea",
+            "tableRef": "description",
+            "placeholder": "Enter description",
+            "id": "description",
+            "onView": false,
+            "url": ""
+        }, {
+            "name": "Image",
+            "type": "image",
+            "tableRef": "image",
+            "placeholder": "Enter image",
+            "id": "image",
+            "onView": false,
+            "url": ""
+        }, {
+            "name": "Read Date",
+            "type": "date",
+            "tableRef": "readDate",
+            "placeholder": "Enter readDate",
+            "id": "readDate",
+            "onView": false,
+            "url": ""
+        }]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitCoach",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCoach"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCoach"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Coach/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Coach/getOne",
+        "params": "_id"
+    }
+
+}

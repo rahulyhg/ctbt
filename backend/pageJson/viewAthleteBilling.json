@@ -1,0 +1,65 @@
+{
+    "title": "Athlete Billing",
+    "description": "List of AthleteBilling",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Athlete Coaching",
+        "isSort": "",
+        "tableRef": "athleteCoaching"
+    }, {
+        "name": "Total Amount",
+        "isSort": "",
+        "tableRef": "totalAmount"
+    }, {
+        "name": "Transaction Code",
+        "isSort": "",
+        "tableRef": "transactionCode"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editAthleteBilling",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete AthleteBilling",
+        "content": "Are you sure you want to delete AthleteBilling?",
+        "api": "AthleteBilling/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Excel Export",
+        "icon": "print",
+        "class": "btn-danger",
+        "type": "redirect",
+        "action": "excelexport"
+    }, {
+        "name": "Upload Excel",
+        "icon": "delete",
+        "class": "btn-warning",
+        "type": "redirect",
+        "action": "uploadcsv"
+    }, {
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createAthleteBilling"
+    }],
+    "apiCall": {
+        "url": "AthleteBilling/search",
+        "params": "_id"
+    }
+}

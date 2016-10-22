@@ -1,0 +1,63 @@
+{
+    "title": "Create Contact",
+    "name": "Contact",
+    "jsonPage": "viewContact",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newContact"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "name",
+        "url": ""
+    }, {
+        "name": "Email",
+        "type": "email",
+        "tableRef": "email",
+        "placeholder": "Enter email",
+        "id": "email",
+        "url": ""
+    }, {
+        "name": "Subject",
+        "type": "text",
+        "tableRef": "subject",
+        "placeholder": "Enter subject",
+        "id": "subject",
+        "url": ""
+    }, {
+        "name": "Message",
+        "type": "textarea",
+        "tableRef": "message",
+        "placeholder": "Enter message",
+        "id": "message",
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitContact",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewContact"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewContact"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Contact/save"
+    },
+    "preApi": {
+        "url": "Contact/getOne",
+        "params": "_id"
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "title": "Create Specialisations",
+    "name": "Specialisations",
+    "jsonPage": "viewSpecialisations",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newSpecialisations"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "name",
+        "url": ""
+    }, {
+        "name": "Order",
+        "type": "text",
+        "tableRef": "order",
+        "placeholder": "Enter order",
+        "id": "order",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitSpecialisations",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSpecialisations"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": "page({id:'viewSpecialisations'})"
+    }],
+    "apiCall": {
+        "url": "Specialisations/save"
+    }
+}

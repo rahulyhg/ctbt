@@ -1,0 +1,49 @@
+{
+    "title": "Create Config Two",
+    "name": "ConfigTwo",
+    "jsonPage": "viewConfigTwo",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newConfigTwo"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "name",
+        "url": ""
+    }, {
+        "name": "Content",
+        "type": "text",
+        "tableRef": "content",
+        "placeholder": "Enter content",
+        "id": "content",
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitConfigTwo",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewConfigTwo"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewConfigTwo"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "ConfigTwo/save"
+    },
+    "preApi": {
+        "url": "ConfigTwo/getOne",
+        "params": "_id"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "title": "Create ChatGroup",
+    "name": "ChatGroup",
+    "jsonPage": "viewChatGroup",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newChatGroup"],
+    "fields": [{
+        "name": "Coach",
+        "type": "selectFromTable",
+        "tableRef": "coach",
+        "searchApi": "searchCall",
+        "placeholder": "Enter coach",
+        "id": "coach",
+        "validation": ["required", "trim", "unique"],
+        "url": "coach/search"
+    }, {
+        "name": "Athlete",
+        "type": "selectFromTable",
+        "tableRef": "athlete",
+        "searchApi": "searchCall",
+        "placeholder": "Enter athlete",
+        "id": "athlete",
+        "validation": ["required", "trim", "unique"],
+        "url": "athlete/search"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitChatGroup",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewChatGroup"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": "page({id:'viewChatGroup'})"
+    }],
+    "apiCall": {
+        "url": "ChatGroup/save"
+    }
+}

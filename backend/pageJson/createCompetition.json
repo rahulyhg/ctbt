@@ -1,0 +1,94 @@
+{
+    "title": "Create Competition",
+    "name": "Competition",
+    "jsonPage": "viewCompetition",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newCompetition"],
+    "fields": [{
+        "name": "Coach Competition",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "name",
+        "url": ""
+    }, {
+        "name": "Coach",
+        "type": "selectFromTable",
+        "tableRef": "coach",
+        "searchApi": "searchCall",
+        "placeholder": "Enter coach",
+        "id": "coach",
+        "validation": ["required", "trim", "unique"],
+        "url": "coach/search"
+    }, {
+        "name": "Athlete",
+        "type": "selectFromTable",
+        "tableRef": "athlete",
+        "searchApi": "searchCall",
+        "placeholder": "Enter athlete",
+        "id": "athlete",
+        "validation": ["required", "trim", "unique"],
+        "url": "athlete/search"
+    }, {
+        "name": "Start Date",
+        "type": "date",
+        "tableRef": "startDate",
+        "placeholder": "Enter startDate",
+        "id": "startDate",
+        "url": ""
+    }, {
+        "name": "End Date",
+        "type": "date",
+        "tableRef": "endDate",
+        "placeholder": "Enter endDate",
+        "id": "endDate",
+        "url": ""
+    }, {
+        "name": "Details",
+        "type": "text",
+        "tableRef": "details",
+        "placeholder": "Enter details",
+        "id": "details",
+        "url": ""
+    }, {
+        "name": "Is Key",
+        "type": "tags",
+        "tableRef": "isKey",
+        "placeholder": "Enter isKey",
+        "id": "isKey",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["true", "false"]
+    }, {
+        "name": "Status",
+        "type": "tags",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "status",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Pending", "Processing"]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitCompetition",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCompetition"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": "page({id:'viewCompetition'})"
+    }],
+    "apiCall": {
+        "url": "Competition/save"
+    }
+}

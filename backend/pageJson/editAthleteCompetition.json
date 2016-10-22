@@ -1,0 +1,71 @@
+{
+    "title": "Create AthleteCompetition",
+    "name": "AthleteCompetition",
+    "jsonPage": "viewAthleteCompetition",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newAthleteCompetition"],
+    "fields": [{
+        "name": "Athlete",
+        "type": "selectFromTable",
+        "tableRef": "athlete",
+        "searchApi": "searchCall",
+        "placeholder": "Enter athlete",
+        "id": "athlete",
+        "validation": ["required", "trim", "unique"],
+        "url": "athlete/search"
+    }, {
+        "name": "Competition",
+        "type": "selectFromTable",
+        "tableRef": "competition",
+        "searchApi": "searchCall",
+        "placeholder": "Enter competition",
+        "id": "competition",
+        "validation": ["required", "trim", "unique"],
+        "url": "competition/search"
+    }, {
+        "name": "Reason",
+        "type": "textarea",
+        "tableRef": "reason",
+        "placeholder": "Enter reason",
+        "id": "reason",
+        "url": ""
+    }, {
+        "name": "Status",
+        "type": "tags",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "status",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Pending", "Accepted", "Rejected"]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitAthleteCompetition",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewAthleteCompetition"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewAthleteCompetition"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "AthleteCompetition/save"
+    },
+    "preApi": {
+        "url": "AthleteCompetition/getOne",
+        "params": "_id"
+    }
+}

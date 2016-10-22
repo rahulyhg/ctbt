@@ -1,0 +1,176 @@
+{
+    "title": "Edit Athlete Coaching",
+    "name": "AthleteCoaching",
+    "jsonPage": "viewAthleteCoaching",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Athlete",
+        "type": "selectFromTable",
+        "tableRef": "athlete",
+        "searchApi": "searchCall",
+        "placeholder": "Enter athlete",
+        "id": "athlete",
+        "validation": ["required", "trim", "unique"],
+        "url": "Athlete/search"
+    }, {
+        "name": "Coach",
+        "type": "selectFromTable",
+        "tableRef": "coach",
+        "searchApi": "searchCall",
+        "placeholder": "Enter coach",
+        "id": "coach",
+        "validation": ["required", "trim", "unique"],
+        "url": "coach/search"
+    }, {
+        "name": "Status",
+        "type": "tags",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "status",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Request", "Payment Pending", "Active", "Reject"]
+    }, {
+        "name": "Accepted Date",
+        "type": "date",
+        "tableRef": "acceptedDate",
+        "placeholder": "Enter acceptedDate",
+        "id": "acceptedDate",
+        "url": ""
+    }, {
+        "name": "Expiry Date",
+        "type": "date",
+        "tableRef": "expiryDate",
+        "placeholder": "Enter expiryDate",
+        "id": "expiryDate",
+        "url": ""
+    }, {
+        "name": "Subscription Type",
+        "type": "tags",
+        "tableRef": "subscriptionType",
+        "placeholder": "Enter subscriptionType",
+        "id": "subscriptionType",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "dropDown": ["Monthly", "Yearly"]
+    }, {
+        "name": "Reason",
+        "type": "text",
+        "tableRef": "reason",
+        "placeholder": "Enter reason",
+        "id": "reason",
+        "url": ""
+    }, {
+        "name": "Athlete Billing",
+        "type": "box",
+        "tableRef": "athleteBilling",
+        "validation": ["", "trim", "unique"],
+        "fields": [{
+            "name": "Payment Mode",
+            "type": "text",
+            "tableRef": "paymentMode",
+            "placeholder": "Enter paymentMode",
+            "id": "paymentMode",
+            "onView": true,
+            "url": ""
+        }, {
+            "name": "Status",
+            "type": "tags",
+            "tableRef": "status",
+            "placeholder": "Enter status",
+            "id": "status",
+            "onView": true,
+            "validation": ["required", "trim", "unique"],
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "dropDown": ["Pending", "Processing"]
+        }, {
+            "name": "Amount",
+            "type": "number",
+            "tableRef": "amount",
+            "onView": true,
+            "placeholder": "Enter amount",
+            "id": "amount",
+            "url": ""
+        }, {
+            "name": "Tax 1",
+            "type": "text",
+            "tableRef": "tax1",
+            "placeholder": "Enter tax1",
+            "id": "tax1",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Tax 2",
+            "type": "text",
+            "tableRef": "tax2",
+            "placeholder": "Enter tax2",
+            "id": "tax2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Tax 3",
+            "type": "text",
+            "tableRef": "tax3",
+            "placeholder": "Enter tax3",
+            "id": "tax3",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Total Amount",
+            "type": "text",
+            "tableRef": "totalAmount",
+            "onView": true,
+            "placeholder": "Enter totalAmount",
+            "id": "totalAmount",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+
+        }, {
+            "name": "Transaction Code",
+            "type": "text",
+            "tableRef": "transactionCode",
+            "onView": true,
+            "placeholder": "Enter transactionCode",
+            "id": "transactionCode",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+
+        }]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitAthleteCoaching",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewAthleteCoaching"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewAthleteCoaching"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "AthleteCoaching/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "AthleteCoaching/getOne",
+        "params": "_id"
+    }
+
+}

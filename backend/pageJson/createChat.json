@@ -1,0 +1,61 @@
+{
+    "title": "Create Chat",
+    "name": "Chat",
+    "jsonPage": "viewChat",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["newChat"],
+    "fields": [{
+        "name": "Chat Group",
+        "type": "selectFromTable",
+        "tableRef": "chatGroup",
+        "searchApi": "searchCall",
+        "placeholder": "Enter chatGroup",
+        "id": "chatGroup",
+        "validation": ["required", "trim", "unique"],
+        "url": "chatgroup/search"
+    }, {
+        "name": "Coach",
+        "type": "selectFromTable",
+        "tableRef": "coach",
+        "searchApi": "searchCall",
+        "placeholder": "Enter coach",
+        "id": "coach",
+        "validation": ["required", "trim", "unique"],
+        "url": "coach/search"
+    }, {
+        "name": "Athlete",
+        "type": "selectFromTable",
+        "tableRef": "athlete",
+        "searchApi": "searchCall",
+        "placeholder": "Enter athlete",
+        "id": "athlete",
+        "validation": ["required", "trim", "unique"],
+        "url": "athlete/search"
+    }, {
+        "name": "Message",
+        "type": "textarea",
+        "tableRef": "message",
+        "placeholder": "Enter message",
+        "id": "message",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitChat",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewChat"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": "page({id:'viewChat'})"
+    }],
+    "apiCall": {
+        "url": "Chat/save"
+    }
+}
