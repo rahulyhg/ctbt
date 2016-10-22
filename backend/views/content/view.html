@@ -23,7 +23,7 @@
                                 <form class="search-form mr-form ">
                                     <input type="text " ng-change="getAllItems(true) " placeholder="Search Here...
                         " ng-model="search.keyword " />
-                                </form>
+                      </form>
                                 <a ng-repeat="btn in json.json.button " class="btn " ng-class="btn.class " ng-click="json.eventAction(btn) ">{{btn.name}}</a>
                             </div>
                             <h3>{{json.json.description}} <span class="tableTotal ">(Total : {{totalItems}}) </span></h3>
