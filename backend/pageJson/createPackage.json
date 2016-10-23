@@ -60,7 +60,7 @@
     }, {
         "name": "Destination",
         "type": "tags",
-        "dropDownType":"single",
+        "dropDownType":"multiple",
         "tableRef": "destination",
         "dropDownField":"name",
         "placeholder": "Enter Category-Name",

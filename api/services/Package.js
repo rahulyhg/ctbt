@@ -49,11 +49,6 @@ var schema = new Schema({
           type: String,
           enum:["true","false"]
       }
-      // activities: [{
-      //     type: Schema.Types.ObjectId,
-      //     ref: 'Activities',
-      //     index: true
-      // }]
     }]
 });
 
