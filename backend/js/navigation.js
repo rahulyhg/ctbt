@@ -81,7 +81,7 @@ var navigationservice = angular.module('navigationservice', [])
             {
                 name: "DestinationContent",
                 classis: "active",
-                link: "#/page/viewDestinationTitle//",
+                link: "#/page/viewDestinationContent//",
             }
 
         ]
@@ -105,11 +105,13 @@ var navigationservice = angular.module('navigationservice', [])
         name: "Media",
         classis: "active",
         sref: "#/page/viewMedia//"
-    },{
-        name: "Cart",
-        classis: "active",
-        sref: "#/page/viewCart//"
-    },{
+    },
+    // {
+    //     name: "Cart",
+    //     classis: "active",
+    //     sref: "#/page/viewCart//"
+    // },
+    {
         name: "Enquire",
         classis: "active",
         sref: "#/page/viewEnquire//"

@@ -1,6 +1,6 @@
 var objectid = require("mongodb").ObjectId;
 var schema = new Schema({
-  title: {
+  name: {
     type: String,
     default: ""
   },

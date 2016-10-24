@@ -8,7 +8,7 @@
     "fields": [{
         "name": "Title",
         "type": "text",
-        "tableRef": "title",
+        "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
@@ -27,8 +27,8 @@
         "name": "Destination",
         "type": "selectFromTable",
         "dropDownType":"single",
-        "tableRef": "destination",
         "searchApi":"searchCall",
+        "tableRef": "destination",
         "placeholder": "Enter Category-Name",
         "id": "input1",
         "validation": ["required", "trim", "unique"],

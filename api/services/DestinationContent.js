@@ -23,12 +23,18 @@ var schema = new Schema({
   }
 });
 
-schema.plugin(deepPopulate, {});
+schema.plugin(deepPopulate, {
+  populate:{
+    'destinationTitle':{
+      select:'name _id'
+    }
+  }
+});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('DestinationContent', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema,'destinationTitle','destinationTitle'));
 var model = {
 
   getImages: function(data, callback) {

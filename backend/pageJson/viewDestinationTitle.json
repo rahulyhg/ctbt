@@ -7,7 +7,7 @@
     "fields": [{
         "name": "Title",
         "isSort": "",
-        "tableRef": "title"
+        "tableRef": "name"
     },{
         "name": "Thumbnail",
         "type": "image",
