@@ -15,7 +15,7 @@
         "url": ""
     }, {
         "name": "Description",
-        "type": "tinymceImage",
+        "type": "wysiwyg",
         "tableRef": "description",
         "placeholder": "Enter Description",
         "id": "input1",

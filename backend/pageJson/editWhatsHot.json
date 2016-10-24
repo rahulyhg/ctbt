@@ -45,7 +45,7 @@
         "url": ""
     }, {
         "name": "Cruise Rate",
-        "type": "tinymce",
+        "type": "wysiwyg",
         "tableRef": "cruiserate",
         "placeholder": "Enter Cruise Rate",
         "id": "input1",

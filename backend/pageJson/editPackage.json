@@ -106,11 +106,10 @@
             "url": ""
         },{
             "name": "Description",
-            "type": "tinymce",
+            "type": "wysiwyg",
             "tableRef": "description",
             "placeholder": "Enter Description",
             "id": "input1",
-            "onView": true,
             "validation": ["required", "trim", "unique"],
             "url": ""
         },{
@@ -154,5 +153,4 @@
         "url": "Package/getOne",
         "params": "_id"
     }
-
 }

@@ -25,7 +25,7 @@
         "url": ""
     }, {
         "name": "Destination",
-        "type": "tags",
+        "type": "selectFromTable",
         "dropDownType":"single",
         "tableRef": "destination",
         "dropDownField":"name",
@@ -43,7 +43,6 @@
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
-        "onView": true,
         "dropDown": ["true", "false"]
     }],
     "action": [{

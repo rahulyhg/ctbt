@@ -25,14 +25,12 @@
         "url": ""
     },{
         "name": "Destination",
-        "type": "tags",
+        "type": "selectFromTable",
         "dropDownType":"single",
         "tableRef": "destination",
-        "model":"destination",
-        "dropDownField":"name",
+        "searchApi":"searchCall",
         "placeholder": "Enter Category-Name",
         "id": "input1",
-          "onView": true,
         "validation": ["required", "trim", "unique"],
         "url": "Destination/search"
     },{
@@ -45,7 +43,6 @@
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
-        "onView": true,
         "dropDown": ["true", "false"]
     }],
     "action": [{

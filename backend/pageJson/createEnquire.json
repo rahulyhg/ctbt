@@ -48,7 +48,7 @@
         "url": ""
     },{
         "name": "Comment",
-        "type": "text",
+        "type": "textarea",
         "tableRef": "comment",
         "placeholder": "Enter name",
         "id": "input1",

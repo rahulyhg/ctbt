@@ -206,7 +206,7 @@ CategoryFilter: function (data, callback) {
       Category: function (callback) {
           Activities.find({
               destination:data.destination,
-              type:data.type,
+              type: { $in: data.type },
               status: "true"
           }).exec(function (err, found) {
               if (err) {

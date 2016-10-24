@@ -14,7 +14,7 @@
         "url": ""
     }, {
         "name": "Activity Description",
-        "type": "tinymce",
+        "type": "wysiwyg",
         "tableRef": "description",
         "placeholder": "Enter Description",
         "id": "input1",
@@ -93,10 +93,10 @@
         "dropDown": ["Yes", "No"]
     }, {
         "name": "Destination",
-        "type": "tags",
+        "type": "selectFromTable",
         "dropDownType":"single",
         "tableRef": "destination",
-        "dropDownField":"name",
+        "searchApi":"searchCall",
         "placeholder": "Enter Category-Name",
         "id": "input1",
         "validation": ["required", "trim", "unique"],

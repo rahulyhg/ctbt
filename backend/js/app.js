@@ -68,6 +68,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 });
 
 
+
 firstapp.filter('uploadpath', function () {
     return function (input, width, height, style) {
         var other = "";
@@ -551,6 +552,14 @@ firstapp.filter('ageFilter', function () {
         return calculateAge(birthdate);
     };
 });
+firstapp.filter('momentDate', function () {
+    return function (date, format) {
+        if (!format) {
+            format = "Do MMM YYYY, ddd";
+        }
+        return moment(date).format(format);
+    };
+});
 firstapp.filter('capitalize', function () {
     return function (input, all) {
         var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
@@ -597,7 +606,6 @@ firstapp.directive('viewField', function ($http, $filter) {
             } else {
                 $scope.form.model = $scope.value[$scope.type.tableRef];
             }
-
 
             $scope.template = "views/viewField/" + $scope.type.type + ".html";
         }

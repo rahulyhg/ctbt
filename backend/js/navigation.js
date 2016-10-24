@@ -6,27 +6,113 @@ var uploadurl = imgurl;
 var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function ($http) {
-    var navigation = [{
-        name: "Locations",
+    var navigation = [
+
+    // {
+    //     name: "General",
+    //     classis: "active",
+    //     icon: "gear2",
+    //     sref: "",
+    //     subnav: [
+    //
+    //         // {
+    //         //     name: "View",
+    //         //     classis: "active",
+    //         //     icon: "user",
+    //         //     link: "#/page/viewConfigTwo//",
+    //         // },
+    //
+    //         {
+    //             name: "About",
+    //             classis: "active",
+    //             icon: "document",
+    //             link: "#/page/staticPage//%7B%22_id%22:%22580cc65718015416d3a2ee46%22%7D",
+    //         }, {
+    //             name: "Privacy Policy",
+    //             classis: "active",
+    //             icon: "document",
+    //             link: "#/page/staticPage//%7B%22_id%22:%22580cc67b7f2ec11727460f1c%22%7D",
+    //         }, {
+    //             name: "Terms and Conditions",
+    //             classis: "active",
+    //             icon: "document",
+    //             link: "#/page/staticPage//%7B%22_id%22:%22580cc6877f2ec11727460f1f%22%7D",
+    //         }, {
+    //             name: "Product Tour",
+    //             classis: "active",
+    //             icon: "presentation",
+    //             link: "#/page/staticVideo//%7B%22_id%22:%22580cc6c025bd19176f1fd147%22%7D",
+    //         }, {
+    //             name: "Coach Mentor Video",
+    //             classis: "active",
+    //             icon: "play",
+    //             link: "#/page/staticVideo//%7B%22_id%22:%22580cc6cb25bd19176f1fd149%22%7D",
+    //         }
+    //     ]
+    // },
+    {
+        name: "HomeSlider",
         classis: "active",
-        anchor: "company",
-        icon: "map",
-        subnav: [{
-            name: "Country",
-            classis: "active",
-            anchor: "country-list",
-            icon: "globe"
-        }]
+        sref: "#/page/viewHomeSlider//"
     }, {
-        name: "Coaches",
+        name: "Activities",
         classis: "active",
-        anchor: "/page/viewCoach//",
-        icon: "user"
+        sref: "#/page/viewActivities//"
     }, {
-        name: "Athletes",
+        name: "Package",
         classis: "active",
-        anchor: "/page/viewAthlete//",
-        icon: "user"
+        sref: "#/page/viewPackage//"
+    },{
+        name: "Destination",
+        classis: "active",
+        sref: "",
+        subnav: [
+
+            {
+                name: "Destination Entry",
+                classis: "active",
+                link: "#/page/viewDestination//",
+            },
+            {
+                name: "DestinationTitle",
+                classis: "active",
+                link: "#/page/viewDestinationTitle//",
+            },
+            {
+                name: "DestinationContent",
+                classis: "active",
+                link: "#/page/viewDestinationTitle//",
+            }
+
+        ]
+    },{
+        name: "Common Banner",
+        classis: "active",
+        sref: "#/page/viewBanner//"
+    }, {
+        name: "What's Hot",
+        classis: "active",
+        sref: "#/page/viewWhatsHot//"
+    }, {
+        name: "What's Hot Slider",
+        classis: "active",
+        sref: "#/page/viewWhatsHotSlider//"
+    },{
+        name: "Subscribe",
+        classis: "active",
+        sref: "#/page/viewSubscribe//"
+    }, {
+        name: "Media",
+        classis: "active",
+        sref: "#/page/viewMedia//"
+    },{
+        name: "Cart",
+        classis: "active",
+        sref: "#/page/viewCart//"
+    },{
+        name: "Enquire",
+        classis: "active",
+        sref: "#/page/viewEnquire//"
     }];
     var membershipLevel = [{
         name: "Student",

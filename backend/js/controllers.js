@@ -7,6 +7,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Dashboard");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $state.go("page", {
+        id: "viewHomeSlider"
+    });
 })
 
 .controller('AccessController', function ($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -28,7 +31,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (dataSend.keyword === null || dataSend.keyword === undefined) {
             dataSend.keyword = "";
         }
-        console.log($scope.api);
         NavigationService[$scope.api]($scope.url, dataSend, ++i, function (data) {
             if (data.value) {
                 $scope.list = data.data.results;
@@ -281,17 +283,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     //  START FOR EDIT
     if ($scope.json.json.preApi) {
+
         NavigationService.apiCall($scope.json.json.preApi.url, {
             [$scope.json.json.preApi.params]: $scope.json.keyword._id
         }, function (data) {
             $scope.data = data.data;
-            // _.each($scope.json.json.fields, function (n) {
-            //     if (n.type === "date") {
-            //         $scope.data[n.tableRef] = new Date($scope.data[n.tableRef]);
-            //     }
-            // });
+            $scope.generateField = true;
 
         });
+    } else {
+        $scope.generateField = true;
     }
     //  END FOR EDIT
 
@@ -302,7 +303,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.saveData = function (formData) {
-        console.log(formData);
         NavigationService.apiCall($scope.json.json.apiCall.url, formData, function (data) {
             if (data.value === true) {
                 $scope.json.json.action[0].stateName.json.keyword = "";
@@ -311,13 +311,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 var messText = "created";
                 if ($scope.json.keyword._id) {
                     messText = "edited";
-                };
+                }
                 toastr.success($scope.json.json.name + " " + formData.name + " " + messText + " successfully.");
             } else {
                 var messText = "creating";
                 if ($scope.json.keyword._id) {
                     messText = "editing";
-                };
+                }
                 toastr.error("Failed " + messText + " " + $scope.json.json.name);
             }
         });
@@ -330,6 +330,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.json = JsonService;
     $scope.tags = {};
+    $scope.model = [];
     $scope.tagNgModel = {};
     // $scope.boxModel
     $scope.tinymceOptions = {
@@ -374,22 +375,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     // BOX
     if ($scope.type.type == "date") {
-        console.log("indate");
-        console.log($scope.formData);
+        $scope.formData[$scope.type.tableRef] = moment($scope.formData[$scope.type.tableRef]).toDate();
+    }
+    if ($scope.type.type == "password") {
+        $scope.formData[$scope.type.tableRef] = "";
+    }
+    if ($scope.type.type == "youtube") {
+        $scope.youtube = {};
 
-        $timeout(function () {
-            $scope.formData[$scope.type.tableRef] = new Date($scope.formData[$scope.type.tableRef]);
-        }, 1000);
+        function getJsonFromUrl(string) {
+            var obj = _.split(string, '?');
+            var returnval = {};
+            if (obj.length >= 2) {
+                obj = _.split(obj[1], '&');
+                _.each(obj, function (n) {
+                    var newn = _.split(n, "=");
+                    returnval[newn[0]] = newn[1];
+                    return;
+                });
+                return returnval;
+            }
 
+        }
+        $scope.changeYoutubeUrl = function (string) {
+            if (string) {
+                $scope.formData[$scope.type.tableRef] = "";
+                var result = getJsonFromUrl(string);
+                console.log(result);
+                if (result && result.v) {
+                    $scope.formData[$scope.type.tableRef] = result.v;
+                }
+            }
 
+        };
     }
     if ($scope.type.type == "box") {
+
         if (!_.isArray($scope.formData[$scope.type.tableRef]) && $scope.formData[$scope.type.tableRef] === '') {
             $scope.formData[$scope.type.tableRef] = [];
+            $scope.model = [];
+        } else {
+            if ($scope.formData[$scope.type.tableRef]) {
+                $scope.model = $scope.formData[$scope.type.tableRef];
+            }
         }
-        $timeout(function () {
-            $scope.model = $scope.formData[$scope.type.tableRef];
-        }, 1000);
         $scope.search = {
             text: ""
         };

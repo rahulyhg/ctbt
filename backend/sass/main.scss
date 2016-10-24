@@ -594,7 +594,8 @@ $trans-black: rgba( black,
 }
 
 .table .btn {
-    padding: 0 5px;
+    padding: 3px 6px;
+    text-transform: capitalize;
 }
 
 .chkbx {
@@ -741,11 +742,10 @@ form.search-form {
     overflow-y: auto;
 }
 
-.form-control,
-.table td {
-    text-transform: capitalize;
-}
-
+// .form-control,
+// .table td {
+//     text-transform: capitalize;
+// }
 .text-upper {
     text-transform: uppercase;
 }
@@ -1150,6 +1150,11 @@ img.uploadingImage {
 
 .mce-container img {
     opacity: 1;
+}
+
+.widget-title .btn-danger,
+.widget-title .btn-warning {
+    display: none;
 }
 
 
