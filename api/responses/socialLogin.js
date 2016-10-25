@@ -9,6 +9,8 @@ module.exports = function(profile) {
         if (req.session.returnUrl) {
             User.existsSocial(profile, function(err, data) {
                 if (err || !data) {
+                    console.log(err);
+                    console.log(data);
                     res.serverError();
                 } else {
                     res.redirect(req.session.returnUrl + "/" + data.accessToken[0]);
