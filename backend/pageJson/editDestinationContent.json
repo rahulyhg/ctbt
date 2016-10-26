@@ -22,6 +22,16 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
+        "name": "Destination",
+        "type": "selectFromTable",
+        "tableRef": "destination",
+        "placeholder": "Enter status",
+        "id": "input1",
+        "searchApi":"searchCall",
+        "validation": ["required", "trim", "unique"],
+        "url": "Destination/search",
+        "dropDownType": "single"
+    },{
         "name": "DestinationTitle",
         "type": "selectFromTable",
         "tableRef": "destinationTitle",
@@ -30,6 +40,8 @@
         "searchApi":"searchCall",
         "validation": ["required", "trim", "unique"],
         "url": "DestinationTitle/search",
+        "filterField": "destination",
+        "filterValue": "destination",
         "dropDownType": "single"
     },{
         "name": "Status",

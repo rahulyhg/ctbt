@@ -5,6 +5,11 @@ var schema = new Schema({
     default: ""
   },
   description: String,
+   destination: {
+    type: Schema.Types.ObjectId,
+    ref: 'Destination',
+    index: true
+  },
   destinationTitle: {
     type: Schema.Types.ObjectId,
     ref: 'DestinationTitle',
