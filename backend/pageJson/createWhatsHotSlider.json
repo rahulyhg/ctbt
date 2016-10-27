@@ -13,7 +13,7 @@
         "tableRef": "url",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Banner",
@@ -23,7 +23,7 @@
         "size": "1559 X 586",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Status",
@@ -31,7 +31,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

@@ -12,7 +12,7 @@
         "tableRef": "cities",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Activities",
@@ -20,7 +20,7 @@
         "tableRef": "activities",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "No Of People",
@@ -28,7 +28,7 @@
         "tableRef": "size",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "From",
@@ -36,7 +36,7 @@
         "tableRef": "from",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "To",
@@ -44,7 +44,7 @@
         "tableRef": "to",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Comment",
@@ -52,7 +52,7 @@
         "tableRef": "comment",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Name",
@@ -60,7 +60,7 @@
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Phone",
@@ -68,7 +68,7 @@
         "tableRef": "phone",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Email",
@@ -76,7 +76,7 @@
         "tableRef": "email",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }],
     "action": [{

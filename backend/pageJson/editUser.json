@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter Name",
         "id": "name",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Email",
@@ -27,7 +27,7 @@
         "tableRef": "photo",
         "placeholder": "Upload photo",
         "id": "photo",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Password",
@@ -51,7 +51,7 @@
         "tableRef": "mobile",
         "placeholder": "Enter mobile",
         "id": "mobile",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "OTP",
@@ -59,7 +59,7 @@
         "tableRef": "otp",
         "placeholder": "Enter Otp",
         "id": "otp",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }],
     "action": [{

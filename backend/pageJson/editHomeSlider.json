@@ -12,7 +12,7 @@
         "size": "1920 x 670",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Mobile Image",
@@ -22,7 +22,7 @@
         "size": "705 x 1087px",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "URL",
@@ -30,7 +30,7 @@
         "tableRef": "url",
         "placeholder": "Enter URL",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Status",
@@ -38,7 +38,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

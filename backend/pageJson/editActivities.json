@@ -10,7 +10,7 @@
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Activity Description",
@@ -18,7 +18,7 @@
         "tableRef": "description",
         "placeholder": "Enter Description",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Small Image",
@@ -46,7 +46,7 @@
         "tableRef": "order",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "HomePage Image",
@@ -64,7 +64,7 @@
         "tableRef": "type",
         "placeholder": "Enter Type",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -75,7 +75,7 @@
         "tableRef": "popular",
         "placeholder": "Enter Type",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -86,7 +86,7 @@
         "tableRef": "isSlider",
         "placeholder": "Enter isSlider",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -99,7 +99,7 @@
         "searchApi":"searchCall",
         "placeholder": "Enter Category-Name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "Destination/search"
     }, {
         "name": "Status",
@@ -107,7 +107,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

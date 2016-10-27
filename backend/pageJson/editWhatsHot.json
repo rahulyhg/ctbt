@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter Name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Banner",
@@ -21,7 +21,7 @@
         "size": "1632 × 562",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Image",
@@ -31,7 +31,7 @@
         "size": "929 × 450",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Table Image",
@@ -41,7 +41,7 @@
         "size": "900 x 500",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Cruise Rate",
@@ -49,7 +49,7 @@
         "tableRef": "cruiserate",
         "placeholder": "Enter Cruise Rate",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "From Date",
@@ -57,7 +57,7 @@
         "tableRef": "fromDate",
         "placeholder": "Enter fromDate",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "To Date",
@@ -65,7 +65,7 @@
         "tableRef": "toDate",
         "placeholder": "Enter toDate",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Location",
@@ -73,7 +73,7 @@
         "tableRef": "location",
         "placeholder": "Enter location",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Status",
@@ -81,7 +81,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

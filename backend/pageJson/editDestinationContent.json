@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     },{
         "name": "Description",
@@ -19,7 +19,7 @@
         "tableRef": "description",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
     }, {
         "name": "Destination",
@@ -28,7 +28,7 @@
         "placeholder": "Enter status",
         "id": "input1",
         "searchApi":"searchCall",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "Destination/search",
         "dropDownType": "single"
     },{
@@ -38,7 +38,7 @@
         "placeholder": "Enter status",
         "id": "input1",
         "searchApi":"searchCall",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "DestinationTitle/search",
         "filterField": "destination",
         "filterValue": "destination",
@@ -49,7 +49,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

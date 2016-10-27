@@ -12,7 +12,7 @@
     "option": "single",
     "placeholder": "Enter Image",
     "id": "input1",
-    "validation": ["required", "trim", "unique"],
+    "validation": ["", "trim", "unique"],
     "url": ""
   }],
   "action": [{
