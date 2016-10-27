@@ -15,7 +15,7 @@
         "url": ""
     },{
         "name": "Description",
-        "type": "textarea",
+        "type": "wysiwyg",
         "tableRef": "description",
         "placeholder": "Enter name",
         "id": "input1",
