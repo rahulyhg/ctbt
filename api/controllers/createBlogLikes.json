@@ -12,7 +12,7 @@
         "searchApi": "searchCall",
         "placeholder": "Enter blog",
         "id": "blog",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "blog/search"
     }, {
         "name": "Athlete",
@@ -21,7 +21,7 @@
         "searchApi": "searchCall",
         "placeholder": "Enter athlete",
         "id": "athlete",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "athlete/search"
     }, {
         "name": "Type",
@@ -29,7 +29,7 @@
         "tableRef": "type",
         "placeholder": "Enter type",
         "id": "type",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

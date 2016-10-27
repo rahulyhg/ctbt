@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Thumbnail",
@@ -21,7 +21,7 @@
         "tableRef": "thumbnail",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Destination",
@@ -31,7 +31,7 @@
         "tableRef": "destination",
         "placeholder": "Enter Category-Name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "Destination/search"
     },{
         "name": "Status",
@@ -39,7 +39,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

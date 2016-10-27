@@ -11,7 +11,7 @@
         "tableRef": "cities",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"cities"
     },{
@@ -20,7 +20,7 @@
         "tableRef": "activities",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"activities"
     },{
@@ -29,7 +29,7 @@
         "tableRef": "size",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"size"
     },{
@@ -38,7 +38,7 @@
         "tableRef": "from",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"from"
     },{
@@ -47,7 +47,7 @@
         "tableRef": "to",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"to"
     },{
@@ -56,7 +56,7 @@
         "tableRef": "comment",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"comment"
     },{
@@ -65,7 +65,7 @@
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"name"
     },{
@@ -74,7 +74,7 @@
         "tableRef": "phone",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"phone"
     },{
@@ -83,7 +83,7 @@
         "tableRef": "email",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "model":"email"
     }],

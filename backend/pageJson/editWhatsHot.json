@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter Name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Banner",
@@ -21,7 +21,7 @@
         "size": "1632 × 562",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Image",
@@ -31,7 +31,7 @@
         "size": "929 × 450",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Table Image",
@@ -41,7 +41,7 @@
         "size": "900 x 500",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Cruise Rate",
@@ -49,7 +49,7 @@
         "tableRef": "cruiserate",
         "placeholder": "Enter Cruise Rate",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "From Date",
@@ -57,7 +57,7 @@
         "tableRef": "fromDate",
         "placeholder": "Enter fromDate",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "To Date",
@@ -65,7 +65,7 @@
         "tableRef": "toDate",
         "placeholder": "Enter toDate",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Location",
@@ -73,7 +73,7 @@
         "tableRef": "location",
         "placeholder": "Enter location",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Status",
@@ -81,7 +81,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -91,7 +91,7 @@
         "name": "IMAGES",
         "type": "box",
         "tableRef": "images",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "fields": [{
             "name": "Image",
             "type": "image",
@@ -101,7 +101,7 @@
             "placeholder": "Enter Image",
             "id": "input1",
             "onView": true,
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Status",
@@ -109,7 +109,7 @@
             "tableRef": "status",
             "placeholder": "Enter status",
             "id": "status",
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": "",
             "dropDownField": "",
             "dropDownType": "single",
@@ -120,7 +120,7 @@
         "name": "VIDEOS",
         "type": "box",
         "tableRef": "videos",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "fields": [{
             "name": "URL",
             "type": "text",
@@ -128,7 +128,7 @@
             "placeholder": "Enter URL",
             "id": "input1",
             "onView": true,
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Thumbnail",
@@ -139,7 +139,7 @@
             "placeholder": "Enter Thumbnail Image",
             "id": "input1",
             "onView": true,
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Status",
@@ -147,7 +147,7 @@
             "tableRef": "status",
             "placeholder": "Enter status",
             "id": "status",
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": "",
             "dropDownField": "",
             "dropDownType": "single",

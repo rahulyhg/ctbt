@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter Name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Description",
@@ -19,7 +19,7 @@
         "tableRef": "description",
         "placeholder": "Enter Description",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Slider Image",
@@ -29,7 +29,7 @@
         "option": "single",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Banner",
@@ -39,7 +39,7 @@
         "option": "single",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Video Url",
@@ -47,7 +47,7 @@
         "tableRef": "video",
         "placeholder": "Enter URL",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Status",
@@ -55,7 +55,7 @@
         "tableRef": "type",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -67,7 +67,7 @@
         "tableRef": "isSlider",
         "placeholder": "Enter isSlider",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -79,7 +79,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -89,14 +89,14 @@
         "name": "Accomodation",
         "type": "box",
         "tableRef": "accomodation",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "fields": [{
             "name": "Hotel Name",
             "type": "text",
             "tableRef": "hotelName",
             "placeholder": "Enter Hotel Name",
             "id": "input1",
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Image",
@@ -106,7 +106,7 @@
             "tableRef": "image",
             "placeholder": "Enter Image",
             "id": "input1",
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Status",
@@ -114,7 +114,7 @@
             "tableRef": "status",
             "placeholder": "Enter status",
             "id": "status",
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": "",
             "dropDownField": "",
             "dropDownType": "single",

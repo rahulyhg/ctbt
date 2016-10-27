@@ -11,7 +11,7 @@
         "tableRef": "email",
         "placeholder": "Enter Email",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }],
     "action": [{

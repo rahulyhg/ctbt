@@ -13,7 +13,7 @@
         "size": "1632 X 562",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Image",
@@ -23,7 +23,7 @@
         "size": "545 x 413",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Title 1",
@@ -31,7 +31,7 @@
         "tableRef": "title1",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Title 2",
@@ -39,7 +39,7 @@
         "tableRef": "title2",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Duration",
@@ -47,7 +47,7 @@
         "tableRef": "duration",
         "placeholder": "Enter Duration",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Price",
@@ -55,7 +55,7 @@
         "tableRef": "price",
         "placeholder": "Enter Price",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Destination",
@@ -65,7 +65,7 @@
         "dropDownField":"name",
         "placeholder": "Enter Category-Name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "Destination/search"
     },{
         "name": "Status",
@@ -73,7 +73,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -83,7 +83,7 @@
         "name": "Package Details",
         "type": "box",
         "tableRef": "pack",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "fields": [{
             "name": "Image",
             "type": "image",
@@ -93,7 +93,7 @@
             "placeholder": "Enter Image",
             "id": "input1",
             "onView": true,
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Day",
@@ -102,7 +102,7 @@
             "placeholder": "Enter name",
             "id": "input1",
             "onView": true,
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Description",
@@ -110,7 +110,7 @@
             "tableRef": "description",
             "placeholder": "Enter Description",
             "id": "input1",
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": ""
         },{
             "name": "Status",
@@ -118,7 +118,7 @@
             "tableRef": "status",
             "placeholder": "Enter status",
             "id": "status",
-            "validation": ["", "trim", "unique"],
+            "validation": ["", "trim", ""],
             "url": "",
             "dropDownField": "",
             "dropDownType": "single",

@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter Name",
         "id": "name",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Email",
@@ -19,7 +19,7 @@
         "tableRef": "email",
         "placeholder": "Enter Email",
         "id": "email",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Photo",
@@ -27,7 +27,7 @@
         "tableRef": "photo",
         "placeholder": "Upload photo",
         "id": "photo",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Password",
@@ -35,7 +35,7 @@
         "tableRef": "password",
         "placeholder": "Enter password",
         "id": "password",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Forgot Password",
@@ -43,7 +43,7 @@
         "tableRef": "forgotPassword",
         "placeholder": "Enter forgot password",
         "id": "forgotPassword",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Mobile",
@@ -51,7 +51,7 @@
         "tableRef": "mobile",
         "placeholder": "Enter mobile",
         "id": "mobile",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "OTP",
@@ -59,7 +59,7 @@
         "tableRef": "otp",
         "placeholder": "Enter Otp",
         "id": "otp",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }],
     "action": [{

@@ -11,7 +11,7 @@
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Activity Description",
@@ -19,7 +19,7 @@
         "tableRef": "description",
         "placeholder": "Enter Description",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Small Image",
@@ -29,7 +29,7 @@
         "tableRef": "image1",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Big Image",
@@ -39,7 +39,7 @@
         "tableRef": "image2",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Order",
@@ -47,7 +47,7 @@
         "tableRef": "order",
         "placeholder": "Enter name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "HomePage Image",
@@ -57,7 +57,7 @@
         "tableRef": "image3",
         "placeholder": "Enter Image",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     },{
         "name": "Category-Name",
@@ -65,7 +65,7 @@
         "tableRef": "type",
         "placeholder": "Enter Type",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -76,7 +76,7 @@
         "tableRef": "popular",
         "placeholder": "Enter Type",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -87,7 +87,7 @@
         "tableRef": "isSlider",
         "placeholder": "Enter isSlider",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
@@ -100,7 +100,7 @@
         "tableRef": "destination",
         "placeholder": "Enter Category-Name",
         "id": "input1",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "Destination/search"
     }, {
         "name": "Status",
@@ -108,7 +108,7 @@
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
