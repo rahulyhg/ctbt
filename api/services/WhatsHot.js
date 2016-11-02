@@ -76,6 +76,7 @@ var schema = new Schema({
         type: String,
         default: ""
     }
+  
   });
 
 schema.plugin(deepPopulate, {});

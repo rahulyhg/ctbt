@@ -1,10 +1,10 @@
-// var adminurl = "http://localhost:1337/";
-var adminurl = "http://192.168.2.25:1337/";
-if (isproduction) {
-    adminURL = "http://www.wohlig.co.in/demo/index.php";
-} else {
-    adminURL = "http://localhost/demo/index.php";
-}
+// // var adminurl = "http://localhost:1337/";
+// var adminurl = "http://192.168.2.25:1337/";
+// if (isproduction) {
+//     adminURL = "http://www.wohlig.co.in/demo/index.php";
+// } else {
+//     adminURL = "http://localhost/demo/index.php";
+// }
 
 var navigationservice = angular.module('navigationservice', [])
 
@@ -130,6 +130,17 @@ var navigationservice = angular.module('navigationservice', [])
                 data:formData
             }).success(callback);
         },
+         cart: function(cartData, callback) {
+            //console.log('Navigation form data: ', formData);
+            $http({
+                url: adminurl + 'cart/save',
+                method: 'POST',
+                data:cartData
+            }).success(callback);
+        },
+
+
+
         RestApiPattaya2: function(id, callback) {
             // var data = {
             //     id: id,

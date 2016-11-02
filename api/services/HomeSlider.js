@@ -15,7 +15,8 @@ var schema = new Schema({
   },
   url: {
     type:String
-  }
+  },
+   order:Number
 });
 
 schema.plugin(deepPopulate, {});

@@ -433,6 +433,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 // console.log('data',data);
             });
         }
+
+
+
+          $scope.cartData = {};
+        $scope.cart = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    //   $timeout(function() {
+                    //     $scope.open4();
+                    //   },1000);
+                    //   // $scope.open4();
+                    //   $timeout(function() {
+                    //     $scope.modalInstance.close();
+                    //       // $scope.formComplete = false;
+                    //       // $scope.enquiryData = {};
+                    //   },6000);
+                    //     // $scope.formComplete = true;
+                }
+
+                // console.log('input',input);
+                // console.log('data',data);
+            });
+        }
+
         $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
         $scope.addItem = function() {

@@ -13,20 +13,80 @@ var controller = {
     }
   },
 
-  addToCart: function(req, res) {
+  // addToCart: function(req, res) {
+  //   if (req.body) {
+  //     if (req.session.user) {
+
+  //     } else {
+  //       console.log("Not logged", req.session.cart);
+  //       newcart = [];
+  //       if (req.session.cart && req.session.cart.length > 0) {
+  //         req.session.cart.push(req.body);
+  //       } else {
+  //         req.session.cart = [];
+  //         req.session.cart.push(req.body);
+  //       }
+
+  //       res.json({
+  //         value: true,
+  //         data: req.session.cart,
+  //         message: "Offline cart"
+  //       });
+  //     }
+  //   } else {
+  //     res.json({
+  //       value: false,
+  //       data: "Invalid Request"
+  //     });
+  //   }
+  // },
+
+   addToCart: function(req, res) {
     if (req.body) {
+      // var packagearr = [];
+      //  var activitiesarr = [];
       if (req.session.user) {
 
       } else {
-        console.log("Not logged", req.session.cart);
-        newcart = [];
-        if (req.session.cart && req.session.cart.length > 0) {
-          req.session.cart.push(req.body);
+        console.log("Not logged", req.session.cart );
+      
+        if (req.session.cart != undefined) {
+          console.log("aaaaaa",req.session.cart);
+          // req.session.cart.push(req.body);
+        if(req.body.type==="Package"){
+            delete req.body.activities;
+//             if(req.session.cart.package.length>0){
+// packagearr.push(req.body);
+//             }else{
+//  var packagearr = [];
+//             packagearr.push(req.body);
+//             }
+              req.session.cart.package.push(req.body);
+          }
+            if(req.body.type==="Activities"){
+            delete req.body.package;
+              req.session.cart.activities.push(req.body);
+          }
         } else {
-          req.session.cart = [];
-          req.session.cart.push(req.body);
+          console.log("bbbb");
+          req.session.cart = {};
+          req.session.cart.activities = [];
+          req.session.cart.package = [];
+          // req.session.cart.push(req.body);
+          if(req.body.type==="Package"){
+            delete req.body.activities;
+            // var req.session.cart.activities = [];
+            req.session.cart.package.push(req.body);
+          }
+            if(req.body.type==="Activities"){
+            delete req.body.package;
+            // var activitiesarr = [];
+            req.session.cart.activities.push(req.body);
+          }
         }
-
+      //  req.session.cart.activities.push(activitiesarr);
+      //    req.session.cart.package.push(req.session.cart.activities);
+// req.session.cart = newcart;
         res.json({
           value: true,
           data: req.session.cart,
@@ -59,10 +119,13 @@ var controller = {
       if (req.session.user) {
 
       } else {
-        res.json({
-          value: true,
-          data: req.session.cart
-        });
+        req.body.activities =  req.session.cart.activities;
+        req.body.package =  req.session.cart.package;
+        Cart.getCart(req.body, res.callback);
+        // res.json({
+        //   value: true,
+        //   data: req.session.cart
+        // });
       }
     } else {
       res.json({

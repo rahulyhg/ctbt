@@ -8,7 +8,8 @@ var schema = new Schema({
   comment:String,
   name:String,
   phone:String,
-  email:String
+  email:String,
+  order:Number
 });
 
 schema.plugin(deepPopulate, {});

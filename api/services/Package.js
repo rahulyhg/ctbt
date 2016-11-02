@@ -49,7 +49,11 @@ var schema = new Schema({
           type: String,
           enum:["true","false"]
       }
-    }]
+    }],
+    order: {
+    type: Number,
+    default: 0
+  }
 });
 
 schema.plugin(deepPopulate, {

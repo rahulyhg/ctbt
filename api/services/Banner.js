@@ -14,7 +14,8 @@ var schema = new Schema({
     status: {
         type: String,
         enum:["true","false"]
-    }
+    },
+    order:Number
 });
 
 schema.plugin(deepPopulate, {});

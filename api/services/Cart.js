@@ -19,7 +19,8 @@ var schema = new Schema({
       ref: 'Activities',
       index: true
     }
-  }]
+  }],
+    order:Number
 });
 
 schema.plugin(deepPopulate, {
@@ -27,7 +28,7 @@ schema.plugin(deepPopulate, {
     'myCart.package': '_id image name'
   },
   populate: {
-    'myCart.activities': '_id image1 name'
+    'myCart.activities': '_id image1 title1'
   }
 });
 schema.plugin(uniqueValidator);
@@ -39,7 +40,7 @@ var model = {
   getMyCart: function(data, callback) {
     Cart.findOne({
       _id: data._id
-    }).populate("myCart.activities",'_id image1 name').populate("myCart.package",'_id image name').exec(function(err, found) {
+    }).populate("myCart.activities",'_id image1 name').populate("myCart.package",'_id image title1').exec(function(err, found) {
       if (err) {
         // console.log(err);
         callback(err, null);
@@ -69,6 +70,81 @@ var model = {
       }
     });
   },
+
+getCart: function (data, callback) {
+  console.log("innnn");
+  
+       var newreturns = {};
+      //  newreturns.package = [];
+      //  newreturns.activities = [];
+       async.parallel([
+           function (callback1) {
+         Package.populate(data.package,{ path:"package", select:"title1 title2", options:{lean: true}},function(err,found){
+        if(err){
+          callback1(err, null);
+        }else{
+          console.log("aaa", found);
+          (newreturns.package) = found;
+        callback1(null,newreturns);
+        }
+      });
+           },
+           function (callback1) {
+               Activities.populate(data.activities,{ path:"activities", select:"name", options:{lean: true}},function(err,found2){
+        if(err){
+          callback1(err, null);
+        }else{
+          console.log("bbb", found2);
+          newreturns.activities = found2;
+        callback1(null,newreturns);
+        }
+      });
+           }
+       ], function (err, respo) {
+           if (err) {
+               console.log(err);
+               callback(err, null);
+           } else {
+               callback(null, newreturns);
+           }
+       });
+   },
+
+// // getCart: function (data, callback) {
+// //     async.parallel({
+      
+// //       Package: function (callback) {
+// //          Package.populate(data,{ path:"package", select:"title1 title2", options:{lean: true}},function(err,found){
+// //         if(err){
+// //           callback(err, null);
+// //         }else{
+// //         callback(null,found);
+// //         }
+// //       });
+// //       },
+
+// //       Activities: function (callback) {
+// //          Activities.populate(data,{ path:"activities", select:"name", options:{lean: true}},function(err,found){
+// //         if(err){
+// //           callback(err, null);
+// //         }else{
+// //         callback(null, found);
+// //         }
+// //       });
+// //       },
+
+// //     }, function (err, results) {
+// //         if (err) {
+// //             console.log(err);
+// //             callback(err, null);
+// //         } else if (results) {
+// //             callback(null, results);
+// //         } else {
+// //             callback(null, results);
+// //         }
+// //     });
+// },
+
 
 
 };

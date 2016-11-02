@@ -44,7 +44,11 @@ var schema = new Schema({
         type: String,
         default: "User",
         enum: ['User', 'Admin']
-    }
+    },
+    order: {
+    type: Number,
+    default: 0
+  }
 });
 
 schema.plugin(deepPopulate, {});
