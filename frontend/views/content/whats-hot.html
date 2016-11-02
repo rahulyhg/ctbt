@@ -1,0 +1,181 @@
+<div class="container wts">
+    <flex-slider flex-slide="s in mySlidesss track by $index" class="m1 figure922">
+        <li>
+            <div class="item">
+                <figure class="mim8 ng-scope">
+                    <img class="img-responsive " ng-src="{{s.banner|serverimage}}">
+                    <!-- <figcaption>
+                        <div class="links lm2">
+                            <h1 class="theboldfont hclass">
+                              <p class=" hclass1 yellow_color">WHAT'S</p>
+                              <p class=" hclass2"> HOT</p>
+                            </h1>
+                            <p class="Robotor LMP">{{s.events}}<br>{{s.date}}</p>
+                        </div>
+                    </figcaption> -->
+                </figure>
+            </div>
+        </li>
+    </flex-slider>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="categoryup">
+            <h1 class="theboldfont whit_color">UPCOMING<br>EVENTS</h1>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12 padd15px" ng-repeat="data in myEvents">
+                    <div class="events">
+                        <img src="{{data.image| serverimage}}" alt="" class="img-responsive ">
+                        <div class="cart-sec">
+                            <img ng-src="img/cart.png" alt="" class="img-responsive ">
+                        </div>
+                        <div class="shadow-up"></div>
+                        <div class="shadow-down2"></div>
+                        <div class="event-name2">
+                            <h2 class="bluecol eventh2 pregular">{{data.name}}</h2>
+                            <hr class="eventhr">
+                            <p class="bluecol eventp Roboto">{{data.fromDate |date:'dd'}}-{{data.toDate |date:'dd MMMM yyyy'}}</p>
+                            <!-- <p class="bluecol eventp Roboto">11-13 August 2016</p> -->
+                            <p class="bluecol eventp Roboto">{{data.location}}</p>
+                        </div>
+                        <div class="over-layer2 text-center">
+                            <div class="hoverhold">
+                                <h2 class="bluecol eventh2 pregular">{{data.name}}</h2>
+                                <hr class="eventhr">
+                                <p class="bluecol eventp Roboto">{{data.fromDate |date:'dd'}}-{{data.toDate |date:'dd MMMM yyyy'}}</p>
+                                <p class="bluecol eventp Roboto">{{data.location}}</p>
+                                <button class="morebutton"><a ui-sref="whats-hot-more({id:data._id})" class="whit_color">KNOW MORE</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 col-sm-6 col-xs-12 padd15px">
+                    <div class="events">
+                        <img src="img/rockclimb.png" alt="" class="img-responsive ">
+                        <div class="cart-sec">
+                            <img src="img/cart.png" alt="" class="img-responsive ">
+                        </div>
+                        <div class="shadow-up"></div>
+                        <div class="shadow-down2"></div>
+                        <div class="event-name2">
+                            <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                            <hr class="eventhr">
+                            <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                            <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                        </div>
+                        <div class="over-layer2 text-center">
+                            <div class="hoverhold">
+                                <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                                <hr class="eventhr">
+                                <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                                <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                                <button class="morebutton"><a ui-sref="whats-hot-more" class="whit_color">KNOW MORE</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-md-4 col-sm-6 col-xs-12 padd15px">
+                    <div class="events">
+                        <img src="img/rockclimb.png" alt="" class="img-responsive ">
+                        <div class="cart-sec">
+                            <img src="img/cart.png" alt="" class="img-responsive ">
+                        </div>
+                        <div class="shadow-up"></div>
+                        <div class="shadow-down2"></div>
+                        <div class="event-name2">
+                            <h2 class="bluecol eventh2 pregular">Way Out West 2016</h2>
+                            <hr class="eventhr">
+                            <p class="bluecol eventp Roboto">11-13 August 2016</p>
+                            <p class="bluecol eventp Roboto">Gothenburg, Sweden</p>
+                        </div>
+                        <div class="over-layer2 text-center">
+                            <div class="hoverhold">
+                                <h2 class="bluecol eventh2 pregular">Way Out West 2016</h2>
+                                <hr class="eventhr">
+                                <p class="bluecol eventp Roboto">11-13 August 2016</p>
+                                <p class="bluecol eventp Roboto">Gothenburg, Sweden</p>
+                                <button class="morebutton"><a ui-sref="whats-hot-more" class="whit_color">KNOW MORE</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="col-md-4 col-sm-6 col-xs-12 padd15px ">
+                    <div class="events">
+                        <img src="img/rockclimb.png" alt="" class="img-responsive ">
+                        <div class="cart-sec">
+                            <img src="img/cart.png" alt="" class="img-responsive ">
+                        </div>
+                        <div class="shadow-up"></div>
+                        <div class="shadow-down2"></div>
+                        <div class="event-name2">
+                            <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                            <hr class="eventhr">
+                            <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                            <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                        </div>
+                        <div class="over-layer2 text-center">
+                            <div class="hoverhold">
+                                <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                                <hr class="eventhr">
+                                <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                                <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                                <button class="morebutton"><a ui-sref="whats-hot-more" class="whit_color">KNOW MORE</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-md-4 col-sm-6 col-xs-12 padd15px">
+                    <div class="events">
+                        <img src="img/rockclimb.png" alt="" class="img-responsive ">
+                        <div class="cart-sec">
+                            <img src="img/cart.png" alt="" class="img-responsive ">
+                        </div>
+                        <div class="shadow-up"></div>
+                        <div class="shadow-down2"></div>
+                        <div class="event-name2">
+                            <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                            <hr class="eventhr">
+                            <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                            <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                        </div>
+                        <div class="over-layer2 text-center">
+                            <div class="hoverhold">
+                                <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                                <hr class="eventhr">
+                                <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                                <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                                <button class="morebutton"><a ui-sref="whats-hot-more" class="whit_color">KNOW MORE</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-md-4 col-sm-6 col-xs-12 padd15px">
+                    <div class="events">
+                        <img src="img/rockclimb.png" alt="" class="img-responsive ">
+                        <div class="cart-sec">
+                            <img src="img/cart.png" alt="" class="img-responsive ">
+                        </div>
+                        <div class="shadow-up"></div>
+                        <div class="shadow-down2"></div>
+                        <div class="event-name2">
+                            <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                            <hr class="eventhr">
+                            <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                            <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                        </div>
+                        <div class="over-layer2 text-center">
+                            <div class="hoverhold">
+                                <h2 class="bluecol eventh2 pregular">Utopia Island Festival 2016</h2>
+                                <hr class="eventhr">
+                                <p class="bluecol eventp Roboto">18-20 August 2016</p>
+                                <p class="bluecol eventp Roboto">Moosburg an der Isar, Germany</p>
+                                <button class="morebutton"><a ui-sref="whats-hot-more" class="whit_color">KNOW MORE</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

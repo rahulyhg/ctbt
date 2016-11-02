@@ -1,19 +1,34 @@
 <header>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-                <a class="navbar-brand" ui-sref="home"><img src="frontend/img/logo.png" alt="logo" width="20"> </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="nav-collapse">
-                <div ng-include="template.menu" class="template menu"></div>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-default navbar-fixed-top hbc">
+    <div class="container">
+      <div class="navbar-header hbc">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" ui-sref="home"><img src="img/logo.png" class="img-responsive img-circle margin himg" style="display:inline"></a>
+        <p class="hdp pregular">THE BACHELOR TRIP</p>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse hbc p5 mt3">
+        <ul class="nav navbar-nav tp pregular">
+          <li><a ui-sref="destination">DESTINATIONS</a></li>
+          <li><a ui-sref="activity">ACTIVITIES</a></li>
+          <li><a ui-sref="whats-hot">WHAT'S HOT</a></li>
+          <li><a ui-sref="whats-hot">ACCESSORIES</a></li>
+          <li><a ui-sref="whats-hot">BACHELORETTE</a></li>
+          <li><a class="bordern" ui-sref="home">HIGH ROLLERS</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbarleft">
+          <p class="hdn theboldfont">020-7060-7060
+            <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/thebachelortripin/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="home" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+          </p>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>

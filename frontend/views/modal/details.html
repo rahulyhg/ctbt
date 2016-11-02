@@ -1,0 +1,60 @@
+<div class="close modal-fon4" ng-click="$close()">x</div>
+<div class="modal-def pt20">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mod-marg">
+        <div class="modal-fon1 theboldfont">looking for that</div>
+        <div class="modal-fon2 theboldfont">ultimate experience?</div>
+        <div class="modal-fon1 theboldfont">we are working
+          <br> on it!</div>
+        <div class="modal-fon3 theboldfont">leave us your details</div>
+        <div class="modal-fon1 theboldfont">and we'llget back
+          <br> to you soon</div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mod-marg mod-pad">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div ng-hide="flags.mailform" >
+          <form name="commingSoonForm" ng-submit = "submitForm(formData)">
+            <div class="form-col">
+              <input type="name" class="form-control form-sty" ng-model="formData.name" placeholder="Name *" name="name" required>
+              </label>
+            </div>
+
+            <div class="form-col">
+              <input type="email" class="form-control form-sty" ng-model="formData.email" placeholder="Email id *" required>
+            </div>
+
+
+            <div class="form-col">
+              <input type="text" class="form-control form-sty" ng-model="formData.mobile" name="mobile" placeholder="Mobile no">
+            </div>
+
+            <div class="form-col">
+              <input type="textarea" class="form-control form-sty" ng-model="formData.message" name="message" placeholder="Leave a message">
+
+            </div>
+            <div class="posi-abs">
+              <img src="img/bg-btnsubmit.png">
+              <button type="submit" class="btn submit-detail">Submit</button>
+            </div>
+          </form>
+        </div>
+          <!-- <div class="col-md-12 col-sm-12 col-xs-12 marg3" ng-show="flags.thankyou">
+            <h2 class="text-center">Thank You</h2>
+          </div> -->
+        </div>
+      </div>
+      <div class="thnk-msg text-center" ng-show="flags.thankyou">
+          <div class=" theboldfont"><h1 class="modal-fon2 ln-h">
+          Thank You <br>
+          for
+          <br>
+          submitting
+        </h1></div>
+      </div>
+    </div>
+  </div>
+</div>

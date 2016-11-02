@@ -1,0 +1,326 @@
+@import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "../../bower_components/flexslider/flexslider";
+@import "../../bower_components/font-awesome/css/font-awesome.min";
+@import "../../bower_components/fancyBox/source/jquery.fancybox";
+@import "../../bower_components/swiper/dist/css/swiper.min";
+@import "../../bower_components/smart-app-banner/smart-app-banner";
+/* Bootstrap Variables Goes Here */
+$brand-primary: #0d9dff !default;
+$brand-success: #84ce3c !default;
+$brand-warning: #fcd116 !default;
+$brand-danger: #fc483f !default;
+$brand-info: #114fc9 !default;
+$grey: #cccccc !default;
+$black: #000000 !default;
+$blue-dark: #0c5c81 !default;
+$white: #ffffff !default;
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@font-face {
+  font-family: "pregular";
+  src: url("../fonts/PalanquinDark-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Light_1.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Robotor";
+  src: url("../fonts/Roboto-Regular_1.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "theboldfont";
+  src: url("../fonts/theboldfont.ttf");
+  font-weight: 700;
+}
+body {
+  padding-top: 59px;
+}
+img.loading {
+  text-align: center;
+  opacity: 1;
+  width: 32px !important;
+  height: auto;
+}
+img {
+  opacity: 0;
+  @include transition(all 300ms ease);
+}
+img.doneLoading {
+  opacity: 1;
+}
+.pregular {
+  font-family: 'pregular';
+}
+.Roboto {
+  font-family: 'Roboto';
+}
+.Robotor {
+  font-family: 'Robotor';
+}
+.theboldfont {
+  font-family: 'theboldfont';
+}
+.f-bold {
+  font-weight: 700;
+}
+.f-light {
+  font-weight: 300;
+}
+.f-regular {
+  font-weight: 400;
+}
+nav li:hover .dropdown-menu {
+  display: block;
+}
+.btn,
+a {
+  cursor: pointer;
+  @include transition(all ease 300ms);
+}
+//bootstrap forms
+.btn,
+.form-control,
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn,
+.input-lg {
+  border-radius: 0;
+  @include box-shadow(none);
+}
+.form-control:focus {
+  border-color: $brand-primary;
+  outline: 0;
+  @include box-shadow(none);
+}
+.h1c {
+  font-size: 70px;
+  color: #002b7f;
+}
+.ap {
+  text-align: center;
+  padding: 2% 0;
+  background: #002b7f;
+  p {
+    color: #ffd72b;
+    font-size: 20px;
+  }
+}
+.ap3 {
+
+  line-height: 19%;
+  .cp {
+    font-size: 25px;
+    letter-spacing: 2px;
+    color: #002b7f;
+  }
+}
+.pt20 {
+  padding-top: 20px;
+}
+.formf {
+  .lineH {
+    line-height: 1%;
+  }
+  padding: 0 8%;
+  label {
+    font-size: 17px;
+    color: #002b7f;
+  }
+  .form-control {
+    margin-bottom: 7%;
+    display: block;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-radius: 0;
+    color: black;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    background-color: #fff;
+    background-image: none;
+    border-bottom: 1px solid #002b9b;
+    -webkit-box-shadow: inset 0 1px 1px rgb(255, 255, 255);
+    box-shadow: inset 0 1px 1px rgb(255, 255, 255);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  }
+}
+.marg3 {
+  margin: 5% 0 0;
+  h2 {
+
+    color: #fcd116;
+    font-weight: 700;
+  }
+}
+.subbt {
+  font-weight: 600;
+  float: right;
+  font-size: 24px;
+  color: #fff;
+  background-image: url("../img/btn-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 8px 61px;
+  margin: 0;
+  border: none;
+  background-color: #fff;
+  outline: none;
+}
+.navbar-nav > li {
+  float: left;
+  color: #000;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #002b7f;
+}
+.tp {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: center;
+  padding-left: 77px;
+  color: #000;
+}
+.borderdown {
+  background: linear-gradient(to right, #ffd72b 41%, #f3cb2c 41%, #ffd72b 40%, #f3cb2c 40%, rgba(255, 255, 255, 0) 40%);
+  border-left: 20px solid #ffd72b;
+  padding: 20px;
+  margin-top: -20px;
+}
+@media only screen and (max-width: 1205px) {
+  .tp {
+    padding-left: 0;
+    padding-left: 0;
+    padding-left: 0;
+  }
+}
+.fomBackg {
+  background: linear-gradient(to bottom, #fdd116 29%, #fdd116 80%, white 80%, white 80%, white 100%, white 100%);
+}
+.white {
+  background: #fff;
+}
+.footimg {
+  width: 50% !important;
+  margin-left: -14%;
+}
+//MODAL CSS Starts here//
+$yellow-brand: #fcd116;
+.form-col {
+  color: $yellow-brand;
+  border-bottom: 1px solid $yellow-brand;
+  display: block;
+  margin-bottom: 10px;
+  label {
+    display: inline-block;
+  }
+}
+.form-sty {
+  background-color: #002b7f;
+  display: inline-block;
+  border: none;
+  color: $yellow-brand;
+  font-weight: bold;
+  &::-webkit-input-placeholder {
+    color: $yellow-brand;
+  }
+  &:-moz-placeholder {
+    color: $yellow-brand;
+  }
+  &::-moz-placeholder {
+    color: $yellow-brand;
+  }
+  &:-ms-input-placeholder {
+    color: $yellow-brand;
+  }
+}
+.modal-def {
+  background-color: #002b7f;
+  padding: 40px;
+}
+.modal-fon1 {
+  color: #265cc6;
+  font-size: 40px;
+  line-height: 0.9;
+}
+.modal-fon2 {
+  color: #fcd116;
+  font-size: 58px;
+  line-height: 0.9;
+}
+.modal-fon3 {
+  color: #ffffff;
+  font-size: 58px;
+  line-height: 0.9;
+}
+.modal-fon4 {
+  color: #fcd116;
+  font-size: 30px;
+  opacity: 1;
+  font-weight: 100;
+  text-shadow: none;
+  padding-right: 24px;
+  padding-top: 24px;
+  &:hover {
+    color: #fcd116;
+    opacity: 1;
+  }
+}
+.posi-abs {
+  position: relative;
+  height: 40px;
+  width: 200px;
+  float: right;
+  img {
+    height: 100%;
+  }
+  .submit-detail {
+    color: #002b7f;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    @include transform(translate(-50%,-50%));
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.mod-marg {
+  margin: 0 12px;
+}
+.mod-pad {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.width80 {
+  background: rgba(0, 43, 127, 0.59);
+  .modal-dialog {
+    width: 80%;
+  }
+}
+.pd-all {
+    padding: 50px 0px 0px 0px;
+    text-align: center;
+    margin: 0 auto;
+}
+.img-f {
+    margin: 0 auto;
+    text-align: center;
+    img{
+      text-align: center;
+margin: 0 auto;
+padding-top: 25px;
+    }
+}

@@ -1,31 +1,235 @@
-<div class="container">
-
-    <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
+<!---top image---->
+<!-- desktop slider-->
+<div class="homeslidr hidden-xs">
+    <flex-slider flex-slide="s in mySlidestop track by $index" class="m1 figure922">
         <li>
-            <img ng-src="{{s}}" class="img-full">
+            <div class="item">
+                <figure class=" ng-scope">
+                    <a href={{s.url}} target="_blank">
+                        <img class="img-responsive " ng-src="{{s.image|serverimage}}">
+                    </a>
+                </figure>
+            </div>
         </li>
     </flex-slider>
+</div>
+<!-- mobile slider -->
+<div class="homeslidr hidden-sm hidden-md hidden-lg">
+    <flex-slider flex-slide="s in mySlidestop track by $index" class="m1 figure922">
+        <li>
+            <div class="item">
+                <figure class=" ng-scope">
+                    <a href={{s.url}} target="_blank">
+                        <img class="img-responsive " ng-src="{{s.image2|serverimage}}">
+                    </a>
+                </figure>
+            </div>
+        </li>
+    </flex-slider>
+</div>
 
-    <swiper autoplay="5000" effect="slide" slides-per-view="1" loop="true">
-        <slides>
-            <slide ng-repeat="s in mySlides">
-                <img ng-src="{{s}}" class="img-full" noloading="true">
-            </slide>
-        </slides>
-        <prev></prev>
-        <next></next>
-        <pagination></pagination>
-    </swiper>
+<!---slider images ---->
+<div class="container ">
+    <div class="row display">
+        <p class=" disp pregular">POPULAR</p>
+        <p class="disp2 theboldfont">DESTIN ATIONS</p>
+    </div>
+</div>
+<div class="m8">
+    <div class="mr">
+        <div class="container borderup">
+            <div class="addimg">
+                <img src="img/+img.png" alt="" class="img-responsive">
+            </div>
 
-    <div class="row">
-        <div class="col-md-2" ng-repeat="s in mySlides">
-            <a ng-href="{{s}}" rel="gal" fancybox>
-                <img ng-src="{{s}}" class="img-full">
-            </a>
-        </div>
-        <div class="col-md-2">
-            <a class="various fancybox.iframe" href="http://www.youtube.com/embed/L9szn1QQfas?autoplay=1" fancybox><img ng-src="http://img.youtube.com/vi/L9szn1QQfas/maxresdefault.jpg" class="img-full"></a>
+            <div class="row">
+                <div class="col-md-4 col-sm-4  col-xs-6 displaynon padng0">
+                    <p class="p p11 pregular">POPULAR</p>
+                    <p class="p2 p22 theboldfont">DESTIN ATIONS</p>
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6  padng0" ng-repeat="x in popularDestination | limitTo : 4">
+                    <div class="events">
+
+                        <a ui-sref="pattaya({id:x._id})">
+                            <img ng-src="{{x.image|serverimage}}" alt="" class="img-responsive">
+                            <div class="shadow-down"></div>
+                            <div class="event-name">
+                                <span>{{x.name}}</span>
+                            </div>
+                            <div class="over-layer text-center">
+                                <div class="hoverimg">
+                                    <img class="img-responsive" src="img/ggl.png">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="col-md-2 col-sm-2 col-xs-6  padng0">
+                    <div class="events">
+                        <img src="img/3.jpg" alt="" class="img-responsive">
+                        <div class="shadow-down"></div>
+                        <div class="event-name">
+                            <span>CROATIA</span>
+                        </div>
+                        <div class="over-layer text-center">
+                            <div class="hoverimg">
+                                <img class="img-responsive" src="img/ggl.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 padng0 ">
+                    <div class="events">
+                        <img src="img/2.jpg" alt="" class="img-responsive">
+                        <div class="shadow-down"></div>
+                        <div class="event-name">
+                            <span>IBIZA</span>
+                        </div>
+                        <div class="over-layer text-center">
+                            <div class="hoverimg">
+                                <img class="img-responsive" src="img/ggl.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6  padng0">
+                    <div class="events">
+                        <img src="img/1.jpg" alt="" class="img-responsive">
+                        <div class="shadow-down"></div>
+                        <div class="event-name">
+                            <span>LAS VEGAS</span>
+                        </div>
+                        <div class="over-layer text-center">
+                            <div class="hoverimg">
+                                <img class="img-responsive" src="img/ggl.png">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
         </div>
     </div>
+    <!--second div -->
+    <div class="ml">
+        <div class="container borderdown">
+            <div class="addimg1">
+                <img src="img/+img.png" alt="" class="img-responsive">
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-6 padng0" ng-repeat="x in popularAttraction | limitTo : 4">
+                    <div class="events" ui-sref="pattaya({id:x.destination})">
+                        <img src="{{x.image1 | serverimage}}" alt="" class="img-responsive">
+                        <div class="shadow-down"></div>
+                        <div class="event-name">
+                            <span>{{x.name}}</span>
+                        </div>
+                        <div class="over-layer text-center">
+                            <div class="hoverimg">
+                                <img class="img-responsive" src="img/ggl.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-2 col-sm-2 col-xs-6 padng0">
+                    <img class="img-responsive" src="img/2.jpg">
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 padng0">
+                    <img class="img-responsive" src="img/3.jpg">
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 padng0">
+                    <img class="img-responsive" src="img/1.jpg">
+                </div> -->
+                <div class="col-md-4 col-sm-4 col-xs-4 displaynon padng0">
+                    <p class="p p1 theboldfont">POPULAR</p>
+                    <p class="p2 p222 theboldfont">ATTRA
+                        <br>CTIONS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container ">
+    <div class="row display2">
+        <p class=" disp pregular">POPULAR</p>
+        <p class="disp2 theboldfont">ATTRA CTIONS</p>
+    </div>
+</div>
+<!---select optional ---->
+<div class="padd paddup">
+    <figure class="m2">
+        <img class="img-responsive" src="img/4.jpg">
+        <figcaption>
+            <div class="links">
+                <div class="onimg">
+                    <img class="imgab" src="img/6.png">
 
+                    <form class="himg2">
+                        <label class="pregular labsec">I want to go to</label>
+
+
+
+
+                        <select class="form-control Robotor">
+                            <option ng-repeat="x in dropDown">{{x.name}}</option>
+                        </select>
+                        <button type="submit" class="gobtn">GO</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </figcaption>
+    </figure>
+</div>
+</div>
+
+<!---about ---->
+<div class="aboutin">
+    <img class="img-responsive imAb" src="img/wd.png">
+    <span class="spAb"><h1 class="theboldfont">ABOUT US</h1>
+      <P class="ain">Lorem lpsum is simply dummy text of the printing and typestting industry. Lorem lpsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled ir to make a type specimen book It has survived not only five centries, but also the leap into electronic typesetting,remaining essentially unchanged. Lorem Ipsum is simply summy text....</P>
+      <P class="sado"><a  class="whit_color" ui-sref="home" >KNOW THE TEAM</a></P>
+   </span>
+</div>
+
+<!---date selibration ---->
+<div class="padd padddown homeslid">
+    <flex-slider flex-slide="data in mySlidesss track by $index" class="m1">
+        <li>
+            <div class="item">
+                <figure class="mim-home ng-scope">
+                    <img class="img-responsive " ng-src="{{data.banner | serverimage}}">
+                    <!-- <figcaption>
+                        <div class="links lm2">
+                            <h1 class="theboldfont hclass">
+                            <p class=" hclass1 yellow_color">WHAT'S</p>
+                            <p class=" hclass2"> HOT</p>
+                          </h1>
+                            <p class="Robotor LMP">{{s.events}}<br>{{s.date}}</p>
+                        </div>
+                    </figcaption> -->
+                </figure>
+            </div>
+        </li>
+    </flex-slider>
+</div>
+
+<!---email update  ---->
+<div class="eupt">
+    <div class="container">
+        <div class="row">
+            <form name="myForm" ng-submit="formSubmit(formData)" ng-if="!formComplete">
+                <div class="col-md-4 col-sm-4 col-xs-12 ge">GET EMAIL UPDATE</div>
+                <div class="col-md-5 col-sm-4 col-xs-12 ie">
+                    <input type="email" placeholder="Your email address" class="form-control" name="email" ng-model="formData.email" required>
+                    <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12 es">
+                    <button type="submit">SUBSCRIBE</button>
+                </div>
+            </form>
+            <div ng-if="formComplete" class="ge text-center">Thank You For Subscribing.</div>
+        </div>
+    </div>
 </div>
