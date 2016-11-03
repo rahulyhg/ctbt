@@ -9,6 +9,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Home");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.formdata={};
+        $scope.selectDesti=function(id){
+            // state.go(pattaya{id:formdata})
+            console.log("id",id);
+        }
+
+
 
 
         NavigationService.HomeSlider(function(data) {
@@ -102,11 +109,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     images.smallImage = _.chunk(images.smallImage, 3);
                 }
                 $scope.activityLand = images;
+                if(images.smallImage.length>0 && images.bigImage.length>0){
                 if (images.bigImage.length >= images.smallImage.length) {
                     $scope.activityLoop = _.times(images.bigImage.length, Number);
                 } else {
                     $scope.activityLoop = _.times(images.smallImage.length, Number);
                 }
+            }
                 console.log($scope.activityLoop);
             });
         }
@@ -129,7 +138,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
                 if (images.smallImage) {
                     images.smallImage = _.chunk(images.smallImage, 3);
-                    console.log('images.smallImage111111111111111111', images.smallImage);
+                    console.log('images.smallImage', images.smallImage);
                     $scope.smallImageArray = _.cloneDeep(images.smallImage);
                     images.smallImage = _.take(images.smallImage, 2);
                 }
@@ -139,12 +148,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
                 $scope.activityLand = images;
                 $scope.viewMore = true;
+                console.log("bigImage",images.bigImage);
+                if(images.bigImage.length>0 && images.smallImage.length>0){
                 if (images.bigImage.length >= images.smallImage.length) {
                     $scope.activityLoop = _.times(images.bigImage.length, Number);
                     console.log('if $scope.activityLoop', $scope.activityLoop);
                 } else {
                     $scope.activityLoop = _.times(images.smallImage.length, Number);
                     console.log('else $scope.activityLoop', $scope.activityLoop);
+                }
                 }
                 // console.log($scope.activityLoop);
             });
@@ -498,6 +510,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classv = "active-tab";
             }
         };
+
+        $scope.addTocart=function(data){
+            console.log("data",data);
+
+        }
 
 
 

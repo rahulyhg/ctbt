@@ -164,17 +164,19 @@
                 <div class="onimg">
                     <img class="imgab" src="frontend/img/6.png">
 
-                    <form class="himg2">
+                    <form class="himg2" ng-submit="goto(formdata)" ng-init="abc">
                         <label class="pregular labsec">I want to go to</label>
-
-
-
-
-                        <select class="form-control Robotor">
+                        <!--<select class="form-control Robotor" ng-change="selectDesti(x._id);">
+                          
                             <option ng-repeat="x in dropDown">{{x.name}}</option>
-                        </select>
-                        <button type="submit" class="gobtn">GO</button>
+                        </select>-->
 
+                        <select class="form-control Robotor"
+      ng-model="selected_id" 
+      ng-options="o._id as o.name for o in dropDown" 
+      ng-change="selectDesti(selected_id);">
+    </select>
+                        <button type="submit" class="gobtn" ui-sref=pattaya({id:selected_id})>GO</button>
                     </form>
 
                 </div>
