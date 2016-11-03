@@ -111,6 +111,18 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
+        addCartPackage: function(id,type, callback) {
+            var data = {
+                package: id,
+                type: type
+            };
+            $http({
+                url: adminurl + 'cart/addToCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
         DestinationContent: function(id, callback) {
             var data = {
                 id: id,

@@ -53,7 +53,8 @@
                             </div>
                             <div class="over-layer text-center">
                                 <div class="cart-sec">
-                                    <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addPackageToCart(data._id)" ng-if="!cart">
+                                    <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnPackage(data._id,data.typeCart)" ng-if="!cart">
+                                    <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addPackageToCart(data._id)" ng-if="!cart"> -->
                                       <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart">
                                 </div>
                                 <div class="button-holder">
@@ -410,7 +411,7 @@
                 <!---ACCORDION ---->
                 <div class="row pregular">
                     <uib-accordion close-others="oneAtATime">
-                     
+
                         <div uib-accordion-group  class="panel-default panelacor" ng-class="{'yellow_back_color': status.open4, '': !status.open4}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
                             <uib-accordion-heading class="panel-heading">
                                 <div class="accord-title" >

@@ -9,10 +9,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Home");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        $scope.formdata={};
-        $scope.selectDesti=function(id){
+        $scope.formdata = {};
+        $scope.selectDesti = function(id) {
             // state.go(pattaya{id:formdata})
-            console.log("id",id);
+            console.log("id", id);
         }
 
 
@@ -109,13 +109,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     images.smallImage = _.chunk(images.smallImage, 3);
                 }
                 $scope.activityLand = images;
-                if(images.smallImage.length>0 && images.bigImage.length>0){
-                if (images.bigImage.length >= images.smallImage.length) {
-                    $scope.activityLoop = _.times(images.bigImage.length, Number);
-                } else {
-                    $scope.activityLoop = _.times(images.smallImage.length, Number);
+                if (images.smallImage.length > 0 && images.bigImage.length > 0) {
+                    if (images.bigImage.length >= images.smallImage.length) {
+                        $scope.activityLoop = _.times(images.bigImage.length, Number);
+                    } else {
+                        $scope.activityLoop = _.times(images.smallImage.length, Number);
+                    }
                 }
-            }
                 console.log($scope.activityLoop);
             });
         }
@@ -148,15 +148,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
                 $scope.activityLand = images;
                 $scope.viewMore = true;
-                console.log("bigImage",images.bigImage);
-                if(images.bigImage.length>0 && images.smallImage.length>0){
-                if (images.bigImage.length >= images.smallImage.length) {
-                    $scope.activityLoop = _.times(images.bigImage.length, Number);
-                    console.log('if $scope.activityLoop', $scope.activityLoop);
-                } else {
-                    $scope.activityLoop = _.times(images.smallImage.length, Number);
-                    console.log('else $scope.activityLoop', $scope.activityLoop);
-                }
+                console.log("bigImage", images.bigImage);
+                if (images.bigImage.length > 0 && images.smallImage.length > 0) {
+                    if (images.bigImage.length >= images.smallImage.length) {
+                        $scope.activityLoop = _.times(images.bigImage.length, Number);
+                        console.log('if $scope.activityLoop', $scope.activityLoop);
+                    } else {
+                        $scope.activityLoop = _.times(images.smallImage.length, Number);
+                        console.log('else $scope.activityLoop', $scope.activityLoop);
+                    }
                 }
                 // console.log($scope.activityLoop);
             });
@@ -294,7 +294,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         // };
 
-
+        $scope.addTocartOnPackage = function(id, type) {
+            NavigationService.addCartPackage(id, type, function(data) {
+                $scope.getData = data;
+                console.log('$scope.getData', $scope.getData);
+            });
+        }
         $scope.viewLess = false;
         $scope.viewMore = false;
         $scope.more = false;
@@ -377,7 +382,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return n.model
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
-              $scope.viewMore = true;
+                $scope.viewMore = true;
                 if (data.data.Category.length == 0) {
                     $scope.noResult = true;
                 } else {
@@ -448,7 +453,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-          $scope.cartData = {};
+        $scope.cartData = {};
         $scope.cart = function(input) {
             console.log('input', input);
             NavigationService.cart($scope.cartData, function(data) {
@@ -491,11 +496,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.cart = false;
-        $scope.addPackageToCart = function(id) {
-            console.log("id", id);
-            $scope.cart = true;
-
-        }
+        // $scope.addPackageToCart = function(id) {
+        //     console.log("id", id);
+        //     $scope.cart = true;
+        //
+        // }
         $scope.tabchanges = function(tabs, a) {
 
             $scope.tabs = tabs;
@@ -511,8 +516,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        $scope.addTocart=function(data){
-            console.log("data",data);
+        $scope.addTocart = function(data) {
+            console.log("data", data);
 
         }
 

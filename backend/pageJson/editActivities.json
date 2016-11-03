@@ -49,7 +49,7 @@
         "validation": ["", "trim", ""],
         "url": ""
     },{
-        "name": "HomePage Image",
+        "name": "DestinationPage Image",
         "type": "image",
         "size": "545 x 413",
         "option": "single",
