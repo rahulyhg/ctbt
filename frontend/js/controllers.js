@@ -97,7 +97,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(id);
             NavigationService.getChangeDestination(id, function(data) {
                 $scope.changeDestData = data.data.Images;
-                console.log($scope.changeDestData.length);
                 var images = _.groupBy($scope.changeDestData, function(n) {
                     if (_.isEmpty(n.image1)) {
                         return "bigImage";
@@ -129,6 +128,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.ActivityLand(function(data) {
                 console.log(data);
                 $scope.myDropdown = data.data.DestinationDropdown;
+                $scope.showBttn = data.data.Images;
+                console.log('$scope.showBttn', $scope.showBttn.length);
                 var images = _.groupBy(data.data.Images, function(n) {
                     if (_.isEmpty(n.image1)) {
                         return "bigImage";
@@ -146,19 +147,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.bigImageArray = _.cloneDeep(images.bigImage);
                     images.bigImage = _.take(images.bigImage, 1);
                 }
+                console.log('images.smallImage.length', images.smallImage.length);
                 $scope.activityLand = images;
-                $scope.viewMore = true;
-                console.log("bigImage", images.bigImage);
-                if (images.bigImage.length > 0 && images.smallImage.length > 0) {
-                    if (images.bigImage.length >= images.smallImage.length) {
-                        $scope.activityLoop = _.times(images.bigImage.length, Number);
-                        console.log('if $scope.activityLoop', $scope.activityLoop);
-                    } else {
-                        $scope.activityLoop = _.times(images.smallImage.length, Number);
-                        console.log('else $scope.activityLoop', $scope.activityLoop);
-                    }
+                if (images.smallImage.length >= 1 && images.bigImage.length >= 0) {
+                    $scope.viewMore = true;
+                } else {
+                    $scope.viewMore = false;
                 }
-                // console.log($scope.activityLoop);
+
+                console.log("bigImage", images.bigImage);
+                if (images.bigImage && images.smallImage) {
+                    if (images.bigImage.length > 0 && images.smallImage.length > 0) {
+                        if (images.bigImage.length >= images.smallImage.length) {
+                            $scope.activityLoop = _.times(images.bigImage.length, Number);
+                            console.log('if $scope.activityLoop', $scope.activityLoop);
+                        } else {
+                            $scope.activityLoop = _.times(images.smallImage.length, Number);
+                            console.log('else $scope.activityLoop', $scope.activityLoop);
+                        }
+                    }
+                } else {
+                    $scope.activityLoop = _.times(images.bigImage.length, Number);
+                }
             });
         }
         $scope.loadLessActivities();
@@ -178,42 +188,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
     })
+    .controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
 
-.controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-
-    $scope.template = TemplateService.changecontent("tbtstatic");
-    $scope.menutitle = NavigationService.makeactive("The Bachelor Trip");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    TemplateService.header = "views/static_header.html";
-    TemplateService.footermenu = "views/static_footermenu.html";
-    TemplateService.footer = "views/static_footer.html";
-    $scope.flags = {};
-    $scope.flags.thankyou = false;
-    $scope.details = function() {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/details.html",
-            scope: $scope,
-            windowClass: "width80"
-        });
-    };
-    $scope.formData = {};
-    $scope.submitForm = function() {
+        $scope.template = TemplateService.changecontent("tbtstatic");
+        $scope.menutitle = NavigationService.makeactive("The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        TemplateService.header = "views/static_header.html";
+        TemplateService.footermenu = "views/static_footermenu.html";
+        TemplateService.footer = "views/static_footer.html";
+        $scope.flags = {};
         $scope.flags.thankyou = false;
-        console.log("ffff", $scope.formData);
-        NavigationService.submitForm($scope.formData, function(res) {
-            if (res.value) {
-                $scope.flags.thankyou = true;
-                $scope.flags.mailform = true;
-                $scope.formData = {};
-            } else {
+        $scope.details = function() {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/details.html",
+                scope: $scope,
+                windowClass: "width80"
+            });
+        };
+        $scope.formData = {};
+        $scope.submitForm = function() {
+            $scope.flags.thankyou = false;
+            console.log("ffff", $scope.formData);
+            NavigationService.submitForm($scope.formData, function(res) {
+                if (res.value) {
+                    $scope.flags.thankyou = true;
+                    $scope.flags.mailform = true;
+                    $scope.formData = {};
+                } else {
 
-            }
-        });
-    };
+                }
+            });
+        };
 
-})
+    })
 
 .controller('DestinationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
