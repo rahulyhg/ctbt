@@ -106,16 +106,16 @@ a:hover {
 }
 
 .yellow_color {
-    color: #ffca18 !important;
+    color: #fdd116 !important;
 }
 
 .yellow_color:hover {
-    color: #ffca18 !important;
+    color: #fdd116 !important;
     text-decoration: none;
 }
 
 .yellow_back_color {
-    background-color: #ffca18 !important;
+    background-color: #fdd116 !important;
 }
 
 .white_back_color {
@@ -210,8 +210,6 @@ a {
 }
 
 .navbar-default .navbar-nav > li > a {
-  font-weight: bold;
-  font-size: 12px;
     letter-spacing: 1px;
     border-right: 2px solid #36438c;
     margin: 14px 0;
@@ -251,7 +249,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    color: #fcd116;
+    color: #fdd116;
     font-size: 30px;
 }
 
@@ -269,12 +267,12 @@ a {
 }
 
 .category {
-    background-color: #fcd116;
+    background-color: #fdd116;
     padding: 20px 40px;
     margin: 0 6%;
 
     .form-group select{
-          font-size: 20px;
+          font-size: 22px;
         outline: none;
         border: 0;
         border-bottom: 2px solid #002b7f;
@@ -500,15 +498,15 @@ option[value=""][disabled] {
 }
 
 .categoryup {
-    background-color: #fcd116;
+    background-color: #fdd116;
     padding: 20px 40px 40px;
 
     h1 {
-        font-size: 70px;
+        font-size: 60px;
         margin: 6% 0 2%;
         display: inline-block;
         width: 50%;
-        line-height: 56px;
+        line-height: 46px;
     }
 }
 
@@ -559,7 +557,7 @@ option[value=""][disabled] {
     }
 
     .eventhr {
-        border-top: 3px solid #ffca18 !important;
+        border-top: 3px solid #fdd116 !important;
         margin: 0 36% 7px !important;
     }
 }
@@ -625,7 +623,7 @@ option[value=""][disabled] {
 
     .borderhr {
         width: 45%;
-        border-bottom: 3px solid #ffca18 !important;
+        border-bottom: 3px solid #fdd116 !important;
         padding-bottom: 8px;
         display: inline-block;
         font-weight: bolder;
@@ -782,7 +780,7 @@ option[value=""][disabled] {
 .card .back {
     overflow: auto;
     padding: 41px 2px 2px;
-    background: rgb(255, 216, 47);
+    background:#fdd116;
     color: #333333;
     text-align: center;
     -webkit-transform: rotateY(180deg);
@@ -796,16 +794,17 @@ option[value=""][disabled] {
 .hbc {
     text-align: center;
     border: none !important;
-    background-color: #ffca18 !important;
+    background-color: #fdd116 !important;
 
     .rit {
         text-align: right;
     }
 
     .tp {
-      
+        margin-top: 10px;
+        font-size: 11px;
         text-align: center;
-        padding-left: 5px;
+        padding-left: 16px;
         color: #000;
     }
 }
@@ -850,7 +849,7 @@ option[value=""][disabled] {
     display: inline-block;
     width: 50%;
     text-align: left;
-    background: rgba(2, 44, 125, 0.52);
+    background: rgba(2, 44, 125, 0.77);
     padding: 3% 2% 3% 16%;
     margin-left: 15%;
     margin-top: 2.5%;
@@ -863,8 +862,8 @@ option[value=""][disabled] {
         appearance: none;
         background: transparent url("../img/Vector-Smart-Object.png") no-repeat right center;
         border-bottom: 4px solid #fdd116;
-        font-size: 34px;
-        color: #fdd52b;
+        font-size: 25px;
+        color: #fdd116;
         padding: 6px;
         height: auto;
         border-top: none;
@@ -1018,11 +1017,13 @@ option {
     margin: 8% 0;
 
     .mr {
+        cursor: pointer;
         margin-right: 8%;
         margin-left: -7%;
     }
 
     .ml {
+        cursor: pointer;
         margin-left: 17%;
         display: flex;
     }
@@ -1140,7 +1141,7 @@ option {
 .p2 {
     font-size: 63px;
     font-weight: bolder;
-    color: #ffca18;
+    color: #fdd116;
     position: absolute;
     line-height: 77%;
     padding-top: 26px;
@@ -1436,9 +1437,9 @@ figure .links {
             padding: 0 15px;
 
             h1 {
-                font-size: 63px;
+                font-size: 52px;
                 line-height: 80%;
-                padding-top: 40px;
+                padding-top: 10px;
             }
         }
 
@@ -1468,11 +1469,11 @@ figure .links {
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #ffca18 !important;
+    border-color: #fdd116 !important;
 }
 
 .navbar-toggle {
-    background-color: #ffca18 !important;
+    background-color: #fdd116 !important;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -1481,7 +1482,7 @@ figure .links {
 
 .padd5 {
     margin: 0 2%;
-    background: #ffca18 !important;
+    background: #fdd116 !important;
     padding: 2% 9%;
 }
 
@@ -1715,7 +1716,7 @@ figure .links {
 
 .flex-control-paging li a.flex-active {
     background: #000!important;
-    background: rgb(252, 209, 22)!important;
+    background: #fdd116 !important;
 }
 
 .flex-control-paging li a {
@@ -1786,7 +1787,7 @@ figure .links {
 }
 
 .wtsecond {
-    background: #fcd015;
+    background: #fdd116;
     margin-top: -11%;
 
     .wtsec2 {
@@ -1824,7 +1825,7 @@ figure .links {
         margin: 0 12%;
 
         .tdcolor {
-            color: #fcd015 !important;
+            color: #fdd116 !important;
         }
 
         .table > thead > tr > th {
@@ -1935,6 +1936,7 @@ figure .links {
     font-weight: 900;
     color: #fdd116 !important;
     font-size: 40px;
+    padding-left: 30px;
 }
 
 .patpack2 {
@@ -2097,10 +2099,10 @@ figure .links {
 
 .panelacor {
     padding: 5px 10px !important;
-    border-top: 2px solid #ffca18 !important;
-    border-bottom: 0 solid #ffca18 !important;
-    border-left: 0 solid #ffca18 !important;
-    border-right: 0 solid #ffca18 !important;
+    border-top: 2px solid #fdd116 !important;
+    border-bottom: 0 solid #fdd116 !important;
+    border-left: 0 solid #fdd116 !important;
+    border-right: 0 solid #fdd116 !important;
     cursor: pointer !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -2115,7 +2117,7 @@ figure .links {
 }
 
 .panelhea2 {
-    border-bottom: 2px solid #ffca18;
+    border-bottom: 2px solid #fdd116;
 }
 
 .ytp-chrome-top {
@@ -2136,7 +2138,7 @@ figure .links {
 }
 
 .border5 {
-    border-top: 2px solid #ffca18;
+    border-top: 2px solid #fdd116;
 
     p {
         display: inline-block;
@@ -2159,7 +2161,7 @@ figure .links {
             background-size: 100% 100%;
             padding: 3px 25px;
             border: none;
-            background-color: #ffca18;
+            background-color: #fdd116;
             margin-left: 20%;
         }
 
@@ -2377,7 +2379,7 @@ figure {
 .flipDiv figure p {
     display: block;
     font-family: 'Lato';
-    font-size: 16px;
+    font-size: 12px;
     line-height: 18px;
     margin: 0;
     color: #fff;
@@ -2390,7 +2392,7 @@ figure {
     width: 100%;
     height: 100%;
     padding: 29px 44px;
-    background-color: #ffd82f;
+    background-color: #fdd116;
     text-align: center;
     backface-visibility: hidden;
     -webkit-transform: rotateY(-180deg);
