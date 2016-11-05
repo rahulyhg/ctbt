@@ -210,6 +210,8 @@ a {
 }
 
 .navbar-default .navbar-nav > li > a {
+  font-weight: bold;
+  font-size: 12px;
     letter-spacing: 1px;
     border-right: 2px solid #36438c;
     margin: 14px 0;
@@ -272,7 +274,7 @@ a {
     margin: 0 6%;
 
     .form-group select{
-          font-size: 22px;
+          font-size: 20px;
         outline: none;
         border: 0;
         border-bottom: 2px solid #002b7f;
@@ -801,10 +803,9 @@ option[value=""][disabled] {
     }
 
     .tp {
-        margin-top: 10px;
-        font-size: 11px;
+      
         text-align: center;
-        padding-left: 16px;
+        padding-left: 5px;
         color: #000;
     }
 }
@@ -818,7 +819,7 @@ option[value=""][disabled] {
 }
 
 .yec {
-    background: #FDD116;
+    background: #fdd116;
 }
 
 .inm {
@@ -849,19 +850,19 @@ option[value=""][disabled] {
     display: inline-block;
     width: 50%;
     text-align: left;
-    background: rgba(2, 44, 125, 0.77);
+    background: rgba(2, 44, 125, 0.52);
     padding: 3% 2% 3% 16%;
     margin-left: 15%;
     margin-top: 2.5%;
     border-radius: 24px;
 
     .form-control {
-    
+
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         background: transparent url("../img/Vector-Smart-Object.png") no-repeat right center;
-        border-bottom: 4px solid #FDD116;
+        border-bottom: 4px solid #fdd116;
         font-size: 34px;
         color: #fdd52b;
         padding: 6px;
@@ -899,7 +900,7 @@ option {
 }
 
 .aboutin {
-    background: #FDD116;
+    background: #fdd116;
     padding: 5%;
     text-align: center;
 }
@@ -930,7 +931,7 @@ option {
     }
 
     a {
-        color: #FDD116;
+        color: #fdd116;
         font-size: 12px;
     }
 }
@@ -1017,13 +1018,11 @@ option {
     margin: 8% 0;
 
     .mr {
-        cursor: pointer;
         margin-right: 8%;
         margin-left: -7%;
     }
 
     .ml {
-        cursor: pointer;
         margin-left: 17%;
         display: flex;
     }
@@ -1034,8 +1033,8 @@ option {
 }
 
 .borderup {
-    background: linear-gradient(to right, white 58%, white 41%, white 41%, white 47%, #FDD116 47%);
-    border-right: 20px solid #FDD116;
+    background: linear-gradient(to right, white 58%, white 41%, white 41%, white 47%, #fdd116 47%);
+    border-right: 20px solid #fdd116;
     padding: 20px;
     position: relative;
 }
@@ -1160,7 +1159,7 @@ option {
 }
 
 .paddup {
-    background: linear-gradient(to bottom, white 31%, white 17%, white 17%, #FDD116 17%);
+    background: linear-gradient(to bottom, white 31%, white 17%, white 17%, #fdd116 17%);
 }
 
 .padddown {
@@ -1430,7 +1429,7 @@ figure .links {
 
     .m2 {
         margin: 0 3%;
-        background: #FDD116 !important;
+        background: #fdd116 !important;
         padding: 2% 9%;
 
         .pd15 {
@@ -1553,7 +1552,7 @@ figure .links {
 
 .marg4 {
     margin: 0 4%;
-    background: #FDD116 !important;
+    background: #fdd116 !important;
     padding: 2% 5%;
 }
 
@@ -2378,7 +2377,7 @@ figure {
 .flipDiv figure p {
     display: block;
     font-family: 'Lato';
-    font-size: 12px;
+    font-size: 16px;
     line-height: 18px;
     margin: 0;
     color: #fff;
