@@ -98,24 +98,88 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getChangeDestination(id, function(data) {
                 $scope.changeDestData = data.data.Images;
                 var images = _.groupBy($scope.changeDestData, function(n) {
-                    if (_.isEmpty(n.image1)) {
-                        return "bigImage";
-                    } else {
-                        return "smallImage";
-                    }
+                  if (_.isEmpty(n.image1)) {
+                      return "bigImage";
+                  } else if(n.image1 && n.image2){
+                      return "bigImage";
+                  }else{
+                    return "smallImage";
+                  }
+                    // if (_.isEmpty(n.image1)) {
+                    //     return "bigImage";
+                    // } else {
+                    //     return "smallImage";
+                    // }
                 });
+
+                // if (images.smallImage) {
+                //     images.smallImage = _.chunk(images.smallImage, 3);
+                // }
+                // $scope.activityLand = images;
+                // if (images.smallImage.length > 0 && images.bigImage.length > 0) {
+                //     if (images.bigImage.length >= images.smallImage.length) {
+                //         $scope.activityLoop = _.times(images.bigImage.length, Number);
+                //     } else {
+                //         $scope.activityLoop = _.times(images.smallImage.length, Number);
+                //     }
+                // }
+                // console.log($scope.activityLoop);
+
+                console.log('serdtfyguhsertghjdrfghjedrfghj');
+                console.log('images',images);
                 if (images.smallImage) {
+                  console.log(images.smallImage.length);
+                  // if(images.smallImage.length > 2){
+                  //   $scope.viewMore = true;
+                  // }
                     images.smallImage = _.chunk(images.smallImage, 3);
-                }
-                $scope.activityLand = images;
-                if (images.smallImage.length > 0 && images.bigImage.length > 0) {
-                    if (images.bigImage.length >= images.smallImage.length) {
-                        $scope.activityLoop = _.times(images.bigImage.length, Number);
-                    } else {
-                        $scope.activityLoop = _.times(images.smallImage.length, Number);
+                    console.log('images.smallImage', images.smallImage);
+                    $scope.smallImageArray = _.cloneDeep(images.smallImage);
+                    images.smallImage = _.take(images.smallImage, 2);
+                    if(images.smallImage.length > 2){
+                      $scope.viewMore = true;
+                    }else{
+                      $scope.viewMore = false;
                     }
+
                 }
-                console.log($scope.activityLoop);
+                if (images.bigImage) {
+
+                  console.log(images.bigImage.length);
+                    $scope.bigImageArray = _.cloneDeep(images.bigImage);
+                    images.bigImage = _.take(images.bigImage, 1);
+                    if(images.bigImage.length > 2){
+                      $scope.viewMore = true;
+                    }else{
+                      $scope.viewMore = false;
+                    }
+
+                }
+                // console.log('images.smallImage.length', images.smallImage.length);
+                $scope.activityLand = images;
+                if (images.bigImage && !images.smallImage) {
+                  console.log('bigggg imggggg');
+                  $scope.viewMore = false;
+                  $scope.viewLess = false;
+                  $scope.activityLoop = _.times(images.bigImage.length, Number);
+                } else {
+                  console.log('i m smallll');
+                    $scope.activityLoop = _.times(images.smallImage.length, Number);
+                    // $scope.viewMore = false;
+                    // $scope.viewLess = false;
+                }
+
+                console.log("bigImage", images.bigImage);
+
+                    if (images.bigImage.length > 0 && images.smallImage.length > 0) {
+                        if (images.bigImage.length >= images.smallImage.length) {
+                            $scope.activityLoop = _.times(images.bigImage.length, Number);
+                            console.log('if $scope.activityLoop', $scope.activityLoop);
+                        } else {
+                            $scope.activityLoop = _.times(images.smallImage.length, Number);
+                            console.log('else $scope.activityLoop', $scope.activityLoop);
+                        }
+                    }
             });
         }
 
@@ -131,44 +195,70 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.showBttn = data.data.Images;
                 console.log('$scope.showBttn', $scope.showBttn.length);
                 var images = _.groupBy(data.data.Images, function(n) {
-                    if (_.isEmpty(n.image1)) {
-                        return "bigImage";
-                    } else {
-                        return "smallImage";
-                    }
+                  if (_.isEmpty(n.image1)) {
+                      return "bigImage";
+                  } else if(n.image1 && n.image2){
+                      return "bigImage";
+                  }else{
+                    return "smallImage";
+                  }
+                    // if (_.isEmpty(n.image1)) {
+                    //     return "bigImage";
+                    // } else {
+                    //     return "smallImage";
+                    // }
                 });
+                console.log('serdtfyguhsertghjdrfghjedrfghj');
+                console.log('images',images);
                 if (images.smallImage) {
                   console.log(images.smallImage.length);
-                  // if(images.smallImage.length > 2){
-                  //   $scope.viewMore = true;
-                  // }
+                  if(images.smallImage.length > 6){
+                    console.log('hbnjbbbbbbbbbbbbbbbbbbbbbbbbbb');
+                    $scope.viewMore = true;
+                  }
                     images.smallImage = _.chunk(images.smallImage, 3);
                     console.log('images.smallImage', images.smallImage);
                     $scope.smallImageArray = _.cloneDeep(images.smallImage);
                     images.smallImage = _.take(images.smallImage, 2);
-                    $scope.viewMore = true;
                 }
                 if (images.bigImage) {
-                  // if(images.bigImage.length > 2){
-                  //   $scope.viewMore = true;
-                  // }
+
                   console.log(images.bigImage.length);
+                  if(images.bigImage.length > 2){
+                    $scope.viewMore = true;
+                  }
                     $scope.bigImageArray = _.cloneDeep(images.bigImage);
                     images.bigImage = _.take(images.bigImage, 1);
-                    $scope.viewMore = true;
+
+
                 }
-                console.log('images.smallImage.length', images.smallImage.length);
+                // console.log(images.smallImage.length);
+                // if(images.smallImage.length > 6 || images.bigImage.length > 2){
+                //   console.log('hbnjbbbbbbbbbbbbbbbbbbbbbbbbbb');
+                //   $scope.viewMore = true;
+                // }else{
+                //   $scope.viewMore = false;
+                // }
+                // console.log('images.smallImage.length', images.smallImage.length);
                 $scope.activityLand = images;
-                if (images.bigImage && images.smallImage.length == 0) {
-                  $scope.viewMore = false;
-                  $scope.viewLess = false;
-                  $scope.activityLoop = _.times(images.bigImage.length, Number);
-                } else {
+                // if (images.bigImage.length <= 1 && !images.smallImage) {
+                //   $scope.viewMore = false;
+                //   $scope.viewLess = false;
+                //   $scope.activityLoop = _.times(images.bigImage.length, Number);
+                // }
+                if(!images.bigImage && images.smallImage) {
                   console.log('i m smallll');
                     $scope.activityLoop = _.times(images.smallImage.length, Number);
-                    // $scope.viewMore = false;
-                    // $scope.viewLess = false;
+                }else{
+                  $scope.activityLoop = _.times(images.bigImage.length, Number);
                 }
+                // if(!images.bigImage && images.smallImage.length<=1) {
+                //   console.log('i m smallll');
+                //     $scope.activityLoop = _.times(images.smallImage.length, Number);
+                // }
+                // if(!images.smallImage && images.bigImage.length<=1){
+                //   $scope.activityLoop = _.times(images.bigImage.length, Number);
+                // }
 
                 console.log("bigImage", images.bigImage);
 

@@ -82,7 +82,7 @@
                   </div>
                </div>
             </div>
-            <div ng-if="changeDestData==0"><h1><center>No data Found</center></h1></div>
+            <div ng-if="changeDestData==0 || showBttn.length==0"><h1><center>No data Found</center></h1></div>
 
             <div class="load-more text-center" ng-hide="changeDestData==0 || (!viewLess && !viewMore)">
                <div class="over-layer pdt30 pdb30">
