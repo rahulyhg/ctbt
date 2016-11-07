@@ -54,7 +54,8 @@ var controller = {
           console.log("aaaaaa",req.session.cart);
           // req.session.cart.push(req.body);
         if(req.body.type==="Package"){
-            delete req.body.activities;
+            // delete req.body.activities; 
+
 //             if(req.session.cart.package.length>0){
 // packagearr.push(req.body);
 //             }else{
@@ -62,10 +63,12 @@ var controller = {
 //             packagearr.push(req.body);
 //             }
               req.session.cart.package.push(req.body);
+              console.log("In Package",req.session.cart);
           }
             if(req.body.type==="Activities"){
-            delete req.body.package;
+            // delete req.body.package;
               req.session.cart.activities.push(req.body);
+               console.log("In Activities",req.session.cart);
           }
         } else {
           console.log("bbbb");
@@ -74,14 +77,16 @@ var controller = {
           req.session.cart.package = [];
           // req.session.cart.push(req.body);
           if(req.body.type==="Package"){
-            delete req.body.activities;
+            // delete req.body.activities;
             // var req.session.cart.activities = [];
             req.session.cart.package.push(req.body);
+            console.log("Package",req.session.cart);
           }
             if(req.body.type==="Activities"){
-            delete req.body.package;
+            // delete req.body.package;
             // var activitiesarr = [];
             req.session.cart.activities.push(req.body);
+             console.log("Activities",req.session.cart);
           }
         }
       //  req.session.cart.activities.push(activitiesarr);
