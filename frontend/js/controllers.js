@@ -138,25 +138,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                 });
                 if (images.smallImage) {
+                  console.log(images.smallImage.length);
+                  // if(images.smallImage.length > 2){
+                  //   $scope.viewMore = true;
+                  // }
                     images.smallImage = _.chunk(images.smallImage, 3);
                     console.log('images.smallImage', images.smallImage);
                     $scope.smallImageArray = _.cloneDeep(images.smallImage);
                     images.smallImage = _.take(images.smallImage, 2);
+                    $scope.viewMore = true;
                 }
                 if (images.bigImage) {
+                  // if(images.bigImage.length > 2){
+                  //   $scope.viewMore = true;
+                  // }
+                  console.log(images.bigImage.length);
                     $scope.bigImageArray = _.cloneDeep(images.bigImage);
                     images.bigImage = _.take(images.bigImage, 1);
+                    $scope.viewMore = true;
                 }
                 console.log('images.smallImage.length', images.smallImage.length);
                 $scope.activityLand = images;
-                if (images.smallImage.length >= 1 && images.bigImage.length >= 0) {
-                    $scope.viewMore = true;
+                if (images.bigImage && images.smallImage.length == 0) {
+                  $scope.viewMore = false;
+                  $scope.viewLess = false;
+                  $scope.activityLoop = _.times(images.bigImage.length, Number);
                 } else {
-                    $scope.viewMore = false;
+                  console.log('i m smallll');
+                    $scope.activityLoop = _.times(images.smallImage.length, Number);
+                    // $scope.viewMore = false;
+                    // $scope.viewLess = false;
                 }
 
                 console.log("bigImage", images.bigImage);
-                if (images.bigImage && images.smallImage) {
+
                     if (images.bigImage.length > 0 && images.smallImage.length > 0) {
                         if (images.bigImage.length >= images.smallImage.length) {
                             $scope.activityLoop = _.times(images.bigImage.length, Number);
@@ -166,9 +181,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             console.log('else $scope.activityLoop', $scope.activityLoop);
                         }
                     }
-                } else {
-                    $scope.activityLoop = _.times(images.bigImage.length, Number);
-                }
+
             });
         }
         $scope.loadLessActivities();
@@ -393,6 +406,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getSearch(dataToSend, function(data) {
                 $scope.viewMore = true;
                 if (data.data.Category.length == 0) {
+                  $scope.viewMore = false;
                     $scope.noResult = true;
                 } else {
 

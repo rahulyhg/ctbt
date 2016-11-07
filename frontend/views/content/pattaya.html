@@ -310,7 +310,7 @@
                         </div>
                     </div> -->
                 </div>
-                  <div ng-show="noResult"><h1>No Result Found</h1></div>
+                  <div ng-show="noResult && !viewMore"><h1>No Result Found</h1></div>
                 <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMore">VIEW  MORE</a>
                       <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()" >VIEW  LESS</a>
