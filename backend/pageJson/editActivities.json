@@ -13,7 +13,7 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Activity Description",
+        "name": "Description",
         "type": "wysiwyg",
         "tableRef": "description",
         "placeholder": "Enter Description",
@@ -31,7 +31,7 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Big Image",
+        "name": "Large Image",
         "type": "image",
         "option": "single",
         "size": "1297 x 641",
@@ -41,14 +41,6 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Order",
-        "type": "text",
-        "tableRef": "order",
-        "placeholder": "Enter name",
-        "id": "input1",
-        "validation": ["", "trim", ""],
-        "url": ""
-    },{
         "name": "DestinationPage Image",
         "type": "image",
         "size": "545 x 413",
@@ -70,7 +62,7 @@
         "dropDownType": "single",
         "dropDown": ["day", "night"]
     },{
-        "name": "Type",
+        "name": "Popular Attraction",
         "type": "tags",
         "tableRef": "popular",
         "placeholder": "Enter Type",
@@ -95,13 +87,21 @@
         "name": "Destination",
         "type": "selectFromTable",
         "dropDownType":"single",
-        "tableRef": "destination",
         "searchApi":"searchCall",
+        "tableRef": "destination",
         "placeholder": "Enter Category-Name",
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "Destination/search"
     }, {
+        "name": "Order",
+        "type": "number",
+        "tableRef": "order",
+        "placeholder": "Enter Order",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
         "name": "Status",
         "type": "tags",
         "tableRef": "status",

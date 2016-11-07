@@ -1,6 +1,7 @@
 var schema = new Schema({
   order: {
-      type: Number
+      type: Number,
+      default:0
   },
   typeCart: {
       type: String,

@@ -4,10 +4,29 @@
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
-    "fields": [{
+    "fields":[{
+        "name": "Order",
+        "isSort": "",
+        "tableRef": "order"
+    },{
+        "name": "Title 1",
+        "isSort": "",
+        "tableRef": "title1"
+    },{
+        "name": "Title 2",
+        "isSort": "",
+        "tableRef": "title2"
+    },{
         "name": "Duration",
         "isSort": "",
         "tableRef": "duration"
+    },{
+        "name": "Destination",
+        "isSort": "",
+        "tableRef": {
+            "field": "destination",
+            "tableRef": "name"
+        }
     },{
         "name": "Price",
         "isSort": "",

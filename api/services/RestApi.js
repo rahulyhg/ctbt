@@ -6,7 +6,7 @@ var model = {
                 HomeSlider.find({
                     status: "true"
                 }).sort({
-                    order: -1
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -22,6 +22,8 @@ var model = {
                 Destination.find({
                     status: "true",
                     isSlider: "Yes"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -37,6 +39,8 @@ var model = {
                 Activities.find({
                     status: "true",
                   isSlider: "Yes"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -51,6 +55,8 @@ var model = {
             DestinationDropdown: function (callback) {
                 Destination.find({
                     status: "true"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -65,6 +71,8 @@ var model = {
             whatsHotBanner: function (callback) {
                 WhatsHotSlider.find({
                     status: "true"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -128,6 +136,8 @@ var model = {
                 Destination.findOne({
                     _id:data.id,
                     status: "true"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -144,6 +154,8 @@ var model = {
                 DestinationTitle.find({
                   destination:data.id,
                     status: "true"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -159,6 +171,8 @@ var model = {
                 Package.find({
                     destination:data.id,
                     status: "true"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -175,6 +189,8 @@ var model = {
                 Activities.find({
                     destination:data.id,
                     status: "true"
+                }).sort({
+                    order: 1
                 }).exec(function (err, found) {
                     if (err) {
                         console.log(err);
@@ -208,7 +224,9 @@ CategoryFilter: function (data, callback) {
               destination:data.destination,
               type: { $in: data.type },
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -246,7 +264,9 @@ DestinationContent: function (data, callback) {
           DestinationContent.find({
               destinationTitle:data.id,
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -282,7 +302,9 @@ Pattaya2: function (data, callback) {
           Package.findOne({
               _id:data.id,
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -316,7 +338,9 @@ DestinationLand: function (data, callback) {
           Banner.findOne({
               name:"Destination",
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -331,7 +355,9 @@ DestinationLand: function (data, callback) {
           Destination.find({
               type:"Popular Destination",
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -347,7 +373,9 @@ DestinationLand: function (data, callback) {
           Destination.find({
               type:"None",
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -386,7 +414,9 @@ ActivitiesLand: function (data, callback) {
           Banner.findOne({
               name:"Activities",
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -400,7 +430,9 @@ ActivitiesLand: function (data, callback) {
       DestinationDropdown: function (callback) {
           Destination.find({
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -415,7 +447,9 @@ ActivitiesLand: function (data, callback) {
       Images: function (callback) {
           Activities.find({
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -464,7 +498,9 @@ ActivitiesImages: function (data, callback) {
           Activities.find({
             destination:data.destination,
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -498,7 +534,9 @@ WhatsHot: function (data, callback) {
       Events: function (callback) {
           WhatsHot.find({
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -533,7 +571,9 @@ WhatsHotDetails: function (data, callback) {
           WhatsHot.find({
               _id:data.id,
               status: "true"
-          }).exec(function (err, found) {
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
               if (err) {
                   console.log(err);
                   callback(err, null);
@@ -573,7 +613,9 @@ WhatsHotDetails: function (data, callback) {
                 function (callback) {
                     Destination.count({
                         status: "true"
-                    }).exec(function (err, number) {
+                    }).sort({
+                    order: 1
+                }).exec(function (err, number) {
                         if (err) {
                             console.log(err);
                             callback(err, null);

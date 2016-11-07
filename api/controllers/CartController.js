@@ -124,8 +124,8 @@ var controller = {
       if (req.session.user) {
 
       } else {
-        req.body.activities =  req.session.cart.activities;
-        req.body.package =  req.session.cart.package;
+        req.body.activities =  _.cloneDeep(req.session.cart.activities);
+        req.body.package =  _.cloneDeep(req.session.cart.package);
         Cart.getCart(req.body, res.callback);
         // res.json({
         //   value: true,

@@ -9,10 +9,18 @@
         "isSort": "",
         "tableRef": "name"
     },{
-        "name": "Banner",
+        "name": "Poster Image",
         "type": "image",
         "isSort": "",
-        "tableRef": "banner"
+        "tableRef": "image"
+    },{
+        "name": "Popular Destination",
+        "isSort": "",
+        "tableRef": "type"
+    },{
+        "name": "On HomePage",
+        "isSort": "",
+        "tableRef": "isSlider"
     },{
         "name": "Status",
         "isSort": "",

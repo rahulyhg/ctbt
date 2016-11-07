@@ -6,26 +6,6 @@
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Banner",
-        "type": "image",
-        "tableRef": "banner",
-        "option": "single",
-        "size": "1632 X 562",
-        "placeholder": "Enter Image",
-        "id": "input1",
-        "validation": ["", "trim", ""],
-        "url": ""
-    },{
-        "name": "Image",
-        "type": "image",
-        "tableRef": "image",
-        "option": "single",
-        "size": "545 x 413",
-        "placeholder": "Enter Image",
-        "id": "input1",
-        "validation": ["", "trim", ""],
-        "url": ""
-    },{
         "name": "Title 1",
         "type": "text",
         "tableRef": "title1",
@@ -38,6 +18,26 @@
         "type": "text",
         "tableRef": "title2",
         "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Poster Image",
+        "type": "image",
+        "tableRef": "image",
+        "option": "single",
+        "size": "545 x 413",
+        "placeholder": "Enter Image",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Banner Image",
+        "type": "image",
+        "tableRef": "banner",
+        "option": "single",
+        "size": "1632 X 562",
+        "placeholder": "Enter Image",
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": ""
@@ -57,7 +57,7 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": ""
-    },{
+    }, {
         "name": "Destination",
         "type": "selectFromTable",
         "dropDownType":"single",
@@ -67,6 +67,14 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "Destination/search"
+    },{
+        "name": "Order",
+        "type": "number",
+        "tableRef": "order",
+        "placeholder": "Enter Order",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
     },{
         "name": "Status",
         "type": "tags",

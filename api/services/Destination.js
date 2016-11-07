@@ -34,7 +34,10 @@ var schema = new Schema({
     type: String,
     enum: ["true", "false"]
   },
-    order:Number
+    order:{
+    type: Number,
+    default:0
+  }
 
 });
 

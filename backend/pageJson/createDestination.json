@@ -22,7 +22,7 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Slider Image",
+        "name": "Poster Image",
         "type": "image",
         "size": "545 x 413",
         "tableRef": "image",
@@ -32,7 +32,7 @@
         "validation": ["", "trim", ""],
         "url": ""
     },{
-        "name": "Banner",
+        "name": "Banner Image",
         "type": "image",
         "size": "1827 X 674",
         "tableRef": "banner",
@@ -50,7 +50,7 @@
         "validation": ["", "trim", ""],
         "url": ""
     },{
-        "name": "Status",
+        "name": "Popular Destination",
         "type": "tags",
         "tableRef": "type",
         "placeholder": "Enter status",
@@ -62,7 +62,7 @@
         "onView": true,
         "dropDown": ["None", "Popular Destination"]
     },  {
-        "name": "Is Slider",
+        "name": "On HomePage",
         "type": "tags",
         "tableRef": "isSlider",
         "placeholder": "Enter isSlider",

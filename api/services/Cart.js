@@ -78,93 +78,93 @@ var model = {
 
 
 
-getCart: function (data, callback) {
-  console.log("innnn");
-  
-       var newreturns = {};
-      //  newreturns.package = [];
-      //  newreturns.activities = [];
-       
-         Package.populate(data.package,{ path:"package", select:"image title1 title2 destination", options:{lean: true},populate:{
-           path:'destination',
-           select:'name'
-         }},function(err,found){
-        if(err){
-          callback(err, null);
-        }else{
-          console.log("aaa", found);
-          (newreturns.package) = found;
-       
-        Activities.populate(data.activities,{ path:"activities", select:"name destination", options:{lean: true},populate:{
-           path:'destination',
-           select:'name'
-         }},function(err,found2){
-        if(err){
-          callback(err, null);
-        }else{
-          console.log("bbb", found2);
-          newreturns.activities = found2;
-        callback(null,newreturns);
-        }
-      });
-  
-           
-   }
-         });
-},
-
-
-// ********************************************************
-
-
 // getCart: function (data, callback) {
 //   console.log("innnn");
   
 //        var newreturns = {};
 //       //  newreturns.package = [];
 //       //  newreturns.activities = [];
-//        async.parallel([
-//            function (callback1) {
+       
 //          Package.populate(data.package,{ path:"package", select:"image title1 title2 destination", options:{lean: true},populate:{
 //            path:'destination',
 //            select:'name'
 //          }},function(err,found){
 //         if(err){
-//           callback1(err, null);
+//           callback(err, null);
 //         }else{
 //           console.log("aaa", found);
 //           (newreturns.package) = found;
-//         callback1(null,newreturns);
-//         }
-//       });
-//     },
-
-
-
-
-//            function (callback1) {
-//                Activities.populate(data.activities,{ path:"activities", select:"name destination", options:{lean: true},populate:{
+       
+//         Activities.populate(data.activities,{ path:"activities", select:"name destination", options:{lean: true},populate:{
 //            path:'destination',
 //            select:'name'
 //          }},function(err,found2){
 //         if(err){
-//           callback1(err, null);
+//           callback(err, null);
 //         }else{
 //           console.log("bbb", found2);
 //           newreturns.activities = found2;
-//         callback1(null,newreturns);
+//         callback(null,newreturns);
 //         }
 //       });
-//            }
-//        ], function (err, respo) {
-//            if (err) {
-//                console.log(err);
-//                callback(err, null);
-//            } else {
-//                callback(null, newreturns);
-//            }
-//        });
-//    },
+  
+           
+//    }
+//          });
+// },
+
+
+// ********************************************************
+
+
+getCart: function (data, callback) {
+  console.log("innnn");
+  
+       var newreturns = {};
+      //  newreturns.package = [];
+      //  newreturns.activities = [];
+       async.parallel([
+           function (callback1) {
+         Package.populate(data.package,{ path:"package", select:"image title1 title2 destination", options:{lean: true},populate:{
+           path:'destination',
+           select:'name'
+         }},function(err,found){
+        if(err){
+          callback1(err, null);
+        }else{
+          console.log("aaa", found);
+          (newreturns.package) = found;
+        callback1(null,newreturns);
+        }
+      });
+    },
+
+
+
+
+           function (callback1) {
+               Activities.populate(data.activities,{ path:"activities", select:"name destination", options:{lean: true},populate:{
+           path:'destination',
+           select:'name'
+         }},function(err,found2){
+        if(err){
+          callback1(err, null);
+        }else{
+          console.log("bbb", found2);
+          newreturns.activities = found2;
+        callback1(null,newreturns);
+        }
+      });
+           }
+       ], function (err, respo) {
+           if (err) {
+               console.log(err);
+               callback(err, null);
+           } else {
+               callback(null, newreturns);
+           }
+       });
+   },
 
   // ***************************************************************8
 

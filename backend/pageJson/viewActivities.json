@@ -5,15 +5,42 @@
   "sendIdWithCreate": true,
   "urlFields": ["_id"],
     "fields": [{
+        "name": "Order",
+        "type": "text",
+        "isSort": "",
+        "tableRef": "order"
+    },{
         "name": "Name",
         "type": "text",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "DestinationPage Image",
+    },{
+        "name": "Destination",
+        "type": "text",
+        "isSort": "",
+        "tableRef": {
+            "field": "destination",
+            "tableRef": "name"
+        }
+    },{
+        "name": "Small",
+        "type": "image",
+        "isSort": "",
+        "tableRef": "image1"
+    },{
+        "name": "Large",
+        "type": "image",
+        "isSort": "",
+        "tableRef": "image2"
+    },{
+        "name": "Home",
         "type": "image",
         "isSort": "",
         "tableRef": "image3"
+    },{
+        "name": "Popular Attraction",
+        "isSort": "",
+        "tableRef": "popular"
     },{
         "name": "Status",
         "isSort": "",

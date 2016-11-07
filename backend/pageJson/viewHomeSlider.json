@@ -5,14 +5,19 @@
   "sendIdWithCreate": true,
   "urlFields": ["_id"],
     "fields": [{
-        "name": "Image",
+        "name":"Order",
+        "isSort":"",
+        "tableRef":"order"
+    },{
+        "name": "Desktop Image",
         "type": "image",
         "isSort": "",
         "tableRef": "image"
     },{
-        "name":"URL",
+        "name": "Mobile Image",
+        "type": "image",
         "isSort": "",
-        "tableRef": "url"
+        "tableRef": "image2"
     },{
         "name": "Status",
         "isSort": "",
