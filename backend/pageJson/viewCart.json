@@ -1,0 +1,64 @@
+{
+  "title": "Cart",
+  "description": "List of Cart",
+  "pageType": "view",
+  "sendIdWithCreate": true,
+  "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "isSort": "",
+        "tableRef": "name"
+    },{
+        "name": "Email",
+        "isSort": "",
+        "tableRef": "email"
+    },{
+        "name": "Mobile",
+        "isSort": "",
+        "tableRef": "mobile"
+    },{
+        "name": "Group Size",
+        "isSort": "",
+        "tableRef": "groupSize"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editCart",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Banner",
+        "content": "Are you sure you want to delete Cart?",
+        "api": "Cart/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Excel Export",
+        "icon": "print",
+        "class": "btn-danger",
+        "type": "redirect",
+        "action": "excelexport"
+    }, {
+        "name": "Upload Excel",
+        "icon": "delete",
+        "class": "btn-warning",
+        "type": "redirect",
+        "action": "uploadcsv"
+    }],
+    "apiCall": {
+        "url": "Cart/search",
+        "params": ""
+    }
+}

@@ -106,11 +106,11 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         sref: "#/page/viewMedia//"
     },
-    // {
-    //     name: "Cart",
-    //     classis: "active",
-    //     sref: "#/page/viewCart//"
-    // },
+    {
+        name: "Cart",
+        classis: "active",
+        sref: "#/page/viewCart//"
+    },
     {
         name: "Enquire",
         classis: "active",

@@ -1,0 +1,81 @@
+{
+    "title": "Edit Cart",
+    "jsonPage": "viewCart",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Email",
+        "type": "text",
+        "tableRef": "email",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Mobile",
+        "type": "text",
+        "tableRef": "mobile",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Group Size",
+        "type": "number",
+        "tableRef": "groupSize",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "MyCart",
+        "type": "box",
+        "tableRef": "myCart",
+        "validation": ["", "trim", ""],
+        "fields": [{
+        "name": "Destination",
+        "type": "text",
+        "tableRef": "package.destination.name",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }]
+     }],
+    "action": [{
+        "name": "submit",
+        "action": "submitCart",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCart"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCart"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Cart/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Cart/getOne",
+        "params": "_id"
+    }
+}

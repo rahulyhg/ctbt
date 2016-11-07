@@ -5,10 +5,10 @@ var schema = new Schema({
   mobile: String,
   groupSize: Number,
   myCart: [{
-    type: {
-      type: String,
-      enum: ["Package", "Activities"]
-    },
+    // type: {
+    //   type: String,
+    //   enum: ["Package", "Activities"]
+    // },
     package: {
       type: Schema.Types.ObjectId,
       ref: 'Package',
@@ -25,17 +25,22 @@ var schema = new Schema({
 
 schema.plugin(deepPopulate, {
   populate: {
-    'myCart.package': '_id image name'
-  },
-  populate: {
-    'myCart.activities': '_id image1 title1'
+    'myCart.package': {
+      select:'_id image title1 title2 destination'
+    },
+    'myCart.package.destination':{
+      select:'_id name'
+    },
+    'myCart.activities':{
+      select:'_id  name destination'
+    }
   }
 });
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Cart', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.package myCart.activities", "myCart.package myCart.activities"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.package myCart.package.destination myCart.activities", "myCart.package myCart.package.destination myCart.activities"));
 var model = {
   getMyCart: function(data, callback) {
     Cart.findOne({

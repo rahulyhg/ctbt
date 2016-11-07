@@ -46,8 +46,7 @@ var schema = new Schema({
     popular: {
       type: String,
       enum: ["None","Popular Attraction"]
-    },
-    order:Number
+    }
 });
 
 schema.plugin(deepPopulate, {

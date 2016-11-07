@@ -57,12 +57,12 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": ""
-    }, {
+    },{
         "name": "Destination",
-        "type": "tags",
-        "dropDownType":"multiple",
+        "type": "selectFromTable",
+        "dropDownType":"single",
+        "searchApi":"searchCall",
         "tableRef": "destination",
-        "dropDownField":"name",
         "placeholder": "Enter Category-Name",
         "id": "input1",
         "validation": ["", "trim", ""],
