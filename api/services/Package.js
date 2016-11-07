@@ -36,11 +36,11 @@ var schema = new Schema({
         type: String,
         enum:["true","false"]
     },
-    destination: [{
+    destination: {
         type: Schema.Types.ObjectId,
         ref: 'Destination',
         index: true
-    }],
+    },
     pack:[{
       day:String,
       image:String,
