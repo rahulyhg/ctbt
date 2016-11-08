@@ -34,6 +34,14 @@
         "validation": ["", "trim", ""],
         "url": "Destination/search"
     },{
+        "name": "Order",
+        "type": "number",
+        "tableRef": "order",
+        "placeholder": "Enter Order",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
         "name": "Status",
         "type": "tags",
         "tableRef": "status",

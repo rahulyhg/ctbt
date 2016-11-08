@@ -14,6 +14,17 @@
         "isSort": "",
         "tableRef": "thumbnail"
     },{
+        "name":"Destination",
+        "isSort":"",
+        "tableRef":{
+            "field":"destination",
+            "tableRef":"name"
+        }
+    },{
+        "name":"Order",
+        "isSort":"",
+        "tableRef":"order"
+    },{
         "name": "Status",
         "isSort": "",
         "tableRef": "status"

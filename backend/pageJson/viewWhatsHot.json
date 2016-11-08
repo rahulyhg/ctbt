@@ -9,10 +9,31 @@
         "isSort": "",
         "tableRef": "name"
     },{
-        "name": "Banner",
+        "name": "Poster Image",
+        "type": "image",
+        "isSort": "",
+        "tableRef": "image"
+    },{
+        "name": "Banner Image",
         "type": "image",
         "isSort": "",
         "tableRef": "banner"
+    },{
+        "name": "Location",
+        "isSort": "",
+        "tableRef": "location"
+    },{
+        "name": "From Date",
+        "isSort": "",
+        "tableRef": "fromDate"
+    },{
+        "name": "To Date",
+        "isSort": "",
+        "tableRef": "toDate"
+    },{
+        "name": "Order",
+        "isSort": "",
+        "tableRef": "order"
     },{
         "name": "Status",
         "isSort": "",
