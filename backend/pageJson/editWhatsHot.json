@@ -14,21 +14,21 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Banner",
+        "name": "Poster Image",
         "type": "image",
-        "tableRef": "banner",
+        "tableRef": "image",
         "option": "single",
-        "size": "1632 × 562",
+        "size": "929 × 450",
         "placeholder": "Enter Image",
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Image",
+        "name": "Banner Image",
         "type": "image",
-        "tableRef": "image",
+        "tableRef": "banner",
         "option": "single",
-        "size": "929 × 450",
+        "size": "1632 × 562",
         "placeholder": "Enter Image",
         "id": "input1",
         "validation": ["", "trim", ""],
@@ -76,6 +76,14 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
+        "name": "Order",
+        "type": "number",
+        "tableRef": "order",
+        "placeholder": "Enter Order",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
         "name": "Status",
         "type": "tags",
         "tableRef": "status",

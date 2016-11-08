@@ -19,17 +19,19 @@
         "isSort": "",
         "tableRef": "banner"
     },{
-        "name": "Location",
-        "isSort": "",
-        "tableRef": "location"
-    },{
         "name": "From Date",
+        "type":"date",
         "isSort": "",
         "tableRef": "fromDate"
     },{
         "name": "To Date",
+        "type":"date",
         "isSort": "",
         "tableRef": "toDate"
+    },{
+        "name": "Location",
+        "isSort": "",
+        "tableRef": "location"
     },{
         "name": "Order",
         "isSort": "",

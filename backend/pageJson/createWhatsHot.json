@@ -14,21 +14,21 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Banner",
+        "name": "Poster Image",
         "type": "image",
-        "tableRef": "banner",
+        "tableRef": "image",
         "option": "single",
-        "size": "1632 × 562",
+        "size": "929 × 450",
         "placeholder": "Enter Image",
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Image",
+        "name": "Banner Image",
         "type": "image",
-        "tableRef": "image",
+        "tableRef": "banner",
         "option": "single",
-        "size": "929 × 450",
+        "size": "1632 × 562",
         "placeholder": "Enter Image",
         "id": "input1",
         "validation": ["", "trim", ""],
@@ -76,6 +76,14 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
+        "name": "Order",
+        "type": "number",
+        "tableRef": "order",
+        "placeholder": "Enter Order",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
         "name": "Status",
         "type": "tags",
         "tableRef": "status",
@@ -100,6 +108,7 @@
             "size": "1920 X 1080",
             "placeholder": "Enter Image",
             "id": "input1",
+            "onView": true,
             "validation": ["", "trim", ""],
             "url": ""
         },{
@@ -126,6 +135,7 @@
             "tableRef": "url",
             "placeholder": "Enter URL",
             "id": "input1",
+            "onView": true,
             "validation": ["", "trim", ""],
             "url": ""
         },{
@@ -136,6 +146,7 @@
             "tableRef": "thumbnail",
             "placeholder": "Enter Thumbnail Image",
             "id": "input1",
+            "onView": true,
             "validation": ["", "trim", ""],
             "url": ""
         },{
@@ -152,7 +163,6 @@
             "dropDown": ["true", "false"]
         }]
     }],
-
     "action": [{
         "name": "submit",
         "action": "submitWhatsHot",

@@ -4,23 +4,28 @@ var schema = new Schema({
   email: String,
   mobile: String,
   groupSize: Number,
-  myCart: [{
-    type: {
-      type: String,
-      enum: ["Package", "Activities"]
-    },
-    package: {
+  myCart: {
+    package: [{
       type: Schema.Types.ObjectId,
       ref: 'Package',
       index: true
-    },
-    activities: {
+    }],
+    activities: [{
       type: Schema.Types.ObjectId,
       ref: 'Activities',
       index: true
-    }
-  }],
-    order:Number
+    }],
+    whatshot:[{
+      type: Schema.Types.ObjectId,
+      ref: 'WhatsHot',
+      index: true
+    }]
+
+  },
+   order: {
+      type: Number,
+      default:0
+  }
 });
 
 schema.plugin(deepPopulate, {
@@ -33,6 +38,9 @@ schema.plugin(deepPopulate, {
     },
     'myCart.activities':{
       select:'_id  name destination'
+    },
+    'myCart.whatshot':{
+      select:'_id  name destination'
     }
   }
 });
@@ -40,7 +48,7 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Cart', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.package myCart.package.destination myCart.activities", "myCart.package myCart.package.destination myCart.activities"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.package myCart.package.destination myCart.activities myCart.whatshot", "myCart.package myCart.package.destination myCart.activities myCart.whatshot"));
 var model = {
   getMyCart: function(data, callback) {
     Cart.findOne({
@@ -75,48 +83,6 @@ var model = {
       }
     });
   },
-
-
-
-// getCart: function (data, callback) {
-//   console.log("innnn");
-  
-//        var newreturns = {};
-//       //  newreturns.package = [];
-//       //  newreturns.activities = [];
-       
-//          Package.populate(data.package,{ path:"package", select:"image title1 title2 destination", options:{lean: true},populate:{
-//            path:'destination',
-//            select:'name'
-//          }},function(err,found){
-//         if(err){
-//           callback(err, null);
-//         }else{
-//           console.log("aaa", found);
-//           (newreturns.package) = found;
-       
-//         Activities.populate(data.activities,{ path:"activities", select:"name destination", options:{lean: true},populate:{
-//            path:'destination',
-//            select:'name'
-//          }},function(err,found2){
-//         if(err){
-//           callback(err, null);
-//         }else{
-//           console.log("bbb", found2);
-//           newreturns.activities = found2;
-//         callback(null,newreturns);
-//         }
-//       });
-  
-           
-//    }
-//          });
-// },
-
-
-// ********************************************************
-
-
 getCart: function (data, callback) {
   console.log("innnn");
   
@@ -138,10 +104,17 @@ getCart: function (data, callback) {
         }
       });
     },
-
-
-
-
+function (callback1) {
+         WhatsHot.populate(data.whatshot,{ path:"whatshot", select:"image name", options:{lean: true}},function(err,found){
+        if(err){
+          callback1(err, null);
+        }else{
+          console.log("aaa", found);
+          (newreturns.whatshot) = found;
+        callback1(null,newreturns);
+        }
+      });
+    },
            function (callback1) {
                Activities.populate(data.activities,{ path:"activities", select:"name destination", options:{lean: true},populate:{
            path:'destination',
@@ -156,6 +129,7 @@ getCart: function (data, callback) {
         }
       });
            }
+
        ], function (err, respo) {
            if (err) {
                console.log(err);
@@ -165,43 +139,6 @@ getCart: function (data, callback) {
            }
        });
    },
-
-  // ***************************************************************8
-
-// // getCart: function (data, callback) {
-// //     async.parallel({
-      
-// //       Package: function (callback) {
-// //          Package.populate(data,{ path:"package", select:"title1 title2", options:{lean: true}},function(err,found){
-// //         if(err){
-// //           callback(err, null);
-// //         }else{
-// //         callback(null,found);
-// //         }
-// //       });
-// //       },
-
-// //       Activities: function (callback) {
-// //          Activities.populate(data,{ path:"activities", select:"name", options:{lean: true}},function(err,found){
-// //         if(err){
-// //           callback(err, null);
-// //         }else{
-// //         callback(null, found);
-// //         }
-// //       });
-// //       },
-
-// //     }, function (err, results) {
-// //         if (err) {
-// //             console.log(err);
-// //             callback(err, null);
-// //         } else if (results) {
-// //             callback(null, results);
-// //         } else {
-// //             callback(null, results);
-// //         }
-// //     });
-// },
 
 
 

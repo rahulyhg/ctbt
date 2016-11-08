@@ -3,6 +3,9 @@ var schema = new Schema({
     type:String,
     validate:validators.isEmail(),
     unique:true
+  },order: {
+      type: Number,
+      default:0
   }
   // ,
   // timestamp: {

@@ -9,7 +9,10 @@ var schema = new Schema({
   name:String,
   phone:String,
   email:String,
-  order:Number
+  order: {
+      type: Number,
+      default:0
+  }
 });
 
 schema.plugin(deepPopulate, {});

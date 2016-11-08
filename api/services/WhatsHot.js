@@ -35,7 +35,11 @@ var schema = new Schema({
     tableImage:{
       type: String,
       default: ""
-    },
+    }, 
+    order: {
+            type: Number,
+            default: 0
+        },
     status: {
         type: String,
         enum: ["true", "false"]

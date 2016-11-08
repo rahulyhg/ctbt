@@ -33,8 +33,8 @@ var schema = new Schema({
   status: {
     type: String,
     enum: ["true", "false"]
-  },
-    order:{
+  }
+  ,   order:{
     type: Number,
     default:0
   }
