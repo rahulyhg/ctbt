@@ -74,6 +74,14 @@
         "onView": true,
         "dropDown": ["Yes", "No"]
     },{
+        "name": "Order",
+        "type": "number",
+        "tableRef": "order",
+        "placeholder": "Enter Order",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
         "name": "Status",
         "type": "tags",
         "tableRef": "status",
