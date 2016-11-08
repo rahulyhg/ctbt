@@ -57,6 +57,13 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
+        getAllDest: function(callback) {
+            $http({
+                url: adminurl + 'RestApi/DestinationLand',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
         whatsHot: function(callback) {
             $http({
                 url: adminurl + 'RestApi/WhatsHot',

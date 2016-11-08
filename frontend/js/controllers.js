@@ -325,6 +325,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
 
+
     })
 
 .controller('DestinationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -364,7 +365,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classv = '';
 
         $scope.oneAtATime = true;
-
+        $scope.pageVariables = {};
         TemplateService.menu = "";
         // $scope.options = [{
         //     value: 'day',
@@ -422,6 +423,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cityDetails($stateParams.id, function(data) {
                 $scope.getTitle = data.data.getTitle;
                 $scope.getDestination = data.data.getDestination;
+                  console.log('edrtfgyhjedrftghjggggggggggggggggggg');
+                    console.log('$scope.myvideoUrl',data.data.getDestination.video);
+                    $scope.getUrl = data.data.getDestination.video;
+                    $scope.$apply();
+                // $.jStorage.set("videoUrl",$scope.getUrl);
+                // $scope.myvideoUrl = $.jStorage.get("videoUrl");
+                // $scope.$apply();
+
+
                 $scope.getPackage = data.data.getPackage;
                 // $scope.getActivity = data.data.getActivity;
                 // console.log('$scope.getActivity',$scope.getActivity);
@@ -601,10 +611,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
+        $scope.accordian = [];
 
+        // $scope.accordian.isFirstDisabled = false;
+        $scope.accordian.push({
+            isFirstOpen: true,
+            isFirstDisabled: false
+        });
+
+
+  $scope.openMe = false;
         $scope.goToFunction = function(id) {
             NavigationService.DestinationContent(id, function(data) {
                 $scope.DestinationTitle = data.data.getTitle;
+                $scope.openMe = true;
                 console.log("$scope.DestinationTitle", $scope.DestinationTitle);
             });
         };
@@ -794,12 +814,39 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('headerctrl', function($scope, TemplateService) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+      $scope.allDestMore = false;
+      $scope.allActivitiesMore = false;
+      $scope.allEventsMore = false;
     $.fancybox.close(true);
+    NavigationService.getAllDest(function(data){
+      $scope.allDest = data.data.popularDestination;
+      if(data.data.popularDestination.length > 5){
+        $scope.allDestMore = true;
+      }
+      console.log(data.data.popularDestination.length);
+      $scope.allDest = _.take(data.data.popularDestination,5);
+      console.log('$scope.allDest',$scope.allDest);
+    })
+    NavigationService.ActivityLand(function(data) {
+        $scope.allActivities = data.data.Images;
+        if(data.data.Images.length > 5){
+          $scope.allActivitiesMore = true;
+        }
+        $scope.allActivities = _.take(data.data.Images,5);
+    });
+    NavigationService.whatsHot(function(data) {
+        $scope.allEvents = data.data.Events;
+        if(data.data.Events.length > 5){
+          $scope.allEventsMore = true;
+        }
+        $scope.allEvents = _.take(data.data.Events,5);
+        console.log($scope.allEvents);
+    });
 })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
