@@ -119,7 +119,7 @@
                                 <div class="front">
                                     <img ng-src="{{data.image3 | serverimage}}" alt="" class="img-responsive doneLoading" ng-click="addTocart(data)">
                                     <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive">
+                                        <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-click="addTocartOnActivity(data._id,data.typeCart)">
                                         <img src="frontend/img/fav-cart.png" alt="" class="img-responsive">
                                     </div>
                                     <div class="shadow-up"></div>
@@ -130,7 +130,7 @@
                                 </div>
                                 <figcaption>
                                     <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
+                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnActivity(data._id,data.typeCart)">
                                     </div>
                                     <div ng-bind-html="data.description">
 
@@ -563,27 +563,27 @@
                         </form>
                     </div>
                     <div class="col-md-9 col-sm-8 col-xs-12 ">
-                        <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8">
-                            <div class="borderright"><strong class="naming bluecol">PARIS</strong>
-                                <div class="img1">
+                        <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
+                            <div class="borderright" ><strong class="naming bluecol">{{key}}</strong>
+                                <div class="img1" ng-repeat="(img in value.activities.image1 | serverimage) || (img in value.package.image | serverimage)">
                                     <div class="patevent">
-                                        <img src="frontend/img/2.png" alt="" class="img-responsive ">
+                                        <img ng-src="{{img}}" alt="" class="img-responsive ">
                                         <div class="cart-section">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="img1">
+                                <!-- <div class="img1">
                                     <div class="patevent">
                                         <img src="frontend/img/3.png" alt="" class="img-responsive ">
                                         <div class="cart-section">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8">
+                        <!-- <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8">
                             <div class="borderright"><strong class="naming bluecol">PATTAYA</strong>
                                 <div class="img1">
                                     <div class="patevent">
@@ -621,7 +621,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

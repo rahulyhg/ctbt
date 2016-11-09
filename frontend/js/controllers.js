@@ -408,11 +408,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // };
 
         $scope.addTocartOnPackage = function(id, type) {
+          console.log(id);
             NavigationService.addCartPackage(id, type, function(data) {
                 $scope.getData = data;
                 console.log('$scope.getData', $scope.getData);
             });
         }
+        $scope.addTocartOnActivity = function(id, type) {
+          console.log(id);
+            NavigationService.addCartActivity(id, type, function(data) {
+                $scope.getData = data;
+                console.log('$scope.getData', $scope.getData);
+            });
+        }
+        NavigationService.getCart(function(data) {
+            $scope.getCartDataActivity = _.groupBy(data.data.activities,'activities.destination.name');
+            console.log('$scope.mergeActivity', $scope.getCartDataActivity);
+            $scope.getCartDataPackage = _.groupBy(data.data.package,'package.destination.name');
+            console.log('$scope.mergePackage', $scope.getCartDataPackage);
+            $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity,$scope.getCartDataPackage);
+            console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+        });
         $scope.viewLess = false;
         $scope.viewMore = false;
         $scope.more = false;
@@ -423,16 +439,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cityDetails($stateParams.id, function(data) {
                 $scope.getTitle = data.data.getTitle;
                 $scope.getDestination = data.data.getDestination;
-                  console.log('edrtfgyhjedrftghjggggggggggggggggggg');
                     console.log('$scope.myvideoUrl',data.data.getDestination.video);
                     $scope.getUrl = data.data.getDestination.video;
-                    $scope.$apply();
+                    // $scope.$apply();
                 // $.jStorage.set("videoUrl",$scope.getUrl);
                 // $scope.myvideoUrl = $.jStorage.get("videoUrl");
                 // $scope.$apply();
 
 
                 $scope.getPackage = data.data.getPackage;
+                console.log('$scope.getPackage',$scope.getPackage);
                 // $scope.getActivity = data.data.getActivity;
                 // console.log('$scope.getActivity',$scope.getActivity);
                 // $scope.getActivityArr = _.cloneDeep($scope.getActivity);

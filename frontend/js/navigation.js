@@ -130,6 +130,18 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
+        addCartActivity: function(id,type, callback) {
+            var data = {
+                activities: id,
+                type: type
+            };
+            $http({
+                url: adminurl + 'cart/addToCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
         DestinationContent: function(id, callback) {
             var data = {
                 id: id,
@@ -155,6 +167,13 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'cart/save',
                 method: 'POST',
                 data:cartData
+            }).success(callback);
+        },
+         getCart: function(callback) {
+            //console.log('Navigation form data: ', formData);
+            $http({
+                url: adminurl + 'cart/getCart',
+                method: 'POST'
             }).success(callback);
         },
 
