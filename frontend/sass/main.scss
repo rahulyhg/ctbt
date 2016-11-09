@@ -236,7 +236,7 @@ a {
     cursor: pointer;
     width: 100%;
 }
-
+.fancybox-overlay{    background-color: rgba(0, 0, 0, 0.75) !important;}
 .select-main {
     i {
         font-size: 20px;
@@ -2426,6 +2426,7 @@ figure.hover figcaption {
 input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control {
     line-height: 22px;
 }
+.pad15pat{margin-bottom: 15px;}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

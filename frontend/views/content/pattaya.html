@@ -48,14 +48,15 @@
                             <div class="shadow-up"></div>
                             <div class="shadow-down"></div>
                             <div class="event-name">
-                                <span>{{data.title1}} {{data.title2}}</span><br>
+                                <span>{{data.title1}} {{data.title2}}</span>
+                                <br>
                                 <span>{{data.duration}}</span>
                             </div>
                             <div class="over-layer text-center">
                                 <div class="cart-sec">
                                     <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnPackage(data._id,data.typeCart)" ng-if="!cart">
                                     <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addPackageToCart(data._id)" ng-if="!cart"> -->
-                                      <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart">
+                                    <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart">
                                 </div>
                                 <div class="button-holder">
                                     <button class="ext-detail" ui-sref="pattaya2({id:data._id})">KNOW MORE</button>
@@ -66,7 +67,7 @@
                 </div>
                 <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMore">VIEW  MORE</a>
-                      <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="loadLessPackage()" >VIEW  LESS</a>
+                    <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="loadLessPackage()">VIEW  LESS</a>
                 </div>
                 <!-- <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
                     <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="loadLessPackage()" >VIEW  LESS</a>
@@ -87,11 +88,11 @@
                                 <div class="checkbox">
                                     <label>
                                         <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()">All
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="checkbox" ng-repeat="location in locationArr track by $index">
                                     <label>
-                                      <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()">{{location.value}}</label>
+                                        <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()">{{location.value}}</label>
                                     <img src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
                                 </div>
                                 <!-- <div class="checkbox">
@@ -112,13 +113,13 @@
                     </div>
                 </div>
                 <div class="row pattmarg3" ng-hide="noResult">
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0" ng-repeat="data in getActivity" >
+                    <div class="col-md-3 col-sm-4 col-xs-6 pading0" ng-repeat="data in getActivity">
                         <div class="flipDiv">
                             <figure>
                                 <div class="front">
                                     <img ng-src="{{data.image3 | serverimage}}" alt="" class="img-responsive doneLoading" ng-click="addTocart(data)">
                                     <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive" >
+                                        <img src="frontend/img/cart.png" alt="" class="img-responsive">
                                         <img src="frontend/img/fav-cart.png" alt="" class="img-responsive">
                                     </div>
                                     <div class="shadow-up"></div>
@@ -310,10 +311,11 @@
                         </div>
                     </div> -->
                 </div>
-                  <div ng-show="noResult && !viewMore"><h1>No Result Found</h1></div>
+                <div ng-show="noResult && !viewMore">
+                    <h1>No Result Found</h1></div>
                 <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMore">VIEW  MORE</a>
-                      <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()" >VIEW  LESS</a>
+                    <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()">VIEW  LESS</a>
                 </div>
                 <!-- <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
                     <a class="whit_color" ng-click="loadMoreActivity()" ng-if="!more">VIEW  MORE</a>
@@ -409,12 +411,37 @@
             <div class="whatsmarg4">
 
                 <!---ACCORDION ---->
+                <!---START VIDEO FRAME ---->
+                <div class="pad15pat embed-responsive embed-responsive-16by9">
+                    <!-- <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe> -->
+                    <!-- <iframe class="embed-responsive-item" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video}}" ></iframe> -->
+
+                    <iframe id="test" class="embed-responsive-item" ng-if="getDestination.video" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video|trusted}}">
+
+                      <!-- <iframe id="test" width="560" height="315" ng-class={{cdc}} ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo"
+       ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
+       frameborder="0" allowfullscreen="" style="
+   position: absolute;
+   left: 0;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 100%;
+   height: 100%;
+" class="">
+
+   </iframe> -->
+
+                    </iframe>
+                </div>
+                <!---END VIDEO FRAME ---->
+
                 <div class="row pregular">
                     <uib-accordion close-others="oneAtATime">
 
-                        <div uib-accordion-group  class="panel-default panelacor" ng-class="{'yellow_back_color': status.open4, '': !status.open4}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
-                            <uib-accordion-heading class="panel-heading">
-                                <div class="accord-title" >
+                        <div uib-accordion-group class="panel-default panelacor" ng-class="{'yellow_back_color': status.open4, '': !status.open4}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
+                            <uib-accordion-heading class="panel-heading" g-class="{'yellow_back_color': status.open4, '': !status.open4}">
+                                <div class="accord-title">
                                     <h4 class="panel-title fontpanel Pregular bluecol"><img src="{{data.thumbnail | serverimage}}" alt="" class="image_title" >  {{data.name}}
                                       <i class="pull-right fa " ng-class="{'fa fa-minus': status.open4, 'fa fa-plus': !status.open4}"></i>
                                     </h4>
@@ -424,35 +451,74 @@
                                 <div class="whatsmain">
                                     <div class="col-md-12">
 
-<!-- Please Remove the Below Comment -->
-                                        <div class="row padding30"ng-repeat="x in DestinationTitle">
+                                        <!-- Please Remove the Below Comment -->
+                                        <div class="row padding30" ng-repeat="x in DestinationTitle">
                                             <ul class="list-group socialpatt">
                                                 <li class="Robotor bluecol">
                                                     <strong class="padding15">{{x.name}}</strong>
                                                 </li>
-                                                    <p>{{x.description}}</p>
+                                                <p ng-bind-html="x.description"></p>
                                             </ul>
-                                        <div class="row padding30">
-                                            <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
-                                                <figure>
-                                                    <img class="img-responsive" src="{{image.image | serverimage}}">
-                                                    <!-- <figcaption>
-                                                        <div class="lin">
-                                                            <div class="frammargin">
-                                                                <img class="img-responsive doneLoading" src="frontend/img/ply.png">
+                                            <div class="row padding30">
+                                                <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
+                                                    <figure>
+                                                        <img class="img-responsive" src="{{image.image | serverimage}}">
+                                                        <figcaption>
+                                                            <div class="lin">
+                                                                <div class="frammargin">
+                                                                    <img class="img-responsive doneLoading" src="frontend/img/ply.png">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </figcaption> -->
-                                                </figure>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
                                             </div>
                                         </div>
-                                      </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </uib-accordion>
                     <!---MY CART START  ---->
+                    <!-- mydemo============================================= -->
+                    <!-- <pre>{{accordian[0].isFirstOpen}}</pre>
+<div class="row pregular">
+    <uib-accordion close-others="oneAtATime">
+
+        <div uib-accordion-group  ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}"  class="panel-default panelacor" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
+            <uib-accordion-heading class="panel-heading" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
+                <div class="accord-title" >
+                    <h4 class="panel-title fontpanel Pregular bluecol"><img src="{{data.thumbnail | serverimage}}" alt="" class="image_title" >  {{data.name}}
+                      <i class="pull-right fa " ng-class="{'fa fa-minus': accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
+                    </h4>
+                </div>
+            </uib-accordion-heading>
+            <div class="panel-body yellow_back_color">
+                <div class="whatsmain">
+                    <div class="col-md-12">
+                        <div class="row padding30"ng-repeat="x in DestinationTitle">
+                            <ul class="list-group socialpatt">
+                                <li class="Robotor bluecol">
+                                    <strong class="padding15">{{x.name}}</strong>
+                                </li>
+                                    <p ng-bind-html="x.description"></p>
+                            </ul>
+                        <div class="row padding30">
+                            <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
+                                <figure>
+                                    <img class="img-responsive" src="{{image.image | serverimage}}">
+                                </figure>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </uib-accordion> -->
+
+                    <!-- ==============end of mydemo =======================================================================-->
+
                     <p class="paddleft1 pregular bluecol yellow_back_color ">MY CART</p>
                     <!---MY CART END  ---->
                 </div>
@@ -492,7 +558,7 @@
                                 <p class="error" ng-show="detailForm.size.$error.required && detailForm.size.$dirty">Group Size is required</p>
                             </div>
                             <div class="row">
-                                 <button class="btn btn-submit" type="submit">SUBMIT</button>
+                                <button class="btn btn-submit" type="submit">SUBMIT</button>
                             </div>
                         </form>
                     </div>

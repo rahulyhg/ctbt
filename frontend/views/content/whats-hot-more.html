@@ -16,9 +16,9 @@
                 </div>
 
                 <div class="row">
-                    <a class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}" >
-                        <img class="img-responsive doneLoading" ng-src="{{data.image|serverimage}}">
-                    </a>
+                    <div class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}" >
+                        <img class="img-responsive doneLoading" src="{{data.image|serverimage}}">
+                    </div>
                     <!-- <a class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-href="img/banner.jpg" rel="gallery1" fancybox-box="" href="img/banner.jpg">
                         <img class="img-responsive doneLoading" src="frontend/img/rockclimb1.png">
                     </a>
