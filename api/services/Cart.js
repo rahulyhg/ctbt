@@ -6,7 +6,7 @@ var schema = new Schema({
   groupSize: Number,
   myCart: {
     package:[{
-      type:String,
+      type2:String,
       package:{
       type: Schema.Types.ObjectId,
       ref: 'Package',
@@ -14,7 +14,7 @@ var schema = new Schema({
     }
   }],
     activities: [{
-      type:String,
+      type2:String,
       activities:{
       type: Schema.Types.ObjectId,
       ref: 'Activities',
@@ -22,7 +22,7 @@ var schema = new Schema({
     }
   }],
     whatshot:[{
-      type:String,
+      type2:String,
       whatshot:{
       type: Schema.Types.ObjectId,
       ref: 'WhatsHot',
@@ -83,8 +83,17 @@ var model = {
   },
 
   saveCart: function(data, callback) {
-    var mycartdata = this(data);
-      mycartdata.myCart.package=data.myCart.package;
+    var mycartdata = data;
+    blue(mycartdata.myCart);
+    red(data.myCart);
+    console.log(data.myCart);
+      mycartdata.myCart.package=_.map(data.myCart.package,function(n) {
+        n.type2 = n.type;
+        delete n.type;  
+        return n;
+      });
+
+      mycartdata = this(mycartdata);
 //       var Model = this;
 // // var newdata = this(data);
 
