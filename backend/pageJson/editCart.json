@@ -42,22 +42,76 @@
         "tableRef": "myCart",
         "tableValue": "package",
         "validation": ["", "trim", ""],
-        "fields": [
-           {
-        "name": "Package",
+        "fields": [{
+        "name": "Destination",
         "type": "selectFromTable",
+        "viewType": "viewType",
         "dropDownType":"single",
         "searchApi":"searchCall",
-        "tableRef": "distination.name",
-        "tablevalue": "",
+        "tableRef": "package",
+        "tableValue": "destination.name",
         "onView":true,
         "placeholder": "Enter Category-Name",
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "Package/search"
-    }
-    ]
-        }    
+    },{
+        "name": "Package",
+        "type": "selectFromTable",
+        "viewType": "viewType",
+        "dropDownType":"single",
+        "searchApi":"searchCall",
+        "tableRef": "package",
+        "tableValue": "title1",
+        "onView":true,
+        "placeholder": "Enter Category-Name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Package/search"
+    }]
+        },
+        {
+        "name": "Activities",
+        "type": "box",
+        "tableRef": "myCart",
+        "tableValue": "activities",
+        "validation": ["", "trim", ""],
+        "fields": [{
+        "name": "Destination",
+        "type": "selectFromTable",
+        "viewType": "viewType",
+        "dropDownType":"single",
+        "searchApi":"searchCall",
+        "tableRef": "activities",
+        "tableValue": "destination.name",
+        "onView":true,
+        "placeholder": "Enter Category-Name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Activities/search"
+    }]
+        },
+          {
+        "name": "WhatsHot",
+        "type": "box",
+        "tableRef": "myCart",
+        "tableValue": "whatshot",
+        "validation": ["", "trim", ""],
+        "fields": [{
+        "name": "WhatsHot Name",
+        "type": "selectFromTable",
+        "viewType": "viewType",
+        "dropDownType":"single",
+        "searchApi":"searchCall",
+        "tableRef": "whatshot",
+        "tableValue": "name",
+        "onView":true,
+        "placeholder": "Enter Category-Name",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "WhatsHot/search"
+    }]
+        }     
     ],
     "action": [{
         "name": "submit",

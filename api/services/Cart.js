@@ -45,13 +45,13 @@ schema.plugin(deepPopulate, {
     'myCart.package.package.destination':{
       select:'_id name'
     },
-    'myCart.activities':{
+    'myCart.activities.activities':{
       select:'_id  name destination image1'
     },
-      'myCart.package.activities':{
+      'myCart.activities.activities.destination':{
       select:'_id name'
     },
-    'myCart.whatshot':{
+    'myCart.whatshot.whatshot':{
       select:'_id  name destination'
     }
   }
@@ -60,7 +60,7 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Cart', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.package myCart.package.package.destination myCart.activities myCart.whatshot", "myCart.package myCart.package.package.destination myCart.activities myCart.whatshot"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.whatshot.whatshot myCart.activities.activities.destination myCart.activities.activities myCart.package myCart.package.package.destination myCart.activities myCart.whatshot", "myCart.whatshot.whatshot myCart.activities.activities.destination myCart.activities.activities myCart.package myCart.package.package.destination myCart.activities myCart.whatshot"));
 var model = {
   getMyCart: function(data, callback) {
     Cart.findOne({

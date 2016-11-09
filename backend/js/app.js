@@ -633,7 +633,9 @@ firstapp.directive('viewField', function ($http, $filter) {
             } else {
                 $scope.form.model = $scope.value[$scope.type.tableRef];
             }
-
+            if ($scope.type.viewType == "viewType"){
+                $scope.type.type = "viewType";
+            }
             $scope.template = "views/viewField/" + $scope.type.type + ".html";
         }
     };

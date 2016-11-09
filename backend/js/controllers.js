@@ -411,15 +411,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     if ($scope.type.type == "box") {
         
-        var a = $filter('toobject')('package.title1',$scope.formData[$scope.type.tableRef][$scope.type.tableValue]);
-        console.log(a);
-
         if (!_.isArray($scope.formData[$scope.type.tableRef]) && $scope.formData[$scope.type.tableRef] === '') {
             $scope.formData[$scope.type.tableRef] = [];
             $scope.model = [];
         } else {
             if ($scope.formData[$scope.type.tableRef]) {
-                $scope.model = $scope.formData[$scope.type.tableRef][$scope.type.tableValue];
+                if($scope.type.tableValue){
+                    $scope.model = $scope.formData[$scope.type.tableRef][$scope.type.tableValue];
+                }else{
+                    $scope.model = $scope.formData[$scope.type.tableRef];
+                }
             }
         }
         $scope.search = {
