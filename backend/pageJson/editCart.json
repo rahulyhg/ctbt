@@ -81,7 +81,18 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "Package/search"
-    }]
+    },{
+            "name": "Image",
+            "type": "image",
+            "tableRef": "package.image",
+            "option": "single",
+            "size": "width = 413",
+            "placeholder": "Enter Image",
+            "id": "input1",
+            "onView": true,
+            "validation": ["", "trim", ""],
+            "url": ""
+        }]
         },
         {
         "name": "Activities",
@@ -115,7 +126,18 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "Activities/search"
-    }]
+    },{
+            "name": "Image",
+            "type": "image",
+            "tableRef": "activities.image1",
+            "option": "single",
+            "size": "width = 413",
+            "placeholder": "Enter Image",
+            "id": "input1",
+            "onView": true,
+            "validation": ["", "trim", ""],
+            "url": ""
+        }]
         },
           {
         "name": "WhatsHot",
@@ -136,7 +158,18 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "WhatsHot/search"
-    }]
+    },{
+            "name": "Image",
+            "type": "image",
+            "tableRef": "whatshot.image",
+            "option": "single",
+            "size": "width = 413",
+            "placeholder": "Enter Image",
+            "id": "input1",
+            "onView": true,
+            "validation": ["", "trim", ""],
+            "url": ""
+        }]
         }     
     ],
     "action": [{

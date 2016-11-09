@@ -636,6 +636,9 @@ firstapp.directive('viewField', function ($http, $filter) {
             if ($scope.type.viewType == "viewType"){
                 $scope.type.type = "viewType";
             }
+            // if($scope.type.viewType=="viewImage"){
+            //     $scope.type.type="viewImage";
+            // }
             $scope.template = "views/viewField/" + $scope.type.type + ".html";
         }
     };
