@@ -5,21 +5,30 @@ var schema = new Schema({
   mobile: String,
   groupSize: Number,
   myCart: {
-    package: [{
+    package:[{
+      type:String,
+      package:{
       type: Schema.Types.ObjectId,
       ref: 'Package',
       index: true
-    }],
+    }
+  }],
     activities: [{
+      type:String,
+      activities:{
       type: Schema.Types.ObjectId,
       ref: 'Activities',
       index: true
-    }],
+    }
+  }],
     whatshot:[{
+      type:String,
+      whatshot:{
       type: Schema.Types.ObjectId,
       ref: 'WhatsHot',
       index: true
-    }]
+    }
+  }]
 
   },
    order: {
@@ -75,8 +84,19 @@ var model = {
 
   saveCart: function(data, callback) {
     var mycartdata = this(data);
+      mycartdata.myCart.package=data.myCart.package;
+//       var Model = this;
+// // var newdata = this(data);
+
+// // var mycartdata ={};
+// mycartdata.package=data.myCart.package;
+
+// newdata = mycartdata;
+
     mycartdata.save(function(err, respo) {
       if (err) {
+        console.log( "ABC",data.myCart);
+        console.log( "ABC",data.myCart.package);
         callback(err, null);
       } else {
         callback(null, respo);

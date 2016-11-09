@@ -111,8 +111,11 @@ var controller = {
 
   saveCart: function(req, res) {
     if (req.body) {
-      console.log("aaaa", req.session.cart);
-      req.body.myCart = req.session.cart;
+      console.log("SabeCartEntry", req.session.cart);
+      // req.body.myCart = req.session.cart;
+      // req.body.myCart.package = req.session.cart.package;
+      // req.body.myCart.activities = req.session.cart.activities;
+      // req.body.myCart.whatshot = req.session.cart.whatshot;
       Cart.saveCart(req.body, res.callback);
     } else {
       res.json({
