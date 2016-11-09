@@ -107,6 +107,44 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
+        deleteCart: function(type,id, callback) {
+          var data = {
+              type: type,
+              activities:id
+          };
+          var data1 = {
+              type: type,
+              package:id
+          };
+          var data2 = {
+              type: type,
+              whatshot:id
+          };
+          if(type == 'Activities'){
+            $http({
+                url: adminurl + 'cart/deleteCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+          }else if(type == 'Package'){
+            $http({
+                url: adminurl + 'cart/deleteCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data1
+            }).success(callback);
+          }else{
+            $http({
+                url: adminurl + 'cart/deleteCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data2
+            }).success(callback);
+          }
+
+      
+        },
         ActivitiesImages: function(id, callback) {
             var data = {
                 destination: id,
@@ -133,6 +171,18 @@ var navigationservice = angular.module('navigationservice', [])
         addCartActivity: function(id,type, callback) {
             var data = {
                 activities: id,
+                type: type
+            };
+            $http({
+                url: adminurl + 'cart/addToCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
+        addCartWhatsHot: function(id,type, callback) {
+            var data = {
+                whatshot: id,
                 type: type
             };
             $http({

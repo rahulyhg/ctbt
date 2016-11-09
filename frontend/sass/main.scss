@@ -2203,6 +2203,7 @@ figure .links {
     margin-bottom: -5px;
     display: inline-block;
     width: 48%;
+    float: left;
 }
 
 .naming {
@@ -2249,6 +2250,10 @@ figure .links {
     color: #002b7f;
     font-size: 11px;
 }
+.cart{background-color: rgba(0, 0, 0, 0) !important;
+    border: none !important;
+  outline: none !important;
+    font-size: 17px;}
 
 .image_title {
     display: inline-block;
