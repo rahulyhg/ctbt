@@ -145,7 +145,7 @@ function (callback1) {
       });
     },
            function (callback1) {
-               Activities.populate(data.activities,{ path:"activities", select:"name destination", options:{lean: true},populate:{
+               Activities.populate(data.activities,{ path:"activities", select:"name destination image1", options:{lean: true},populate:{
            path:'destination',
            select:'name'
          }},function(err,found2){
