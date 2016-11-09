@@ -108,7 +108,8 @@ var controller = {
         data: "No Date In Cart"
       });
       }
-    }} else {
+    }
+  } else {
       res.json({
         value: false,
         data: "Invalid Request"

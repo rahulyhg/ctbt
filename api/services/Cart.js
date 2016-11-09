@@ -116,7 +116,6 @@ var model = {
     });
   },
 getCart: function (data, callback) {
-  console.log("innnn");
   
        var newreturns = {};
       //  newreturns.package = [];
