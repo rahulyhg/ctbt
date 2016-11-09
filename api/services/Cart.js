@@ -84,8 +84,8 @@ var model = {
 
   saveCart: function(data, callback) {
     var mycartdata = data;
-    blue(mycartdata.myCart);
-    red(data.myCart);
+    // blue(mycartdata.myCart);
+    // red(data.myCart);
     console.log(data.myCart);
       mycartdata.myCart.package=_.map(data.myCart.package,function(n) {
         n.type2 = n.type;

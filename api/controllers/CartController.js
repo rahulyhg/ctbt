@@ -13,33 +13,6 @@ var controller = {
     }
   },
 
-  // addToCart: function(req, res) {
-  //   if (req.body) {
-  //     if (req.session.user) {
-
-  //     } else {
-  //       console.log("Not logged", req.session.cart);
-  //       newcart = [];
-  //       if (req.session.cart && req.session.cart.length > 0) {
-  //         req.session.cart.push(req.body);
-  //       } else {
-  //         req.session.cart = [];
-  //         req.session.cart.push(req.body);
-  //       }
-
-  //       res.json({
-  //         value: true,
-  //         data: req.session.cart,
-  //         message: "Offline cart"
-  //       });
-  //     }
-  //   } else {
-  //     res.json({
-  //       value: false,
-  //       data: "Invalid Request"
-  //     });
-  //   }
-  // },
 
    addToCart: function(req, res) {
     if (req.body) {
@@ -48,26 +21,20 @@ var controller = {
       if (req.session.user) {
 
       } else {
-        console.log("Not logged", req.session.cart );
         if (req.session.cart != undefined) {
-          console.log("aaaaaa",req.session.cart);
           // req.session.cart.push(req.body);
           if(req.body.type==="Package"){
               req.session.cart.package.push(req.body);
-              console.log("In Package",req.session.cart);
           }
           if(req.body.type==="Activities"){
             // delete req.body.package;
               req.session.cart.activities.push(req.body);
-               console.log("In Activities",req.session.cart);
           }
           if(req.body.type==="WhatsHot"){
             // delete req.body.package;
               req.session.cart.whatshot.push(req.body);
-               console.log("In WhatsHot",req.session.cart);
           }
         } else {
-          console.log("bbbb");
           req.session.cart = {};
           req.session.cart.activities = [];
           req.session.cart.package = [];
@@ -77,19 +44,16 @@ var controller = {
             // delete req.body.activities;
             // var req.session.cart.activities = [];
             req.session.cart.package.push(req.body);
-            console.log("Package",req.session.cart);
           }
             if(req.body.type==="Activities"){
             // delete req.body.package;
             // var activitiesarr = [];
             req.session.cart.activities.push(req.body);
-             console.log("Activities",req.session.cart);
           }
           if(req.body.type==="WhatsHot"){
             // delete req.body.package;
             // var activitiesarr = [];
             req.session.cart.whatshot.push(req.body);
-             console.log("WhatsHot",req.session.cart);
           }
         }
       //  req.session.cart.activities.push(activitiesarr);
@@ -111,7 +75,6 @@ var controller = {
 
   saveCart: function(req, res) {
     if (req.body) {
-      console.log("SabeCartEntry", req.session.cart);
       req.body.myCart = req.session.cart;
       // req.body.myCart.package = req.session.cart.package;
       // req.body.myCart.activities = req.session.cart.activities;
@@ -130,6 +93,7 @@ var controller = {
       if (req.session.user) {
 
       } else {
+        if(req.session.cart){
         req.body.activities =  _.cloneDeep(req.session.cart.activities);
         req.body.package =  _.cloneDeep(req.session.cart.package);
         req.body.whatshot =  _.cloneDeep(req.session.cart.whatshot);
@@ -138,8 +102,13 @@ var controller = {
         //   value: true,
         //   data: req.session.cart
         // });
+      }else{
+      res.json({
+        value: false,
+        data: "No Date In Cart"
+      });
       }
-    } else {
+    }} else {
       res.json({
         value: false,
         data: "Invalid Request"
@@ -148,7 +117,6 @@ var controller = {
   },
 
 
-  //  Delete
 
 
    deleteCart: function(req, res) {
@@ -159,16 +127,26 @@ var controller = {
         if(req.body.type==="Package"){
  var id = req.body.package;
  var mycartdata = req.session.cart.package
-     
+ if (mycartdata.length > 0) {
+                   mycartdata=_.remove(mycartdata, function (n) {
+                        return n.package === id;
+                    });
+                    res.json({
+                        value: true,
+                        message: "Removed",
+                        data: mycartdata
+                    });
+                } else {
+                    res.json({
+                        value: false,
+                        data: "Cart is Empty"
+                    });
+                }
         }else if(req.body.type==="Activities"){
  var id = req.body.activities;
  var mycartdata = req.session.cart.activities
-        }else if(req.body.type==="WhatsHot"){
- var id = req.body.whatshot;
- var mycartdata = req.session.cart.whatshot
-        }
-                if (mycartdata.length > 0) {
-                    _.remove(mycartdata, function (n) {
+ if (mycartdata.length > 0) {
+                   mycartdata=_.remove(mycartdata, function (n) {
                         return n.activities === id;
                     });
                     res.json({
@@ -182,6 +160,26 @@ var controller = {
                         data: "Cart is Empty"
                     });
                 }
+        }else if(req.body.type==="WhatsHot"){
+ var id = req.body.whatshot;
+ var mycartdata = req.session.cart.whatshot
+  if (mycartdata.length > 0) {
+                   mycartdata=_.remove(mycartdata, function (n) {
+                        return n.whatshot === id;
+                    });
+                    res.json({
+                        value: true,
+                        message: "Removed",
+                        data: mycartdata
+                    });
+                } else {
+                    res.json({
+                        value: false,
+                        data: "Cart is Empty"
+                    });
+                }
+        }
+                
             } 
     }
     else {
