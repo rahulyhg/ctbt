@@ -37,20 +37,28 @@
         "validation": ["", "trim", ""],
         "url": ""
     },{
-        "name": "MyCart",
+        "name": "Package",
         "type": "box",
         "tableRef": "myCart",
+        "tableValue": "package",
         "validation": ["", "trim", ""],
-        "fields": [{
-        "name": "Destination",
-        "type": "text",
-        "tableRef": "package.destination.name",
-        "placeholder": "Enter name",
+        "fields": [
+           {
+        "name": "Package",
+        "type": "selectFromTable",
+        "dropDownType":"single",
+        "searchApi":"searchCall",
+        "tableRef": "distination.name",
+        "tablevalue": "",
+        "onView":true,
+        "placeholder": "Enter Category-Name",
         "id": "input1",
         "validation": ["", "trim", ""],
-        "url": ""
-    }]
-     }],
+        "url": "Package/search"
+    }
+    ]
+        }    
+    ],
     "action": [{
         "name": "submit",
         "action": "submitCart",

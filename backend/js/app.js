@@ -108,6 +108,33 @@ firstapp.directive('imageonload', function () {
     };
 });
 
+firstapp.filter('toobject', function () {
+    return function (input, assignment) {
+        var sInput = _.split(input, '+');
+        var returnStr = "";
+        sInput = _.map(sInput, function (n) {
+            var obj = {};
+            n = _.trim(n);
+            if (_.startsWith(n, '"')) {
+                obj.type = "String";
+                obj.value = n.substr(1, n.length - 2);
+            } else {
+                obj.type = "Object";
+                var splitVal = _.split(n, ".");
+                obj.value = assignment;
+                _.each(splitVal, function (m) {
+                    if (obj.value) {
+                        obj.value = obj.value[m];
+                    }
+
+                });
+            }
+            returnStr = returnStr + obj.value;
+            return obj;
+        });
+        return returnStr;
+    };
+});
 
 firstapp.directive('uploadImage', function ($http, $filter) {
     return {
