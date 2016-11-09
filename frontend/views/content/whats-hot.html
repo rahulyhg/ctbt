@@ -23,11 +23,17 @@
         <div class="categoryup">
             <h1 class="theboldfont whit_color">UPCOMING<br>EVENTS</h1>
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12 padd15px" ng-repeat="data in myEvents" ui-sref="whats-hot-more({id:data._id})">
+                <div class="col-md-4 col-sm-6 col-xs-12 padd15px" ng-repeat="data in myEvents">
                     <div class="events">
                         <img src="{{data.image| serverimage}}" alt="" class="img-responsive ">
                         <div class="cart-sec">
-                            <img ng-src="frontend/img/cart.png" alt="" class="img-responsive ">
+                          <button class="cart uppercase" ng-click="addTocartOnWhatsHot(data._id,data.typeCart);">
+
+                              <i class="fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
+                              <i class="yellow_color fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
+
+                          </button>
+                            <!-- <img ng-src="frontend/img/cart.png" alt="" class="img-responsive "> -->
                         </div>
                         <div class="shadow-up"></div>
                         <div class="shadow-down2"></div>

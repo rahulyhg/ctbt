@@ -42,8 +42,14 @@
                         <div class="events">
                             <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
                             <div class="cart-sec">
-                                <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
-                                <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart">
+                              <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+
+                                  <i class="fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
+                                  <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
+
+                              </button>
+                                <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
+                                <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
                             </div>
                             <div class="shadow-up"></div>
                             <div class="shadow-down"></div>
@@ -54,9 +60,14 @@
                             </div>
                             <div class="over-layer text-center">
                                 <div class="cart-sec">
-                                    <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnPackage(data._id,data.typeCart)" ng-if="!cart">
-                                    <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addPackageToCart(data._id)" ng-if="!cart"> -->
-                                    <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart">
+                                  <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+
+                                      <i class="fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
+                                      <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
+
+                                  </button>
+                                    <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnPackage(data._id,data.typeCart)" ng-if="!cart">
+                                    <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
                                 </div>
                                 <div class="button-holder">
                                     <button class="ext-detail" ui-sref="pattaya2({id:data._id})">KNOW MORE</button>
@@ -119,9 +130,18 @@
                                 <div class="front">
                                     <img ng-src="{{data.image3 | serverimage}}" alt="" class="img-responsive doneLoading" ng-click="addTocart(data)">
                                     <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-click="addTocartOnActivity(data._id,data.typeCart)">
-                                        <img src="frontend/img/fav-cart.png" alt="" class="img-responsive">
+                                        <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
+                                            <!-- <i class="fa fa-shopping-cart" ng-class="{'fa-shopping-cart':!isInWishlist(data._id),'fa-shopping-cart':isInWishlist(data._id)}"></i> -->
+
+                                            <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
+                                            <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
+
+                                        </button>
                                     </div>
+                                    <!-- <div class="cart-sec">
+                                        <img src="frontend/img/cart.png" alt="" class="img-responsive">
+                                        <img src="frontend/img/fav-cart.png" alt="" class="img-responsive">
+                                    </div> -->
                                     <div class="shadow-up"></div>
                                     <div class="shadow-down"></div>
                                     <div class="event-name">
@@ -129,9 +149,18 @@
                                     </div>
                                 </div>
                                 <figcaption>
-                                    <div class="cart-sec">
+                                    <!-- <div class="cart-sec">
                                         <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnActivity(data._id,data.typeCart)">
+                                    </div> -->
+
+                                    <div class="cart-sec">
+                                        <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
+                                            <!-- <i class="fa fa-shopping-cart" ng-class="{'fa-shopping-cart':!isInWishlist(data._id),'fa-shopping-cart':isInWishlist(data._id)}" style="color:yellow;"></i>-->
+                                            <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
+                                            <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
+                                          </button>
                                     </div>
+
                                     <div ng-bind-html="data.description">
 
                                     </div>
@@ -418,7 +447,7 @@
 
                     <iframe id="test" class="embed-responsive-item" ng-if="getDestination.video" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video|trusted}}">
 
-                      <!-- <iframe id="test" width="560" height="315" ng-class={{cdc}} ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo"
+                        <!-- <iframe id="test" width="560" height="315" ng-class={{cdc}} ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo"
        ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
        frameborder="0" allowfullscreen="" style="
    position: absolute;
@@ -444,7 +473,7 @@
                                 <div class="accord-title">
                                     <h4 class="panel-title fontpanel Pregular bluecol"><img src="{{data.thumbnail | serverimage}}" alt="" class="image_title" >  {{data.name}}
                                       <i class="pull-right fa " ng-class="{'fa fa-minus': status.open4, 'fa fa-plus': !status.open4}"></i>
-                                    </h4>
+                                        </h4>
                                 </div>
                             </uib-accordion-heading>
                             <div class="panel-body yellow_back_color">
@@ -563,13 +592,19 @@
                         </form>
                     </div>
                     <div class="col-md-9 col-sm-8 col-xs-12 ">
-                        <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
-                            <div class="borderright" ><strong class="naming bluecol">{{key}}</strong>
-                                <div class="img1" ng-repeat="(img in value.activities.image1 | serverimage) || (img in value.package.image | serverimage)">
+                        <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
+                            <div><strong class="naming bluecol">{{key}}</strong>
+                                <div class="img1" ng-repeat="img in value">
+                                    <!-- <div class="img1" ng-repeat="(img in value.activities.image1 | serverimage) || (img in value.package.image | serverimage)"> -->
                                     <div class="patevent">
-                                        <img ng-src="{{img}}" alt="" class="img-responsive ">
+                                        <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive ">
+                                        <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive ">
+                                        <!-- <img ng-src="{{img.activities.image1 && (img.activities.image1 | serverimage) || (img.package.image | serverimage)}}" alt="" class="img-responsive "> -->
                                         <div class="cart-section">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                            <i class="fa fa-times" aria-hidden="true" ng-if="img.package" ng-click="deleteCart(img.type,img.package._id)"></i>
+                                            <i class="fa fa-times" aria-hidden="true" ng-if="img.activities" ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.activities && !img.package" ng-click="deleteCart(img.type,img.activities._id)"></i> -->
+                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.)"></i> -->
                                         </div>
                                     </div>
                                 </div>
@@ -582,7 +617,25 @@
                                     </div>
                                 </div> -->
                             </div>
-                        </div>
+                              </div>
+                            <!-- =============== for Whats hot ===========-->
+                              <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="data in getCartDataWhatsHot">
+                            <div><strong class="naming bluecol">{{data.whatshot.name}}</strong>
+                                <div class="img1" >
+                                    <!-- <div class="img1" ng-repeat="(img in value.activities.image1 | serverimage) || (img in value.package.image | serverimage)"> -->
+                                    <div class="patevent">
+                                        <img ng-src="{{data.whatshot.image | serverimage}}" alt=""  class="img-responsive">
+                                        <div class="cart-section">
+                                            <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart('WhatsHot',data.whatshot._id)"></i>
+                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.activities && !img.package" ng-click="deleteCart(img.type,img.activities._id)"></i> -->
+                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.)"></i> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                            <!-- =============== end of Whats hot ===========-->
+
                         <!-- <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8">
                             <div class="borderright"><strong class="naming bluecol">PATTAYA</strong>
                                 <div class="img1">

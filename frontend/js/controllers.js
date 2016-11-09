@@ -98,13 +98,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getChangeDestination(id, function(data) {
                 $scope.changeDestData = data.data.Images;
                 var images = _.groupBy($scope.changeDestData, function(n) {
-                  if (_.isEmpty(n.image1)) {
-                      return "bigImage";
-                  } else if(n.image1 && n.image2){
-                      return "bigImage";
-                  }else{
-                    return "smallImage";
-                  }
+                    if (_.isEmpty(n.image1)) {
+                        return "bigImage";
+                    } else if (n.image1 && n.image2) {
+                        return "bigImage";
+                    } else {
+                        return "smallImage";
+                    }
                     // if (_.isEmpty(n.image1)) {
                     //     return "bigImage";
                     // } else {
@@ -126,44 +126,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 // console.log($scope.activityLoop);
 
                 console.log('serdtfyguhsertghjdrfghjedrfghj');
-                console.log('images',images);
+                console.log('images', images);
                 if (images.smallImage) {
-                  console.log(images.smallImage.length);
-                  // if(images.smallImage.length > 2){
-                  //   $scope.viewMore = true;
-                  // }
+                    console.log(images.smallImage.length);
+                    // if(images.smallImage.length > 2){
+                    //   $scope.viewMore = true;
+                    // }
                     images.smallImage = _.chunk(images.smallImage, 3);
                     console.log('images.smallImage', images.smallImage);
                     $scope.smallImageArray = _.cloneDeep(images.smallImage);
                     images.smallImage = _.take(images.smallImage, 2);
-                    if(images.smallImage.length > 2){
-                      $scope.viewMore = true;
-                    }else{
-                      $scope.viewMore = false;
+                    if (images.smallImage.length > 2) {
+                        $scope.viewMore = true;
+                    } else {
+                        $scope.viewMore = false;
                     }
 
                 }
                 if (images.bigImage) {
 
-                  console.log(images.bigImage.length);
+                    console.log(images.bigImage.length);
                     $scope.bigImageArray = _.cloneDeep(images.bigImage);
                     images.bigImage = _.take(images.bigImage, 1);
-                    if(images.bigImage.length > 2){
-                      $scope.viewMore = true;
-                    }else{
-                      $scope.viewMore = false;
+                    if (images.bigImage.length > 2) {
+                        $scope.viewMore = true;
+                    } else {
+                        $scope.viewMore = false;
                     }
 
                 }
                 // console.log('images.smallImage.length', images.smallImage.length);
                 $scope.activityLand = images;
                 if (images.bigImage && !images.smallImage) {
-                  console.log('bigggg imggggg');
-                  $scope.viewMore = false;
-                  $scope.viewLess = false;
-                  $scope.activityLoop = _.times(images.bigImage.length, Number);
+                    console.log('bigggg imggggg');
+                    $scope.viewMore = false;
+                    $scope.viewLess = false;
+                    $scope.activityLoop = _.times(images.bigImage.length, Number);
                 } else {
-                  console.log('i m smallll');
+                    console.log('i m smallll');
                     $scope.activityLoop = _.times(images.smallImage.length, Number);
                     // $scope.viewMore = false;
                     // $scope.viewLess = false;
@@ -171,15 +171,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 console.log("bigImage", images.bigImage);
 
-                    if (images.bigImage.length > 0 && images.smallImage.length > 0) {
-                        if (images.bigImage.length >= images.smallImage.length) {
-                            $scope.activityLoop = _.times(images.bigImage.length, Number);
-                            console.log('if $scope.activityLoop', $scope.activityLoop);
-                        } else {
-                            $scope.activityLoop = _.times(images.smallImage.length, Number);
-                            console.log('else $scope.activityLoop', $scope.activityLoop);
-                        }
+                if (images.bigImage.length > 0 && images.smallImage.length > 0) {
+                    if (images.bigImage.length >= images.smallImage.length) {
+                        $scope.activityLoop = _.times(images.bigImage.length, Number);
+                        console.log('if $scope.activityLoop', $scope.activityLoop);
+                    } else {
+                        $scope.activityLoop = _.times(images.smallImage.length, Number);
+                        console.log('else $scope.activityLoop', $scope.activityLoop);
                     }
+                }
             });
         }
 
@@ -195,13 +195,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.showBttn = data.data.Images;
                 console.log('$scope.showBttn', $scope.showBttn.length);
                 var images = _.groupBy(data.data.Images, function(n) {
-                  if (_.isEmpty(n.image1)) {
-                      return "bigImage";
-                  } else if(n.image1 && n.image2){
-                      return "bigImage";
-                  }else{
-                    return "smallImage";
-                  }
+                    if (_.isEmpty(n.image1)) {
+                        return "bigImage";
+                    } else if (n.image1 && n.image2) {
+                        return "bigImage";
+                    } else {
+                        return "smallImage";
+                    }
                     // if (_.isEmpty(n.image1)) {
                     //     return "bigImage";
                     // } else {
@@ -209,13 +209,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     // }
                 });
                 console.log('serdtfyguhsertghjdrfghjedrfghj');
-                console.log('images',images);
+                console.log('images', images);
                 if (images.smallImage) {
-                  console.log(images.smallImage.length);
-                  if(images.smallImage.length > 6){
-                    console.log('hbnjbbbbbbbbbbbbbbbbbbbbbbbbbb');
-                    $scope.viewMore = true;
-                  }
+                    console.log(images.smallImage.length);
+                    if (images.smallImage.length > 6) {
+                        console.log('hbnjbbbbbbbbbbbbbbbbbbbbbbbbbb');
+                        $scope.viewMore = true;
+                    }
                     images.smallImage = _.chunk(images.smallImage, 3);
                     console.log('images.smallImage', images.smallImage);
                     $scope.smallImageArray = _.cloneDeep(images.smallImage);
@@ -223,10 +223,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
                 if (images.bigImage) {
 
-                  console.log(images.bigImage.length);
-                  if(images.bigImage.length > 2){
-                    $scope.viewMore = true;
-                  }
+                    console.log(images.bigImage.length);
+                    if (images.bigImage.length > 2) {
+                        $scope.viewMore = true;
+                    }
                     $scope.bigImageArray = _.cloneDeep(images.bigImage);
                     images.bigImage = _.take(images.bigImage, 1);
 
@@ -246,11 +246,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //   $scope.viewLess = false;
                 //   $scope.activityLoop = _.times(images.bigImage.length, Number);
                 // }
-                if(!images.bigImage && images.smallImage) {
-                  console.log('i m smallll');
+                if (!images.bigImage && images.smallImage) {
+                    console.log('i m smallll');
                     $scope.activityLoop = _.times(images.smallImage.length, Number);
-                }else{
-                  $scope.activityLoop = _.times(images.bigImage.length, Number);
+                } else {
+                    $scope.activityLoop = _.times(images.bigImage.length, Number);
                 }
                 // if(!images.bigImage && images.smallImage.length<=1) {
                 //   console.log('i m smallll');
@@ -262,15 +262,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 console.log("bigImage", images.bigImage);
 
-                    if (images.bigImage.length > 0 && images.smallImage.length > 0) {
-                        if (images.bigImage.length >= images.smallImage.length) {
-                            $scope.activityLoop = _.times(images.bigImage.length, Number);
-                            console.log('if $scope.activityLoop', $scope.activityLoop);
-                        } else {
-                            $scope.activityLoop = _.times(images.smallImage.length, Number);
-                            console.log('else $scope.activityLoop', $scope.activityLoop);
-                        }
+                if (images.bigImage.length > 0 && images.smallImage.length > 0) {
+                    if (images.bigImage.length >= images.smallImage.length) {
+                        $scope.activityLoop = _.times(images.bigImage.length, Number);
+                        console.log('if $scope.activityLoop', $scope.activityLoop);
+                    } else {
+                        $scope.activityLoop = _.times(images.smallImage.length, Number);
+                        console.log('else $scope.activityLoop', $scope.activityLoop);
                     }
+                }
 
             });
         }
@@ -407,48 +407,100 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         // };
 
-        $scope.addTocartOnPackage = function(id, type) {
-          console.log(id);
-            NavigationService.addCartPackage(id, type, function(data) {
-                $scope.getData = data;
-                console.log('$scope.getData', $scope.getData);
-            });
-        }
-        $scope.addTocartOnActivity = function(id, type) {
-          console.log(id);
-            NavigationService.addCartActivity(id, type, function(data) {
-                $scope.getData = data;
-                console.log('$scope.getData', $scope.getData);
-            });
-        }
         NavigationService.getCart(function(data) {
-            $scope.getCartDataActivity = _.groupBy(data.data.activities,'activities.destination.name');
+            $scope.getCartDataActivity10 = data.data.activities;
+            $scope.getCartDataPackage10 = data.data.package;
+            $scope.getCartDataWhatsHot = data.data.whatshot;
+            $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
             console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-            $scope.getCartDataPackage = _.groupBy(data.data.package,'package.destination.name');
+            $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
             console.log('$scope.mergePackage', $scope.getCartDataPackage);
-            $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity,$scope.getCartDataPackage);
+            $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
             console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
         });
+
+        $scope.addTocartOnPackage = function(id, type) {
+            console.log(id);
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
+                return key.package._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type, id, function(data) {
+                    console.log('deleted', data);
+                });
+            } else {
+                NavigationService.addCartPackage(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                });
+            }
+        }
+
+        $scope.isInWishlistActivity = function(id) {
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        $scope.isInWishlistPackage = function(id) {
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
+                return key.package._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $scope.addTocartOnActivity = function(id, type) {
+            console.log(id);
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type, id, function(data) {
+                    console.log('deleted', data);
+                });
+            } else {
+                NavigationService.addCartActivity(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                });
+            }
+
+
+        }
+
         $scope.viewLess = false;
         $scope.viewMore = false;
         $scope.more = false;
         $scope.checkIt = {};
-
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+            });
+        }
         $scope.loadLessPackage = function() {
             var myarr = [];
             NavigationService.cityDetails($stateParams.id, function(data) {
                 $scope.getTitle = data.data.getTitle;
                 $scope.getDestination = data.data.getDestination;
-                    console.log('$scope.myvideoUrl',data.data.getDestination.video);
-                    $scope.getUrl = data.data.getDestination.video;
-                    // $scope.$apply();
+                console.log('$scope.myvideoUrl', data.data.getDestination.video);
+                $scope.getUrl = data.data.getDestination.video;
+                // $scope.$apply();
                 // $.jStorage.set("videoUrl",$scope.getUrl);
                 // $scope.myvideoUrl = $.jStorage.get("videoUrl");
                 // $scope.$apply();
 
 
                 $scope.getPackage = data.data.getPackage;
-                console.log('$scope.getPackage',$scope.getPackage);
+                console.log('$scope.getPackage', $scope.getPackage);
                 // $scope.getActivity = data.data.getActivity;
                 // console.log('$scope.getActivity',$scope.getActivity);
                 // $scope.getActivityArr = _.cloneDeep($scope.getActivity);
@@ -522,7 +574,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getSearch(dataToSend, function(data) {
                 $scope.viewMore = true;
                 if (data.data.Category.length == 0) {
-                  $scope.viewMore = false;
+                    $scope.viewMore = false;
                     $scope.noResult = true;
                 } else {
 
@@ -636,7 +688,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
 
-  $scope.openMe = false;
+        $scope.openMe = false;
         $scope.goToFunction = function(id) {
             NavigationService.DestinationContent(id, function(data) {
                 $scope.DestinationTitle = data.data.getTitle;
@@ -766,6 +818,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.getOneWhatsHot = data.data.Details[0];
             console.log($scope.getOneWhatsHot);
         });
+        $scope.myid = $stateParams.id;
+
+        $scope.addTocartOnWhatsHot = function(id, type) {
+            console.log(id,type);
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
+                return key.package._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type, id, function(data) {
+                    console.log('deleted', data);
+                });
+            } else {
+                NavigationService.addCartWhatsHot(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                });
+            }
+        }
+
 
     })
     .controller('WhatsHotCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
@@ -791,6 +862,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.myEvents = data.data.Events;
             console.log($scope.myEvents);
         });
+        $scope.isInWishlistWhatsHot = function(id) {
+            var indexF = _.findIndex($scope.myEvents, function(key) {
+                return key._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        $scope.addTocartOnWhatsHot = function(id, type) {
+            console.log(id,type);
+            var indexF = _.findIndex($scope.myEvents, function(key) {
+                return key._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type, id, function(data) {
+                    console.log('deleted', data);
+                });
+            } else {
+                NavigationService.addCartWhatsHot(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                });
+            }
+        }
         // $scope.mySlides = [{
         //     img: "img/qwe.jpg",
         //     events: "TOMMOROWLAND",
@@ -835,32 +932,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
-      $scope.allDestMore = false;
-      $scope.allActivitiesMore = false;
-      $scope.allEventsMore = false;
+    $scope.allDestMore = false;
+    $scope.allActivitiesMore = false;
+    $scope.allEventsMore = false;
     $.fancybox.close(true);
-    NavigationService.getAllDest(function(data){
-      $scope.allDest = data.data.popularDestination;
-      if(data.data.popularDestination.length > 5){
-        $scope.allDestMore = true;
-      }
-      console.log(data.data.popularDestination.length);
-      $scope.allDest = _.take(data.data.popularDestination,5);
-      console.log('$scope.allDest',$scope.allDest);
+    NavigationService.getAllDest(function(data) {
+        $scope.allDest = data.data.popularDestination;
+        if (data.data.popularDestination.length > 5) {
+            $scope.allDestMore = true;
+        }
+        console.log(data.data.popularDestination.length);
+        $scope.allDest = _.take(data.data.popularDestination, 5);
+        console.log('$scope.allDest', $scope.allDest);
     })
     NavigationService.ActivityLand(function(data) {
         $scope.allActivities = data.data.Images;
-        if(data.data.Images.length > 5){
-          $scope.allActivitiesMore = true;
+        if (data.data.Images.length > 5) {
+            $scope.allActivitiesMore = true;
         }
-        $scope.allActivities = _.take(data.data.Images,5);
+        $scope.allActivities = _.take(data.data.Images, 5);
     });
     NavigationService.whatsHot(function(data) {
         $scope.allEvents = data.data.Events;
-        if(data.data.Events.length > 5){
-          $scope.allEventsMore = true;
+        if (data.data.Events.length > 5) {
+            $scope.allEventsMore = true;
         }
-        $scope.allEvents = _.take(data.data.Events,5);
+        $scope.allEvents = _.take(data.data.Events, 5);
         console.log($scope.allEvents);
     });
 })
