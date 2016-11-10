@@ -28,9 +28,13 @@ var schema = new Schema({
       ref: 'WhatsHot',
       index: true
     }
+  }],
+  accomodation:[{
+      destination:String,
+      name:String,
+      image:String
   }]
-
-  },
+},
    order: {
       type: Number,
       default:0
@@ -107,8 +111,6 @@ var model = {
 
     mycartdata.save(function(err, respo) {
       if (err) {
-        console.log( "ABC",data.myCart);
-        console.log( "ABC",data.myCart.package);
         callback(err, null);
       } else {
         callback(null, respo);
@@ -159,7 +161,13 @@ function (callback1) {
         callback1(null,newreturns);
         }
       });
-           }
+           },
+
+           function (callback1) {
+           newreturns.accomodation = data.accomodation;
+        callback1(null,newreturns);
+      }
+           
 
        ], function (err, respo) {
            if (err) {

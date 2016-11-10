@@ -12,8 +12,6 @@ var controller = {
       })
     }
   },
-
-
    addToCart: function(req, res) {
     if (req.body) {
       // var packagearr = [];
@@ -34,11 +32,16 @@ var controller = {
             // delete req.body.package;
               req.session.cart.whatshot.push(req.body);
           }
+          if(req.body.type==="Accomodation"){
+            // delete req.body.package;
+              req.session.cart.accomodation.push(req.body);
+          }
         } else {
           req.session.cart = {};
           req.session.cart.activities = [];
           req.session.cart.package = [];
           req.session.cart.whatshot = [];
+          req.session.cart.accomodation = [];
           // req.session.cart.push(req.body);
           if(req.body.type==="Package"){
             // delete req.body.activities;
@@ -54,6 +57,11 @@ var controller = {
             // delete req.body.package;
             // var activitiesarr = [];
             req.session.cart.whatshot.push(req.body);
+          }
+          if(req.body.type==="Accomodation"){
+            // delete req.body.package;
+            // var activitiesarr = [];
+            req.session.cart.accomodation.push(req.body);
           }
         }
       //  req.session.cart.activities.push(activitiesarr);
@@ -97,6 +105,7 @@ var controller = {
         req.body.activities =  _.cloneDeep(req.session.cart.activities);
         req.body.package =  _.cloneDeep(req.session.cart.package);
         req.body.whatshot =  _.cloneDeep(req.session.cart.whatshot);
+        req.body.accomodation =  _.cloneDeep(req.session.cart.accomodation);
         Cart.getCart(req.body, res.callback);
         // res.json({
         //   value: true,
@@ -167,6 +176,25 @@ var controller = {
   if (mycartdata.length > 0) {
                    mycartdata=_.remove(mycartdata, function (n) {
                         return n.whatshot === id;
+                    });
+                    res.json({
+                        value: true,
+                        message: "Removed",
+                        data: mycartdata
+                    });
+                } else {
+                    res.json({
+                        value: false,
+                        data: "Cart is Empty"
+                    });
+                }
+        }else if(req.body.type==="Accomodation"){
+ var name = req.body.name;
+ console.log("Name",req.body.name);
+ var mycartdata = req.session.cart.accomodation
+ if (mycartdata.length > 0) {
+                   mycartdata=_.remove(mycartdata, function (n) {
+                        return n.name === name;
                     });
                     res.json({
                         value: true,
