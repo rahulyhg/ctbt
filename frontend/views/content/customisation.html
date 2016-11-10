@@ -13,22 +13,22 @@
                 <!---POPULAR DESTINATIONS ---->
                 <div class="row pd15 text-center">
                     <div class="custom-select text-center">
-                        <select class="form-control Roboto">
-                          <option value="Spain">Destination</option>
-                          <option value="India">India</option>
-                          <option value="England">England</option>
+                        <select class="form-control Roboto" >
+                          <option value="Spain" ng-repeat="data in dropDown">{{data.name}}</option>
+                          <!-- <option value="India">India</option>
+                          <option value="England">England</option> -->
                         </select>
                     </div>
                     <h1 class="theboldfont custtitle">1. CHOOSE ACCOMMODATION</h1>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
                         <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
+                            <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
                             <div class="shadow-up"></div>
                             <div class="shadow-down"></div>
                             <div class="event-name">
-                                <span>BUNGEE ACCOMMODATION AMSTERDAM</span>
+                                <span>{{data.hotelName}}</span>
                             </div>
                             <div class="over-layer text-center">
                                 <div class="button-holder">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
+                    <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
                         <div class="events">
                             <img src="frontend/img/bungee.png" alt="" class="img-responsive">
                             <div class="shadow-up"></div>
@@ -65,7 +65,7 @@
                                     <button class="ext-detail">ADD TO CART</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -75,25 +75,64 @@
                         <h1 class="theboldfont custtitle">2. CHOOSE ACTIVITIES<br>NIGHT & DAYTIME </h1>
                     </div>
                     <div class="col-md-4 col-sm-5 col-xs-12 checkboxrow2 textright">
-
-                        <div class="checkbox">
-                            <label>
-                                        <input type="checkbox" value="all">All
-                                      </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                      <input type="checkbox" value="day">Day</label>
-                            <img src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img doneLoading">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                      <input type="checkbox" value="night">Night</label>
-                            <img src="frontend/img/Vector-Smart-Object (1).png" alt="" class="check_img2 doneLoading">
-                        </div>
+                      <div class="checkbox">
+                          <label>
+                              <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()">All
+                          </label>
+                      </div>
+                      <div class="checkbox" ng-repeat="location in locationArr track by $index">
+                          <label>
+                              <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()">{{location.value}}</label>
+                          <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}" >
+                      </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-hide="noResult">
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
+                        <div class="events">
+                            <img ng-src="{{data.image1 | serverimage}}" alt="" class="img-responsive">
+                            <div class="shadow-up"></div>
+                            <div class="shadow-down"></div>
+                            <div class="event-name">
+                                <span>{{data.name}}</span>
+                            </div>
+                            <div class="over-layer text-center">
+                                <div class="button-holder">
+                                    <button class="ext-detail">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
+                        <div class="events">
+                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
+                            <div class="shadow-up"></div>
+                            <div class="shadow-down"></div>
+                            <div class="event-name">
+                                <span>ROCK CLIMBING</span>
+                            </div>
+                            <div class="over-layer text-center">
+                                <div class="button-holder">
+                                    <button class="ext-detail">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
+                        <div class="events">
+                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
+                            <div class="shadow-up"></div>
+                            <div class="shadow-down"></div>
+                            <div class="event-name">
+                                <span>RIVER RAFTING</span>
+                            </div>
+                            <div class="over-layer text-center">
+                                <div class="button-holder">
+                                    <button class="ext-detail">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
                         <div class="events">
                             <img src="frontend/img/bungee.png" alt="" class="img-responsive">
@@ -138,56 +177,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>BUNGEE JUMPING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>ROCK CLIMBING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>RIVER RAFTING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 loadimag text-center ">
+                    </div> -->
+                    <!-- <div class="col-md-12 loadimag text-center ">
                         <a class="whit_color" ui-sref="home">LOAD  MORE</a>
+                    </div> -->
+                    <div class="col-md-12 loadimag text-center ">
+                        <a class="whit_color" ng-click="loadMoreActivity()" ng-if="viewMore">VIEW  MORE</a>
+                        <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()">VIEW  LESS</a>
                     </div>
                 </div>
+                <div ng-show="noResult && !viewMore">
+                    <h1>No Result Found</h1></div>
+
                 <!---DETAILS START ---->
                 <div class="row pd15 text-center">
                     <h1 class="theboldfont custtitle">3. DETAILS</h1>

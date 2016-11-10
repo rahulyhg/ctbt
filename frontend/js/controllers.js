@@ -514,14 +514,7 @@ $scope.getCartFun();
         };
 
         $scope.loadLessPackage();
-        $scope.loadMorePackage = function() {
-            console.log('inside loadmore fun');
-            $scope.more = true;
-            $scope.viewMore = false;
-            $scope.viewLess = true;
-            $scope.getPackage = $scope.getPackageArr;
-            $scope.getActivity = $scope.getActivityArr;
-        };
+
 
 
 
@@ -578,6 +571,7 @@ $scope.getCartFun();
                     $scope.getActivity = data.data.Category;
                     console.log('data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
+                    console.log('  $scope.getActivityArr',  $scope.getActivityArr);
                     $scope.getActivity = _.take($scope.getActivity, 4);
                     // NavigationService.cityDetails($stateParams.id, function(data) {
                     //     $scope.getActivity = data.data.getActivity;
@@ -599,7 +593,14 @@ $scope.getCartFun();
             });
         };
         $scope.searchExpert();
-
+        $scope.loadMorePackage = function() {
+            console.log('inside loadmore fun');
+            $scope.more = true;
+            $scope.viewMore = false;
+            $scope.viewLess = true;
+            $scope.getPackage = $scope.getPackageArr;
+            $scope.getActivity = $scope.getActivityArr;
+        };
         $scope.open4 = function() {
             $scope.modalInstance = $uibModal.open({
                 animation: true,
@@ -947,7 +948,7 @@ $scope.submitCart = true;
         // }];
 
     })
-    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
 
         $scope.template = TemplateService.changecontent("customisation");
         $scope.menutitle = NavigationService.makeactive("Customisation");
@@ -955,7 +956,83 @@ $scope.submitCart = true;
         $scope.navigation = NavigationService.getnav();
         TemplateService.footermenu = "views/custom_footermenu.html";
         TemplateService.footer = "views/custom_footer.html";
+        console.log('esrdfghbnrsedfgvhbnjrtfghb');
+NavigationService.cityDetails($stateParams.id,function(data){
+  console.log(data.data.getDestination.accomodation);
+  $scope.customisationDest = data.data.getDestination.accomodation;
+  $scope.customisationActivity = data.data.getActivity;
+})
+NavigationService.HomeSlider(function(data) {
+    $scope.dropDown = data.data.DestinationDropdown;
+});
+$scope.viewLess = false;
+$scope.viewMore = false;
 
+$scope.selectedAll = {};
+$scope.selectedAll.location = true;
+$scope.checkAllLocation = function() {
+    var toggleStatusLocation = $scope.selectedAll.location;
+    _.forEach($scope.locationArr, function(location) {
+        location.model = toggleStatusLocation;
+    });
+    $scope.searchExpert();
+};
+// $scope.locationArr = [];
+$scope.locationArr = [{
+    value: 'day',
+    model: true,
+    image:'frontend/img/Vector-Smart-Object1.png',
+    imageClass:""
+}, {
+    value: 'night',
+    model: true,
+    image:'frontend/img/Vector.png',
+    imageClass:'vector'
+}];
+$scope.noResult = false;
+$scope.searchExpert = function() {
+    var y = 0;
+    _.forEach($scope.locationArr, function(n) {
+        if (!n.model || n.model == false) {
+            $scope.selectedAll.location = false;
+        } else if (n.model == true) {
+            y++;
+        }
+    })
+    if (y == $scope.locationArr.length) {
+        $scope.selectedAll.location = true;
+    }
+    var dataToSend = {
+        destination: $stateParams.id,
+        type: []
+    };
+    console.log('$scope.locationArr', $scope.locationArr);
+    dataToSend.type = _.map(_.filter($scope.locationArr, function(n) {
+        return n.model
+    }), 'value');
+    NavigationService.getSearch(dataToSend, function(data) {
+        $scope.viewMore = true;
+        if (data.data.Category.length == 0) {
+            $scope.viewMore = false;
+            $scope.noResult = true;
+        } else {
+
+            $scope.noResult = false;
+            $scope.getActivity = data.data.Category;
+            console.log('data.data', $scope.getActivity.length);
+            $scope.getActivityArr = _.cloneDeep($scope.getActivity);
+            $scope.getActivity = _.take($scope.getActivity, 6);
+        }
+    });
+};
+$scope.searchExpert();
+$scope.loadMoreActivity = function() {
+    console.log('inside loadmore fun');
+    $scope.more = true;
+    $scope.viewMore = false;
+    $scope.viewLess = true;
+    $scope.getActivity = $scope.getActivityArr;
+};
 
     })
 
