@@ -52,7 +52,7 @@ schema.plugin(deepPopulate, {
       select:'_id name'
     },
     'myCart.whatshot.whatshot':{
-      select:'_id  name destination'
+      select:'_id  name image'
     }
   }
 });

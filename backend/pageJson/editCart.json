@@ -83,8 +83,9 @@
         "url": "Package/search"
     },{
             "name": "Image",
-            "type": "image",
-            "tableRef": "package.image",
+            "type": "viewImage",
+            "tableRef": "package",
+            "tableValue": "image",
             "option": "single",
             "size": "width = 413",
             "placeholder": "Enter Image",
@@ -126,10 +127,12 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "Activities/search"
-    },{
+    },
+    {
             "name": "Image",
-            "type": "image",
-            "tableRef": "activities.image1",
+            "type": "viewImage",
+            "tableRef": "activities",
+            "tableValue": "image1",
             "option": "single",
             "size": "width = 413",
             "placeholder": "Enter Image",
@@ -160,8 +163,9 @@
         "url": "WhatsHot/search"
     },{
             "name": "Image",
-            "type": "image",
-            "tableRef": "whatshot.image",
+            "type": "viewImage",
+            "tableRef": "whatshot",
+            "tableValue": "image",
             "option": "single",
             "size": "width = 413",
             "placeholder": "Enter Image",
