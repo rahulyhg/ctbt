@@ -210,6 +210,7 @@ a {
 }
 
 .navbar-default .navbar-nav > li > a {
+      font-weight: bold;
     letter-spacing: 1px;
     border-right: 2px solid #36438c;
     margin: 14px 0;
@@ -272,7 +273,7 @@ a {
     margin: 0 6%;
 
     .form-group select{
-          font-size: 22px;
+          font-size: 16px;
         outline: none;
         border: 0;
         border-bottom: 2px solid #002b7f;
@@ -893,7 +894,7 @@ label {
 
 option {
     color: #002b7f;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #fdd116;
     font-weight: bolder;
 }
@@ -980,7 +981,7 @@ option {
 .sado {
     font-weight: 600;
     float: right;
-    font-size: 13px;
+    font-size: 16px;
     color: #fff;
     background-image: url("../img/btn-bg.png");
     background-repeat: no-repeat;
@@ -1670,7 +1671,10 @@ figure .links {
 //whats a hot css
 
 .flex-direction-nav {
-    display: none !important;
+    display: none;
+}
+.desti .flex-direction-nav {
+    display: block !important;
 }
 
 .flexslider {
@@ -2435,6 +2439,7 @@ input[type="date"].form-control, input[type="time"].form-control, input[type="da
 .pad15pat{margin-bottom: 15px;}
 .vector{    height: 22px !important;
     width: 9px !important;}
+    .slidershow{    padding: 7% 0;}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
