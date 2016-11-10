@@ -45,6 +45,15 @@
                             <p class="bluecol eventp Roboto">{{data.location}}</p>
                         </div>
                         <div class="over-layer2 text-center">
+                          <div class="cart-sec">
+                            <button class="cart uppercase" ng-click="addTocartOnWhatsHot(data._id,data.typeCart);">
+
+                                <i class="fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
+                                <i class="yellow_color fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
+
+                            </button>
+                              <!-- <img ng-src="frontend/img/cart.png" alt="" class="img-responsive "> -->
+                          </div>
                             <div class="hoverhold">
                                 <h2 class="bluecol eventh2 pregular">{{data.name}}</h2>
                                 <hr class="eventhr">

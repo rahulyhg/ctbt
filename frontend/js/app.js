@@ -50,7 +50,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
       controller: 'StaticCtrl'
     })
     .state('customisation', {
-      url: "/customisation",
+      url: "/customisation/:id",
       templateUrl: "frontend/views/template.html",
       controller: 'CustomisationCtrl'
     })

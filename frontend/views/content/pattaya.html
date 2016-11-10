@@ -104,7 +104,7 @@
                                 <div class="checkbox" ng-repeat="location in locationArr track by $index">
                                     <label>
                                         <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()">{{location.value}}</label>
-                                    <img src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
+                                    <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}" >
                                 </div>
                                 <!-- <div class="checkbox">
                                     <label>
@@ -562,10 +562,10 @@
 <div class="paddmain yellow_back_lightcolor">
     <div class="container ">
         <div class="col-md-12 patmargin3">
-            <div class="whatsmarg4">
+            <div class="whatsmarg4" ng-hide="submitCart">
                 <div class="row textalign">
                     <div class="col-md-3 col-sm-4 col-xs-12 padd8 formlabels Roboto">
-                        <form name="detailForm" ng-submit="cart(cartData)">
+                        <form name="detailForm" ng-submit="cartSubmit(cartData)">
                             <div class="form-group">
                                 <label class="labels bluecol">Name:</label>
                                 <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
@@ -595,27 +595,34 @@
                         <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
                             <div><strong class="naming bluecol">{{key}}</strong>
                                 <div class="img1" ng-repeat="img in value">
-                                    <!-- <div class="img1" ng-repeat="(img in value.activities.image1 | serverimage) || (img in value.package.image | serverimage)"> -->
                                     <div class="patevent">
                                         <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive ">
+                                        <!-- <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive "> -->
+                                        <div class="cart-section" ng-if="img.package.image">
+                                            <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
+                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.activities" ng-click="deleteCart(img.type,img.activities._id)"></i> -->
+                                        </div>
+                                    </div>
+                                    <div class="patevent">
+                                        <!-- <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive "> -->
                                         <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive ">
-                                        <!-- <img ng-src="{{img.activities.image1 && (img.activities.image1 | serverimage) || (img.package.image | serverimage)}}" alt="" class="img-responsive "> -->
+                                        <div class="cart-section" ng-if="img.activities.image1">
+                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.package" ng-click="deleteCart(img.type,img.package._id)"></i> -->
+                                            <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- <div class="patevent">
+                                        <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive ">
+                                        <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive ">
                                         <div class="cart-section">
                                             <i class="fa fa-times" aria-hidden="true" ng-if="img.package" ng-click="deleteCart(img.type,img.package._id)"></i>
                                             <i class="fa fa-times" aria-hidden="true" ng-if="img.activities" ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.activities && !img.package" ng-click="deleteCart(img.type,img.activities._id)"></i> -->
-                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.)"></i> -->
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <!-- <div class="img1">
-                                    <div class="patevent">
-                                        <img src="frontend/img/3.png" alt="" class="img-responsive ">
-                                        <div class="cart-section">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                               </div>
                             <!-- =============== for Whats hot ===========-->
@@ -678,25 +685,8 @@
                     </div>
                 </div>
             </div>
+            <div ng-show="submitCart">Thank you for Submitting Cart</div>
         </div>
     </div>
 </div>
 <!---TRIP DETAILS END ---->
-
-<!---email update  ---->
-<div class="eupt">
-    <div class="container">
-        <div class="row">
-            <form name="myForm">
-                <div class="col-md-4 col-sm-4 col-xs-12 ge">GET EMAIL UPDATE</div>
-                <div class="col-md-5 col-sm-4 col-xs-12 ie">
-                    <input type="text" placeholder="Your email address" class="form-control" name="email" ng-model="email.myForm" required>
-                    <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12 es">
-                    <button type="submit">SUBSCRIBE</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>

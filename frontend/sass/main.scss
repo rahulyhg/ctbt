@@ -2238,6 +2238,7 @@ figure .links {
 
 .patevent {
     position: relative;
+    margin: 2px;
 }
 
 .cart-section {
@@ -2432,6 +2433,8 @@ input[type="date"].form-control, input[type="time"].form-control, input[type="da
     line-height: 22px;
 }
 .pad15pat{margin-bottom: 15px;}
+.vector{    height: 22px !important;
+    width: 9px !important;}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

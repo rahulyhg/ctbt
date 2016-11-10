@@ -50,6 +50,20 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
+        deleteAllCart: function(callback) {
+            $http({
+                url: adminurl + 'cart/deleteAllCart',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
+        // deleteAllCart: function(callback) {
+        //     $http({
+        //         url: adminurl + 'cart/deleteAllCart',
+        //         method: 'POST',
+        //         withCredentials: true
+        //     }).success(callback);
+        // },
         DestinationTitle: function(callback) {
             $http({
                 url: adminurl + 'RestApi/DestinationTitle',
@@ -143,7 +157,7 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
           }
 
-      
+
         },
         ActivitiesImages: function(id, callback) {
             var data = {
@@ -214,7 +228,7 @@ var navigationservice = angular.module('navigationservice', [])
          cart: function(cartData, callback) {
             //console.log('Navigation form data: ', formData);
             $http({
-                url: adminurl + 'cart/save',
+                url: adminurl + 'cart/saveCart',
                 method: 'POST',
                 data:cartData
             }).success(callback);

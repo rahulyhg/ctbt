@@ -176,7 +176,7 @@
       ng-options="o._id as o.name for o in dropDown"
       ng-change="selectDesti(selected_id);">
     </select>
-                        <button type="submit" class="gobtn" ui-sref=pattaya({id:selected_id})>GO</button>
+                        <button type="submit" class="gobtn" ui-sref=customisation({id:selected_id})>GO</button>
                     </form>
 
                 </div>
@@ -215,23 +215,4 @@
             </div>
         </li>
     </flex-slider>
-</div>
-
-<!---email update  ---->
-<div class="eupt">
-    <div class="container">
-        <div class="row">
-            <form name="myForm" ng-submit="formSubmit(formData)" ng-if="!formComplete">
-                <div class="col-md-4 col-sm-4 col-xs-12 ge">GET EMAIL UPDATE</div>
-                <div class="col-md-5 col-sm-4 col-xs-12 ie">
-                    <input type="email" placeholder="Your email address" class="form-control" name="email" ng-model="formData.email" required>
-                    <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12 es">
-                    <button type="submit">SUBSCRIBE</button>
-                </div>
-            </form>
-            <div ng-if="formComplete" class="ge text-center">Thank You For Subscribing.</div>
-        </div>
-    </div>
 </div>
