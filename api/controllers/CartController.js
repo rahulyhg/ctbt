@@ -190,6 +190,21 @@ var controller = {
       });
     }
   },
-
+ deleteAllCart: function(req, res) {
+       req.session.destroy(function(err) {
+           if (err) {
+               res.json({
+                   value: false,
+                   error: err
+               });
+           } else {
+               setTimeout(function() {
+                   res.json({
+                       value: true
+                   });
+               }, 3000);
+           }
+       });
+   },
 };
 module.exports = _.assign(module.exports, controller);
