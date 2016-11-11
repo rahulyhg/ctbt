@@ -96,14 +96,13 @@
                     <div class="margincheck">
                         <div class="row checkboxrow Robotor bluecol yellow_back_color">
                             <div class="col-md-4 col-sm-6 col-xs-12  pading5 ">
-                                <div class="checkbox">
-                                    <label>
-                                        <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()">All
-                                    </label>
+                                <div class="checkbox checkboxing">
+                                        <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
+                                    <label for="later"><span></span> All</label>
                                 </div>
-                                <div class="checkbox" ng-repeat="location in locationArr track by $index">
-                                    <label>
-                                        <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()">{{location.value}}</label>
+                                <div class="checkbox checkboxing" ng-repeat="location in locationArr track by $index">
+                                        <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
+                                        <label for="{{location.value}}"><span></span> {{location.value}}</label>
                                     <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}" >
                                 </div>
                                 <!-- <div class="checkbox">
@@ -447,19 +446,6 @@
 
                     <iframe id="test" class="embed-responsive-item" ng-if="getDestination.video" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video|trusted}}">
 
-                        <!-- <iframe id="test" width="560" height="315" ng-class={{cdc}} ng-if="!banner[0].homebanner||banner[0].homebanner && banner[0].videourl && showVideo"
-       ng-src="{{'https://www.youtube.com/embed/'+banner[0].videourl+'?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1'|trusted}}"
-       frameborder="0" allowfullscreen="" style="
-   position: absolute;
-   left: 0;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   width: 100%;
-   height: 100%;
-" class="">
-
-   </iframe> -->
 
                     </iframe>
                 </div>
@@ -591,97 +577,96 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-9 col-sm-8 col-xs-12 ">
+                    <!-- <div class="col-md-9 col-sm-8 col-xs-12 ">
                         <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
-                            <div><strong class="naming bluecol">{{key}}</strong>
-                                <div class="img1" ng-repeat="img in value">
-                                    <div class="patevent">
-                                        <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive ">
-                                        <!-- <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive "> -->
-                                        <div class="cart-section" ng-if="img.package.image">
-                                            <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
-                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.activities" ng-click="deleteCart(img.type,img.activities._id)"></i> -->
-                                        </div>
-                                    </div>
-                                    <div class="patevent">
-                                        <!-- <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive "> -->
-                                        <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive ">
-                                        <div class="cart-section" ng-if="img.activities.image1">
-                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.package" ng-click="deleteCart(img.type,img.package._id)"></i> -->
-                                            <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                        </div>
-                                    </div>
-
-
-
-                                    <!-- <div class="patevent">
-                                        <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive ">
-                                        <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive ">
-                                        <div class="cart-section">
-                                            <i class="fa fa-times" aria-hidden="true" ng-if="img.package" ng-click="deleteCart(img.type,img.package._id)"></i>
-                                            <i class="fa fa-times" aria-hidden="true" ng-if="img.activities" ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                        </div>
-                                    </div> -->
+                            <strong class="naming bluecol">{{key}}</strong>
+                            <div class="img1" ng-repeat="img in value">
+                              <div class="patevent">
+                                  <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive ">
+                                  <div class="cart-section" ng-if="img.package.image">
+                                      <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
+                                  </div>
+                              </div>
+                              <div class="patevent">
+                                  <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive ">
+                                  <div class="cart-section" ng-if="img.activities.image1">
+                                      <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="data in getCartDataWhatsHot">
+                          <strong class="naming bluecol">{{data.whatshot.name}}</strong>
+                              <div class="img1" >
+                                  <div class="patevent">
+                                      <img ng-src="{{data.whatshot.image | serverimage}}" alt=""  class="img-responsive">
+                                      <div class="cart-section">
+                                          <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart('WhatsHot',data.whatshot._id)"></i>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+                    </div> -->
+                    <div class="col-md-9 col-sm-8 col-xs-12 ">
+                        <div class=" borderright marg13 padd8">
+                          <strong class="naming bluecol">antu ram</strong>
+                          <div class="img1">
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.package.image">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
                                 </div>
                             </div>
-                              </div>
-                            <!-- =============== for Whats hot ===========-->
-                              <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="data in getCartDataWhatsHot">
-                            <div><strong class="naming bluecol">{{data.whatshot.name}}</strong>
-                                <div class="img1" >
-                                    <!-- <div class="img1" ng-repeat="(img in value.activities.image1 | serverimage) || (img in value.package.image | serverimage)"> -->
-                                    <div class="patevent">
-                                        <img ng-src="{{data.whatshot.image | serverimage}}" alt=""  class="img-responsive">
-                                        <div class="cart-section">
-                                            <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart('WhatsHot',data.whatshot._id)"></i>
-                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-if="img.activities && !img.package" ng-click="deleteCart(img.type,img.activities._id)"></i> -->
-                                            <!-- <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.)"></i> -->
-                                        </div>
-                                    </div>
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.activities.image1">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                </div>
+                            </div>
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.activities.image1">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                </div>
+                            </div>
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.activities.image1">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
                                 </div>
                             </div>
                           </div>
-                            <!-- =============== end of Whats hot ===========-->
-
-                        <!-- <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8">
-                            <div class="borderright"><strong class="naming bluecol">PATTAYA</strong>
-                                <div class="img1">
-                                    <div class="patevent">
-                                        <img src="frontend/img/2.png" alt="" class="img-responsive ">
-                                        <div class="cart-section">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img1">
-                                    <div class="patevent">
-                                        <img src="frontend/img/3.png" alt="" class="img-responsive ">
-                                        <div class="cart-section">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12 marg13 padd8">
-                            <strong class="naming bluecol">AMSTERSAM</strong>
-                            <div class="img1">
-                                <div class="patevent">
-                                    <img src="frontend/img/2.png" alt="" class="img-responsive ">
-                                    <div class="cart-section">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                        <div class=" borderright marg13 padd8">
+                          <strong class="naming bluecol">antu ram</strong>
+                          <div class="img1">
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.package.image">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
                                 </div>
                             </div>
-                            <div class="img1">
-                                <div class="patevent">
-                                    <img src="frontend/img/3.png" alt="" class="img-responsive ">
-                                    <div class="cart-section">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.activities.image1">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
                                 </div>
                             </div>
-                        </div> -->
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.activities.image1">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                </div>
+                            </div>
+                            <div class="patevent">
+                                <img src="frontend/img/1.png" class="img-responsive">
+                                <div class="cart-section" ng-if="img.activities.image1">
+                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
