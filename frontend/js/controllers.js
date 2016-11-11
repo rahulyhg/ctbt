@@ -325,7 +325,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         NavigationService.DestinationLand(function(data) {
 
-            $scope.DestinationLand = data.data;
+            $scope.DestinationLand = data.data.popularDestination;
+            $scope.DestinationLand = _.chunk(data.data.popularDestination,2);
             console.log("$scope.DestinationLand", $scope.DestinationLand);
             $scope.allDestination = _.take($scope.DestinationLand.allDestination, 6);
             $scope.viewMoreDest = function() {
@@ -391,20 +392,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     });
         //
         // };
-$scope.getCartFun = function(){
-  NavigationService.getCart(function(data) {
-      $scope.getCartDataActivity10 = data.data.activities;
-      $scope.getCartDataPackage10 = data.data.package;
-      $scope.getCartDataWhatsHot = data.data.whatshot;
-      $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-      console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-      $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-      console.log('$scope.mergePackage', $scope.getCartDataPackage);
-      $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
-      console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
-  });
-}
-$scope.getCartFun();
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                console.log('$scope.mergeActivity', $scope.getCartDataActivity);
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                console.log('$scope.mergePackage', $scope.getCartDataPackage);
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+            });
+        }
+        $scope.getCartFun();
 
         $scope.addTocartOnPackage = function(id, type) {
             console.log(id);
@@ -531,13 +532,13 @@ $scope.getCartFun();
         $scope.locationArr = [{
             value: 'day',
             model: true,
-            image:'frontend/img/Vector-Smart-Object1.png',
-            imageClass:""
+            image: 'frontend/img/Vector-Smart-Object1.png',
+            imageClass: ""
         }, {
             value: 'night',
             model: true,
-            image:'frontend/img/Vector.png',
-            imageClass:'vector'
+            image: 'frontend/img/Vector.png',
+            imageClass: 'vector'
         }];
         $scope.noResult = false;
         $scope.searchExpert = function() {
@@ -571,7 +572,7 @@ $scope.getCartFun();
                     $scope.getActivity = data.data.Category;
                     console.log('data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
-                    console.log('  $scope.getActivityArr',  $scope.getActivityArr);
+                    console.log('  $scope.getActivityArr', $scope.getActivityArr);
                     $scope.getActivity = _.take($scope.getActivity, 4);
                     // NavigationService.cityDetails($stateParams.id, function(data) {
                     //     $scope.getActivity = data.data.getActivity;
@@ -640,17 +641,17 @@ $scope.getCartFun();
         }
 
 
-$scope.submitCart = false;
+        $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input) {
             console.log('input', input);
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  NavigationService.deleteAllCart(function(data){
-                    console.log(data);
-                  })
-$scope.submitCart = true;
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
                     //   $timeout(function() {
                     //     $scope.open4();
                     //   },1000);
@@ -788,6 +789,19 @@ $scope.submitCart = true;
             console.log("$scope.getPattaya2", $scope.getPattaya2);
         })
 
+        $scope.formComplete = false;
+        $scope.enquiryData = {};
+        $scope.enquirySubmitPatt2 = function(input) {
+            console.log('input', input);
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                }
+            });
+        }
+
+
+
     })
     .controller('Whats-hot-moreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
 
@@ -815,18 +829,18 @@ $scope.submitCart = true;
                 $scope.classv = "active-tab";
             }
         };
-        $scope.getCartFun = function(){
-          NavigationService.getCart(function(data) {
-              $scope.getCartDataActivity10 = data.data.activities;
-              $scope.getCartDataPackage10 = data.data.package;
-              $scope.getCartDataWhatsHot = data.data.whatshot;
-              $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-              console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-              $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-              console.log('$scope.mergePackage', $scope.getCartDataPackage);
-              $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
-              console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
-          });
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                console.log('$scope.mergeActivity', $scope.getCartDataActivity);
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                console.log('$scope.mergePackage', $scope.getCartDataPackage);
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+            });
         }
         $scope.getCartFun();
         NavigationService.whatsHotMore($stateParams.id, function(data) {
@@ -836,20 +850,20 @@ $scope.submitCart = true;
         $scope.myid = $stateParams.id;
 
         $scope.addTocartOnWhatsHot = function(id, type) {
-            console.log(id,type);
+            console.log(id, type);
             var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
                 return key.package._id == id;
             })
             if (indexF !== -1) {
                 NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
-                      $scope.getCartFun();
+                    $scope.getCartFun();
                 });
             } else {
                 NavigationService.addCartWhatsHot(id, type, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
-                      $scope.getCartFun();
+                    $scope.getCartFun();
                 });
             }
         }
@@ -872,18 +886,18 @@ $scope.submitCart = true;
                 windowClass: "width80"
             });
         };
-        $scope.getCartFun = function(){
-          NavigationService.getCart(function(data) {
-              $scope.getCartDataActivity10 = data.data.activities;
-              $scope.getCartDataPackage10 = data.data.package;
-              $scope.getCartDataWhatsHot = data.data.whatshot;
-              $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-              console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-              $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-              console.log('$scope.mergePackage', $scope.getCartDataPackage);
-              $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
-              console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
-          });
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                console.log('$scope.mergeActivity', $scope.getCartDataActivity);
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                console.log('$scope.mergePackage', $scope.getCartDataPackage);
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+            });
         }
         $scope.getCartFun();
         NavigationService.HomeSlider(function(data) {
@@ -904,51 +918,51 @@ $scope.submitCart = true;
             }
         }
         $scope.addTocartOnWhatsHot = function(id, type) {
-            console.log(id,type);
-            var indexF = _.findIndex($scope.myEvents, function(key) {
-                return key._id == id;
-            })
-            if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function(data) {
-                    console.log('deleted', data);
-                    $scope.getCartFun();
-                });
-            } else {
-                NavigationService.addCartWhatsHot(id, type, function(data) {
-                    $scope.getData = data;
-                    console.log('$scope.getData', $scope.getData);
-                    $scope.getCartFun();
-                });
+                console.log(id, type);
+                var indexF = _.findIndex($scope.myEvents, function(key) {
+                    return key._id == id;
+                })
+                if (indexF !== -1) {
+                    NavigationService.deleteCart(type, id, function(data) {
+                        console.log('deleted', data);
+                        $scope.getCartFun();
+                    });
+                } else {
+                    NavigationService.addCartWhatsHot(id, type, function(data) {
+                        $scope.getData = data;
+                        console.log('$scope.getData', $scope.getData);
+                        $scope.getCartFun();
+                    });
+                }
             }
-        }
-        // $scope.mySlides = [{
-        //     img: "img/qwe.jpg",
-        //     events: "TOMMOROWLAND",
-        //     date: "27th Agust,2016"
-        //
-        //
-        // }, {
-        //     img: "img/qwe.jpg",
-        //     events: "TOMMOROWLAND",
-        //     date: "27th Agust,2016"
-        //
-        //
-        // }, {
-        //     img: "img/qwe.jpg",
-        //     events: "TOMMOROWLAND",
-        //     date: "27th Agust,2016"
-        //
-        //
-        // }, {
-        //     img: "img/qwe.jpg",
-        //     events: "TOMMOROWLAND",
-        //     date: "27th Agust,2016"
-        //
-        //
-        // }];
+            // $scope.mySlides = [{
+            //     img: "img/qwe.jpg",
+            //     events: "TOMMOROWLAND",
+            //     date: "27th Agust,2016"
+            //
+            //
+            // }, {
+            //     img: "img/qwe.jpg",
+            //     events: "TOMMOROWLAND",
+            //     date: "27th Agust,2016"
+            //
+            //
+            // }, {
+            //     img: "img/qwe.jpg",
+            //     events: "TOMMOROWLAND",
+            //     date: "27th Agust,2016"
+            //
+            //
+            // }, {
+            //     img: "img/qwe.jpg",
+            //     events: "TOMMOROWLAND",
+            //     date: "27th Agust,2016"
+            //
+            //
+            // }];
 
     })
-    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state) {
 
         $scope.template = TemplateService.changecontent("customisation");
         $scope.menutitle = NavigationService.makeactive("Customisation");
@@ -956,83 +970,128 @@ $scope.submitCart = true;
         $scope.navigation = NavigationService.getnav();
         TemplateService.footermenu = "views/custom_footermenu.html";
         TemplateService.footer = "views/custom_footer.html";
-        console.log('esrdfghbnrsedfgvhbnjrtfghb');
-NavigationService.cityDetails($stateParams.id,function(data){
-  console.log(data.data.getDestination.accomodation);
-  $scope.customisationDest = data.data.getDestination.accomodation;
-  $scope.customisationActivity = data.data.getActivity;
-})
-NavigationService.HomeSlider(function(data) {
-    $scope.dropDown = data.data.DestinationDropdown;
-});
-$scope.viewLess = false;
-$scope.viewMore = false;
+        NavigationService.cityDetails($stateParams.id, function(data) {
+            console.log(data.data.getDestination.accomodation);
+            $scope.customisationDest = data.data.getDestination.accomodation;
+            $scope.customisationActivity = data.data.getActivity;
+        })
+        NavigationService.HomeSlider(function(data) {
+            $scope.dropDown = data.data.DestinationDropdown;
+        });
+        $scope.viewLess = false;
+        $scope.viewMore = false;
 
-$scope.selectedAll = {};
-$scope.selectedAll.location = true;
-$scope.checkAllLocation = function() {
-    var toggleStatusLocation = $scope.selectedAll.location;
-    _.forEach($scope.locationArr, function(location) {
-        location.model = toggleStatusLocation;
-    });
-    $scope.searchExpert();
-};
-// $scope.locationArr = [];
-$scope.locationArr = [{
-    value: 'day',
-    model: true,
-    image:'frontend/img/Vector-Smart-Object1.png',
-    imageClass:""
-}, {
-    value: 'night',
-    model: true,
-    image:'frontend/img/Vector.png',
-    imageClass:'vector'
-}];
-$scope.noResult = false;
-$scope.searchExpert = function() {
-    var y = 0;
-    _.forEach($scope.locationArr, function(n) {
-        if (!n.model || n.model == false) {
-            $scope.selectedAll.location = false;
-        } else if (n.model == true) {
-            y++;
-        }
-    })
-    if (y == $scope.locationArr.length) {
+        $scope.selectedAll = {};
         $scope.selectedAll.location = true;
-    }
-    var dataToSend = {
-        destination: $stateParams.id,
-        type: []
-    };
-    console.log('$scope.locationArr', $scope.locationArr);
-    dataToSend.type = _.map(_.filter($scope.locationArr, function(n) {
-        return n.model
-    }), 'value');
-    NavigationService.getSearch(dataToSend, function(data) {
-        $scope.viewMore = true;
-        if (data.data.Category.length == 0) {
-            $scope.viewMore = false;
-            $scope.noResult = true;
-        } else {
+        $scope.checkAllLocation = function() {
+            var toggleStatusLocation = $scope.selectedAll.location;
+            _.forEach($scope.locationArr, function(location) {
+                location.model = toggleStatusLocation;
+            });
+            $scope.searchExpert();
+        };
+        // $scope.locationArr = [];
+        $scope.locationArr = [{
+            value: 'day',
+            model: true,
+            image: 'frontend/img/Vector-Smart-Object1.png',
+            imageClass: ""
+        }, {
+            value: 'night',
+            model: true,
+            image: 'frontend/img/Vector.png',
+            imageClass: 'vector'
+        }];
+        $scope.noResult = false;
+        $scope.searchExpert = function() {
+            var y = 0;
+            _.forEach($scope.locationArr, function(n) {
+                if (!n.model || n.model == false) {
+                    $scope.selectedAll.location = false;
+                } else if (n.model == true) {
+                    y++;
+                }
+            })
+            if (y == $scope.locationArr.length) {
+                $scope.selectedAll.location = true;
+            }
+            var dataToSend = {
+                destination: $stateParams.id,
+                type: []
+            };
+            console.log('$scope.locationArr', $scope.locationArr);
+            dataToSend.type = _.map(_.filter($scope.locationArr, function(n) {
+                return n.model
+            }), 'value');
+            NavigationService.getSearch(dataToSend, function(data) {
+                $scope.viewMore = true;
+                if (data.data.Category.length == 0) {
+                    $scope.viewMore = false;
+                    $scope.noResult = true;
+                } else {
 
-            $scope.noResult = false;
-            $scope.getActivity = data.data.Category;
-            console.log('data.data', $scope.getActivity.length);
-            $scope.getActivityArr = _.cloneDeep($scope.getActivity);
-            $scope.getActivity = _.take($scope.getActivity, 6);
+                    $scope.noResult = false;
+                    $scope.getActivity = data.data.Category;
+                    console.log('data.data', $scope.getActivity.length);
+                    $scope.getActivityArr = _.cloneDeep($scope.getActivity);
+                    $scope.getActivity = _.take($scope.getActivity, 6);
+                }
+            });
+        };
+        $scope.searchExpert();
+        $scope.loadMoreActivity = function() {
+            console.log('inside loadmore fun');
+            $scope.more = true;
+            $scope.viewMore = false;
+            $scope.viewLess = true;
+            $scope.getActivity = $scope.getActivityArr;
+        };
+        $scope.custDetailComplete = false;
+        $scope.custDetail = {};
+        $scope.custDetailSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.enquiryForm($scope.custDetail, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    $scope.custDetailComplete = true;
+                    // $scope.custDetail = {};
+                    $timeout(function() {
+                        $scope.custDetailComplete = false;
+                        $scope.custDetail = {};
+
+                    }, 2000);
+                }
+                // $state.reload();
+            });
         }
-    });
-};
-$scope.searchExpert();
-$scope.loadMoreActivity = function() {
-    console.log('inside loadmore fun');
-    $scope.more = true;
-    $scope.viewMore = false;
-    $scope.viewLess = true;
-    $scope.getActivity = $scope.getActivityArr;
-};
+
+        $scope.custEnqComplete = false;
+        $scope.custEnq = {};
+        $scope.custEnqSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.enquiryForm($scope.custEnq, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    $scope.custEnqComplete = true;
+                    // $scope.custEnq = {};
+                    $timeout(function() {
+                        $scope.custEnqComplete = false;
+                        $scope.custEnq = {};
+
+                    }, 2000);
+                }
+                // $state.reload();
+            });
+        }
+        $scope.selected =$stateParams.id;
+        console.log($scope.selected);
+        $scope.dropDownClick = function(dataid){
+            $state.go('customisation',{id:dataid});
+          console.log(dataid);
+          $stateParams.id = $scope.selected;
+
+          console.log($stateParams.id);
+        }
 
     })
 

@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
-                        <form name="myForm">
+                        <!-- <form name="myForm">
                             <div class="col-md-6  col-sm-6">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="city" ng-modal="city.myForm" required>
                                 <p class="error" ng-show="myForm.city.$error.required && myForm.city.$dirty">Interested Cities Size is required</p>
@@ -120,7 +120,53 @@
                             <div class="col-md-4 col-sm-3">
                                 <button class="btn btn-submit">Submit</button>
                             </div>
+                        </form> -->
+                        <form name="myForm" ng-submit="enquirySubmitPatt2(enquiryData)">
+                            <div class="col-md-6  col-sm-6">
+                                <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
+                                <p class="error-msg" ng-show="myForm.cities.$invalid && myForm.cities.$touched">Interested Cities Size is required</p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="text" class="form-control Roboto" placeholder="Interested Activities" name="activitie" ng-model="enquiryData.activities" required>
+                                <p class="error" ng-show="myForm.activitie.$error.required && myForm.activitie.$dirty">Interested Activities is required</p>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="enquiryData.size" required>
+                                <p class="error" ng-show="myForm.size.$error.required && myForm.size.$dirty">Group Size is required</p>
+                            </div>
+
+                            <div class="col-md-5 col-sm-5">
+                                <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="enquiryData.from" required>
+                                <p class="error" ng-show="myForm.from.$error.required && myForm.from.$dirty">From is required</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="enquiryData.to" required>
+                                <p class="error" ng-show="myForm.to.$error.required && myForm.to.$dirty">To is required</p>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12">
+                                <textarea type="text" class="form-control Roboto text-height" rows="6" placeholder="Special Comments" name="comments" ng-model="enquiryData.comment" required></textarea>
+                                <p class="error" ng-show="myForm.comments.$error.required && myForm.comments.$dirty">Special Comments is required</p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <input type="text" class="form-control Robotor" placeholder="Name" name="name" ng-model="enquiryData.name" required>
+                                <p class="error" ng-show="myForm.name.$error.required && myForm.name.$dirty">Name is required</p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="number" class="form-control Robotor" placeholder="Phone No" name="phone" ng-model="enquiryData.phone" required>
+                                <p class="error" ng-show="myForm.phone.$error.required && myForm.phone.$dirty">Phone No is required</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8">
+                                <input type="text" class="form-control Robotor" placeholder="Email ID" name="email" ng-model="enquiryData.email" required>
+                                <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email ID is required</p>
+                            </div>
+                            <div class="col-md-4 col-sm-3">
+                                <button class="btn btn-submit" type="submit">Submit</button>
+                            </div>
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -241,7 +287,7 @@
 <!---MY CART END  ---->
 
 <!---email update  ---->
-<div class="eupt">
+<!-- <div class="eupt">
     <div class="container">
         <div class="row">
             <form name="myForm">
@@ -256,4 +302,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
