@@ -2,7 +2,9 @@ var objectid = require("mongodb").ObjectId;
 var schema = new Schema({
   cities:String,
   activities:String,
+  plan:String,
   size:Number,
+  budget:Number,
   from:Date,
   to:Date,
   comment:String,
@@ -12,7 +14,8 @@ var schema = new Schema({
   order: {
       type: Number,
       default:0
-  }
+  },
+
 });
 
 schema.plugin(deepPopulate, {});
