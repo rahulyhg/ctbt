@@ -175,6 +175,7 @@
       ng-model="selected_id"
       ng-options="o._id as o.name for o in dropDown"
       ng-change="selectDesti(selected_id);">
+      <option value="">Select Destination</option>
     </select>
                         <button type="submit" class="gobtn" ui-sref=customisation({id:selected_id})>GO</button>
                     </form>
