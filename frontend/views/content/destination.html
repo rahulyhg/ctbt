@@ -16,7 +16,7 @@
                     <h1 class="theboldfont whit_color">POPULAR<br>DESTINATIONS</h1>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 pdt15 " ng-repeat ="data in DestinationLand.popularDestination" style="display:none">
+                    <div class="col-md-6 col-sm-6 col-xs-12 pdt15 " ng-repeat ="data in DestinationLand.popularDestination" >
                         <figure>
                             <div class="front">
                                 <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
@@ -28,19 +28,33 @@
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
                       <div class="slidershow">
-                        <flex-slider flex-slide="data in DestinationLand.popularDestination track by $index" class="desti m1 figure922">
+                        <flex-slider flex-slide="data in DestinationLand track by $index" class="desti m1 figure922 yellow_back_color">
                             <li>
-                                <div class="item">
-                                    <figure class=" ng-scope">
-                                        <a href="" target="_blank">
-                                            <img class="img-responsive " ng-src="{{data.image | serverimage}}">
-                                        </a>
-                                    </figure>
+                              <div class="row" >
+                                  <div class="col-md-6 col-sm-6 col-xs-12 " ng-repeat="data2 in data">
+                              <div class="firstimg">
+                                  <div class="front">
+                                      <a ui-sref="pattaya({id:data2._id})"><img ng-src="{{data2.image | serverimage}}" alt="" class="img-responsive"></a>
+                                      <div class="event-name">
+                                          <span>{{data2.name}}</span>
+                                      </div>
+                                  </div>
                                 </div>
+                              </div>
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12 ">
+                              <div class="secimg">
+                                  <div class="front">
+                                      <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
+                                      <div class="event-name">
+                                          <span>{{data.name}}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> -->
+                              </div>
                             </li>
                         </flex-slider>
                       </div>
-
                     </div>
                 </div>
 
@@ -67,6 +81,7 @@
                           </figure>
                       <!-- </div> -->
                     </div>
+
                     <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
                       <div class="flipDiv">
                           <figure>
