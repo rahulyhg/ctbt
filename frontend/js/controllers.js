@@ -79,6 +79,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.changeDestination = function(id) {
+          if(id){
             console.log(id);
             NavigationService.getChangeDestination(id, function(data) {
                 $scope.changeDestData = data.data.Images;
@@ -166,6 +167,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                 }
             });
+
+          }else{
+              $scope.loadLessActivities();
+          }
+
         }
 
         NavigationService.ActivityLand(function(data) {
