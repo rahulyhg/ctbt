@@ -417,6 +417,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             if ($scope.formData[$scope.type.tableRef]) {
                 if($scope.type.tableValue){
+                    console.log($scope.formData[$scope.type.tableRef][$scope.type.tableValue]);
                     $scope.model = $scope.formData[$scope.type.tableRef][$scope.type.tableValue];
                 }else{
                     $scope.model = $scope.formData[$scope.type.tableRef];

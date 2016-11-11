@@ -145,7 +145,7 @@
           {
         "name": "WhatsHot",
         "type": "box",
-        "tableRef": "myCart.",
+        "tableRef": "myCart",
         "tableValue": "whatshot",
         "validation": ["", "trim", ""],
         "fields": [{
