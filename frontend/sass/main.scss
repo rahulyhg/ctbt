@@ -2389,11 +2389,11 @@ figure {
 .flipDiv figure p {
     display: block;
     font-family: 'Lato';
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 16px;
     margin: 0;
     color: #fff;
     text-align: left;
+        padding: 30px 17px;
 }
 
 .flipDiv figure figcaption {
@@ -2401,7 +2401,6 @@ figure {
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 29px 44px;
     background-color: #fdd116;
     text-align: center;
     backface-visibility: hidden;
@@ -2412,7 +2411,14 @@ figure {
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-
+.flipDiv .descrip{    position: absolute;
+    top: 0;
+    left: 0;}
+    .bluracti{-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);}
 .flipDiv figure .front {
     backface-visibility: hidden;
     -webkit-transition: all 0.5s;
@@ -2436,10 +2442,22 @@ figure.hover figcaption {
 input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control {
     line-height: 22px;
 }
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+    background-image: url("../img/fancybox_sprite.png") !important;
+}
 .pad15pat{margin-bottom: 15px;}
 .vector{    height: 22px !important;
     width: 9px !important;}
     .slidershow{    padding: 7% 0;}
+  .firstimg{display: inline-block;
+  float: left;}
+  .secimg{float: left;}
+  .yellow_back_color .slides{    background-color: #FDD116 !important;}
+  .yellow_back_color .flex-control-paging li a {
+    background: #fff !important;
+    width: 11px !important;
+    height: 11px !important;}
+  .yellow_back_color .flex-control-paging li a.flex-active{background: #002B7F !important;}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
