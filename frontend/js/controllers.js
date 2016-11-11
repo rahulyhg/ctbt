@@ -325,7 +325,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         NavigationService.DestinationLand(function(data) {
 
-            $scope.DestinationLand = data.data;
+            $scope.DestinationLand = data.data.popularDestination;
+            $scope.DestinationLand = _.chunk(data.data.popularDestination,2);
             console.log("$scope.DestinationLand", $scope.DestinationLand);
             $scope.allDestination = _.take($scope.DestinationLand.allDestination, 6);
             $scope.viewMoreDest = function() {
