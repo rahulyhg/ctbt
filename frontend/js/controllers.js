@@ -447,30 +447,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage10 = data.data.package;
                 $scope.getCartDataWhatsHot = data.data.whatshot;
                 // $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
-                        .groupBy("whatshot.name")
-                        .toPairs()
-                        .map(function(currentItem) {
-                            return _.zipObject(["name", "item"], currentItem);
-                        })
-                        .value();
-                        console.log($scope.getCartDataWhatsHot10);
-                $scope.getCartDataActivity = _.chain(data.data.activities)
-                        .groupBy('activities.destination.name')
-                        .toPairs()
-                        .map(function(currentItem) {
-                            return _.zipObject(["name", "items"], currentItem);
-                        })
-                        .value();
-                $scope.getCartDataPackage = _.chain(data.data.package)
-                        .groupBy('package.destination.name')
-                        .toPairs()
-                        .map(function(currentItem) {
-                            return _.zipObject(["name", "items"], currentItem);
-                        })
-                        .value();
-                // $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                // $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                // $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
+                //         .groupBy("whatshot.name")
+                //         .toPairs()
+                //         .map(function(currentItem) {
+                //             return _.zipObject(["name", "item"], currentItem);
+                //         })
+                //         .value();
+                //         console.log($scope.getCartDataWhatsHot10);
+                // $scope.getCartDataActivity = _.chain(data.data.activities)
+                //         .groupBy('activities.destination.name')
+                //         .toPairs()
+                //         .map(function(currentItem) {
+                //             return _.zipObject(["name", "items"], currentItem);
+                //         })
+                //         .value();
+                // $scope.getCartDataPackage = _.chain(data.data.package)
+                //         .groupBy('package.destination.name')
+                //         .toPairs()
+                //         .map(function(currentItem) {
+                //             return _.zipObject(["name", "items"], currentItem);
+                //         })
+                //         .value();
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.mergeActivityPackage = _.concat($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
@@ -902,15 +902,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
                 $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                console.log('$scope.mergePackage', $scope.getCartDataPackage);
-                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
-                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
@@ -922,8 +914,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.addTocartOnWhatsHot = function(id, type) {
             console.log(id, type);
-            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
-                return key.package._id == id;
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
+              console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
+              console.log(key._id);
+                return key._id == id;
             })
             if (indexF !== -1) {
                 NavigationService.deleteCart(type, id, function(data) {
@@ -979,6 +973,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.myEvents);
         });
         $scope.isInWishlistWhatsHot = function(id) {
+          console.log('id',id);
             var indexF = _.findIndex($scope.myEvents, function(key) {
                 return key._id == id;
             })
@@ -988,7 +983,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return false;
             }
         }
-        $scope.addTocartOnWhatsHot = function(id, type) {
+        $scope.addTocartOnWhatsHot10 = function(id, type) {
                 console.log(id, type);
                 var indexF = _.findIndex($scope.myEvents, function(key) {
                     return key._id == id;
