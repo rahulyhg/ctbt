@@ -27,7 +27,7 @@
                     <div class="events">
                         <img src="{{data.image| serverimage}}" alt="" class="img-responsive ">
                         <div class="cart-sec">
-                          <button class="cart uppercase" ng-click="addTocartOnWhatsHot(data._id,data.typeCart);">
+                            <button class="cart uppercase" ng-click="addTocartOnWhatsHot(data._id,data.typeCart);">
 
                               <i class="fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
                               <i class="yellow_color fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
@@ -35,7 +35,7 @@
                           </button>
                             <!-- <img ng-src="frontend/img/cart.png" alt="" class="img-responsive "> -->
                         </div>
-                        <div class="shadow-up"></div>
+
                         <div class="shadow-down2"></div>
                         <div class="event-name2">
                             <h2 class="bluecol eventh2 pregular">{{data.name}}</h2>
@@ -44,16 +44,9 @@
                             <!-- <p class="bluecol eventp Roboto">11-13 August 2016</p> -->
                             <p class="bluecol eventp Roboto">{{data.location}}</p>
                         </div>
-                        <div class="over-layer2 text-center">
-                          <div class="cart-sec">
-                            <button class="cart uppercase" ng-click="addTocartOnWhatsHot(data._id,data.typeCart);">
-
-                                <i class="fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
-                                <i class="yellow_color fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
-
-                            </button>
-                              <!-- <img ng-src="frontend/img/cart.png" alt="" class="img-responsive "> -->
-                          </div>
+                        <a ui-sref="whats-hot-more({id:data._id})">
+                        <div class="over-layer2 text-center" ui-sref="whats-hot-more({id:data._id})">
+                          
                             <div class="hoverhold">
                                 <h2 class="bluecol eventh2 pregular">{{data.name}}</h2>
                                 <hr class="eventhr">
@@ -62,6 +55,7 @@
                                 <button class="morebutton"><a ui-sref="whats-hot-more({id:data._id})" class="whit_color">KNOW MORE</a></button>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <!-- <div class="col-md-4 col-sm-6 col-xs-12 padd15px">

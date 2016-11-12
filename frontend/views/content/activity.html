@@ -36,10 +36,8 @@
                                         <img ng-src="{{smallImg.image1 |serverimage}}" alt="" class="img-responsive">
                                         <div class="cart-sec">
                                           <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
-
                                               <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
                                               <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
-
                                           </button>
                                             <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
                                             <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
@@ -55,13 +53,9 @@
                                             <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
                                                 <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
                                                 <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
-
                                             </button>
                                           </div>
-                                          <div class="descrip" ng-bind-html="smallImg.description"></div>
-
-                                        <!-- <h2>This is a cool title!</h2>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p> -->
+                                          <div class="descrip" ng-bind-html="smallImg.description"></div>                                      
                                     </figcaption>
                                 </figure>
                             </div>

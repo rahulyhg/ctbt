@@ -13,7 +13,7 @@
                 <!---POPULAR DESTINATIONS ---->
                 <div class="row pd15 text-center">
                     <div class="custom-select text-center">
-                      <!-- <select class="form-control Robotor"
+                        <!-- <select class="form-control Robotor"
     ng-model="selected_id"
     ng-options="o._id as o.name for o in dropDown"
     ng-change="dropDownClick(selected_id);">
@@ -26,19 +26,35 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
-                        <div class="events">
-                            <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>{{data.hotelName}}</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="flipDiv">
+                          <figure>
+                              <div class="front">
+                                  <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
+                                  <div class="cart-sec">
+                                    <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
+                                        <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
+                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                    </button>
+                                      <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
+                                      <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
+                                  </div>
+                                  <div class="shadow-down"></div>
+                                  <div class="event-name">
+                                      <span>{{data.hotelName}}</span>
+                                  </div>
+                              </div>
+                              <figcaption>
+                                    <img ng-src="{{data.image | serverimage}}" alt="" class="bluracti img-responsive">
+                                    <div class="cart-sec">
+                                      <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
+                                          <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
+                                          <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                      </button>
+                                    </div>
+                                    <div class="descrip" ng-bind-html="smallImg.description"></div>
+                              </figcaption>
+                          </figure>
+                      </div>
                     </div>
                     <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
                         <div class="events">
@@ -69,44 +85,60 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
                 </div>
+            </div>
 
-                <!---CHOOSE ACTIVITIES START ---->
-                <div class="row ">
-                    <div class="col-md-8 col-sm-7 col-xs-12 textright">
-                        <h1 class="theboldfont custtitle">2. CHOOSE ACTIVITIES<br>NIGHT & DAYTIME </h1>
+            <!---CHOOSE ACTIVITIES START ---->
+            <div class="row ">
+                <div class="col-md-8 col-sm-7 col-xs-12 textright">
+                    <h1 class="theboldfont custtitle">2. CHOOSE ACTIVITIES<br>NIGHT & DAYTIME </h1>
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12 checkboxrow2 textright" ng-hide="noResult">
+                    <div class="checkbox checkboxing">
+                          <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
+                          <label for="later"><span></span> All</label>
                     </div>
-                    <div class="col-md-4 col-sm-5 col-xs-12 checkboxrow2 textright" ng-hide="noResult">
-                      <div class="checkbox">
-                          <label>
-                              <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()">All
-                          </label>
-                      </div>
-                      <div class="checkbox" ng-repeat="location in locationArr track by $index">
-                          <label>
-                              <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()">{{location.value}}</label>
-                          <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}" >
-                      </div>
+                    <div class="checkbox " ng-repeat="location in locationArr track by $index">
+
+                              <input type="checkbox checkboxing" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()">
+                              <label for="{{location.value}}"><span></span>{{location.value}}</label>
+                        <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                     </div>
                 </div>
-                <div class="row" ng-hide="noResult">
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
-                        <div class="events">
-                            <img ng-src="{{data.image1 | serverimage}}" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>{{data.name}}</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
+            </div>
+            <div class="row" ng-hide="noResult">
+                <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
+                  <div class="flipDiv">
+                      <figure>
+                          <div class="front">
+                              <img ng-src="{{data.image1 | serverimage}}"  alt="" class="img-responsive">
+                              <div class="cart-sec">
+                                <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
+                                    <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
+                                    <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                </button>
+                                  <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
+                                  <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
+                              </div>
+                              <div class="shadow-down"></div>
+                              <div class="event-name">
+                                  <span>{{data.name}}</span>
+                              </div>
+                          </div>
+                          <figcaption>
+                                <img ng-src="{{data.image1 | serverimage}}"  alt="" class="bluracti img-responsive">
+                                <div class="cart-sec">
+                                  <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
+                                      <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
+                                      <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                  </button>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
+                                <div class="descrip" ng-bind-html="smallImg.description"></div>
+                          </figcaption>
+                      </figure>
+                  </div>                   
+                </div>
+                <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
                         <div class="events">
                             <img src="frontend/img/bungee.png" alt="" class="img-responsive">
                             <div class="shadow-up"></div>
@@ -181,71 +213,71 @@
                             </div>
                         </div>
                     </div> -->
-                    <!-- <div class="col-md-12 loadimag text-center ">
+                <!-- <div class="col-md-12 loadimag text-center ">
                         <a class="whit_color" ui-sref="home">LOAD  MORE</a>
                     </div> -->
-                    <div class="col-md-12 loadimag text-center ">
-                        <a class="whit_color" ng-click="loadMoreActivity()" ng-if="viewMore">VIEW  MORE</a>
-                        <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()">VIEW  LESS</a>
-                    </div>
+                <div class="col-md-12 loadimag text-center ">
+                    <a class="whit_color" ng-click="loadMoreActivity()" ng-if="viewMore">VIEW  MORE</a>
+                    <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()">VIEW  LESS</a>
                 </div>
-                <div ng-show="noResult && !viewMore">
-                    <h1>No Result Found</h1></div>
-
-                <!---DETAILS START ---->
-                <div class="row pd15 text-center">
-                    <h1 class="theboldfont custtitle">3. DETAILS</h1>
-                </div>
-                <div class="row detailsfom" ng-if="!custDetailComplete">
-                    <form name="myForm" ng-submit="custDetailSubmit(custDetail)">
-                        <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
-                            <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
-                                <input type="text" class="form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>
-                                <p class="error" ng-show="myForm.name.$error.required && myForm.name.$dirty">Your name is required</p>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
-                                <input type="email" class="form-control Robotor" placeholder="Email" name="email" ng-model="custDetail.email" required>
-                                <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
-                            </div>
-                            <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
-                                <input type="number" class="form-control Robotor" placeholder="Phone" name="phone" ng-model="custDetail.phone" required>
-                                <p class="error" ng-show="myForm.phone.$error.required && myForm.phone.$dirty">Phone is required</p>
-                            </div>
-                            <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
-                                <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.size" required>
-                                <p class="error" ng-show="myForm.size.$error.required && myForm.size.$dirty">Group Size is required</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
-                                <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
-                                <p class="error" ng-show="myForm.from.$error.required && myForm.from.$dirty">From is required</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
-                                <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
-                                <p class="error" ng-show="myForm.to.$error.required && myForm.to.$dirty">To is required</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12 padding-l">
-                            <div class="col-md-5 pdt10">
-                                <input type="text" class="form-control Robotor" placeholder="Budget(per person)" name="budget" ng-model="custDetail.budget" required>
-                                <p class="error" ng-show="myForm.budget.$error.required && myForm.budget.$dirty">Budget is required</p>
-                            </div>
-                            <div class="col-md-7 pdt10">
-                                <input type="text pdt15" class="form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan" required>
-                                <p class="error" ng-show="myForm.plan.$error.required && myForm.plan.$dirty">Plan is required</p>
-                            </div>
-                            <div class="col-md-12 pdt10">
-                                <textarea class="form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment" required></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 lodm text-center sub">
-                            <button class="whit_color text-center center-block" type="submit">GET YOUR QUOTE NOW</button>
-                        </div>
-                    </form>
-                </div>
-                <div ng-if="custDetailComplete">Thank you for Submitting Details</div>
             </div>
+            <div ng-show="noResult && !viewMore">
+                <h1>No Result Found</h1></div>
+
+            <!---DETAILS START ---->
+            <div class="row pd15 text-center">
+                <h1 class="theboldfont custtitle">3. DETAILS</h1>
+            </div>
+            <div class="row detailsfom" ng-if="!custDetailComplete">
+                <form name="myForm" ng-submit="custDetailSubmit(custDetail)">
+                    <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
+                            <input type="text" class="form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>
+                            <p class="error" ng-show="myForm.name.$error.required && myForm.name.$dirty">Your name is required</p>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
+                            <input type="email" class="form-control Robotor" placeholder="Email" name="email" ng-model="custDetail.email" required>
+                            <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
+                            <input type="number" class="form-control Robotor" placeholder="Phone" name="phone" ng-model="custDetail.phone" required>
+                            <p class="error" ng-show="myForm.phone.$error.required && myForm.phone.$dirty">Phone is required</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
+                            <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.size" required>
+                            <p class="error" ng-show="myForm.size.$error.required && myForm.size.$dirty">Group Size is required</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
+                            <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
+                            <p class="error" ng-show="myForm.from.$error.required && myForm.from.$dirty">From is required</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
+                            <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
+                            <p class="error" ng-show="myForm.to.$error.required && myForm.to.$dirty">To is required</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 padding-l">
+                        <div class="col-md-5 pdt10">
+                            <input type="text" class="form-control Robotor" placeholder="Budget(per person)" name="budget" ng-model="custDetail.budget" required>
+                            <p class="error" ng-show="myForm.budget.$error.required && myForm.budget.$dirty">Budget is required</p>
+                        </div>
+                        <div class="col-md-7 pdt10">
+                            <input type="text pdt15" class="form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan" required>
+                            <p class="error" ng-show="myForm.plan.$error.required && myForm.plan.$dirty">Plan is required</p>
+                        </div>
+                        <div class="col-md-12 pdt10">
+                            <textarea class="form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment" required></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 lodm text-center sub">
+                        <button class="whit_color text-center center-block" type="submit">GET YOUR QUOTE NOW</button>
+                    </div>
+                </form>
+            </div>
+            <div ng-if="custDetailComplete">Thank you for Submitting Details</div>
         </div>
     </div>
+</div>
 </div>
 
 <!---email update  ---->
