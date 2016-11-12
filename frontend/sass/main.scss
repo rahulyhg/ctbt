@@ -210,7 +210,7 @@ a {
 }
 
 .navbar-default .navbar-nav > li > a {
-      font-weight: bold;
+    font-weight: bold;
     letter-spacing: 1px;
     border-right: 2px solid #36438c;
     margin: 14px 0;
@@ -237,7 +237,11 @@ a {
     cursor: pointer;
     width: 100%;
 }
-.fancybox-overlay{    background-color: rgba(0, 0, 0, 0.75) !important;}
+
+.fancybox-overlay {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
 .select-main {
     i {
         font-size: 20px;
@@ -272,8 +276,8 @@ a {
     padding: 20px 40px;
     margin: 0 6%;
 
-    .form-group select{
-          font-size: 16px;
+    .form-group select {
+        font-size: 16px;
         outline: none;
         border: 0;
         border-bottom: 2px solid #002b7f;
@@ -409,7 +413,7 @@ a {
 }
 
 .select-main {
-      width: 187px;
+    width: 187px;
     font-size: 18px;
     margin-right: 20px;
 }
@@ -676,8 +680,10 @@ option[value=""][disabled] {
 .paddleft1 {
     display: inline-block;
     padding: 0 28px;
-    margin: 0 !important;
+    margin: 0 5% !important;
     font-size: 22px;
+    border: none;
+    outline: none;
 }
 
 .patayasocial {
@@ -781,7 +787,7 @@ option[value=""][disabled] {
 .card .back {
     overflow: auto;
     padding: 41px 2px 2px;
-    background:#fdd116;
+    background: #fdd116;
     color: #333333;
     text-align: center;
     -webkit-transform: rotateY(180deg);
@@ -857,7 +863,6 @@ option[value=""][disabled] {
     border-radius: 24px;
 
     .form-control {
-
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -1673,6 +1678,7 @@ figure .links {
 .flex-direction-nav {
     display: none;
 }
+
 .desti .flex-direction-nav {
     display: block !important;
 }
@@ -2227,8 +2233,9 @@ figure .links {
     margin-top: -13px;
     display: inline-block;
     float: left;
-    width: 50%;
-    padding: 0px 10px;
+    width: auto;
+    padding: 0 10px;
+
     strong {
         display: block;
     }
@@ -2243,11 +2250,15 @@ figure .links {
 }
 
 .patevent {
-  position: relative;
-padding: 2px;
-float: left;
-width: 130px;
+    position: relative;
+    padding: 2px;
+    float: left;
+    width: 130px;
+}
 
+.margslid {
+    margin-top: -13px;
+    padding: 0 10px;
 }
 
 .cart-section {
@@ -2260,10 +2271,13 @@ width: 130px;
     color: #002b7f;
     font-size: 11px;
 }
-.cart{background-color: rgba(0, 0, 0, 0) !important;
+
+.cart {
+    background-color: rgba(0, 0, 0, 0) !important;
     border: none !important;
-  outline: none !important;
-    font-size: 17px;}
+    outline: none !important;
+    font-size: 17px;
+}
 
 .image_title {
     display: inline-block;
@@ -2398,7 +2412,7 @@ figure {
     margin: 0;
     color: #fff;
     text-align: left;
-        padding: 30px 17px;
+    padding: 30px 17px;
 }
 
 .flipDiv figure figcaption {
@@ -2416,14 +2430,21 @@ figure {
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-.flipDiv .descrip{    position: absolute;
+
+.flipDiv .descrip {
+    position: absolute;
     top: 0;
-    left: 0;}
-    .bluracti{-webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);}
+    left: 0;
+}
+
+.bluracti {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
 .flipDiv figure .front {
     backface-visibility: hidden;
     -webkit-transition: all 0.5s;
@@ -2444,27 +2465,58 @@ figure.hover figcaption {
     -moz-transform: rotateY(0);
     transform: rotateY(0);
 }
-input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control {
+
+input[type="date"].form-control,
+input[type="datetime-local"].form-control,
+input[type="month"].form-control,
+input[type="time"].form-control {
     line-height: 22px;
 }
-#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+
+#fancybox-loading,
+.fancybox-close,
+.fancybox-next span,
+.fancybox-prev span {
     background-image: url("../img/fancybox_sprite.png") !important;
 }
-.pad15pat{margin-bottom: 15px;}
-.vector{    height: 22px !important;
-    width: 9px !important;}
-    .slidershow{    padding: 7% 0;}
-  .firstimg{display: inline-block;
-  float: left;}
-  .secimg{float: left;}
-  .yellow_back_color .slides{    background-color: #FDD116 !important;}
-  .yellow_back_color .flex-control-paging li a {
+
+.pad15pat {
+    margin-bottom: 15px;
+}
+
+.vector {
+    height: 22px !important;
+    width: 9px !important;
+}
+
+.slidershow {
+    padding: 7% 0;
+}
+
+.firstimg {
+    display: inline-block;
+    float: left;
+}
+
+.secimg {
+    float: left;
+}
+
+.yellow_back_color .slides {
+    background-color: #FDD116 !important;
+}
+
+.yellow_back_color .flex-control-paging li a {
     background: #fff !important;
     width: 11px !important;
-    height: 11px !important;}
-  .yellow_back_color .flex-control-paging li a.flex-active{background: #002B7F !important;}
+    height: 11px !important;
+}
 
-  .checkboxing {
+.yellow_back_color .flex-control-paging li a.flex-active {
+    background: #002B7F !important;
+}
+
+.checkboxing {
     input[type="checkbox"] {
         display: none;
     }
@@ -2472,7 +2524,6 @@ input[type="date"].form-control, input[type="time"].form-control, input[type="da
     input[type="checkbox"]+label {
         font-weight: 300;
         font-size: 16px;
-
     }
 
     input[type="checkbox"]+label span {

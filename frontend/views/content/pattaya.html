@@ -42,7 +42,7 @@
                         <div class="events">
                             <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
                             <div class="cart-sec">
-                              <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+                                <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
 
                                   <i class="fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
                                   <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="over-layer text-center">
                                 <div class="cart-sec">
-                                  <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+                                    <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
 
                                       <i class="fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
                                       <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
@@ -97,13 +97,13 @@
                         <div class="row checkboxrow Robotor bluecol yellow_back_color">
                             <div class="col-md-4 col-sm-6 col-xs-12  pading5 ">
                                 <div class="checkbox checkboxing">
-                                        <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
+                                    <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
                                     <label for="later"><span></span> All</label>
                                 </div>
                                 <div class="checkbox checkboxing" ng-repeat="location in locationArr track by $index">
-                                        <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
-                                        <label for="{{location.value}}"><span></span> {{location.value}}</label>
-                                    <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}" >
+                                    <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
+                                    <label for="{{location.value}}"><span></span> {{location.value}}</label>
+                                    <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                                 </div>
                                 <!-- <div class="checkbox">
                                     <label>
@@ -534,7 +534,7 @@
 
                     <!-- ==============end of mydemo =======================================================================-->
 
-                    <p class="paddleft1 pregular bluecol yellow_back_color ">MY CART</p>
+
                     <!---MY CART END  ---->
                 </div>
             </div>
@@ -544,7 +544,9 @@
 <!---ENQUIRE FORM END  ---->
 
 <!---MY CART START  ---->
-
+<div class="container">
+    <button class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
+</div>
 <div class="paddmain yellow_back_lightcolor">
     <div class="container ">
         <div class="col-md-12 patmargin3">
@@ -608,65 +610,71 @@
                         </div>
                     </div> -->
                     <div class="col-md-9 col-sm-8 col-xs-12 ">
-                        <div class=" borderright marg13 padd8">
-                          <strong class="naming bluecol">antu ram</strong>
-                          <div class="img1">
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.package.image">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
+                        <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage" style="display:none">
+                            <strong class="naming bluecol">{{key}}</strong>
+                            <div class="img1">
+                                <div class="patevent">
+                                    <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive">
+                                    <div class="cart-section" ng-if="img.package.image">
+                                        <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
+                                    </div>
+                                </div>
+                                <div class="patevent">
+                                    <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive">
+                                    <div class="cart-section" ng-if="img.activities.image1">
+                                        <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                          </div>
                         </div>
-                        <div class=" borderright marg13 padd8">
-                          <strong class="naming bluecol">antu ram</strong>
-                          <div class="img1">
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.package.image">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
+                        <!--  if whats hot-->
+                        <div class=" borderright marg13 padd8" ng-repeat="data in getCartDataWhatsHot" style="display:none">
+                            <strong class="naming bluecol">{{data.whatshot.name}}</strong>
+                            <div class="img1">
+                                <div class="patevent">
+                                    <img ng-src="{{data.whatshot.image | serverimage}}" alt="" class="img-responsive">
+                                    <div class="cart-section">
+                                        <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',data.whatshot._id)"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                          </div>
                         </div>
-
+                        <!-- slider after 6 image -->
+                        <div class=" marg13 padd8" >
+                            <flex-slider flex-slide="s in mySlidestop track by $index" class="yellow_back_color">
+                                <li>
+                                  <div class=" marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
+                                      <strong class="naming bluecol">{{key}}</strong>
+                                      <div class="img1">
+                                          <div class="patevent">
+                                              <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive">
+                                              <div class="cart-section" ng-if="img.package.image">
+                                                  <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
+                                              </div>
+                                          </div>
+                                          <div class="patevent">
+                                              <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive">
+                                              <div class="cart-section" ng-if="img.activities.image1">
+                                                  <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!--  if whats hot-->
+                                  <div class=" marg13 padd8" ng-repeat="data in getCartDataWhatsHot">
+                                      <strong class="naming bluecol">{{data.whatshot.name}}</strong>
+                                      <div class="img1">
+                                          <div class="patevent">
+                                              <img ng-src="{{data.whatshot.image | serverimage}}" alt="" class="img-responsive">
+                                              <div class="cart-section">
+                                                  <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',data.whatshot._id)"></i>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </li>
+                            </flex-slider>
+                        </div>
                     </div>
                 </div>
             </div>

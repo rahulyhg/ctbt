@@ -359,6 +359,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.oneAtATime = true;
         $scope.pageVariables = {};
         TemplateService.menu = "";
+
+        //top slider
+          $scope.mySlidestop = [
+
+            {
+              img: "frontend/img/1.png",
+          }, {
+              img: "frontend/img/1.png",
+          }, {
+              img: "frontend/img/1.png",
+          }, {
+              img: "frontend/img/1.png"
+          }
+        ];
+
         // $scope.options = [{
         //     value: 'day',
         //     selected: true
