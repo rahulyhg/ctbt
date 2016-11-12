@@ -472,7 +472,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
                 $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.mergeActivityPackage = _.concat($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -952,20 +952,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: "width80"
             });
         };
-        $scope.getCartFun = function() {
-            NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                console.log('$scope.mergePackage', $scope.getCartDataPackage);
-                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
-                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
-            });
-        }
-        $scope.getCartFun();
+        // $scope.getCartFun = function() {
+        //     NavigationService.getCart(function(data) {
+        //         $scope.getCartDataActivity10 = data.data.activities;
+        //         $scope.getCartDataPackage10 = data.data.package;
+        //         $scope.getCartDataWhatsHot = data.data.whatshot;
+        //         $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+        //         console.log('$scope.mergeActivity', $scope.getCartDataActivity);
+        //         $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+        //         console.log('$scope.mergePackage', $scope.getCartDataPackage);
+        //         $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
+        //         console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+        //     });
+        // }
+        // $scope.getCartFun();
         NavigationService.HomeSlider(function(data) {
             $scope.mySlidesss = data.data.whatsHotBanner;
         });
@@ -973,10 +973,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.myEvents = data.data.Events;
             console.log($scope.myEvents);
         });
+
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+            });
+        }
+        $scope.getCartFun();
         $scope.isInWishlistWhatsHot = function(id) {
           console.log('id',id);
-            var indexF = _.findIndex($scope.myEvents, function(key) {
-                return key._id == id;
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
+                return key.whatshot._id == id;
             })
             if (indexF !== -1) {
                 return true;
@@ -984,24 +991,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return false;
             }
         }
+
         $scope.addTocartOnWhatsHot10 = function(id, type) {
-                console.log(id, type);
-                var indexF = _.findIndex($scope.myEvents, function(key) {
-                    return key._id == id;
-                })
-                if (indexF !== -1) {
-                    NavigationService.deleteCart(type, id, function(data) {
-                        console.log('deleted', data);
-                        $scope.getCartFun();
-                    });
-                } else {
-                    NavigationService.addCartWhatsHot(id, type, function(data) {
-                        $scope.getData = data;
-                        console.log('$scope.getData', $scope.getData);
-                        $scope.getCartFun();
-                    });
-                }
+            console.log(id, type);
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
+              console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
+              console.log(key.whatshot._id);
+                return key.whatshot._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type, id, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFun();
+                });
+            } else {
+                NavigationService.addCartWhatsHot(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                    $scope.getCartFun();
+                });
             }
+        }
+
+        // $scope.addTocartOnWhatsHot10 = function(id, type) {
+        //         console.log(id, type);
+        //         var indexF = _.findIndex($scope.myEvents, function(key) {
+        //             return key._id == id;
+        //         })
+        //         if (indexF !== -1) {
+        //             NavigationService.deleteCart(type, id, function(data) {
+        //                 console.log('deleted', data);
+        //                 $scope.getCartFun();
+        //             });
+        //         } else {
+        //             NavigationService.addCartWhatsHot(id, type, function(data) {
+        //                 $scope.getData = data;
+        //                 console.log('$scope.getData', $scope.getData);
+        //                 $scope.getCartFun();
+        //             });
+        //         }
+        //     }
             // $scope.mySlides = [{
             //     img: "img/qwe.jpg",
             //     events: "TOMMOROWLAND",
