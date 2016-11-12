@@ -469,6 +469,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //             return _.zipObject(["name", "items"], currentItem);
                 //         })
                 //         .value();
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
                 $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.mergeActivityPackage = _.concat($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
@@ -916,8 +917,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(id, type);
             var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
               console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
-              console.log(key._id);
-                return key._id == id;
+              console.log(key.whatshot._id);
+                return key.whatshot._id == id;
             })
             if (indexF !== -1) {
                 NavigationService.deleteCart(type, id, function(data) {
