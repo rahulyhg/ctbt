@@ -872,7 +872,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
 
-
+        $scope.getCartFunPattaya2 = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                // $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                // $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
+                //         .groupBy("whatshot.name")
+                //         .toPairs()
+                //         .map(function(currentItem) {
+                //             return _.zipObject(["name", "item"], currentItem);
+                //         })
+                //         .value();
+                //         console.log($scope.getCartDataWhatsHot10);
+                // $scope.getCartDataActivity = _.chain(data.data.activities)
+                //         .groupBy('activities.destination.name')
+                //         .toPairs()
+                //         .map(function(currentItem) {
+                //             return _.zipObject(["name", "items"], currentItem);
+                //         })
+                //         .value();
+                // $scope.getCartDataPackage = _.chain(data.data.package)
+                //         .groupBy('package.destination.name')
+                //         .toPairs()
+                //         .map(function(currentItem) {
+                //             return _.zipObject(["name", "items"], currentItem);
+                //         })
+                //         .value();
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+            });
+        }
+        $scope.getCartFunPattaya2();
 
     })
     .controller('Whats-hot-moreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
