@@ -83,6 +83,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(id);
             NavigationService.getChangeDestination(id, function(data) {
                 $scope.changeDestData = data.data.Images;
+                $scope.showBttn = data.data.Images;
+                console.log('$scope.showBttn', $scope.showBttn.length);
                 var images = _.groupBy($scope.changeDestData, function(n) {
                     if (_.isEmpty(n.image1)) {
                         return "bigImage";
@@ -281,6 +283,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log('else $scope.activityLoop', $scope.activityLoop);
             }
         }
+
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+        console.log('$scope.getCartDataActivity10',$scope.getCartDataActivity10);
+            });
+        }
+        $scope.getCartFun();
+        $scope.addTocartOnActivityPage = function(id, type) {
+            console.log(id);
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type, id, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFun();
+                });
+            } else {
+                NavigationService.addCartActivity(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                    $scope.getCartFun();
+                });
+            }
+
+
+        }
+
+        $scope.isInWishlistActivityPage = function(id) {
+          // console.log(id);
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     })
     .controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
 
