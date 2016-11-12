@@ -27,7 +27,7 @@
                     <div class="events">
                         <img src="{{data.image| serverimage}}" alt="" class="img-responsive ">
                         <div class="cart-sec">
-                            <button class="cart uppercase" ng-click="addTocartOnWhatsHot(data._id,data.typeCart);">
+                            <button class="cart uppercase" ng-click="addTocartOnWhatsHot10(data._id,data.typeCart);">
 
                               <i class="fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
                               <i class="yellow_color fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
@@ -46,7 +46,7 @@
                         </div>
                         <a ui-sref="whats-hot-more({id:data._id})">
                         <div class="over-layer2 text-center" ui-sref="whats-hot-more({id:data._id})">
-                          
+
                             <div class="hoverhold">
                                 <h2 class="bluecol eventh2 pregular">{{data.name}}</h2>
                                 <hr class="eventhr">
