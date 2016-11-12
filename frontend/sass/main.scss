@@ -682,8 +682,8 @@ option[value=""][disabled] {
 
 .paddleft1 {
     display: inline-block;
-    padding: 0 28px;
-    margin: 0 5% !important;
+    padding: 5px 28px;
+    margin: 10% !important;
     font-size: 22px;
     border: none;
     outline: none;
@@ -2520,7 +2520,8 @@ input[type="time"].form-control {
 .yellow_back_color .flex-control-paging li a.flex-active {
     background: #002B7F !important;
 }
-
+.mycartme .panel-heading,.mycartme .panel-body{padding:0px !important;}
+.mycartme{border:none !important;}
 .checkboxing {
     input[type="checkbox"] {
         display: none;
