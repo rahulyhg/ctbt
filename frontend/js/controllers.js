@@ -402,21 +402,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.oneAtATime = true;
         $scope.pageVariables = {};
         TemplateService.menu = "";
-
-        //top slider
-          $scope.mySlidestop = [
-
-            {
-              img: "frontend/img/1.png",
-          }, {
-              img: "frontend/img/1.png",
-          }, {
-              img: "frontend/img/1.png",
-          }, {
-              img: "frontend/img/1.png"
-          }
-        ];
-
         // $scope.options = [{
         //     value: 'day',
         //     selected: true
@@ -461,15 +446,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataActivity10 = data.data.activities;
                 $scope.getCartDataPackage10 = data.data.package;
                 $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                console.log('$scope.mergePackage', $scope.getCartDataPackage);
-                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
+                // $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
+                        .groupBy("whatshot.name")
+                        .toPairs()
+                        .map(function(currentItem) {
+                            return _.zipObject(["name", "item"], currentItem);
+                        })
+                        .value();
+                        console.log($scope.getCartDataWhatsHot10);
+                $scope.getCartDataActivity = _.chain(data.data.activities)
+                        .groupBy('activities.destination.name')
+                        .toPairs()
+                        .map(function(currentItem) {
+                            return _.zipObject(["name", "items"], currentItem);
+                        })
+                        .value();
+                $scope.getCartDataPackage = _.chain(data.data.package)
+                        .groupBy('package.destination.name')
+                        .toPairs()
+                        .map(function(currentItem) {
+                            return _.zipObject(["name", "items"], currentItem);
+                        })
+                        .value();
+                // $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                // $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.mergeActivityPackage = _.concat($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
+        $scope.totalCount = 0;
 
         $scope.addTocartOnPackage = function(id, type) {
             console.log(id);
