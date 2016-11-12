@@ -113,7 +113,7 @@ a:hover {
     color: #fdd116 !important;
     text-decoration: none;
 }
-
+.whitecolor{color:#fff;}
 .yellow_back_color {
     background-color: #fdd116 !important;
 }
@@ -606,7 +606,9 @@ option[value=""][disabled] {
     }
 }
 //PATTAYA2 CSS START
-
+.cartsum{    display: inline;
+    font-size: 18px;
+    color: #002B7F;}
 .mim1 {
     margin: -1px 0 0;
 }
@@ -2175,6 +2177,7 @@ figure .links {
             border: none;
             background-color: #fdd116;
             margin-left: 20%;
+            outline: none;
         }
 
         .form-group {
