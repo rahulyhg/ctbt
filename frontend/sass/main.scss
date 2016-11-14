@@ -113,7 +113,11 @@ a:hover {
     color: #fdd116 !important;
     text-decoration: none;
 }
-.whitecolor{color:#fff;}
+
+.whitecolor {
+    color: #fff;
+}
+
 .yellow_back_color {
     background-color: #fdd116 !important;
 }
@@ -314,18 +318,21 @@ a {
 
     span {
         letter-spacing: 0.5px;
+        font-size: 16px;
     }
 }
 
 .events {
     position: relative;
     cursor: pointer;
-
+    width: 191px;
+    height: 185px;
     &:hover {
         .over-layer {
             display: block;
         }
     }
+    img{height: 100%;}
 
     .over-layer {
         display: none;
@@ -606,9 +613,13 @@ option[value=""][disabled] {
     }
 }
 //PATTAYA2 CSS START
-.cartsum{    display: inline;
+
+.cartsum {
+    display: inline;
     font-size: 18px;
-    color: #002B7F;}
+    color: #002B7F;
+}
+
 .mim1 {
     margin: -1px 0 0;
 }
@@ -683,7 +694,7 @@ option[value=""][disabled] {
 .paddleft1 {
     display: inline-block;
     padding: 5px 28px;
-    margin: 10% !important;
+    margin-left: 10% !important;
     font-size: 22px;
     border: none;
     outline: none;
@@ -1968,7 +1979,7 @@ figure .links {
     padding: 3% 8%;
 
     p {
-        font-size: 13px;
+        font-size: 16px;
         margin: 0;
     }
 }
@@ -2051,7 +2062,7 @@ figure .links {
     position: absolute;
     right: 0;
     z-index: 2;
-    height: 0px;
+    height: 0;
 
     .socialpatt {
         list-style: none;
@@ -2068,13 +2079,14 @@ figure .links {
 }
 
 .rotatating {
-    -webkit-transform: rotate(-90deg);
+  position: absolute;
+left: 242px;
+    height: 0;
 }
 
 .pattsocial2 {
-    position: absolute;
-    left: -25%;
-    top: 66px;
+  -webkit-transform: rotate(-90deg);
+margin-top: -5px;
 
     .socialpatt {
         list-style: none;
@@ -2237,13 +2249,17 @@ figure .links {
 .marg13 {
     margin-top: -13px;
     display: inline-block;
-    float: left;
     width: auto;
-    padding: 0 10px;
+    padding: 10px;
 
     strong {
         display: block;
     }
+}
+
+.scrollmudiv {
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .inputform {
@@ -2269,8 +2285,8 @@ figure .links {
 .cart-section {
     cursor: pointer;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 2px;
+    right: 2px;
     background: #fff;
     padding: 0 5px;
     color: #002b7f;
@@ -2313,10 +2329,12 @@ figure .links {
     position: absolute;
     z-index: 1;
     right: 66px;
+        height: 0;
 }
+.hei{    height: 0;}
 
 .show-div {
-    width: 70%;
+    width: 888px;
     float: right;
     margin-right: 15px;
     margin-top: -66px;
@@ -2415,7 +2433,7 @@ figure {
     font-family: 'Lato';
     font-size: 16px;
     margin: 0;
-    color: #fff;
+    color: #000;
     text-align: left;
     padding: 30px 17px;
 }
@@ -2443,11 +2461,11 @@ figure {
 }
 
 .bluracti {
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
 }
 
 .flipDiv figure .front {
@@ -2487,6 +2505,7 @@ input[type="time"].form-control {
 
 .pad15pat {
     margin-bottom: 15px;
+    z-index: -1;
 }
 
 .vector {
@@ -2516,12 +2535,22 @@ input[type="time"].form-control {
     width: 11px !important;
     height: 11px !important;
 }
+.flexslider .slides img{    height: 100% !important;}
+.firstimg .front{height: 405px !important;}
 
 .yellow_back_color .flex-control-paging li a.flex-active {
     background: #002B7F !important;
 }
-.mycartme .panel-heading,.mycartme .panel-body{padding:0px !important;}
-.mycartme{border:none !important;}
+
+.mycartme .panel-body,
+.mycartme .panel-heading {
+    padding: 0 !important;
+}
+
+.mycartme {
+    border: none !important;
+}
+
 .checkboxing {
     input[type="checkbox"] {
         display: none;
@@ -2532,7 +2561,7 @@ input[type="time"].form-control {
         font-size: 16px;
     }
 
-    input[type="checkbox"]+label span {
+    input[type="checkbox"]+l                  abel span {
         display: inline-block;
         width: 13px;
         height: 13px;
@@ -2556,6 +2585,38 @@ input[type="time"].form-control {
         @include transition(background-color 0.4s linear);
     }
 }
+
+.pattform input[type="date"].form-control,
+input[type="datetime-local"].form-control,
+input[type="month"].form-control,
+input[type="time"].form-control {
+    line-height: 1.428571429 !important;
+}
+
+.scrollmudiv::-webkit-scrollbar-track {
+
+    background-color:rgba(245, 245, 245, 0);
+}
+
+.scrollmudiv::-webkit-scrollbar {
+    width: 5px;
+    background-color: rgba(245, 245, 245, 0);
+    height: 5px;
+}
+
+.scrollmudiv::-webkit-scrollbar-thumb {
+    background-image:  -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(0, 36, 109, 0.4)), color-stop(0.72, rgba(0, 36, 109, 0.4)), color-stop(0.86, rgba(0, 36, 109, 0.4)));
+}
+.flex-direction-nav a:before {
+    font: normal normal normal normal 14px/1 FontAwesome !important;
+
+    content: "\f104" !important;
+    color: #fff !important;
+}
+.flex-direction-nav a.flex-next:before{  font: normal normal normal normal 14px/1 FontAwesome !important;
+
+  content: "\f105" !important;
+  color: #fff !important;}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

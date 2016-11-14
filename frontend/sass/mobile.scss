@@ -1,4 +1,12 @@
 @media only screen and (max-width: 1205px) {
+  .show-div{    width: auto;}
+
+.rotatating {
+    position: absolute;
+    left: 34px;
+    height: 0;
+    margin-top: -5px;
+}
     .tp {
         padding-left: 0 !important;
     }
@@ -33,7 +41,7 @@
     }
 
     .hdp {
-      
+
         padding: 25px 0 4px;
         font-weight: 700;
         color: #0b358c;
