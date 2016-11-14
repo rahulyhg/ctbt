@@ -377,14 +377,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.DestinationLand = data.data.popularDestination;
             $scope.DestinationLand = _.chunk(data.data.popularDestination,2);
             console.log("$scope.DestinationLand", $scope.DestinationLand);
-            $scope.allDestination = _.take($scope.DestinationLand.allDestination, 6);
+            $scope.allDestination = _.take(data.data.allDestination, 6);
+              console.log("$scope.DestinationLand", $scope.allDestination);
             $scope.viewMoreDest = function() {
                 $scope.show = true;
-                $scope.allDestination = $scope.DestinationLand.allDestination;
+                $scope.allDestination = data.data.allDestination;
             };
             $scope.viewLessDest = function() {
                 $scope.show = false;
-                $scope.allDestination = _.take($scope.DestinationLand.allDestination, 6);
+                $scope.allDestination = _.take(data.data.allDestination, 6);
             }
         })
 
