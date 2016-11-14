@@ -321,12 +321,12 @@ a {
         font-size: 16px;
     }
 }
-
-.events {
+.eventshome {width: 191px;
+height: 185px;}
+.events,.eventshome {
     position: relative;
     cursor: pointer;
-    width: 191px;
-    height: 185px;
+
     &:hover {
         .over-layer {
             display: block;
@@ -2430,7 +2430,7 @@ figure {
 
 .flipDiv figure p {
     display: block;
-    font-family: 'Lato';
+      font-family: 'Robotor';
     font-size: 16px;
     margin: 0;
     color: #000;
@@ -2561,7 +2561,7 @@ input[type="time"].form-control {
         font-size: 16px;
     }
 
-    input[type="checkbox"]+l                  abel span {
+    input[type="checkbox"]+label span {
         display: inline-block;
         width: 13px;
         height: 13px;
@@ -2569,7 +2569,7 @@ input[type="time"].form-control {
         margin-right: 5px;
         vertical-align: middle;
         cursor: pointer;
-        border: 1px solid #000;
+        border: 1px solid #01194A;
     }
 
     input[type="checkbox"]+label span {
