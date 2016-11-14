@@ -68,7 +68,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
+                <div ng-show="getPackage.length == 0">
+                    <h1>No Result Found</h1></div>
+                <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center " ng-hide="getPackage.length == 0">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMore">VIEW  MORE</a>
                     <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="loadLessPackage()">VIEW  LESS</a>
                 </div>
@@ -147,11 +149,11 @@
                         </div>
                     </div>
                 </div>
-                <div ng-show="noResult && !viewMore">
+                <div ng-show="noResult && !viewMoreActivity">
                     <h1>No Result Found</h1></div>
-                <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
-                    <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMore">VIEW  MORE</a>
-                    <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()">VIEW  LESS</a>
+                <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center "  ng-hide="getActivity.length == 0">
+                    <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMoreActivity">VIEW  MORE</a>
+                    <a class="whit_color" ng-if="viewLessActivity && !viewMoreActivity" ng-click="searchExpert()">VIEW  LESS</a>
                 </div>
                 <!-- <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
                     <a class="whit_color" ng-click="loadMoreActivity()" ng-if="!more">VIEW  MORE</a>
