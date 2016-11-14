@@ -27,7 +27,7 @@
                         </form>
                     </div>
                 </div>
-                <div ng-repeat="n in activityLoop">
+                <div ng-repeat="n in activityLoop" ng-if="showBttn.length!=0">
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-12 padd15px " ng-if="activityLand.smallImage[n]" ng-repeat="smallImg in  activityLand.smallImage[n]">
                             <div class="flipDiv">
@@ -35,7 +35,12 @@
                                     <div class="front">
                                         <img ng-src="{{smallImg.image1 |serverimage}}" alt="" class="img-responsive">
                                         <div class="cart-sec">
-                                            <img src="frontend/img/cart.png" alt="" class="img-responsive">
+                                          <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
+                                              <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
+                                              <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                          </button>
+                                            <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
+                                            <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
                                         </div>
                                         <div class="shadow-down"></div>
                                         <div class="event-name">
@@ -43,15 +48,14 @@
                                         </div>
                                     </div>
                                     <figcaption>
-
                                           <img ng-src="{{smallImg.image1 |serverimage}}" alt="" class="bluracti img-responsive">
                                           <div class="cart-sec">
-                                              <img src="frontend/img/cart.png" alt="" class="img-responsive">
+                                            <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
+                                                <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
+                                                <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                            </button>
                                           </div>
                                           <div class="descrip" ng-bind-html="smallImg.description"></div>
-
-                                        <!-- <h2>This is a cool title!</h2>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p> -->
                                     </figcaption>
                                 </figure>
                             </div>
@@ -65,7 +69,11 @@
                                     <div class="front">
                                         <img ng-src="{{activityLand.bigImage[n].image2 | serverimage}}" alt="" class="img-responsive">
                                         <div class="cart-sec">
-                                            <img src="frontend/img/cart.png" alt="" class="img-responsive">
+                                          <button class="cart uppercase" ng-click="addTocartOnActivityPage(activityLand.bigImage[n]._id,activityLand.bigImage[n].typeCart);">
+                                              <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(activityLand.bigImage[n]._id)"></i>
+                                              <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(activityLand.bigImage[n]._id)"></i>
+
+                                          </button>
                                         </div>
 
                                         <div class="shadow-down"></div>
@@ -76,7 +84,11 @@
                                     <figcaption>
                                         <img ng-src="{{activityLand.bigImage[n].image2 | serverimage}}" alt="" class="bluracti img-responsive">
                                         <div class="cart-sec">
-                                            <img src="frontend/img/cart.png" alt="" class=" img-responsive">
+                                          <button class="cart uppercase" ng-click="addTocartOnActivityPage(activityLand.bigImage[n]._id,activityLand.bigImage[n].typeCart);">
+                                              <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(activityLand.bigImage[n]._id)"></i>
+                                              <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(activityLand.bigImage[n]._id)"></i>
+
+                                          </button>
                                         </div>
                                         <div class="descrip" ng-bind-html="activityLand.bigImage[n].description"></div>
                                     </figcaption>
@@ -85,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div ng-if="changeDestData==0 || showBttn.length==0">
+                <div ng-if="showBttn.length==0">
                     <h1><center>No data Found</center></h1></div>
 
                 <div class="load-more text-center" ng-hide="changeDestData==0 || (!viewLess && !viewMore)">

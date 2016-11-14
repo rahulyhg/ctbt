@@ -42,9 +42,9 @@
                         <div class="events">
                             <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
                             <div class="cart-sec">
-                              <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+                                <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
 
-                                  <i class="fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
+                                  <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
                                   <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
 
                               </button>
@@ -60,9 +60,9 @@
                             </div>
                             <div class="over-layer text-center">
                                 <div class="cart-sec">
-                                  <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+                                    <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
 
-                                      <i class="fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
+                                      <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
                                       <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
 
                                   </button>
@@ -97,13 +97,13 @@
                         <div class="row checkboxrow Robotor bluecol yellow_back_color">
                             <div class="col-md-4 col-sm-6 col-xs-12  pading5 ">
                                 <div class="checkbox checkboxing">
-                                        <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
+                                    <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
                                     <label for="later"><span></span> All</label>
                                 </div>
                                 <div class="checkbox checkboxing" ng-repeat="location in locationArr track by $index">
-                                        <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
-                                        <label for="{{location.value}}"><span></span> {{location.value}}</label>
-                                    <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}" >
+                                    <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
+                                    <label for="{{location.value}}"><span></span> {{location.value}}</label>
+                                    <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                                 </div>
                                 <!-- <div class="checkbox">
                                     <label>
@@ -127,217 +127,33 @@
                         <div class="flipDiv">
                             <figure>
                                 <div class="front">
-                                    <img ng-src="{{data.image1 | serverimage}}" alt="" class="img-responsive doneLoading" ng-click="addTocart(data)">
+                                    <img ng-src="{{data.image1 | serverimage}}" alt="" class="img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
-                                        <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                            <!-- <i class="fa fa-shopping-cart" ng-class="{'fa-shopping-cart':!isInWishlist(data._id),'fa-shopping-cart':isInWishlist(data._id)}"></i> -->
-
-                                            <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
+                                        <div class="cart-sec">
+                                            <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
+                                            <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
                                             <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
-
                                         </button>
+                                        </div>
                                     </div>
-                                    <!-- <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive">
-                                        <img src="frontend/img/fav-cart.png" alt="" class="img-responsive">
-                                    </div> -->
-                                    <div class="shadow-up"></div>
                                     <div class="shadow-down"></div>
                                     <div class="event-name">
                                         <span>{{data.name}}</span>
                                     </div>
                                 </div>
                                 <figcaption>
-                                    <!-- <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnActivity(data._id,data.typeCart)">
-                                    </div> -->
-
+                                    <img ng-src="{{data.image1 | serverimage}}" alt="" class="bluracti img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
                                         <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                            <!-- <i class="fa fa-shopping-cart" ng-class="{'fa-shopping-cart':!isInWishlist(data._id),'fa-shopping-cart':isInWishlist(data._id)}" style="color:yellow;"></i>-->
-                                            <i class="fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
-                                            <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
-                                          </button>
+                                          <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
+                                          <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
+                                      </button>
                                     </div>
-
-                                    <div ng-bind-html="data.description">
-
-                                    </div>
-                                    <!-- <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p> -->
+                                    <div class="descrip" ng-bind-html="data.description"></div>
                                 </figcaption>
                             </figure>
                         </div>
                     </div>
-
-                    <!-- <div class="col-md-3 col-sm-4 col-xs-6 pading0">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img src="frontend/img/bungee.png" alt="" class="img-responsive doneLoading">
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <div class="shadow-up"></div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>BUNGEE JUMPING</span>
-                                    </div>
-                                </div>
-                                <figcaption>
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img src="frontend/img/bungee.png" alt="" class="img-responsive doneLoading">
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <div class="shadow-up"></div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>BUNGEE JUMPING</span>
-                                    </div>
-                                </div>
-                                <figcaption>
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img src="frontend/img/bungee.png" alt="" class="img-responsive doneLoading">
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <div class="shadow-up"></div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>BUNGEE JUMPING</span>
-                                    </div>
-                                </div>
-                                <figcaption>
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img src="frontend/img/bungee.png" alt="" class="img-responsive doneLoading">
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <div class="shadow-up"></div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>BUNGEE JUMPING</span>
-                                    </div>
-                                </div>
-                                <figcaption>
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img src="frontend/img/bungee.png" alt="" class="img-responsive doneLoading">
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <div class="shadow-up"></div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>BUNGEE JUMPING</span>
-                                    </div>
-                                </div>
-                                <figcaption>
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img src="frontend/img/bungee.png" alt="" class="img-responsive doneLoading">
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <div class="shadow-up"></div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>BUNGEE JUMPING</span>
-                                    </div>
-                                </div>
-                                <figcaption>
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img src="frontend/img/bungee.png" alt="" class="img-responsive doneLoading">
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <div class="shadow-up"></div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>BUNGEE JUMPING</span>
-                                    </div>
-                                </div>
-                                <figcaption>
-                                    <div class="cart-sec">
-                                        <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading">
-                                    </div>
-                                    <h2>This is a cool title!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div> -->
                 </div>
                 <div ng-show="noResult && !viewMore">
                     <h1>No Result Found</h1></div>
@@ -440,7 +256,7 @@
 
                 <!---ACCORDION ---->
                 <!---START VIDEO FRAME ---->
-                <div class="pad15pat embed-responsive embed-responsive-16by9">
+                <div class="pad15pat embed-responsive embed-responsive-16by9" ng-if="getDestination.video">
                     <!-- <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe> -->
                     <!-- <iframe class="embed-responsive-item" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video}}" ></iframe> -->
 
@@ -494,48 +310,7 @@
                             </div>
                         </div>
                     </uib-accordion>
-                    <!---MY CART START  ---->
-                    <!-- mydemo============================================= -->
-                    <!-- <pre>{{accordian[0].isFirstOpen}}</pre>
-<div class="row pregular">
-    <uib-accordion close-others="oneAtATime">
 
-        <div uib-accordion-group  ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}"  class="panel-default panelacor" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
-            <uib-accordion-heading class="panel-heading" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
-                <div class="accord-title" >
-                    <h4 class="panel-title fontpanel Pregular bluecol"><img src="{{data.thumbnail | serverimage}}" alt="" class="image_title" >  {{data.name}}
-                      <i class="pull-right fa " ng-class="{'fa fa-minus': accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
-                    </h4>
-                </div>
-            </uib-accordion-heading>
-            <div class="panel-body yellow_back_color">
-                <div class="whatsmain">
-                    <div class="col-md-12">
-                        <div class="row padding30"ng-repeat="x in DestinationTitle">
-                            <ul class="list-group socialpatt">
-                                <li class="Robotor bluecol">
-                                    <strong class="padding15">{{x.name}}</strong>
-                                </li>
-                                    <p ng-bind-html="x.description"></p>
-                            </ul>
-                        <div class="row padding30">
-                            <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
-                                <figure>
-                                    <img class="img-responsive" src="{{image.image | serverimage}}">
-                                </figure>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </uib-accordion> -->
-
-                    <!-- ==============end of mydemo =======================================================================-->
-
-                    <p class="paddleft1 pregular bluecol yellow_back_color ">MY CART</p>
-                    <!---MY CART END  ---->
                 </div>
             </div>
         </div>
@@ -544,134 +319,77 @@
 <!---ENQUIRE FORM END  ---->
 
 <!---MY CART START  ---->
+<div class="pading15">
+    <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default mycartme">
+            <uib-accordion-heading class="panel-heading">
+                <button class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
+            </uib-accordion-heading>
+            <div class="paddmain yellow_back_lightcolor">
+                <div class="container ">
+                    <div class="col-md-12 patmargin3">
+                        <div class="whatsmarg4" ng-hide="submitCart">
+                            <div class="row textalign">
+                                <div class="col-md-3 col-sm-4 col-xs-12 padd8 formlabels Roboto">
+                                    <form name="detailForm" ng-submit="cartSubmit(cartData)">
+                                        <div class="form-group">
+                                            <label class="labels bluecol">Name:</label>
+                                            <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
+                                            <p class="error" ng-show="detailForm.name.$error.required && detailForm.name.$dirty">Name is required</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="labels bluecol">Email Id:</label>
+                                            <input type="text" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
+                                            <p class="error" ng-show="detailForm.email.$error.required && detailForm.email.$dirty">Email is required</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="labels bluecol">Mob No:</label>
+                                            <input type="text" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
+                                            <p class="error" ng-show="detailForm.phone.$error.required && detailForm.phone.$dirty">Mob No is required</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="labels bluecol">Group Size</label>
+                                            <input type="text pdt15" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
+                                            <p class="error" ng-show="detailForm.size.$error.required && detailForm.size.$dirty">Group Size is required</p>
+                                        </div>
+                                        <div class="row">
+                                            <button class="btn btn-submit" type="submit">SUBMIT</button>
+                                        </div>
+                                    </form>
+                                </div>
 
-<div class="paddmain yellow_back_lightcolor">
-    <div class="container ">
-        <div class="col-md-12 patmargin3">
-            <div class="whatsmarg4" ng-hide="submitCart">
-                <div class="row textalign">
-                    <div class="col-md-3 col-sm-4 col-xs-12 padd8 formlabels Roboto">
-                        <form name="detailForm" ng-submit="cartSubmit(cartData)">
-                            <div class="form-group">
-                                <label class="labels bluecol">Name:</label>
-                                <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
-                                <p class="error" ng-show="detailForm.name.$error.required && detailForm.name.$dirty">Name is required</p>
-                            </div>
-                            <div class="form-group">
-                                <label class="labels bluecol">Email Id:</label>
-                                <input type="text" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
-                                <p class="error" ng-show="detailForm.email.$error.required && detailForm.email.$dirty">Email is required</p>
-                            </div>
-                            <div class="form-group">
-                                <label class="labels bluecol">Mob No:</label>
-                                <input type="text" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
-                                <p class="error" ng-show="detailForm.phone.$error.required && detailForm.phone.$dirty">Mob No is required</p>
-                            </div>
-                            <div class="form-group">
-                                <label class="labels bluecol">Group Size</label>
-                                <input type="text pdt15" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
-                                <p class="error" ng-show="detailForm.size.$error.required && detailForm.size.$dirty">Group Size is required</p>
-                            </div>
-                            <div class="row">
-                                <button class="btn btn-submit" type="submit">SUBMIT</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- <div class="col-md-9 col-sm-8 col-xs-12 ">
-                        <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
-                            <strong class="naming bluecol">{{key}}</strong>
-                            <div class="img1" ng-repeat="img in value">
-                              <div class="patevent">
-                                  <img ng-src="{{img.package.image | serverimage}}" alt="" ng-if="img.package" class="img-responsive ">
-                                  <div class="cart-section" ng-if="img.package.image">
-                                      <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
-                                  </div>
-                              </div>
-                              <div class="patevent">
-                                  <img ng-src="{{img.activities.image1 | serverimage}}" alt="" ng-if="img.activities" class="img-responsive ">
-                                  <div class="cart-section" ng-if="img.activities.image1">
-                                      <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                  </div>
-                              </div>
+                                <div class="col-md-9 col-sm-8 col-xs-12 ">
+                                    <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
+                                        <strong class="naming bluecol">{{key}}</strong>
+                                        <div class="img1" ng-repeat="img in value">
+                                            <div class="patevent" ng-if="img.package">
+                                                <img ng-src="{{img.package.image | serverimage}}" alt="" class="img-responsive">
+                                                <div class="cart-section" ng-if="img.package.image">
+                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
+                                                </div>
+                                            </div>
+                                            <div class="patevent" ng-if="img.activities">
+                                                <img ng-src="{{img.activities.image1 | serverimage}}" alt="" class="img-responsive">
+                                                <div class="cart-section" ng-if="img.activities.image1">
+                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                                </div>
+                                            </div>
+                                            <div class="patevent" ng-if="img.whatshot">
+                                                <img ng-src="{{img.whatshot.image | serverimage}}" alt="" class="img-responsive">
+                                                <div class="cart-section" ng-if="img.whatshot.image">
+                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="borderright col-md-4 col-sm-6 col-xs-12 marg13 padd8" ng-repeat="data in getCartDataWhatsHot">
-                          <strong class="naming bluecol">{{data.whatshot.name}}</strong>
-                              <div class="img1" >
-                                  <div class="patevent">
-                                      <img ng-src="{{data.whatshot.image | serverimage}}" alt=""  class="img-responsive">
-                                      <div class="cart-section">
-                                          <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart('WhatsHot',data.whatshot._id)"></i>
-                                      </div>
-                                  </div>
-                              </div>
-                        </div>
-                    </div> -->
-                    <div class="col-md-9 col-sm-8 col-xs-12 ">
-                        <div class=" borderright marg13 padd8">
-                          <strong class="naming bluecol">antu ram</strong>
-                          <div class="img1">
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.package.image">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class=" borderright marg13 padd8">
-                          <strong class="naming bluecol">antu ram</strong>
-                          <div class="img1">
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.package.image">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.package._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                            <div class="patevent">
-                                <img src="frontend/img/1.png" class="img-responsive">
-                                <div class="cart-section" ng-if="img.activities.image1">
-                                    <i class="fa fa-times" aria-hidden="true"  ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-
+                        <div class="cartsum" ng-show="submitCart">Thank you for Submitting Cart</div>
                     </div>
                 </div>
             </div>
-            <div ng-show="submitCart">Thank you for Submitting Cart</div>
         </div>
-    </div>
+    </uib-accordion>
 </div>
 <!---TRIP DETAILS END ---->

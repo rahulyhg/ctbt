@@ -16,7 +16,7 @@
                     <h1 class="theboldfont whit_color">POPULAR<br>DESTINATIONS</h1>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 pdt15 " ng-repeat ="data in DestinationLand.popularDestination" >
+                    <div class="col-md-6 col-sm-6 col-xs-12 pdt15 " ng-repeat="data in DestinationLand.popularDestination">
                         <figure>
                             <div class="front">
                                 <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
@@ -27,21 +27,21 @@
                         </figure>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      <div class="slidershow">
-                        <flex-slider flex-slide="data in DestinationLand track by $index" class="desti m1 figure922 yellow_back_color">
-                            <li>
-                              <div class="row" >
-                                  <div class="col-md-6 col-sm-6 col-xs-12 " ng-repeat="data2 in data">
-                              <div class="firstimg">
-                                  <div class="front">
-                                      <a ui-sref="pattaya({id:data2._id})"><img ng-src="{{data2.image | serverimage}}" alt="" class="img-responsive"></a>
-                                      <div class="event-name">
-                                          <span>{{data2.name}}</span>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>
-                                <!-- <div class="col-md-6 col-sm-6 col-xs-12 ">
+                        <div class="slidershow">
+                            <flex-slider prev-text="" next-text="" flex-slide="data in DestinationLand track by $index" class="desti m1 figure922 yellow_back_color">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 " ng-repeat="data2 in data">
+                                            <div class="firstimg">
+                                                <div class="front">
+                                                    <a ui-sref="pattaya({id:data2._id})"><img ng-src="{{data2.image | serverimage}}" alt="" class="img-responsive"></a>
+                                                    <div class="event-name">
+                                                        <span>{{data2.name}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-md-6 col-sm-6 col-xs-12 ">
                               <div class="secimg">
                                   <div class="front">
                                       <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
@@ -51,10 +51,10 @@
                                     </div>
                                   </div>
                                 </div> -->
-                              </div>
-                            </li>
-                        </flex-slider>
-                      </div>
+                                    </div>
+                                </li>
+                            </flex-slider>
+                        </div>
                     </div>
                 </div>
 
@@ -64,22 +64,22 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in allDestination">
-                      <!-- <div class="flipDiv"> -->
-                          <figure>
-                              <div class="front">
-                                  <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
-                                  <!-- <div class="shadow-down"></div> -->
-                                  <div class="event-name">
-                                      <span>{{data.name}}</span>
-                                  </div>
-                              </div>
-                              <!--<figcaption>
+                        <!-- <div class="flipDiv"> -->
+                        <figure>
+                            <div class="front">
+                                <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
+                                <!-- <div class="shadow-down"></div> -->
+                                <div class="event-name">
+                                    <span>{{data.name}}</span>
+                                </div>
+                            </div>
+                            <!--<figcaption>
                                 <div ng-bind-html="data.description"></div>
                                    <h2>This is a cool title!</h2>
                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
                               </figcaption>-->
-                          </figure>
-                      <!-- </div> -->
+                        </figure>
+                        <!-- </div> -->
                     </div>
 
                     <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
@@ -172,7 +172,7 @@
                         <a class="whit_color" ng-click="viewMoreDest()" ng-if="!show">VIEW  MORE</a>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12  lodm text-center ">
-                        <a class="whit_color" ng-click="viewLessDest()" ng-if="show" >VIEW  LESS</a>
+                        <a class="whit_color" ng-click="viewLessDest()" ng-if="show">VIEW  LESS</a>
                     </div>
                 </div>
             </div>
