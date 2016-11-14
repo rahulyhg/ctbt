@@ -81,6 +81,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.changeDestination = function(id) {
           if(id){
             console.log(id);
+            $scope.saveDestId = id;
             NavigationService.getChangeDestination(id, function(data) {
                 $scope.changeDestData = data.data.Images;
                 $scope.showBttn = data.data.Images;
@@ -167,6 +168,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
 
           }else{
+            console.log('m in else');
             $scope.viewLess = false;
             $scope.viewMore = false;
               $scope.loadLessActivities();
@@ -180,6 +182,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.viewLess = false;
         $scope.viewMore = false;
         $scope.loadLessActivities = function() {
+          console.log('$scope.saveDestId',$scope.saveDestId);
+          $scope.saveDestId =undefined;
+          // if($scope.saveDestId !=undefined){
+          //     $scope.changeDestination($scope.saveDestId);
+          //       $scope.changeDestination($scope.saveDestId);
+          // }else{
+
             NavigationService.ActivityLand(function(data) {
                 console.log(data);
                 $scope.myDropdown = data.data.DestinationDropdown;
@@ -264,6 +273,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
 
             });
+          // }
         }
         $scope.loadLessActivities();
         $scope.loadMoreActivities = function() {

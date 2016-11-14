@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}" >
+                    <div class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}">
                         <img class="img-responsive doneLoading" src="{{data.image|serverimage}}">
                     </div>
                     <!-- <a class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-href="img/banner.jpg" rel="gallery1" fancybox-box="" href="img/banner.jpg">
@@ -57,7 +57,7 @@
 
                 <div class="row">
                     <div class="col-md-3 col-sm-4 col-xs-6 pading0" ng-repeat="data in getOneWhatsHot.videos">
-                        <figure class="various fancybox.iframe" fancybox rel="gallery1"  href="http://www.youtube.com/embed/{{data.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" >
+                        <figure class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{data.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
                             <img class="img-responsive doneLoading" ng-src="{{data.thumbnail|serverimage}}" ng-if="(data.thumbnail || data.thumbnail != '')">
                             <img class="img-responsive doneLoading" ng-src="{{data.url|youtubethumb}}" ng-if="!(data.thumbnail || data.thumbnail != '')">
                             <!-- <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="(item.thumbnail || item.thumbnail != '')">
@@ -190,10 +190,24 @@
         <div class="pull-right wtsocial">
             <div class="col-md-12 social1">
                 <ul class="list-group socialgr">
-                    <li class="Robotor"  ng-click="addTocartOnWhatsHot(myid,'WhatsHot')">
-                        <a class="yellow_color pregular"><img src="frontend/img/cart.png" alt="" class="socialimg img-responsive doneLoading">ADD TO CART</a>
+                    <li class="Robotor" ng-click="addTocartOnWhatsHot(myid,'WhatsHot')">
+                        <!-- <a class="yellow_color pregular"><img src="frontend/img/cart.png" alt="" class="socialimg img-responsive doneLoading">ADD TO CART</a> -->
+                        <a class="pregular" ng-if="isInWishlistWhatsHot(myid)">
+                            <!-- <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistWhatsHot(myid)"></i> -->
+                            <i class="color-white fa fa-shopping-cart socialimg" ></i> ADD TO CART</a>
+                        <a class="pregular" ng-if="!isInWishlistWhatsHot(myid)">
+                            <i class="yellow_color fa fa-shopping-cart socialimg" ></i>ADD TO CART</a>
+                            <!-- <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistWhatsHot(myid)"></i> ADD TO CART</a> -->
                     </li>
                 </ul>
+
+                <!-- <button class="cart uppercase" ng-click="addTocartOnWhatsHot10(data._id,data.typeCart);">
+
+                  <i class="fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
+                  <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
+
+              </button> -->
+
             </div>
             <div class="col-md-12 social2">
                 <ul class="ulsocial2 list-group">
@@ -211,7 +225,7 @@
 <div class="container ">
     <div class="col-md-12 wtlast">
         <div class="wtlast2">
-          <img class="img-responsive" ng-src="{{getOneWhatsHot.tableImage}}">
+            <img class="img-responsive" ng-src="{{getOneWhatsHot.tableImage}}">
             <!-- <div class="row">
                 <div class="col-md-12 pading0">
                     <table class="table">

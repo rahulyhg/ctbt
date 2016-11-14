@@ -110,16 +110,38 @@ firstapp.directive('img', function($compile, $parse) {
   };
 });
 
-firstapp.filter('serverimage', function() {
-  return function(image) {
-    if (image && image !== null) {
-      return adminurl + "upload/readFile?file=" + image;
-    } else {
-      return undefined;
-    }
-  }
-});
+// firstapp.filter('serverimage', function() {
+//   return function(image) {
+//     if (image && image !== null) {
+//       return adminurl + "upload/readFile?file=" + image;
+//     } else {
+//       return undefined;
+//     }
+//   }
+// });
 
+firstapp.filter('serverimage', function() {
+    return function(image, width, height, style) {
+        var other = "";
+        if (width && width != "") {
+            other += "&width=" + width;
+        }
+        if (height && height != "") {
+            other += "&height=" + height;
+        }
+        if (style && style != "") {
+            other += "&style=" + style;
+        }
+        if (image) {
+            if (image.indexOf('https://') == -1) {
+                return adminurl + "upload/readFile?file=" + image + other;
+            } else {
+                return image;
+            }
+        }
+    };
+});
+// :130:130:cover
 firstapp.directive('fancyboxBox', function($document) {
   return {
     restrict: 'EA',
