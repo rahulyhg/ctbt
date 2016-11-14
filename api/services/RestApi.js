@@ -136,7 +136,7 @@ var model = {
                 Destination.findOne({
                     _id:data.id,
                     status: "true"
-                }).sort({
+                }).sort({ //changeed
                     order: 1
                 }).exec(function (err, found) {
                     if (err) {
@@ -251,7 +251,38 @@ CategoryFilter: function (data, callback) {
 },
 
 
+CategoryFilterAccomodation: function (data, callback) {
+    async.parallel({
+      Category: function (callback) {
+          Activities.find({
+              destination:data.destination,
+              type: { $in: data.type },
+              status: "true"
+          }).populate("destination","name").sort({
+                    order: 1
+                }).exec(function (err, found) {
+              if (err) {
+                  console.log(err);
+                  callback(err, null);
+              } else if (found) {
+                  callback(null, found);
+              } else {
+                  callback(null, found);
+              }
+          });
+      },
 
+    }, function (err, results) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else if (results && results.length > 0) {
+            callback(null, results);
+        } else {
+            callback(null, results);
+        }
+    });
+},
 
 
 

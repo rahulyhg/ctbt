@@ -52,6 +52,17 @@ var controller = {
       }
   },
 
+  CategoryFilterAccomodation: function (req, res) {
+    if (req.body) {
+        RestApi.CategoryFilterAccomodation(req.body, res.callback);
+    } else {
+        res.json({
+            value: false,
+            data: "Invalid Request"
+        });
+    }
+},
+
 ActivitiesImages: function (req, res) {
   if (req.body) {
       RestApi.ActivitiesImages(req.body, res.callback);

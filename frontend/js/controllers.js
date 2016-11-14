@@ -613,6 +613,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             imageClass: 'vector'
         }];
         $scope.noResult = false;
+        $scope.viewMoreActivity = false;
+        $scope.viewLessActivity = false;
+
         $scope.searchExpert = function() {
             var y = 0;
             _.forEach($scope.locationArr, function(n) {
@@ -634,9 +637,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return n.model
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
-                $scope.viewMore = true;
+              if(data.data.Category.length > 8){
+                $scope.viewMoreActivity = true;
+              }
+
                 if (data.data.Category.length == 0) {
-                    $scope.viewMore = false;
+                    $scope.viewMoreActivity = false;
                     $scope.noResult = true;
                 } else {
 
@@ -645,7 +651,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log('data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     console.log('  $scope.getActivityArr', $scope.getActivityArr);
-                    $scope.getActivity = _.take($scope.getActivity, 4);
+                    $scope.getActivity = _.take($scope.getActivity, 8);
                     // NavigationService.cityDetails($stateParams.id, function(data) {
                     //     $scope.getActivity = data.data.getActivity;
                     //     console.log('$scope.getActivity', $scope.getActivity);
@@ -669,8 +675,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.loadMorePackage = function() {
             console.log('inside loadmore fun');
             $scope.more = true;
-            $scope.viewMore = false;
-            $scope.viewLess = true;
+            $scope.viewMoreActivity = false;
+            $scope.viewLessActivity = true;
             $scope.getPackage = $scope.getPackageArr;
             $scope.getActivity = $scope.getActivityArr;
         };
@@ -1155,7 +1161,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return n.model
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
-                $scope.viewMore = true;
+                // $scope.viewMore = true;
+                if(data.data.Category.length > 6 ){
+                    $scope.viewMore = true;
+                }
                 if (data.data.Category.length == 0) {
                     $scope.viewMore = false;
                     $scope.noResult = true;
@@ -1223,6 +1232,82 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
           console.log($stateParams.id);
         }
+
+        // ================cart integration=====================
+        $scope.isInWishlistCustPage = function(id) {
+          // console.log(id);
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        $scope.isInWishlistAccomodation = function(id) {
+          // console.log(id);
+            var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
+                return key.accomodation._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        $scope.getCartFunCustomisation = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataAccomodation = data.data.accomodation;
+        console.log('$scope.getCartDataActivity10',$scope.getCartDataActivity10);
+            });
+        }
+        $scope.getCartFunCustomisation();
+        $scope.addTocartOnCustPage = function(id, type) {
+            console.log(id, type);
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type,id, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFunCustomisation();
+                });
+            } else {
+                NavigationService.addCartActivity(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                    $scope.getCartFunCustomisation();
+                });
+            }
+
+
+        }
+        $scope.addTocartOnAccomodation = function(type,dest,name,image,id) {
+            console.log(type,dest,name,image,id);
+            var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
+                return key.accomodation._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type,id, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFunCustomisation();
+                });
+            } else {
+                NavigationService.addCartActivity(type,dest,name,image, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                    $scope.getCartFunCustomisation();
+                });
+            }
+
+
+        }
+
+
+
+        // ==================End of Cart=======================
 
     })
 
