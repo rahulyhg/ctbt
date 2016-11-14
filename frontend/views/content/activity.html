@@ -100,7 +100,7 @@
                 <div ng-if="showBttn.length==0">
                     <h1><center>No data Found</center></h1></div>
 
-                <div class="load-more text-center" ng-hide="changeDestData==0 || (!viewLess && !viewMore)">
+                <div class="load-more text-center" ng-hide="showBttn.length==0">
                     <div class="over-layer pdt30 pdb30">
                         <div class="button-holder">
                             <button class="ext-detail" ng-click="loadMoreActivities()" ng-if="viewMore">View More</button>

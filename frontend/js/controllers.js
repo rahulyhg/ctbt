@@ -126,8 +126,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     images.smallImage = _.take(images.smallImage, 2);
                     if (images.smallImage.length > 2) {
                         $scope.viewMore = true;
-                    } else {
-                        $scope.viewMore = false;
                     }
 
                 }
@@ -138,8 +136,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     images.bigImage = _.take(images.bigImage, 1);
                     if (images.bigImage.length > 2) {
                         $scope.viewMore = true;
-                    } else {
-                        $scope.viewMore = false;
                     }
 
                 }
@@ -171,6 +167,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
 
           }else{
+            $scope.viewLess = false;
+            $scope.viewMore = false;
               $scope.loadLessActivities();
           }
 
@@ -567,11 +565,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 $scope.getPackage = data.data.getPackage;
                 console.log('$scope.getPackage', $scope.getPackage);
+                if(data.data.getPackage.length > 8){
+                  $scope.viewMore = true;
+                }
                 // $scope.getActivity = data.data.getActivity;
                 // console.log('$scope.getActivity',$scope.getActivity);
                 // $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                 $scope.getPackageArr = _.cloneDeep($scope.getPackage);
-                $scope.viewMore = true;
+                // $scope.viewMore = true;
                 $scope.getPackage = _.take($scope.getPackage, 8);
                 // $scope.getActivity = _.take($scope.getActivity, 4);
                 // _.forEach($scope.getActivity, function(n) {
@@ -675,6 +676,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.searchExpert();
         $scope.loadMorePackage = function() {
             console.log('inside loadmore fun');
+            $scope.viewMore = false;
+            $scope.viewLess = true;
             $scope.more = true;
             $scope.viewMoreActivity = false;
             $scope.viewLessActivity = true;

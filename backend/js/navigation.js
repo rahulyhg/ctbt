@@ -101,11 +101,12 @@ var navigationservice = angular.module('navigationservice', [])
         name: "Subscribe",
         classis: "active",
         sref: "#/page/viewSubscribe//"
-    }, {
-        name: "Media",
-        classis: "active",
-        sref: "#/page/viewMedia//"
     },
+    // {
+    //     name: "Media",
+    //     classis: "active",
+    //     sref: "#/page/viewMedia//"
+    // },
     {
         name: "Cart",
         classis: "active",
