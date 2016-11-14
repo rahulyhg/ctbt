@@ -43,15 +43,11 @@
                             <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
                             <div class="cart-sec">
                                 <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-
                                   <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
                                   <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
-
                               </button>
-                                <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
-                                <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
                             </div>
-                            <div class="shadow-up"></div>
+
                             <div class="shadow-down"></div>
                             <div class="event-name">
                                 <span>{{data.title1}} {{data.title2}}</span>
@@ -59,16 +55,12 @@
                                 <span>{{data.duration}}</span>
                             </div>
                             <div class="over-layer text-center">
-                                <div class="cart-sec">
-                                    <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-
-                                      <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
-                                      <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
-
-                                  </button>
-                                    <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive doneLoading" ng-click="addTocartOnPackage(data._id,data.typeCart)" ng-if="!cart">
-                                    <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
-                                </div>
+                              <div class="cart-sec">
+                                  <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+                                    <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
+                                    <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
+                                </button>
+                              </div>
                                 <div class="button-holder">
                                     <button class="ext-detail" ui-sref="pattaya2({id:data._id})">KNOW MORE</button>
                                 </div>
@@ -177,16 +169,10 @@
 <div class="eq displaynon">
     <div class="container">
         <div class="rotat">
-            <div class="row">
+            <div class="row hei">
                 <div class="show-div" ng-show="lions">
-                    <div class="col-md-3 col-sm-3 rotatating">
-                        <div class="pattsocial2">
-                            <ul class="list-group socialpatt yellow_back_lightcolor ">
-                                <li class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
+
+                    <div class="col-md-12 col-sm-12 yellow_back_lightcolor pattform">
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData)">
                         <!-- <form name="myForm"> -->
                             <div class="col-md-6  col-sm-6">
@@ -245,6 +231,13 @@
                 <li ng-click="lions = !lions" ng-class="{ active: lions }" class="Roboto black fontsizep">ENQUIRE NOW
                 </li>
             </ul>
+        </div>
+        <div class="rotatating" ng-show="lions">
+            <div class="pattsocial2">
+                <ul class="list-group socialpatt yellow_back_lightcolor ">
+                    <li class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -360,7 +353,7 @@
                                     </form>
                                 </div>
 
-                                <div class="col-md-9 col-sm-8 col-xs-12 ">
+                                <div class="col-md-9 col-sm-8 col-xs-12 scrollmudiv">
                                     <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
                                         <strong class="naming bluecol">{{key}}</strong>
                                         <div class="img1" ng-repeat="img in value">
