@@ -69,6 +69,8 @@
     }
 }
 @media (max-width: 922px) {
+
+
     .p2 {
         font-size: 43px;
     }
@@ -201,7 +203,7 @@
     body {
         padding-top: 50px;
     }
-
+  .firstimg .front,.flexslider .slides img{ height:inherit !important;}
     .borderdown {
         background: linear-gradient(to right, #ffd72b 71%, #f3cb2c 41%, #ffd72b 40%, #f3cb2c 40%, rgba(255, 255, 255, 0) 40%);
     }

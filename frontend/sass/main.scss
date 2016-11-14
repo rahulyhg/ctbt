@@ -2126,7 +2126,7 @@ margin-top: -5px;
 }
 
 .panelacor {
-    padding: 5px 10px !important;
+    padding: 5px 10px  0px 10px !important;
     border-top: 2px solid #fdd116 !important;
     border-bottom: 0 solid #fdd116 !important;
     border-left: 0 solid #fdd116 !important;
@@ -2548,7 +2548,8 @@ input[type="time"].form-control {
 .mycartme .panel-heading {
     padding: 0 !important;
 }
-
+.pattayar .panel-heading{
+    padding: 5px 15px 0px 15px !important;}
 .mycartme {
     border: none !important;
 }
@@ -2609,16 +2610,27 @@ input[type="time"].form-control {
 .scrollmudiv::-webkit-scrollbar-thumb {
     background-image:  -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(0, 36, 109, 0.4)), color-stop(0.72, rgba(0, 36, 109, 0.4)), color-stop(0.86, rgba(0, 36, 109, 0.4)));
 }
-.flex-direction-nav a:before {
-    font: normal normal normal normal 14px/1 FontAwesome !important;
-
-    content: "\f104" !important;
-    color: #fff !important;
-}
-.flex-direction-nav a.flex-next:before{  font: normal normal normal normal 14px/1 FontAwesome !important;
-
-  content: "\f105" !important;
-  color: #fff !important;}
+// .flex-direction-nav a.flex-next:before {
+//     content: '\f002';
+// }
+// .flex-direction-nav a:before {
+//     font-family: "flexslider-icon";
+//     font-size: 40px;
+//     display: inline-block;
+//     content: '\f001';
+//     color: rgba(0, 0, 0, 0.8);
+//     text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+// }
+// .flex-direction-nav a:before {
+//     font: normal normal normal normal 14px/1 FontAwesome !important;
+//
+//     content: "\f104" !important;
+//     color: #fff !important;
+// }
+// .flex-direction-nav a.flex-next:before{  font: normal normal normal normal 14px/1 FontAwesome !important;
+//
+//   content: "\f105" !important;
+//   color: #fff !important;}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
