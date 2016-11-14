@@ -18,8 +18,8 @@
 </div>
 <div class="container">
     <div class="row mf" ng-controller="headerctrl">
-      <div class="col-md-4 col-sm-6 col-xs-12"><strong class="st stp Robotor"><a class="yellow_color" ui-sref="destination">DESTINATIONS</a></strong>
-        <div class="col-md-6 col-sm-6 col-xs-6">
+      <div class="col-md-2 col-sm-3 col-xs-6"><strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">DESTINATIONS</a></strong>
+        <!-- <div class="col-md-6 col-sm-6 col-xs-6"> -->
               <ul class="list-group">
                 <li class="list Robotor " ng-repeat="dest in allDest"><a class="whit_color" ui-sref="pattaya({id:dest._id})">{{dest.name}}</a></li>
                 <!-- <li class="list Robotor "><a class="whit_color" ui-sref="home">Amsterdam</a></li> -->
@@ -39,8 +39,8 @@
             <li class="list Robotor"><a class="whit_color" ui-sref="home">Munich</a></li>
           </ul>
           <strong><a class="yellow_color" ui-sref="home">More...</a></strong>
-        </div> -->
-      </div>
+        </div>
+      </div>-->
       <div class="col-md-2 col-sm-3 col-xs-6 spt"><strong class="stp Robotor"><a class="yellow_color" ui-sref="activity">ACTIVITIES</a></strong>
         <ul class="list-group">
           <li class="list Robotor " ng-repeat="data in allActivities"><a class="whit_color" ui-sref="pattaya({id:data._id})">{{data.name}}</a></li>

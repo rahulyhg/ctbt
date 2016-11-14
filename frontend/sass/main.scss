@@ -683,7 +683,7 @@ option[value=""][disabled] {
 .paddleft1 {
     display: inline-block;
     padding: 5px 28px;
-    margin: 10% !important;
+    margin-left: 10% !important;
     font-size: 22px;
     border: none;
     outline: none;
@@ -2555,6 +2555,9 @@ input[type="time"].form-control {
     input[type="checkbox"]:checked+label span {
         @include transition(background-color 0.4s linear);
     }
+}
+.pattform input[type="date"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control, input[type="time"].form-control {
+    line-height: 1.428571429 !important;
 }
 //bootstrap forms
 /* Start writing sass here */

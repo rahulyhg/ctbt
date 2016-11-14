@@ -188,6 +188,7 @@
                     </div>
                     <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData)">
+                        <!-- <form name="myForm"> -->
                             <div class="col-md-6  col-sm-6">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
                                 <p class="error-msg" ng-show="myForm.cities.$invalid && myForm.cities.$touched">Interested Cities Size is required</p>
@@ -229,7 +230,8 @@
                                 <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email ID is required</p>
                             </div>
                             <div class="col-md-4 col-sm-3">
-                                <button class="btn btn-submit" type="submit">Submit</button>
+                                <button ng-click="lions = !lions" ng-disabled="myForm.$invalid" ng-class="{ active: lions }" type="submit" class="btn btn-submit">Submit</button>
+                                <!-- <button  ng-disabled="myForm.!invalid" ng-class="{ active: lions }" class="btn btn-submit">Submit</button> -->
                             </div>
                         </form>
 
