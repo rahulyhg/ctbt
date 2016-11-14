@@ -126,8 +126,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     images.smallImage = _.take(images.smallImage, 2);
                     if (images.smallImage.length > 2) {
                         $scope.viewMore = true;
-                    } else {
-                        $scope.viewMore = false;
                     }
 
                 }
@@ -138,8 +136,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     images.bigImage = _.take(images.bigImage, 1);
                     if (images.bigImage.length > 2) {
                         $scope.viewMore = true;
-                    } else {
-                        $scope.viewMore = false;
                     }
 
                 }
@@ -171,6 +167,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
 
           }else{
+            $scope.viewLess = false;
+            $scope.viewMore = false;
               $scope.loadLessActivities();
           }
 
@@ -377,14 +375,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.DestinationLand = data.data.popularDestination;
             $scope.DestinationLand = _.chunk(data.data.popularDestination,2);
             console.log("$scope.DestinationLand", $scope.DestinationLand);
-            $scope.allDestination = _.take($scope.DestinationLand.allDestination, 6);
+            $scope.allDestination = _.take(data.data.allDestination, 6);
+              console.log("$scope.DestinationLand", $scope.allDestination);
             $scope.viewMoreDest = function() {
                 $scope.show = true;
-                $scope.allDestination = $scope.DestinationLand.allDestination;
+                $scope.allDestination = data.data.allDestination;
             };
             $scope.viewLessDest = function() {
                 $scope.show = false;
-                $scope.allDestination = _.take($scope.DestinationLand.allDestination, 6);
+                $scope.allDestination = _.take(data.data.allDestination, 6);
             }
         })
 
@@ -566,11 +565,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 $scope.getPackage = data.data.getPackage;
                 console.log('$scope.getPackage', $scope.getPackage);
+                if(data.data.getPackage.length > 8){
+                  $scope.viewMore = true;
+                }
                 // $scope.getActivity = data.data.getActivity;
                 // console.log('$scope.getActivity',$scope.getActivity);
                 // $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                 $scope.getPackageArr = _.cloneDeep($scope.getPackage);
-                $scope.viewMore = true;
+                // $scope.viewMore = true;
                 $scope.getPackage = _.take($scope.getPackage, 8);
                 // $scope.getActivity = _.take($scope.getActivity, 4);
                 // _.forEach($scope.getActivity, function(n) {
@@ -613,6 +615,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             imageClass: 'vector'
         }];
         $scope.noResult = false;
+        $scope.viewMoreActivity = false;
+        $scope.viewLessActivity = false;
+
         $scope.searchExpert = function() {
             var y = 0;
             _.forEach($scope.locationArr, function(n) {
@@ -634,9 +639,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return n.model
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
-                $scope.viewMore = true;
+              if(data.data.Category.length > 8){
+                $scope.viewMoreActivity = true;
+              }
+
                 if (data.data.Category.length == 0) {
-                    $scope.viewMore = false;
+                    $scope.viewMoreActivity = false;
                     $scope.noResult = true;
                 } else {
 
@@ -645,7 +653,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log('data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     console.log('  $scope.getActivityArr', $scope.getActivityArr);
-                    $scope.getActivity = _.take($scope.getActivity, 4);
+                    $scope.getActivity = _.take($scope.getActivity, 8);
                     // NavigationService.cityDetails($stateParams.id, function(data) {
                     //     $scope.getActivity = data.data.getActivity;
                     //     console.log('$scope.getActivity', $scope.getActivity);
@@ -668,9 +676,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.searchExpert();
         $scope.loadMorePackage = function() {
             console.log('inside loadmore fun');
-            $scope.more = true;
             $scope.viewMore = false;
             $scope.viewLess = true;
+            $scope.more = true;
+            $scope.viewMoreActivity = false;
+            $scope.viewLessActivity = true;
             $scope.getPackage = $scope.getPackageArr;
             $scope.getActivity = $scope.getActivityArr;
         };
@@ -1155,7 +1165,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return n.model
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
-                $scope.viewMore = true;
+                // $scope.viewMore = true;
+                if(data.data.Category.length > 6 ){
+                    $scope.viewMore = true;
+                }
                 if (data.data.Category.length == 0) {
                     $scope.viewMore = false;
                     $scope.noResult = true;
@@ -1223,6 +1236,82 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
           console.log($stateParams.id);
         }
+
+        // ================cart integration=====================
+        $scope.isInWishlistCustPage = function(id) {
+          // console.log(id);
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        $scope.isInWishlistAccomodation = function(id) {
+          // console.log(id);
+            var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
+                return key.accomodation._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        $scope.getCartFunCustomisation = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataAccomodation = data.data.accomodation;
+        console.log('$scope.getCartDataActivity10',$scope.getCartDataActivity10);
+            });
+        }
+        $scope.getCartFunCustomisation();
+        $scope.addTocartOnCustPage = function(id, type) {
+            console.log(id, type);
+            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+                return key.activities._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type,id, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFunCustomisation();
+                });
+            } else {
+                NavigationService.addCartActivity(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                    $scope.getCartFunCustomisation();
+                });
+            }
+
+
+        }
+        $scope.addTocartOnAccomodation = function(type,dest,name,image,id) {
+            console.log(type,dest,name,image,id);
+            var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
+                return key.accomodation._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type,id, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFunCustomisation();
+                });
+            } else {
+                NavigationService.addCartActivity(type,dest,name,image, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                    $scope.getCartFunCustomisation();
+                });
+            }
+
+
+        }
+
+
+
+        // ==================End of Cart=======================
 
     })
 
