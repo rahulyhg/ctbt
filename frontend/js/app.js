@@ -194,3 +194,55 @@ firstapp.filter('trusted', ['$sce', function ($sce) {
        return $sce.trustAsResourceUrl(url);
    };
 }]);
+
+
+
+firstapp.filter('TbtIcon', function() {
+    return function(input) {
+
+        var returnImg = "frontend/img/team/";
+        switch (input) {
+            case "The City":
+                returnImg += ".png";
+                break;
+
+            case "How to get there":
+                returnImg += ".png";
+                break;
+
+            case "Distances":
+                returnImg += ".png";
+                break;
+
+            case "Travel in style":
+                returnImg += ".png";
+                break;
+
+            case "Visa Info":
+                returnImg += "4.png";
+                break;
+
+            case "Booze and Chill":
+                returnImg += ".png";
+                break;
+
+            case "Tourist Attraction":
+                returnImg += ".png";
+                break;
+
+            case "Action Adventure":
+                returnImg += ".png";
+                break;
+
+            case "Exclusively for the Bachelors":
+                returnImg += ".png";
+                break;
+
+            case "For Art enthusiasts":
+                returnImg += ".png";
+                break;
+
+        }
+        return returnImg;
+    };
+});

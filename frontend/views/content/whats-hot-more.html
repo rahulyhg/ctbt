@@ -191,23 +191,12 @@
             <div class="col-md-12 social1">
                 <ul class="list-group socialgr">
                     <li class="Robotor" ng-click="addTocartOnWhatsHot(myid,'WhatsHot')">
-                        <!-- <a class="yellow_color pregular"><img src="frontend/img/cart.png" alt="" class="socialimg img-responsive doneLoading">ADD TO CART</a> -->
-                        <a class="pregular" ng-if="isInWishlistWhatsHot(myid)">
-                            <!-- <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistWhatsHot(myid)"></i> -->
+                        <a class="pregular" ng-if="!isInWishlistWhatsHotMore(myid)">
                             <i class="color-white fa fa-shopping-cart socialimg" ></i> ADD TO CART</a>
-                        <a class="pregular" ng-if="!isInWishlistWhatsHot(myid)">
+                        <a class="pregular" ng-if="isInWishlistWhatsHotMore(myid)">
                             <i class="yellow_color fa fa-shopping-cart socialimg" ></i>ADD TO CART</a>
-                            <!-- <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistWhatsHot(myid)"></i> ADD TO CART</a> -->
                     </li>
                 </ul>
-
-                <!-- <button class="cart uppercase" ng-click="addTocartOnWhatsHot10(data._id,data.typeCart);">
-
-                  <i class="fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
-                  <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
-
-              </button> -->
-
             </div>
             <div class="col-md-12 social2">
                 <ul class="ulsocial2 list-group">
