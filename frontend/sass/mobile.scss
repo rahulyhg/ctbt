@@ -1,12 +1,11 @@
 @media only screen and (max-width: 1205px) {
-  .show-div{    width: auto;}
+    .rotatating {
+        position: absolute;
+        left: 34px;
+        height: 0;
+        margin-top: -5px;
+    }
 
-.rotatating {
-    position: absolute;
-    left: 34px;
-    height: 0;
-    margin-top: -5px;
-}
     .tp {
         padding-left: 0 !important;
     }
@@ -41,7 +40,6 @@
     }
 
     .hdp {
-
         padding: 25px 0 4px;
         font-weight: 700;
         color: #0b358c;
@@ -69,7 +67,25 @@
     }
 }
 @media (max-width: 922px) {
+    .firstimg .front .event-name {
+        bottom: 23px !important;
+    }
 
+    .imgactive img {
+        height: inherit !important;
+    }
+
+    .eventshome {
+        height: inherit;
+    }
+
+    .eventshome img {
+        height: inherit;
+    }
+
+    .show-div {
+        width: 825px;
+    }
 
     .p2 {
         font-size: 43px;
@@ -144,14 +160,6 @@
         padding-bottom: 15px;
     }
 
-    .pattsocial2 {
-        left: -28.5%;
-    }
-
-    .show-div {
-        width: 100%;
-    }
-
     .pattmarg3 {
         margin-top: -38px;
         margin-bottom: 5%;
@@ -185,7 +193,6 @@
         font-size: 14px;
     }
 
-
     .categoryup2 {
         background-image: url("/../img/wd.png");
         background-repeat: no-repeat;
@@ -203,7 +210,12 @@
     body {
         padding-top: 50px;
     }
-  .firstimg .front,.flexslider .slides img{ height:inherit !important;}
+
+    .firstimg .front,
+    .flexslider .slides img {
+        height: inherit !important;
+    }
+
     .borderdown {
         background: linear-gradient(to right, #ffd72b 71%, #f3cb2c 41%, #ffd72b 40%, #f3cb2c 40%, rgba(255, 255, 255, 0) 40%);
     }
@@ -794,11 +806,6 @@
         font-size: 12px;
     }
 
-    .pattsocial2 {
-        margin-top: 15%;
-        left: -83px;
-    }
-
     .pattform {
         margin-top: -26.8%;
         position: absolute;
@@ -882,10 +889,10 @@
     }
 }
 @media (max-width: 480px) {
-  .select-main {
+    .select-main {
         width: 100%;
+    }
 
-  }
     .flipDiv figure figcaption {
         padding: 13px 20px;
         overflow: scroll;

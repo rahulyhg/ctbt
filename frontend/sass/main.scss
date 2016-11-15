@@ -39,8 +39,8 @@ $white: #ffffff !default;
 @font-face {
     font-family: "flexslider-icon";
     src: url("../fonts/flexslider-icon.ttf");
-
 }
+
 body {
     padding-top: 59px;
 }
@@ -326,10 +326,25 @@ a {
         font-size: 16px;
     }
 }
-.eventshome {width: 191px;
-height: 185px;
-img{height: 100%;}}
-.events,.eventshome {
+
+.firstimg .front .event-name {
+    bottom: 47px !important;
+}
+
+.imgactive img {
+    height: 260px !important;
+}
+
+.eventshome {
+    height: 185px;
+
+    img {
+        height: 100%;
+    }
+}
+
+.events,
+.eventshome {
     position: relative;
     cursor: pointer;
 
@@ -338,7 +353,6 @@ img{height: 100%;}}
             display: block;
         }
     }
-
 
     .over-layer {
         display: none;
@@ -1268,6 +1282,7 @@ figure .links {
             height: 0;
             text-align: center;
             color: red;
+            margin: 0 !important;
         }
 
         button {
@@ -1290,6 +1305,7 @@ figure .links {
     height: 0;
     text-align: center;
     color: red;
+    margin: 0 !important;
 }
 
 .sub {
@@ -2043,7 +2059,6 @@ figure .links {
     .form-control {
         border: none !important;
         font-size: 17px !important;
-        margin-bottom: 15px !important;
         height: auto !important;
         padding: 9px 12px !important;
     }
@@ -2085,14 +2100,16 @@ figure .links {
 }
 
 .rotatating {
-  position: absolute;
-left: 242px;
+    position: absolute;
+    left: 242px;
     height: 0;
 }
 
 .pattsocial2 {
-  -webkit-transform: rotate(-90deg);
-margin-top: -5px;
+    -webkit-transform: rotate(-90deg);
+    position: absolute;
+    right: -72px;
+    top: 51px;
 
     .socialpatt {
         list-style: none;
@@ -2130,7 +2147,7 @@ margin-top: -5px;
 }
 
 .panelacor {
-    padding: 5px 10px  0px 10px !important;
+    padding: 5px 10px 0 !important;
     border-top: 2px solid #fdd116 !important;
     border-bottom: 0 solid #fdd116 !important;
     border-left: 0 solid #fdd116 !important;
@@ -2235,7 +2252,6 @@ margin-top: -5px;
 .img1 {
     margin-bottom: -5px;
     display: inline-block;
-    float: left;
 }
 
 .naming {
@@ -2264,7 +2280,7 @@ margin-top: -5px;
 }
 
 .scrollmudiv {
-    overflow: auto;
+    overflow: scroll;
     white-space: nowrap;
 }
 
@@ -2335,12 +2351,15 @@ margin-top: -5px;
     position: absolute;
     z-index: 1;
     right: 66px;
-        height: 0;
+    height: 0;
 }
-.hei{    height: 0;}
+
+.hei {
+    height: 0;
+}
 
 .show-div {
-    width: 888px;
+    width: 1000px;
     float: right;
     margin-right: 15px;
     margin-top: -66px;
@@ -2436,7 +2455,7 @@ figure {
 
 .flipDiv figure p {
     display: block;
-      font-family: 'Robotor';
+    font-family: 'Robotor';
     font-size: 16px;
     margin: 0;
     color: #000;
@@ -2541,8 +2560,14 @@ input[type="time"].form-control {
     width: 11px !important;
     height: 11px !important;
 }
-.flexslider .slides img{    height: 100% !important;}
-.firstimg .front{height: 405px !important;}
+
+.flexslider .slides img {
+    height: 100% !important;
+}
+
+.firstimg .front {
+    height: 405px !important;
+}
 
 .yellow_back_color .flex-control-paging li a.flex-active {
     background: #002B7F !important;
@@ -2552,8 +2577,11 @@ input[type="time"].form-control {
 .mycartme .panel-heading {
     padding: 0 !important;
 }
-.pattayar .panel-heading{
-    padding: 5px 15px 0px 15px !important;}
+
+.pattayar .panel-heading {
+    padding: 5px 15px 0 !important;
+}
+
 .mycartme {
     border: none !important;
 }
@@ -2598,11 +2626,16 @@ input[type="datetime-local"].form-control,
 input[type="month"].form-control,
 input[type="time"].form-control {
     line-height: 1.428571429 !important;
+    color: #868686 !important;
+    font-weight: 100 !important;
+}
+
+.padboth15 {
+    padding: 0 0 22px;
 }
 
 .scrollmudiv::-webkit-scrollbar-track {
-
-    background-color:rgba(245, 245, 245, 0);
+    background-color: rgba(245, 245, 245, 0);
 }
 
 .scrollmudiv::-webkit-scrollbar {
@@ -2612,7 +2645,7 @@ input[type="time"].form-control {
 }
 
 .scrollmudiv::-webkit-scrollbar-thumb {
-    background-image:  -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(0, 36, 109, 0.4)), color-stop(0.72, rgba(0, 36, 109, 0.4)), color-stop(0.86, rgba(0, 36, 109, 0.4)));
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(0, 36, 109, 0.4)), color-stop(0.72, rgba(0, 36, 109, 0.4)), color-stop(0.86, rgba(0, 36, 109, 0.4)));
 }
 // .flex-direction-nav a.flex-next:before {
 //     content: '\f002';
