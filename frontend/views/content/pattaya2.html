@@ -42,9 +42,17 @@
                 </div>
                 <div class="pull-right wtsocial patayasocial">
                     <div class="col-md-12 social1">
-                        <ul class="list-group socialgr">
+                        <!-- <ul class="list-group socialgr">
                             <li class="Robotor">
                                 <a class="yellow_color pregular"><img src="frontend/img/cart.png" alt="" class="socialimg img-responsive doneLoading">ADD TO CART</a>
+                            </li>
+                        </ul> -->
+                        <ul class="list-group socialgr">
+                            <li class="Robotor" ng-click="addTocartOnPackagePattaya2(myIdPattaya2,'Package')">
+                                <a class="pregular" ng-if="!isInWishlistPackagePattaya2(myIdPattaya2)">
+                                    <i class="color-white fa fa-shopping-cart socialimg" ></i> ADD TO CART</a>
+                                <a class="pregular" ng-if="isInWishlistPackagePattaya2(myIdPattaya2)">
+                                    <i class="yellow_color fa fa-shopping-cart socialimg" ></i>ADD TO CART</a>
                             </li>
                         </ul>
                     </div>

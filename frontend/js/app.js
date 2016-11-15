@@ -110,16 +110,38 @@ firstapp.directive('img', function($compile, $parse) {
   };
 });
 
-firstapp.filter('serverimage', function() {
-  return function(image) {
-    if (image && image !== null) {
-      return adminurl + "upload/readFile?file=" + image;
-    } else {
-      return undefined;
-    }
-  }
-});
+// firstapp.filter('serverimage', function() {
+//   return function(image) {
+//     if (image && image !== null) {
+//       return adminurl + "upload/readFile?file=" + image;
+//     } else {
+//       return undefined;
+//     }
+//   }
+// });
 
+firstapp.filter('serverimage', function() {
+    return function(image, width, height, style) {
+        var other = "";
+        if (width && width != "") {
+            other += "&width=" + width;
+        }
+        if (height && height != "") {
+            other += "&height=" + height;
+        }
+        if (style && style != "") {
+            other += "&style=" + style;
+        }
+        if (image) {
+            if (image.indexOf('https://') == -1) {
+                return adminurl + "upload/readFile?file=" + image + other;
+            } else {
+                return image;
+            }
+        }
+    };
+});
+// :130:130:cover
 firstapp.directive('fancyboxBox', function($document) {
   return {
     restrict: 'EA',
@@ -172,3 +194,55 @@ firstapp.filter('trusted', ['$sce', function ($sce) {
        return $sce.trustAsResourceUrl(url);
    };
 }]);
+
+
+
+firstapp.filter('TbtIcon', function() {
+    return function(input) {
+console.log(input);
+        var returnImg = "frontend/img/tbtIcons/";
+        switch (input) {
+            case "The City":
+                returnImg += "The-City.png";
+                break;
+
+            case "How to get there":
+                returnImg += "How-to-get-there.png";
+                break;
+
+            case "Distances":
+                returnImg += "Things-not-to-do-here.png";
+                break;
+
+            case "Travel in style":
+                returnImg += "Travel-in-Style.png";
+                break;
+
+            case "Visa Info":
+                returnImg += "Visa-Info.png";
+                break;
+
+            case "Booze and Chill":
+                returnImg += "Booze-and-Chill.png";
+                break;
+
+            case "Tourist Attraction":
+                returnImg += "Tourist-Attraction.png";
+                break;
+
+            case "Action Adventure":
+                returnImg += "Action-Adventure.png";
+                break;
+
+            case "Exclusively for the Bachelors":
+                returnImg += "Exclusively-for-the-Bachelors.png";
+                break;
+
+            case "For Art enthusiasts":
+                returnImg += "Things-to-take-back.png";
+                break;
+
+        }
+        return returnImg;
+    };
+});

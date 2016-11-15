@@ -270,7 +270,7 @@
                         <div uib-accordion-group class="panel-default panelacor" ng-class="{'yellow_back_color': status.open4, '': !status.open4}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
                             <uib-accordion-heading class="panel-heading" g-class="{'yellow_back_color': status.open4, '': !status.open4}">
                                 <div class="accord-title">
-                                    <h4 class="panel-title fontpanel Pregular bluecol"><img src="{{data.thumbnail | serverimage}}" alt="" class="image_title" >  {{data.name}}
+                                    <h4 class="panel-title fontpanel Pregular bluecol"><img ng-src="{{data.name | TbtIcon}}" alt="" class="image_title" >  {{data.name}}
                                       <i class="pull-right fa " ng-class="{'fa fa-minus': status.open4, 'fa fa-plus': !status.open4}"></i>
                                         </h4>
                                 </div>

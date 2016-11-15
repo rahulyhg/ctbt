@@ -81,6 +81,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.changeDestination = function(id) {
           if(id){
             console.log(id);
+            $scope.saveDestId = id;
             NavigationService.getChangeDestination(id, function(data) {
                 $scope.changeDestData = data.data.Images;
                 $scope.showBttn = data.data.Images;
@@ -167,6 +168,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
 
           }else{
+            console.log('m in else');
             $scope.viewLess = false;
             $scope.viewMore = false;
               $scope.loadLessActivities();
@@ -180,6 +182,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.viewLess = false;
         $scope.viewMore = false;
         $scope.loadLessActivities = function() {
+          console.log('$scope.saveDestId',$scope.saveDestId);
+          $scope.saveDestId =undefined;
+          // if($scope.saveDestId !=undefined){
+          //     $scope.changeDestination($scope.saveDestId);
+          //       $scope.changeDestination($scope.saveDestId);
+          // }else{
+
             NavigationService.ActivityLand(function(data) {
                 console.log(data);
                 $scope.myDropdown = data.data.DestinationDropdown;
@@ -264,6 +273,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
 
             });
+          // }
         }
         $scope.loadLessActivities();
         $scope.loadMoreActivities = function() {
@@ -866,6 +876,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }]
 
         NavigationService.RestApiPattaya2($stateParams.id, function(data) {
+          $scope.myIdPattaya2 = $stateParams.id;
             console.log(data.data);
             $scope.getPattaya2 = data.data.packageDetails;
             console.log("$scope.getPattaya2", $scope.getPattaya2);
@@ -884,40 +895,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.getCartFunPattaya2 = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
                 $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                // $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                // $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
-                //         .groupBy("whatshot.name")
-                //         .toPairs()
-                //         .map(function(currentItem) {
-                //             return _.zipObject(["name", "item"], currentItem);
-                //         })
-                //         .value();
-                //         console.log($scope.getCartDataWhatsHot10);
-                // $scope.getCartDataActivity = _.chain(data.data.activities)
-                //         .groupBy('activities.destination.name')
-                //         .toPairs()
-                //         .map(function(currentItem) {
-                //             return _.zipObject(["name", "items"], currentItem);
-                //         })
-                //         .value();
-                // $scope.getCartDataPackage = _.chain(data.data.package)
-                //         .groupBy('package.destination.name')
-                //         .toPairs()
-                //         .map(function(currentItem) {
-                //             return _.zipObject(["name", "items"], currentItem);
-                //         })
-                //         .value();
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
-                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunPattaya2();
+
+
+        $scope.addTocartOnPackagePattaya2 = function(id, type) {
+            console.log(id);
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
+                return key.package._id == id;
+            })
+            if (indexF !== -1) {
+                NavigationService.deleteCart(type, id, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFunPattaya2();
+                });
+            } else {
+                NavigationService.addCartPackage(id, type, function(data) {
+                    $scope.getData = data;
+                    console.log('$scope.getData', $scope.getData);
+                    $scope.getCartFunPattaya2();
+                });
+            }
+        }
+        $scope.isInWishlistPackagePattaya2 = function(id) {
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
+                return key.package._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
     })
     .controller('Whats-hot-moreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -957,7 +968,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.getOneWhatsHot);
         });
         $scope.myid = $stateParams.id;
-
+        $scope.isInWishlistWhatsHotMore = function(id) {
+          console.log('id',id);
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
+                return key.whatshot._id == id;
+            })
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         $scope.addTocartOnWhatsHot = function(id, type) {
             console.log(id, type);
             var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
