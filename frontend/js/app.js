@@ -194,7 +194,18 @@ firstapp.filter('trusted', ['$sce', function ($sce) {
        return $sce.trustAsResourceUrl(url);
    };
 }]);
+firstapp.filter('shorten', function() {
+    return function(value, limit) {
+        if (value)
+            if (value.length < limit) {
+                return value;
+            } else {
+                return value.slice(0, limit - 2) + "..";
 
+            }
+
+    };
+});
 
 
 firstapp.filter('TbtIcon', function() {
@@ -211,7 +222,7 @@ console.log(input);
                 break;
 
             case "Distances":
-                returnImg += "Things-not-to-do-here.png";
+                returnImg += "Distance.png";
                 break;
 
             case "Travel in style":

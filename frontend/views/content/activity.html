@@ -55,7 +55,7 @@
                                                 <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
                                             </button>
                                           </div>
-                                          <div class="descrip" ng-bind-html="smallImg.description"></div>
+                                          <div class="descrip" ng-bind-html="smallImg.description | shorten :150"></div>
                                     </figcaption>
                                 </figure>
                             </div>
