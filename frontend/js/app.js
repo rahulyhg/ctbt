@@ -199,47 +199,47 @@ firstapp.filter('trusted', ['$sce', function ($sce) {
 
 firstapp.filter('TbtIcon', function() {
     return function(input) {
-
-        var returnImg = "frontend/img/team/";
+console.log(input);
+        var returnImg = "frontend/img/tbtIcons/";
         switch (input) {
             case "The City":
-                returnImg += ".png";
+                returnImg += "The-City.png";
                 break;
 
             case "How to get there":
-                returnImg += ".png";
+                returnImg += "How-to-get-there.png";
                 break;
 
             case "Distances":
-                returnImg += ".png";
+                returnImg += "Things-not-to-do-here.png";
                 break;
 
             case "Travel in style":
-                returnImg += ".png";
+                returnImg += "Travel-in-Style.png";
                 break;
 
             case "Visa Info":
-                returnImg += "4.png";
+                returnImg += "Visa-Info.png";
                 break;
 
             case "Booze and Chill":
-                returnImg += ".png";
+                returnImg += "Booze-and-Chill.png";
                 break;
 
             case "Tourist Attraction":
-                returnImg += ".png";
+                returnImg += "Tourist-Attraction.png";
                 break;
 
             case "Action Adventure":
-                returnImg += ".png";
+                returnImg += "Action-Adventure.png";
                 break;
 
             case "Exclusively for the Bachelors":
-                returnImg += ".png";
+                returnImg += "Exclusively-for-the-Bachelors.png";
                 break;
 
             case "For Art enthusiasts":
-                returnImg += ".png";
+                returnImg += "Things-to-take-back.png";
                 break;
 
         }
