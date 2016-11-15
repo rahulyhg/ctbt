@@ -36,7 +36,11 @@ $white: #ffffff !default;
     src: url("../fonts/theboldfont.ttf");
     font-weight: 700;
 }
+@font-face {
+    font-family: "flexslider-icon";
+    src: url("../fonts/flexslider-icon.ttf");
 
+}
 body {
     padding-top: 59px;
 }
@@ -2463,11 +2467,11 @@ figure {
 }
 
 .bluracti {
-    -webkit-filter: blur(8px);
-    -moz-filter: blur(8px);
-    -o-filter: blur(8px);
-    -ms-filter: blur(8px);
-    filter: blur(8px);
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
 }
 
 .flipDiv figure .front {
