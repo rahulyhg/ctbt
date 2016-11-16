@@ -250,7 +250,7 @@ console.log(input);
                 break;
 
             case "For Art enthusiasts":
-                returnImg += "Things-to-take-back.png";
+                returnImg += "for-art-enthusiasts.png";
                 break;
 
         }
