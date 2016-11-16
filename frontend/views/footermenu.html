@@ -6,7 +6,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 ge">GET EMAIL UPDATE</div>
                 <div class="col-md-5 col-sm-4 col-xs-12 ie">
                     <input type="email" placeholder="Your email address" class="form-control" name="email" ng-model="formData.email" required>
-                    <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
+                    <p class="error" ng-show="myForm.email.invalid && myForm.email.$touched">Email is required</p>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-12 es">
                     <button type="submit">SUBSCRIBE</button>

@@ -450,6 +450,9 @@ a {
     display: inline-block;
     width: auto;
     border: 0;
+    position: relative;
+    display: inline-block;
+
 }
 
 select {
@@ -714,7 +717,7 @@ option[value=""][disabled] {
 .paddleft1 {
     display: inline-block;
     padding: 5px 28px;
-    margin-left: 10% !important;
+    margin-left: 0% !important;
     font-size: 22px;
     border: none;
     outline: none;
@@ -1302,10 +1305,17 @@ figure .links {
 }
 
 .error {
-    height: 0;
-    text-align: center;
-    color: red;
-    margin: 0 !important;
+  visibility: visible;
+background-color: black;
+color: #fff;
+border-radius: 6px;
+padding: 2px 4px;
+position: absolute;
+z-index: 1;
+font-size: 13px;
+text-align: center;
+margin: 0 !important;
+left: -28px;
 }
 
 .sub {
@@ -2038,6 +2048,7 @@ figure .links {
 
     .checkbox {
         display: inline-block !important;
+            padding: 0 9px !important;
         margin: 0 !important;
 
         label {
@@ -2078,12 +2089,16 @@ figure .links {
         color: #cacaca !important;
     }
 }
-
+.eqform{    position: fixed;
+    right: -14px;
+    z-index: 10;
+    top: 248px;}
 .pattsocial {
-    position: absolute;
-    right: 0;
-    z-index: 2;
-    height: 0;
+  position: fixed;
+    right: -65px;
+    z-index: 10;
+    top: 248px;
+    height: 0px;
 
     .socialpatt {
         list-style: none;
@@ -2127,10 +2142,9 @@ figure .links {
 .margincheck {
     margin: 1% 5% -1px;
 }
-
+.cartadd .panel{    -webkit-box-shadow: none !important;}
 .paddmain {
-    margin-bottom: 1%;
-    padding-bottom: 4px;
+    padding-bottom: 15px;
 }
 
 .panel-group {
@@ -2280,7 +2294,7 @@ figure .links {
 }
 
 .scrollmudiv {
-    overflow: scroll;
+    overflow: auto;
     white-space: nowrap;
 }
 
@@ -2347,12 +2361,7 @@ figure .links {
     margin-top: 18%;
 }
 
-.rotat {
-    position: absolute;
-    z-index: 1;
-    right: 66px;
-    height: 0;
-}
+
 
 .hei {
     height: 0;
@@ -2527,10 +2536,16 @@ input[type="time"].form-control {
 .fancybox-prev span {
     background-image: url("../img/fancybox_sprite.png") !important;
 }
-
+.cartadd{position: fixed;
+    z-index: 999;
+    bottom: 48px;
+    width: 100%;
+    background: rgba(175, 42, 42, 0);}
+    .marg45{margin-top: -45px;}
+  .cartadd .panel-default > .panel-heading,.cartadd .panel-group .panel{    background: rgba(255, 228, 196, 0) !important;}
 .pad15pat {
     margin-bottom: 15px;
-    z-index: -1;
+
 }
 
 .vector {

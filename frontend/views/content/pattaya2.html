@@ -73,7 +73,7 @@
 </div>
 
 <!---ENQUIRE FORM START  ---->
-<div class="eq displaynon">
+<div class="eqform eq displaynon">
     <div class="container">
         <div class="rotat">
             <div class="row">
@@ -89,43 +89,43 @@
                         <!-- <form name="myForm">
                             <div class="col-md-6  col-sm-6">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="city" ng-modal="city.myForm" required>
-                                <p class="error" ng-show="myForm.city.$error.required && myForm.city.$touched">Interested Cities Size is required</p>
+                                <p class="error" ng-show="myForm.city.$error && myForm.city.$touched">Interested Cities Size is required</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Activities" name="activitie" ng-modal="activitie.myForm" required>
-                                <p class="error" ng-show="myForm.activitie.$error.required && myForm.activitie.$touched">Interested Activities is required</p>
+                                <p class="error" ng-show="myForm.activitie.$error && myForm.activitie.$touched">Interested Activities is required</p>
                             </div>
                             <div class="col-md-3 col-sm-3">
                                 <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-modal="size.myForm" required>
-                                <p class="error" ng-show="myForm.size.$error.required && myForm.size.$touched">Group Size is required</p>
+                                <p class="error" ng-show="myForm.size.$error && myForm.size.$touched">Group Size is required</p>
                             </div>
                             <div class="col-md-3 col-sm-3"></div>
                             <div class="col-md-3 col-sm-3">
                                 <input type="text" class="form-control Robotor" placeholder="From" name="from" ng-modal="from.myForm" required>
-                                <p class="error" ng-show="myForm.from.$error.required && myForm.from.$touched">From is required</p>
+                                <p class="error" ng-show="myForm.from.$error && myForm.from.$touched">From is required</p>
                             </div>
                             <div class="col-md-3 col-sm-3">
                                 <input type="text" class="form-control Robotor" placeholder="To" name="to" ng-modal="to.myForm" required>
-                                <p class="error" ng-show="myForm.to.$error.required && myForm.to.$touched">To is required</p>
+                                <p class="error" ng-show="myForm.to.$error && myForm.to.$touched">To is required</p>
                             </div>
 
                             <div class="col-md-12 col-sm-12">
                                 <textarea type="text" class="form-control Roboto text-height" rows="6" placeholder="Special Comments" name="comments" ng-modal="comments.myForm" required></textarea>
-                                <p class="error" ng-show="myForm.comments.$error.required && myForm.comments.$touched">Special Comments is required</p>
+                                <p class="error" ng-show="myForm.comments.$error && myForm.comments.$touched">Special Comments is required</p>
                             </div>
 
                             <div class="col-md-6 col-sm-6">
                                 <input type="text" class="form-control Robotor" placeholder="Name" name="name" ng-modal="name.myForm" required>
-                                <p class="error" ng-show="myForm.name.$error.required && myForm.name.$touched">Name is required</p>
+                                <p class="error" ng-show="myForm.name.$error && myForm.name.$touched">Name is required</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <input type="text" class="form-control Robotor" placeholder="Phone No" name="phone" ng-modal="phone.myForm" required>
-                                <p class="error" ng-show="myForm.phone.$error.required && myForm.phone.$touched">Phone No is required</p>
+                                <p class="error" ng-show="myForm.phone.$error && myForm.phone.$touched">Phone No is required</p>
                             </div>
 
                             <div class="col-md-8 col-sm-8">
                                 <input type="text" class="form-control Robotor" placeholder="Email ID" name="email" ng-modal="email.myForm" required>
-                                <p class="error" ng-show="myForm.email.$error.required && myForm.email.$touched">Email ID is required</p>
+                                <p class="error" ng-show="myForm.email.$error && myForm.email.$touched">Email ID is required</p>
                             </div>
                             <div class="col-md-4 col-sm-3">
                                 <button class="btn btn-submit">Submit</button>
@@ -138,42 +138,42 @@
                             </div>
                             <div class="col-md-6 col-sm-6 padboth15">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Activities" name="activitie" ng-model="enquiryData.activities" required>
-                                <p class="error" ng-show="myForm.activitie.$invalid.required && myForm.activitie.$touched">Interested Activities is required</p>
+                                <p class="error" ng-show="myForm.activitie.$invalid && myForm.activitie.$touched">Interested Activities is required</p>
                             </div>
                             <div class="col-md-3 col-sm-3 padboth15">
                                 <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="enquiryData.size" required>
-                                <p class="error" ng-show="myForm.size.$invalid.required && myForm.size.$touched">Group Size is required</p>
+                                <p class="error" ng-show="myForm.size.$invalid && myForm.size.$touched">Group Size is required</p>
                             </div>
 
                             <div class="col-md-5 col-sm-5 padboth15">
                                 <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="enquiryData.from" required>
-                                <p class="error" ng-show="myForm.from.$invalid.required && myForm.from.$touched">From is required</p>
+                                <p class="error" ng-show="myForm.from.$invalid && myForm.from.$touched">From is required</p>
                             </div>
                             <div class="col-md-4 col-sm-4 padboth15">
                                 <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="enquiryData.to" required>
-                                <p class="error" ng-show="myForm.to.$invalid.required && myForm.to.$touched">To is required</p>
+                                <p class="error" ng-show="myForm.to.$invalid && myForm.to.$touched">To is required</p>
                             </div>
 
                             <div class="col-md-12 col-sm-12 padboth15">
                                 <textarea type="text" class="form-control Roboto text-height" rows="6" placeholder="Special Comments" name="comments" ng-model="enquiryData.comment" required></textarea>
-                                <p class="error" ng-show="myForm.comments.$invalid.required && myForm.comments.$touched">Special Comments is required</p>
+                                <p class="error" ng-show="myForm.comments.$invalid && myForm.comments.$touched">Special Comments is required</p>
                             </div>
 
                             <div class="col-md-6 col-sm-6 padboth15">
                                 <input type="text" class="form-control Robotor" placeholder="Name" name="name" ng-model="enquiryData.name" required>
-                                <p class="error" ng-show="myForm.name.$invalid.required && myForm.name.$touched">Name is required</p>
+                                <p class="error" ng-show="myForm.name.$invalid && myForm.name.$touched">Name is required</p>
                             </div>
                             <div class="col-md-6 col-sm-6 padboth15">
                                 <input type="number" class="form-control Robotor" placeholder="Phone No" name="phone" ng-model="enquiryData.phone" required>
-                                <p class="error" ng-show="myForm.phone.$invalid.required && myForm.phone.$touched">Phone No is required</p>
+                                <p class="error" ng-show="myForm.phone.$invalid && myForm.phone.$touched">Phone No is required</p>
                             </div>
 
-                            <div class="col-md-8 col-sm-8 padboth15">
+                            <div class="col-md-8 col-sm-8 ">
                                 <input type="text" class="form-control Robotor" placeholder="Email ID" name="email" ng-model="enquiryData.email" required>
-                                <p class="error" ng-show="myForm.email.$invalid.required && myForm.email.$touched">Email ID is required</p>
+                                <p class="error" ng-show="myForm.email.$invalid && myForm.email.$touched">Email ID is required</p>
                             </div>
-                            <div class="col-md-4 col-sm-3 padboth15">
-                                <button class="btn btn-submit" type="submit">Submit</button>
+                            <div class="col-md-4 col-sm-3 ">
+                                <button ng-click="lions = !lions" ng-class="{ active: lions }" ng-disabled="myForm.$invalid" class="btn btn-submit" type="submit">Submit</button>
                             </div>
                         </form>
 
@@ -208,25 +208,25 @@
                                         <div class="form-group">
                                             <label class="labels bluecol">Name:</label>
                                             <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
-                                            <p class="error" ng-show="detailForm.name.$invalid.required && detailForm.name.$touched">Name is required</p>
+                                            <p class="error" ng-show="detailForm.name.$invalid && detailForm.name.$touched">Name is required</p>
                                         </div>
                                         <div class="form-group">
                                             <label class="labels bluecol">Email Id:</label>
                                             <input type="text" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
-                                            <p class="error" ng-show="detailForm.email.$invalid.required && detailForm.email.$touched">Email is required</p>
+                                            <p class="error" ng-show="detailForm.email.$invalid && detailForm.email.$touched">Email is required</p>
                                         </div>
                                         <div class="form-group">
                                             <label class="labels bluecol">Mob No:</label>
                                             <input type="text" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
-                                            <p class="error" ng-show="detailForm.phone.$invalid.required && detailForm.phone.$touched">Mob No is required</p>
+                                            <p class="error" ng-show="detailForm.phone.$invalid && detailForm.phone.$touched">Mob No is required</p>
                                         </div>
                                         <div class="form-group">
                                             <label class="labels bluecol">Group Size</label>
                                             <input type="text pdt15" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
-                                            <p class="error" ng-show="detailForm.size.$invalid.required && detailForm.size.$touched">Group Size is required</p>
+                                            <p class="error" ng-show="detailForm.size.$invalid && detailForm.size.$touched">Group Size is required</p>
                                         </div>
                                         <div class="row">
-                                            <button class="btn btn-submit" type="submit">SUBMIT</button>
+                                            <button  ng-disabled="detailForm.$invalid" class="btn btn-submit" type="submit">SUBMIT</button>
                                         </div>
                                     </form>
                                 </div>
@@ -275,7 +275,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 ge">GET EMAIL UPDATE</div>
                 <div class="col-md-5 col-sm-4 col-xs-12 ie">
                     <input type="text" placeholder="Your email address" class="form-control" name="email" ng-modal="email.myForm" required>
-                    <p class="error" ng-show="myForm.email.$error.required && myForm.email.$touched">Email is required</p>
+                    <p class="error" ng-show="myForm.email.$error && myForm.email.$touched">Email is required</p>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-12 es">
                     <button type="submit">SUBSCRIBE</button>

@@ -1,6 +1,6 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -29,8 +29,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.mySlidesss = data.data.whatsHotBanner;
             console.log("$scope.mySlides", $scope.mySlidesss);
         });
+  $scope.imDisable = false;
+$scope.goOn = function(id){
+  if(id == undefined){
+    $scope.imDisable = true;
+  }else{
+    // $scope.imDisable = false;
+    console.log(id);
+    $state.go('customisation',{id:id});
+  }
 
 
+}
 
         //top slider
         //   $scope.mySlidestop = [

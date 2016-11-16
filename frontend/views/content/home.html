@@ -171,13 +171,11 @@
                             <option ng-repeat="x in dropDown">{{x.name}}</option>
                         </select>-->
 
-                        <select class="form-control Robotor"
-      ng-model="selected_id"
-      ng-options="o._id as o.name for o in dropDown"
-      ng-change="selectDesti(selected_id);">
-      <option value="">Select Destination</option>
-    </select>
-                        <button type="submit" class="gobtn" ui-sref=customisation({id:selected_id})>GO</button>
+                        <select class="form-control Robotor" ng-model="selected_id" ng-options="o._id as o.name for o in dropDown" ng-change="selectDesti(selected_id);">
+                            <option value="">Select Destination</option>
+                          </select>
+                        <button type="submit" class="gobtn" ng-click="goOn(selected_id)">GO</button>
+                        <!-- <button type="submit" class="gobtn" ui-sref=customisation({id:selected_id})>GO</button> -->
                     </form>
 
                 </div>

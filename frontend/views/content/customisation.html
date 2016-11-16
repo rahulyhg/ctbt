@@ -231,8 +231,8 @@
                     <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()">VIEW  LESS</a>
                 </div>
             </div>
-            <div ng-show="noResult && !viewMore">
-                <h1>No Result Found</h1></div>
+            <div class="text-center" ng-show="noResult && !viewMore">
+                <h4>No Result Found</h4></div>
 
             <!---DETAILS START ---->
             <div class="row pd15 text-center">
@@ -243,44 +243,44 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
                             <input type="text" class="form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>
-                            <p class="error" ng-show="myForm.name.$error.required && myForm.name.$dirty">Your name is required</p>
+                            <p class="error" ng-show="myForm.name.$error && myForm.name.$dirty">Your name is required</p>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
                             <input type="email" class="form-control Robotor" placeholder="Email" name="email" ng-model="custDetail.email" required>
-                            <p class="error" ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required</p>
+                            <p class="error" ng-show="myForm.email.$error && myForm.email.$dirty">Email is required</p>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
                             <input type="number" class="form-control Robotor" placeholder="Phone" name="phone" ng-model="custDetail.phone" required>
-                            <p class="error" ng-show="myForm.phone.$error.required && myForm.phone.$dirty">Phone is required</p>
+                            <p class="error" ng-show="myForm.phone.$error && myForm.phone.$dirty">Phone is required</p>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
                             <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.size" required>
-                            <p class="error" ng-show="myForm.size.$error.required && myForm.size.$dirty">Group Size is required</p>
+                            <p class="error" ng-show="myForm.size.$error && myForm.size.$dirty">Group Size is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
                             <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
-                            <p class="error" ng-show="myForm.from.$error.required && myForm.from.$dirty">From is required</p>
+                            <p class="error" ng-show="myForm.from.$error && myForm.from.$dirty">From is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
                             <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
-                            <p class="error" ng-show="myForm.to.$error.required && myForm.to.$dirty">To is required</p>
+                            <p class="error" ng-show="myForm.to.$error && myForm.to.$dirty">To is required</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-l">
                         <div class="col-md-5 pdt10">
                             <input type="text" class="form-control Robotor" placeholder="Budget(per person)" name="budget" ng-model="custDetail.budget" required>
-                            <p class="error" ng-show="myForm.budget.$error.required && myForm.budget.$dirty">Budget is required</p>
+                            <p class="error" ng-show="myForm.budget.$error && myForm.budget.$dirty">Budget is required</p>
                         </div>
                         <div class="col-md-7 pdt10">
                             <input type="text pdt15" class="form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan" required>
-                            <p class="error" ng-show="myForm.plan.$error.required && myForm.plan.$dirty">Plan is required</p>
+                            <p class="error" ng-show="myForm.plan.$error && myForm.plan.$dirty">Plan is required</p>
                         </div>
                         <div class="col-md-12 pdt10">
                             <textarea class="form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment" required></textarea>
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 lodm text-center sub">
-                        <button class="whit_color text-center center-block" type="submit">GET YOUR QUOTE NOW</button>
+                        <button ng-disabled="myForm.$invalid" class="whit_color text-center center-block" type="submit">GET YOUR QUOTE NOW</button>
                     </div>
                 </form>
             </div>
@@ -303,26 +303,26 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
                             <div class="col-md-12 pdt10">
                                 <input type="text" class="form-control Robotor" placeholder="Your name" name="name" ng-model="custEnq.name" required>
-                                <p class="error" ng-show="detailForm.name.$error.required && detailForm.name.$dirty">Your name is required</p>
+                                <p class="error" ng-show="detailForm.name.$error && detailForm.name.$dirty">Your name is required</p>
                             </div>
                             <div class="col-md-12 pdt10">
                                 <input type="text" class="form-control Robotor" placeholder="Email" name="email" ng-model="custEnq.email" required>
-                                <p class="error" ng-show="detailForm.email.$error.required && detailForm.email.$dirty">Email is required</p>
+                                <p class="error" ng-show="detailForm.email.$error && detailForm.email.$dirty">Email is required</p>
                             </div>
                             <div class="col-md-12 pdt10">
                                 <input type="number" class="form-control Robotor" placeholder="Phone" name="phone" ng-model="custEnq.phone" required>
-                                <p class="error" ng-show="detailForm.phone.$error.required && detailForm.phone.$dirty">Phone is required</p>
+                                <p class="error" ng-show="detailForm.phone.$error && detailForm.phone.$dirty">Phone is required</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 padding-l">
                             <div class="col-md-12 pdt10">
                                 <textarea class="form-control text-height" rows="7" placeholder="Write us a message" name="message" ng-model="custEnq.comment" required></textarea>
-                                <p class="error" ng-show="detailForm.message.$error.required && detailForm.message.$dirty">Message is required</p>
+                                <p class="error" ng-show="detailForm.message.$error && detailForm.message.$dirty">Message is required</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 pregular text-center sub">
-                        <button class="pull-right marg12" type="submit">SEND</button>
+                        <button ng-disabled="detailForm.$invalid" class="pull-right marg12" type="submit">SEND</button>
                     </div>
                 </form>
                 <div ng-if="custEnqComplete">Thank you for Submitting Details</div>

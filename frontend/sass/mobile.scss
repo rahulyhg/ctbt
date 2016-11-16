@@ -889,13 +889,35 @@
     }
 }
 @media (max-width: 480px) {
+  .panelacor .fontpanel {
+    font-size: 12px;
+}.padding30 {
+    font-size: 12px;
+    padding: 0px;
+}
+.event-name span {
+    letter-spacing: inherit;
+    font-size: 11px;
+}
+  .himg2 .form-control {
+    font-size: 12px;
+    overflow: hidden !important;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+  }
+  .category .form-group select{width: 100% !important;}
+  .category {
+    background-color: #fdd116;
+    padding: 20px 20px;
+    margin: 0 6%;
+}
     .select-main {
         width: 100%;
     }
 
     .flipDiv figure figcaption {
         padding: 13px 20px;
-        overflow: scroll;
+
     }
 
     .himg2 .gobtn {
