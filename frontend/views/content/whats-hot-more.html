@@ -191,10 +191,10 @@
             <div class="col-md-12 social1">
                 <ul class="list-group socialgr">
                     <li class="Robotor" ng-click="addTocartOnWhatsHot(myid,'WhatsHot')">
-                        <a class="pregular" ng-if="!isInWishlistWhatsHotMore(myid)">
-                            <i class="color-white fa fa-shopping-cart socialimg" ></i> ADD TO CART</a>
-                        <a class="pregular" ng-if="isInWishlistWhatsHotMore(myid)">
-                            <i class="yellow_color fa fa-shopping-cart socialimg" ></i>ADD TO CART</a>
+                        <a class="pregular yellow_color" >
+                            <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistWhatsHotMore(myid)"></i>
+                            <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistWhatsHotMore(myid)" ></i>
+                            ADD TO CART</a>
                     </li>
                 </ul>
             </div>

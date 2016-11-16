@@ -267,11 +267,11 @@
                 <div class="row pregular">
                     <uib-accordion close-others="oneAtATime pattayar">
 
-                        <div uib-accordion-group class="panel-default panelacor" ng-class="{'yellow_back_color': status.open4, '': !status.open4}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
-                            <uib-accordion-heading class="panel-heading" g-class="{'yellow_back_color': status.open4, '': !status.open4}">
+                        <div uib-accordion-group class="panel-default panelacor" ng-class="{'yellow_back_color': status.open1, '': !status.open1}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
+                            <uib-accordion-heading class="panel-heading" g-class="{'yellow_back_color': status.open1, '': !status.open1}">
                                 <div class="accord-title">
                                     <h4 class="panel-title fontpanel Pregular bluecol"><img ng-src="{{data.name | TbtIcon}}" alt="" class="image_title" >  {{data.name}}
-                                      <i class="pull-right fa " ng-class="{'fa fa-minus': status.open4, 'fa fa-plus': !status.open4}"></i>
+                                      <i class="pull-right fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>
                                         </h4>
                                 </div>
                             </uib-accordion-heading>
@@ -285,7 +285,7 @@
                                                 <li class="Robotor bluecol">
                                                     <strong class="padding15">{{x.name}}</strong>
                                                 </li>
-                                                <p ng-bind-html="x.description"></p>
+                                                <p class="Robotor" ng-bind-html="x.description"></p>
                                             </ul>
                                             <div class="row padding30">
                                                 <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
