@@ -411,6 +411,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.oneAtATime = true;
         $scope.pageVariables = {};
         TemplateService.menu = "";
+
+        $scope.accordian = [];
+        $scope.accordian.push({
+            isFirstOpen: false,
+            isFirstDisabled: false
+        });
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
         // $scope.options = [{
         //     value: 'day',
         //     selected: true
@@ -773,13 +795,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
-        $scope.accordian = [];
-
-        // $scope.accordian.isFirstDisabled = false;
-        $scope.accordian.push({
-            isFirstOpen: true,
-            isFirstDisabled: false
-        });
+        // $scope.accordian = [];
+        //
+        // // $scope.accordian.isFirstDisabled = false;
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
 
 
         $scope.openMe = false;

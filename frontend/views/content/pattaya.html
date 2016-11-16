@@ -43,9 +43,9 @@
                             <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
                             <div class="cart-sec">
                                 <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                  <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
-                                  <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
-                              </button>
+                                    <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
+                                    <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
+                                </button>
                             </div>
 
                             <div class="shadow-down"></div>
@@ -57,9 +57,9 @@
                             <div class="over-layer text-center">
                                 <div class="cart-sec">
                                     <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                    <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
-                                    <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
-                                </button>
+                                        <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
+                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
+                                    </button>
                                 </div>
                                 <div class="button-holder">
                                     <button class="ext-detail" ui-sref="pattaya2({id:data._id})">KNOW MORE</button>
@@ -125,9 +125,9 @@
                                     <div class="cart-sec">
                                         <div class="cart-sec">
                                             <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                            <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
-                                            <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
-                                        </button>
+                                                <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
+                                                <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="shadow-down"></div>
@@ -139,9 +139,9 @@
                                     <img ng-src="{{data.image1 | serverimage}}" alt="" class="bluracti img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
                                         <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                          <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
-                                          <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
-                                      </button>
+                                            <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
+                                            <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
+                                        </button>
                                     </div>
                                     <div class="descrip" ng-bind-html="data.description"></div>
                                 </figcaption>
@@ -173,13 +173,13 @@
         <div class="rotat">
             <div class="row hei">
                 <div class="show-div" ng-show="lions">
-                  <div class="col-md-3 col-sm-3">
-                      <div class="pattsocial2">
-                          <ul class="list-group socialpatt yellow_back_lightcolor ">
-                              <li class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
-                          </ul>
-                      </div>
-                  </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="pattsocial2">
+                            <ul class="list-group socialpatt yellow_back_lightcolor ">
+                                <li class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
+                            </ul>
+                        </div>
+                    </div>
 
                     <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData)">
@@ -265,13 +265,13 @@
                 <!---END VIDEO FRAME ---->
 
                 <div class="row pregular">
-                    <uib-accordion close-others="oneAtATime pattayar">
+                    <uib-accordion close-others="true">
 
-                        <div uib-accordion-group class="panel-default panelacor" ng-class="{'yellow_back_color': status.open1, '': !status.open1}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
-                            <uib-accordion-heading class="panel-heading" g-class="{'yellow_back_color': status.open1, '': !status.open1}">
+                        <div uib-accordion-group is-open="accordian[$index].isFirstOpen" class="panel-default panelacor" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
+                            <uib-accordion-heading class="panel-heading" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
                                 <div class="accord-title">
                                     <h4 class="panel-title fontpanel Pregular bluecol"><img ng-src="{{data.name | TbtIcon}}" alt="" class="image_title" >  {{data.name}}
-                                      <i class="pull-right fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>
+                                      <i class="pull-right fa " ng-class="{'fa fa-minus':  accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
                                         </h4>
                                 </div>
                             </uib-accordion-heading>
