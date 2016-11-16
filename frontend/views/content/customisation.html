@@ -31,9 +31,9 @@
                               <div class="front">
                                   <img ng-src="{{data.accomodation.image | serverimage}}" alt="" class="img-responsive">
                                   <div class="cart-sec">
-                                    <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',);">
-                                        <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
-                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                    <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
+                                        <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistAccomodation(data.hotelName)"></i>
+                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistAccomodation(data.hotelName)"></i>
                                     </button>
                                       <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
                                       <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
@@ -46,9 +46,9 @@
                               <figcaption>
                                     <img ng-src="{{data.image | serverimage}}" alt="" class="bluracti img-responsive">
                                     <div class="cart-sec">
-                                      <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
-                                          <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
-                                          <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivityPage(smallImg._id)"></i>
+                                      <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
+                                        <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistAccomodation(data.hotelName)"></i>
+                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistAccomodation(data.hotelName)"></i>
                                       </button>
                                     </div>
                                     <div class="descrip" ng-bind-html="smallImg.description"></div>

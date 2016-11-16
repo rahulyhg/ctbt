@@ -1157,6 +1157,7 @@ $scope.DestinationTitle = '';
         TemplateService.footer = "views/custom_footer.html";
         NavigationService.cityDetails($stateParams.id, function(data) {
             console.log(data.data.getDestination.accomodation);
+            $scope.customisationDestForName = data.data.getDestination.name;
             $scope.customisationDest = data.data.getDestination.accomodation;
             $scope.customisationActivity = data.data.getActivity;
         })
@@ -1293,10 +1294,10 @@ $scope.DestinationTitle = '';
                 return false;
             }
         }
-        $scope.isInWishlistAccomodation = function(id) {
+        $scope.isInWishlistAccomodation = function(accName) {
           // console.log(id);
             var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
-                return key.accomodation._id == id;
+                return key.name == accName;
             })
             if (indexF !== -1) {
                 return true;
@@ -1335,15 +1336,15 @@ $scope.DestinationTitle = '';
         $scope.addTocartOnAccomodation = function(type,dest,name,image,id) {
             console.log(type,dest,name,image,id);
             var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
-                return key.accomodation._id == id;
+                return key.name == name;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type,id, function(data) {
+                NavigationService.deleteCartAccomodation(type,name, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFunCustomisation();
                 });
             } else {
-                NavigationService.addCartActivity(type,dest,name,image, function(data) {
+                NavigationService.addCartAccomodation(type,dest,name,image, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFunCustomisation();

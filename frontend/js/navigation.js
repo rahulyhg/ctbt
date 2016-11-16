@@ -170,6 +170,18 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
+        deleteCartAccomodation: function(type,name, callback) {
+            var data = {
+                type: type,
+                name: name
+            };
+            $http({
+                url: adminurl + 'cart/deleteCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
         addCartPackage: function(id,type, callback) {
             var data = {
                 package: id,
@@ -186,6 +198,20 @@ var navigationservice = angular.module('navigationservice', [])
             var data = {
                 activities: id,
                 type: type
+            };
+            $http({
+                url: adminurl + 'cart/addToCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
+        addCartAccomodation: function(type,dest,name,image, callback) {
+            var data = {
+                type: type,
+                destination: dest,
+                name: name,
+                image: image
             };
             $http({
                 url: adminurl + 'cart/addToCart',
