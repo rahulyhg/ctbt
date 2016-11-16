@@ -803,9 +803,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     isFirstDisabled: false
         // });
 
-
+$scope.DestinationTitle = '';
         $scope.openMe = false;
         $scope.goToFunction = function(id) {
+          $scope.DestinationTitle = '';
             NavigationService.DestinationContent(id, function(data) {
                 $scope.DestinationTitle = data.data.getTitle;
                 $scope.openMe = true;
