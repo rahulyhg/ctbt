@@ -487,6 +487,8 @@ $scope.goOn = function(id){
                 $scope.getCartDataActivity10 = data.data.activities;
                 $scope.getCartDataPackage10 = data.data.package;
                 $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                console.log('accmoddddddddddd1000000000000000000',$scope.getAccomodation);
                 // $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
                 // $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
                 //         .groupBy("whatshot.name")
@@ -513,7 +515,9 @@ $scope.goOn = function(id){
                 $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
                 $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10);
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                console.log('accmoddddddddddd',$scope.getAccomodation10);
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10,$scope.getAccomodation10);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -588,6 +592,13 @@ $scope.goOn = function(id){
         $scope.deleteCart = function(type, id) {
             console.log(type, id);
             NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFun();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });

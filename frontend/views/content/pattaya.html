@@ -379,6 +379,12 @@
                                                     <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
                                                 </div>
                                             </div>
+                                            <div class="patevent" ng-if="img.type == 'Accomodation'">
+                                                <img ng-src="{{img.image | serverimage}}" alt="" class="img-responsive">
+                                                <div class="cart-section" ng-if="img.image">
+                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCartAcco(img.type,img.name)"></i>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
