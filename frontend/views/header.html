@@ -1,34 +1,113 @@
 <header>
-  <nav class="navbar navbar-default navbar-fixed-top hbc">
-    <div class="container">
-      <div class="navbar-header hbc">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top hbc">
+        <div class="container">
+            <div class="navbar-header hbc">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" ui-sref="home"><img src="frontend/img/logo.png" class="img-responsive img-circle margin himg" style="display:inline"></a>
-        <a  ui-sref="home"><p class="hdp pregular">THE BACHELOR TRIP</p><a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse hbc p5 mt3">
-        <ul class="nav navbar-nav tp">
-          <li><a ui-sref="destination">DESTINATIONS</a></li>
-          <li><a ui-sref="activity">ACTIVITIES</a></li>
-          <li><a ui-sref="whats-hot">WHAT'S HOT</a></li>
-          <li><a ui-sref="whats-hot">ACCESSORIES</a></li>
-          <li><a ui-sref="whats-hot">BACHELORETTE</a></li>
-          <li><a class="bordern" ui-sref="home">HIGH ROLLERS</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right navbarleft">
-          <p class="hdn theboldfont">020-7060-7060
-            <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="https://twitter.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.instagram.com/thebachelortripin/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
-            <a href="home" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-          </p>
-        </ul>
-      </div>
-    </div>
-  </nav>
+                <a class="navbar-brand" ui-sref="home"><img src="frontend/img/logo.png" class="img-responsive img-circle margin himg" style="display:inline"></a>
+                <a ui-sref="home">
+                    <p class="hdp pregular">THE BACHELOR TRIP</p>
+                    <a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse hbc p5 mt3">
+                <ul class="nav navbar-nav tp">
+                    <li><a ui-sref="destination">DESTINATIONS</a></li>
+                    <li><a ui-sref="activity">ACTIVITIES</a></li>
+                    <li><a ui-sref="whats-hot">WHAT'S HOT</a></li>
+                    <li><a ui-sref="whats-hot">ACCESSORIES</a></li>
+                    <li><a ui-sref="whats-hot">BACHELORETTE</a></li>
+                    <li><a class="bordern" ui-sref="home">HIGH ROLLERS</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbarleft">
+                    <p class="hdn theboldfont">020-7060-7060
+                        <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/thebachelortripin/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="home" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                    </p>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
+
+<!---MY CART START  ---->
+<div class="cartadd">
+    <div class="mycartme">
+        <button ng-click="mycart = !mycart" ng-class="{ active: mycart }"  class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
+    </div>
+    <div class="paddmain yellow_back_lightcolor" ng-show="mycart">
+        <div class="container ">
+            <div class="col-md-12 patmargin3">
+                <div class="whatsmarg4" ng-hide="submitCart">
+                    <div class="row textalign">
+                        <div class="col-md-3 col-sm-4 col-xs-12 padd8 formlabels Roboto">
+                            <form name="detailForm" ng-submit="cartSubmit(cartData)">
+                                <div class="form-group">
+                                    <label class="labels bluecol">Name:</label>
+                                    <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
+                                    <p class="error" ng-show="detailForm.name.$invalid && detailForm.name.$touched">Name is required</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="labels bluecol">Email Id:</label>
+                                    <input type="text" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
+                                    <p class="error" ng-show="detailForm.email.$invalid && detailForm.email.$touched">Email is required</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="labels bluecol">Mob No:</label>
+                                    <input type="text" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
+                                    <p class="error" ng-show="detailForm.phone.$invalid && detailForm.phone.$touched">Mob No is required</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="labels bluecol">Group Size</label>
+                                    <input type="text pdt15" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
+                                    <p class="error" ng-show="detailForm.size.$invalid && detailForm.size.$touched">Group Size is required</p>
+                                </div>
+                                <div class="row text-center">
+                                    <button class="btn btn-submit" ng-disabled="detailForm.$invalid" type="submit">SUBMIT</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-9 col-sm-8 col-xs-12 scrollmudiv">
+                            <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
+                                <strong class="naming bluecol">{{key}}</strong>
+                                <div class="img1" ng-repeat="img in value">
+                                    <div class="patevent" ng-if="img.package">
+                                        <img ng-src="{{img.package.image | serverimage}}" alt="" class="img-responsive">
+                                        <div class="cart-section" ng-if="img.package.image">
+                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
+                                        </div>
+                                    </div>
+                                    <div class="patevent" ng-if="img.activities">
+                                        <img ng-src="{{img.activities.image1 | serverimage}}" alt="" class="img-responsive">
+                                        <div class="cart-section" ng-if="img.activities.image1">
+                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
+                                        </div>
+                                    </div>
+                                    <div class="patevent" ng-if="img.whatshot">
+                                        <img ng-src="{{img.whatshot.image | serverimage}}" alt="" class="img-responsive">
+                                        <div class="cart-section" ng-if="img.whatshot.image">
+                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
+                                        </div>
+                                    </div>
+                                    <div class="patevent" ng-if="img.type == 'Accomodation'">
+                                        <img ng-src="{{img.image | serverimage}}" alt="" class="img-responsive">
+                                        <div class="cart-section" ng-if="img.image">
+                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCartAcco(img.type,img.name)"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cartsum" ng-show="submitCart">Thank you for Submitting Cart</div>
+            </div>
+        </div>
+    </div>
+</div>

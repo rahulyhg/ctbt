@@ -1,22 +1,22 @@
-<!---banner start ---->
+<!-- START BANNER  -->
 <div class="container">
     <figure class="m1 figure922">
         <img class="img-responsive" ng-src="{{getDestination.banner | serverimage}}">
     </figure>
 </div>
+<!-- END BANNER  -->
+<!--START DESC  -->
 <div class="whatsmain">
     <div class="container ">
         <div class="col-md-12">
             <div class="pattayamarg4 yellow_back_lightcolor">
                 <div class="row Robotor bluecol" ng-bind-html="getDestination.description">
-                    <!-- <p>Pattaya also know as'A land of sins'! This city is famous for its informous reputation. Acity definitely not recommended for a feeble hearted.</p>
-                    <p>Let us plan an eic trip for you and your friends, remember bachelor party is not just all about the individual but for the whole royal gang.</p> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!---FORM start ---->
+<!-- END DESC -->
 
 <!---SELECTION START---->
 <div class="whatsmain">
@@ -70,14 +70,11 @@
                 </div>
                 <div class="text-center" ng-show="getPackage.length == 0">
                     <h4>No Result Found</h4>
-                  </div>
+                </div>
                 <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center " ng-hide="getPackage.length == 0">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMore">VIEW  MORE</a>
                     <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="loadLessPackage()">VIEW  LESS</a>
                 </div>
-                <!-- <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
-                    <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="loadLessPackage()" >VIEW  LESS</a>
-                </div> -->
             </div>
             <!---PACKAGES END ---->
 
@@ -100,16 +97,6 @@
                                     <label for="{{location.value}}"><span></span> {{location.value}}</label>
                                     <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                                 </div>
-                                <!-- <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="all" ng-model="isAllSelected" id="all" ng-click="toggleAll()">All
-                                      </label>
-                                </div>
-                                <div class="checkbox" ng-repeat = "option in options">
-                                    <label>
-                                      <input type="checkbox" ng-model="option.selected" ng-change="searchChange(option.value)">{{option.value}}</label>
-                                    <img src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
-                                </div> -->
                             </div>
                             <div class="col-md-8 col-sm-6 col-xs-12">
                                 <p>Customise your trip by adding to cart</p>
@@ -152,29 +139,23 @@
                 </div>
                 <div class="marg45 text-center" ng-show="noResult && !viewMoreActivity">
                     <h4>No Result Found</h4>
-                  </div>
+                </div>
                 <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center " ng-hide="getActivity.length == 0">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMoreActivity">VIEW  MORE</a>
                     <a class="whit_color" ng-if="viewLessActivity && !viewMoreActivity" ng-click="searchExpert()">VIEW  LESS</a>
                 </div>
-                <!-- <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
-                    <a class="whit_color" ng-click="loadMoreActivity()" ng-if="!more">VIEW  MORE</a>
-                </div>
-                <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center ">
-                    <a class="whit_color" ng-click="loadLessActivity()" ng-if="more">VIEW  LESS</a>
-                </div> -->
             </div>
             <!---ACTIVIES END  ---->
         </div>
     </div>
 </div>
 
-<!---ENQUIRE FORM START  ---->
+<!---START ENQUIRE FORM   ---->
 <div class="eqform eq displaynon">
     <div class="container">
         <div class="rotat">
             <div class="row hei">
-                <div class="show-div" ng-show="lions">
+                <div class="show-div" ng-show="enquirybtn">
                     <div class="col-md-3 col-sm-3">
                         <div class="pattsocial2">
                             <ul class="list-group socialpatt yellow_back_lightcolor ">
@@ -185,7 +166,6 @@
 
                     <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData)">
-                            <!-- <form name="myForm"> -->
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
                                 <p class="error" ng-show="myForm.cities.$invalid && myForm.cities.$touched">Interested Cities Size is required</p>
@@ -227,8 +207,7 @@
                                 <p class="error" ng-show="myForm.email.$invalid && myForm.email.$touched">Email ID is required</p>
                             </div>
                             <div class="col-md-4 col-sm-3 ">
-                                <button ng-click="lions = !lions" ng-disabled="myForm.$invalid" ng-class="{ active: lions }" type="submit" class="btn btn-submit">Submit</button>
-                                <!-- <button  ng-disabled="myForm.!invalid" ng-class="{ active: lions }" class="btn btn-submit">Submit</button> -->
+                                <button ng-click="enquirybtn = !enquirybtn" ng-disabled="myForm.$invalid" ng-class="{ active: enquirybtn }" type="submit" class="btn btn-submit">Submit</button>
                             </div>
                         </form>
 
@@ -239,13 +218,13 @@
 
         <div class="pattsocial ">
             <ul class="list-group socialpatt yellow_back_lightcolor">
-                <li ng-click="lions = !lions" ng-class="{ active: lions }" class="Roboto black fontsizep">ENQUIRE NOW
+                <li ng-click="enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }" class="Roboto black fontsizep">ENQUIRE NOW
                 </li>
             </ul>
         </div>
     </div>
 </div>
-<!---ENQUIRE FORM END ---->
+<!---END ENQUIRE FORM ---->
 
 <!---TRIP DETAILS START  ---->
 <div class="whatsmain">
@@ -253,34 +232,26 @@
         <div class="col-md-12 margin3">
             <div class="whatsmarg4">
 
-                <!---ACCORDION ---->
+
                 <!---START VIDEO FRAME ---->
                 <div class="pad15pat embed-responsive embed-responsive-16by9" ng-if="getDestination.video">
-                    <!-- <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe> -->
-                    <!-- <iframe class="embed-responsive-item" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video}}" ></iframe> -->
-
-                    <iframe id="test" class="embed-responsive-item" ng-if="getDestination.video" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video|trusted}}">
-
-
-                    </iframe>
+                    <iframe id="test" class="embed-responsive-item" ng-if="getDestination.video" ng-src="{{'https://www.youtube.com/embed/'+getDestination.video|trusted}}"></iframe>
                 </div>
                 <!---END VIDEO FRAME ---->
-
+                <!---START ACCORDION ---->
                 <div class="row pregular">
                     <uib-accordion close-others="true">
-
                         <div uib-accordion-group is-open="accordian[$index].isFirstOpen" class="panel-default panelacor" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
                             <uib-accordion-heading class="panel-heading" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
                                 <div class="accord-title">
                                     <h4 class="panel-title fontpanel Pregular bluecol"><img ng-src="{{data.name | TbtIcon}}" alt="" class="image_title" >  {{data.name}}
                                       <i class="pull-right fa " ng-class="{'fa fa-minus':  accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
-                                        </h4>
+                                    </h4>
                                 </div>
                             </uib-accordion-heading>
                             <div class="panel-body yellow_back_color">
                                 <div class="whatsmain">
                                     <div class="col-md-12">
-
                                         <!-- Please Remove the Below Comment -->
                                         <div class="row padding30" ng-repeat="x in DestinationTitle">
                                             <ul class="list-group socialpatt">
@@ -309,92 +280,9 @@
                             </div>
                         </div>
                     </uib-accordion>
-
                 </div>
+                <!-- END ACCORDION -->
             </div>
         </div>
     </div>
 </div>
-<!---ENQUIRE FORM END  ---->
-
-<!---MY CART START  ---->
-<div class="pading15 cartadd">
-    <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default mycartme">
-            <uib-accordion-heading class="panel-heading">
-                <button class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
-            </uib-accordion-heading>
-            <div class="paddmain yellow_back_lightcolor">
-                <div class="container ">
-                    <div class="col-md-12 patmargin3">
-                        <div class="whatsmarg4" ng-hide="submitCart">
-                            <div class="row textalign">
-                                <div class="col-md-3 col-sm-4 col-xs-12 padd8 formlabels Roboto">
-                                    <form name="detailForm" ng-submit="cartSubmit(cartData)">
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Name:</label>
-                                            <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
-                                            <p class="error" ng-show="detailForm.name.$invalid && detailForm.name.$touched">Name is required</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Email Id:</label>
-                                            <input type="text" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
-                                            <p class="error" ng-show="detailForm.email.$invalid && detailForm.email.$touched">Email is required</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Mob No:</label>
-                                            <input type="text" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
-                                            <p class="error" ng-show="detailForm.phone.$invalid && detailForm.phone.$touched">Mob No is required</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Group Size</label>
-                                            <input type="text pdt15" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
-                                            <p class="error" ng-show="detailForm.size.$invalid && detailForm.size.$touched">Group Size is required</p>
-                                        </div>
-                                        <div class="row">
-                                            <button class="btn btn-submit" ng-disabled="detailForm.$invalid" type="submit">SUBMIT</button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div class="col-md-9 col-sm-8 col-xs-12 scrollmudiv">
-                                    <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
-                                        <strong class="naming bluecol">{{key}}</strong>
-                                        <div class="img1" ng-repeat="img in value">
-                                            <div class="patevent" ng-if="img.package">
-                                                <img ng-src="{{img.package.image | serverimage}}" alt="" class="img-responsive">
-                                                <div class="cart-section" ng-if="img.package.image">
-                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
-                                                </div>
-                                            </div>
-                                            <div class="patevent" ng-if="img.activities">
-                                                <img ng-src="{{img.activities.image1 | serverimage}}" alt="" class="img-responsive">
-                                                <div class="cart-section" ng-if="img.activities.image1">
-                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                                </div>
-                                            </div>
-                                            <div class="patevent" ng-if="img.whatshot">
-                                                <img ng-src="{{img.whatshot.image | serverimage}}" alt="" class="img-responsive">
-                                                <div class="cart-section" ng-if="img.whatshot.image">
-                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
-                                                </div>
-                                            </div>
-                                            <div class="patevent" ng-if="img.type == 'Accomodation'">
-                                                <img ng-src="{{img.image | serverimage}}" alt="" class="img-responsive">
-                                                <div class="cart-section" ng-if="img.image">
-                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCartAcco(img.type,img.name)"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cartsum" ng-show="submitCart">Thank you for Submitting Cart</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </uib-accordion>
-</div>
-<!---TRIP DETAILS END ---->

@@ -1,4 +1,4 @@
-<!---banner start ---->
+<!-- START PACKEGE-->
 <div class="container">
     <figure class="mim1">
         <img class="img-responsive" ng-src="{{getPattaya2.banner|serverimage}}">
@@ -8,16 +8,15 @@
                     <h1 class="pattayah1 theboldfont yellow_color">{{getPattaya2.title1}}</h1>
                     <h1 class="loadh1 pattayah1 theboldfont">{{getPattaya2.title2}}</h1>
                     <p class=" pattp1">({{getPattaya2.duration}})</p>
-                    <!-- <p class=" pattp1">(4 NIGHTS/8 TO 10 PERSONS)</p> -->
                     <span class=" pattp2 yellow_back_lightcolor bluecol">
                       <p class="span">{{getPattaya2.price}}</p>
-                      <!-- <p class="span">START @ ₹ 50,000</p> -->
                     </span>
                 </div>
             </div>
         </figcaption>
     </figure>
 </div>
+<!-- END PACKEGE -->
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -31,9 +30,6 @@
                                     <div class="tittalep">
                                         <h2 class="bluecol eventh2 Robotor borderhr">{{ packdata.day  }}</h2>
                                         <p ng-bind-html="packdata.description"></p>
-                                        <!-- <ul class="list-group bluecol margin-group">
-                                            <li class="list2 Roboto "> {{ scope.li }} </li>
-                                        </ul> -->
                                     </div>
                                 </div>
                             </div>
@@ -42,19 +38,12 @@
                 </div>
                 <div class="pull-right wtsocial patayasocial">
                     <div class="col-md-12 social1">
-                        <!-- <ul class="list-group socialgr">
-                            <li class="Robotor">
-                                <a class="yellow_color pregular"><img src="frontend/img/cart.png" alt="" class="socialimg img-responsive doneLoading">ADD TO CART</a>
-                            </li>
-                        </ul> -->
                         <ul class="list-group socialgr">
                             <li class="Robotor" ng-click="addTocartOnPackagePattaya2(myIdPattaya2,'Package')">
                                 <a class="pregular yellow_color" >
                                     <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistPackagePattaya2(myIdPattaya2)"></i>
                                     <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistPackagePattaya2(myIdPattaya2)"></i>
                                     ADD TO CART</a>
-                                <!-- <a class="pregular" ng-if="isInWishlistPackagePattaya2(myIdPattaya2)">
-                                    <i class="yellow_color fa fa-shopping-cart socialimg" ></i> ADD TO CART</a> -->
                             </li>
                         </ul>
                     </div>
@@ -72,7 +61,7 @@
     </div>
 </div>
 
-<!---ENQUIRE FORM START  ---->
+<!---START ENQUIRE FORM   ---->
 <div class="eqform eq displaynon">
     <div class="container">
         <div class="rotat">
@@ -86,51 +75,6 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
-                        <!-- <form name="myForm">
-                            <div class="col-md-6  col-sm-6">
-                                <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="city" ng-modal="city.myForm" required>
-                                <p class="error" ng-show="myForm.city.$error && myForm.city.$touched">Interested Cities Size is required</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <input type="text" class="form-control Roboto" placeholder="Interested Activities" name="activitie" ng-modal="activitie.myForm" required>
-                                <p class="error" ng-show="myForm.activitie.$error && myForm.activitie.$touched">Interested Activities is required</p>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-modal="size.myForm" required>
-                                <p class="error" ng-show="myForm.size.$error && myForm.size.$touched">Group Size is required</p>
-                            </div>
-                            <div class="col-md-3 col-sm-3"></div>
-                            <div class="col-md-3 col-sm-3">
-                                <input type="text" class="form-control Robotor" placeholder="From" name="from" ng-modal="from.myForm" required>
-                                <p class="error" ng-show="myForm.from.$error && myForm.from.$touched">From is required</p>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <input type="text" class="form-control Robotor" placeholder="To" name="to" ng-modal="to.myForm" required>
-                                <p class="error" ng-show="myForm.to.$error && myForm.to.$touched">To is required</p>
-                            </div>
-
-                            <div class="col-md-12 col-sm-12">
-                                <textarea type="text" class="form-control Roboto text-height" rows="6" placeholder="Special Comments" name="comments" ng-modal="comments.myForm" required></textarea>
-                                <p class="error" ng-show="myForm.comments.$error && myForm.comments.$touched">Special Comments is required</p>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6">
-                                <input type="text" class="form-control Robotor" placeholder="Name" name="name" ng-modal="name.myForm" required>
-                                <p class="error" ng-show="myForm.name.$error && myForm.name.$touched">Name is required</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <input type="text" class="form-control Robotor" placeholder="Phone No" name="phone" ng-modal="phone.myForm" required>
-                                <p class="error" ng-show="myForm.phone.$error && myForm.phone.$touched">Phone No is required</p>
-                            </div>
-
-                            <div class="col-md-8 col-sm-8">
-                                <input type="text" class="form-control Robotor" placeholder="Email ID" name="email" ng-modal="email.myForm" required>
-                                <p class="error" ng-show="myForm.email.$error && myForm.email.$touched">Email ID is required</p>
-                            </div>
-                            <div class="col-md-4 col-sm-3">
-                                <button class="btn btn-submit">Submit</button>
-                            </div>
-                        </form> -->
                         <form name="myForm" ng-submit="enquirySubmitPatt2(enquiryData)">
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
@@ -189,98 +133,4 @@
         </div>
     </div>
 </div>
-<!---ENQUIRE FORM END ---->
-
-<!---MY CART START  ---->
-<div class="pading15">
-    <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default mycartme">
-            <uib-accordion-heading class="panel-heading">
-                <button class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
-            </uib-accordion-heading>
-            <div class="paddmain yellow_back_lightcolor">
-                <div class="container ">
-                    <div class="col-md-12 patmargin3">
-                        <div class="whatsmarg4" ng-hide="submitCart">
-                            <div class="row textalign">
-                                <div class="col-md-3 col-sm-4 col-xs-12 padd8 formlabels Roboto">
-                                    <form name="detailForm" ng-submit="cartSubmit(cartData)">
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Name:</label>
-                                            <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
-                                            <p class="error" ng-show="detailForm.name.$invalid && detailForm.name.$touched">Name is required</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Email Id:</label>
-                                            <input type="text" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
-                                            <p class="error" ng-show="detailForm.email.$invalid && detailForm.email.$touched">Email is required</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Mob No:</label>
-                                            <input type="text" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
-                                            <p class="error" ng-show="detailForm.phone.$invalid && detailForm.phone.$touched">Mob No is required</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="labels bluecol">Group Size</label>
-                                            <input type="text pdt15" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
-                                            <p class="error" ng-show="detailForm.size.$invalid && detailForm.size.$touched">Group Size is required</p>
-                                        </div>
-                                        <div class="row">
-                                            <button  ng-disabled="detailForm.$invalid" class="btn btn-submit" type="submit">SUBMIT</button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div class="col-md-9 col-sm-8 col-xs-12 scrollmudiv">
-                                    <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
-                                        <strong class="naming bluecol">{{key}}</strong>
-                                        <div class="img1" ng-repeat="img in value">
-                                            <div class="patevent" ng-if="img.package">
-                                                <img ng-src="{{img.package.image | serverimage}}" alt="" class="img-responsive">
-                                                <div class="cart-section" ng-if="img.package.image">
-                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
-                                                </div>
-                                            </div>
-                                            <div class="patevent" ng-if="img.activities">
-                                                <img ng-src="{{img.activities.image1 | serverimage}}" alt="" class="img-responsive">
-                                                <div class="cart-section" ng-if="img.activities.image1">
-                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                                </div>
-                                            </div>
-                                            <div class="patevent" ng-if="img.whatshot">
-                                                <img ng-src="{{img.whatshot.image | serverimage}}" alt="" class="img-responsive">
-                                                <div class="cart-section" ng-if="img.whatshot.image">
-                                                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cartsum" ng-show="submitCart">Thank you for Submitting Cart</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </uib-accordion>
-</div>
-<!---CART END ---->
-
-<!---email update  ---->
-<!-- <div class="eupt">
-    <div class="container">
-        <div class="row">
-            <form name="myForm">
-                <div class="col-md-4 col-sm-4 col-xs-12 ge">GET EMAIL UPDATE</div>
-                <div class="col-md-5 col-sm-4 col-xs-12 ie">
-                    <input type="text" placeholder="Your email address" class="form-control" name="email" ng-modal="email.myForm" required>
-                    <p class="error" ng-show="myForm.email.$error && myForm.email.$touched">Email is required</p>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12 es">
-                    <button type="submit">SUBSCRIBE</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> -->
+<!---END ENQUIRE FORM  ---->

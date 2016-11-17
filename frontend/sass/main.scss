@@ -452,7 +452,6 @@ a {
     border: 0;
     position: relative;
     display: inline-block;
-
 }
 
 select {
@@ -716,8 +715,8 @@ option[value=""][disabled] {
 
 .paddleft1 {
     display: inline-block;
-    padding: 5px 28px;
-    margin-left: 0% !important;
+    padding: 10px 28px;
+    margin-left: 0 !important;
     font-size: 22px;
     border: none;
     outline: none;
@@ -894,7 +893,7 @@ option[value=""][disabled] {
     width: 50%;
     text-align: left;
     background: rgba(2, 44, 125, 0.77);
-    padding: 3% 0% 3% 16%;
+    padding: 3% 0 3% 16%;
     margin-left: 15%;
     margin-top: 2.5%;
     border-radius: 24px;
@@ -1305,17 +1304,16 @@ figure .links {
 }
 
 .error {
-  visibility: visible;
-background-color: black;
-color: #fff;
-border-radius: 6px;
-padding: 2px 4px;
-position: absolute;
-z-index: 1;
-font-size: 13px;
-text-align: center;
-margin: 0 !important;
-left: -28px;
+    visibility: visible;
+    background-color: black;
+    color: #fff;
+    border-radius: 2px;
+    padding: 2px 4px;
+    position: absolute;
+    z-index: 1;
+    font-size: 13px;
+    text-align: center;
+    margin: 0 !important;
 }
 
 .sub {
@@ -1560,7 +1558,7 @@ left: -28px;
 }
 
 .custom-select .form-control {
-    width: 25%;
+    width: 35%;
     display: inline-block;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -2048,7 +2046,7 @@ left: -28px;
 
     .checkbox {
         display: inline-block !important;
-            padding: 0 9px !important;
+        padding: 0 9px !important;
         margin: 0 !important;
 
         label {
@@ -2089,16 +2087,20 @@ left: -28px;
         color: #cacaca !important;
     }
 }
-.eqform{    position: fixed;
+
+.eqform {
+    position: fixed;
     right: -14px;
-    z-index: 10;
-    top: 248px;}
+    z-index: 9999;
+    top: 248px;
+}
+
 .pattsocial {
-  position: fixed;
+    position: fixed;
     right: -65px;
     z-index: 10;
     top: 248px;
-    height: 0px;
+    height: 0;
 
     .socialpatt {
         list-style: none;
@@ -2142,7 +2144,7 @@ left: -28px;
 .margincheck {
     margin: 1% 5% -1px;
 }
-.cartadd .panel{    -webkit-box-shadow: none !important;}
+
 .paddmain {
     padding-bottom: 15px;
 }
@@ -2225,7 +2227,6 @@ left: -28px;
             padding: 3px 25px;
             border: none;
             background-color: #fdd116;
-            margin-left: 20%;
             outline: none;
         }
 
@@ -2360,8 +2361,6 @@ left: -28px;
 .paddtopcart {
     margin-top: 18%;
 }
-
-
 
 .hei {
     height: 0;
@@ -2536,16 +2535,9 @@ input[type="time"].form-control {
 .fancybox-prev span {
     background-image: url("../img/fancybox_sprite.png") !important;
 }
-.cartadd{position: fixed;
-    z-index: 999;
-    bottom: 48px;
-    width: 100%;
-    background: rgba(175, 42, 42, 0);}
-    .marg45{margin-top: -45px;}
-  .cartadd .panel-default > .panel-heading,.cartadd .panel-group .panel{    background: rgba(255, 228, 196, 0) !important;}
+
 .pad15pat {
     margin-bottom: 15px;
-
 }
 
 .vector {
@@ -2588,17 +2580,8 @@ input[type="time"].form-control {
     background: #002B7F !important;
 }
 
-.mycartme .panel-body,
-.mycartme .panel-heading {
-    padding: 0 !important;
-}
-
 .pattayar .panel-heading {
     padding: 5px 15px 0 !important;
-}
-
-.mycartme {
-    border: none !important;
 }
 
 .checkboxing {
@@ -2661,6 +2644,25 @@ input[type="time"].form-control {
 
 .scrollmudiv::-webkit-scrollbar-thumb {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(0, 36, 109, 0.4)), color-stop(0.72, rgba(0, 36, 109, 0.4)), color-stop(0.86, rgba(0, 36, 109, 0.4)));
+}
+
+.cartadd {
+    position: fixed;
+    right: 1px;
+    z-index: 99999;
+    top: 383px;
+
+    .mycartme {
+        position: fixed;
+        right: -46px;
+        z-index: 10;
+        top: 430px;
+        height: 0;
+
+        button {
+            -webkit-transform: rotate(-90deg);
+        }
+    }
 }
 // .flex-direction-nav a.flex-next:before {
 //     content: '\f002';

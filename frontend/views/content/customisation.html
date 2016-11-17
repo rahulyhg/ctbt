@@ -1,90 +1,56 @@
-<!---banner start ---->
+<!-- START BANNER -->
 <div class="container ">
     <figure class="m1 figure922">
         <img class="img-responsive" src="frontend/img/activity-ban.jpg">
     </figure>
 </div>
+<!-- END BANNER -->
 
-<!---FORM start ---->
+<!---START CUSTOMISATION---->
 <div class="pad9">
     <div class="container ">
         <div class="col-md-12 m4 yellow_back_lightcolor">
             <div class="marg4">
-                <!---POPULAR DESTINATIONS ---->
+                <!---POPULAR DESTINATIONS DROP DOWN---->
                 <div class="row pd15 text-center">
                     <div class="custom-select text-center">
-                        <!-- <select class="form-control Robotor"
-    ng-model="selected_id"
-    ng-options="o._id as o.name for o in dropDown"
-    ng-change="dropDownClick(selected_id);">
-  </select> -->
                         <select class="form-control Roboto" ng-change="dropDownClick(selected)" ng-model="selected">
                           <option value="{{data._id}}" ng-repeat="data in dropDown"  >{{data.name}}</option>
                         </select>
                     </div>
                     <h1 class="theboldfont custtitle">1. CHOOSE ACCOMMODATION</h1>
                 </div>
+                <!-- END DROP DOWN -->
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
-                      <div class="flipDiv">
-                          <figure>
-                              <div class="front">
-                                  <img ng-src="{{data.accomodation.image | serverimage}}" alt="" class="img-responsive">
-                                  <div class="cart-sec">
-                                    <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
-                                        <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistAccomodation(data.hotelName)"></i>
-                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistAccomodation(data.hotelName)"></i>
-                                    </button>
-                                      <!-- <img src="frontend/img/cart.png" alt="" class="img-responsive" ng-if="!cart">
-                                      <img src="frontend/img/fav-cart.png" alt="" class="img-responsive" ng-if="cart"> -->
-                                  </div>
-                                  <div class="shadow-down"></div>
-                                  <div class="event-name">
-                                      <span>{{data.hotelName}}</span>
-                                  </div>
-                              </div>
-                              <figcaption>
+                        <div class="flipDiv">
+                            <figure>
+                                <div class="front">
+                                    <img ng-src="{{data.accomodation.image | serverimage}}" alt="" class="img-responsive">
+                                    <div class="cart-sec">
+                                        <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
+                                          <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistAccomodation(data.hotelName)"></i>
+                                          <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistAccomodation(data.hotelName)"></i>
+                                        </button>
+                                    </div>
+                                    <div class="shadow-down"></div>
+                                    <div class="event-name">
+                                        <span>{{data.hotelName}}</span>
+                                    </div>
+                                </div>
+                                <figcaption>
                                     <img ng-src="{{data.image | serverimage}}" alt="" class="bluracti img-responsive">
                                     <div class="cart-sec">
-                                      <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
+                                        <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
                                         <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistAccomodation(data.hotelName)"></i>
                                         <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistAccomodation(data.hotelName)"></i>
                                       </button>
                                     </div>
                                     <div class="descrip" ng-bind-html="smallImg.description"></div>
-                              </figcaption>
-                          </figure>
-                      </div>
-                    </div>
-                    <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>3 STAR HOTEL IN AMSTERDAM</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
+                                </figcaption>
+                            </figure>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>LUXURY HOTEL IN AMSTERDAM</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div> -->
                 </div>
             </div>
 
@@ -104,176 +70,90 @@
                         <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                     </div>
                 </div>
-                <!-- <div class="col-md-4 col-sm-5 col-xs-12 checkboxrow2 textright" ng-hide="noResult">
-                    <div class="checkbox checkboxing">
-                          <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
-                          <label for="later"><span></span> All</label>
-                    </div>
-                    <div class="checkbox " ng-repeat="location in locationArr track by $index">
-
-                              <input type="checkbox checkboxing" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
-                              <label for="{{location.value}}"><span></span>{{location.value}}</label>
-                        <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
-                    </div>
-                </div> -->
             </div>
             <div class="row" ng-hide="noResult">
                 <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
-                  <div class="flipDiv">
-                      <figure>
-                          <div class="front">
-                              <img ng-src="{{data.image1 | serverimage}}"  alt="" class="img-responsive">
-                              <div class="cart-sec">
-                                <button class="cart uppercase" ng-click="addTocartOnCustPage(data._id,data.typeCart);">
+                    <div class="flipDiv">
+                        <figure>
+                            <div class="front">
+                                <img ng-src="{{data.image1 | serverimage}}" alt="" class="img-responsive">
+                                <div class="cart-sec">
+                                    <button class="cart uppercase" ng-click="addTocartOnCustPage(data._id,data.typeCart);">
                                     <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistCustPage(data._id)"></i>
                                     <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistCustPage(data._id)"></i>
                                 </button>
-                                  </div>
-                              <div class="shadow-down"></div>
-                              <div class="event-name">
-                                  <span>{{data.name}}</span>
+                                </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>{{data.name}}</span>
 
-                              </div>
-                          </div>
-                          <figcaption>
-                                <img ng-src="{{data.image1 | serverimage}}"  alt="" class="bluracti img-responsive">
+                                </div>
+                            </div>
+                            <figcaption>
+                                <img ng-src="{{data.image1 | serverimage}}" alt="" class="bluracti img-responsive">
                                 <div class="cart-sec">
-                                  <button class="cart uppercase" ng-click="addTocartOnCustPage(data._id,data.typeCart);">
+                                    <button class="cart uppercase" ng-click="addTocartOnCustPage(data._id,data.typeCart);">
                                       <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistCustPage(data._id)"></i>
                                       <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistCustPage(data._id)"></i>
                                   </button>
                                 </div>
                                 <div class="descrip" ng-bind-html="smallImg.description"></div>
-                          </figcaption>
-                      </figure>
-                  </div>
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
-                <!-- <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>ROCK CLIMBING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>RIVER RAFTING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>BUNGEE JUMPING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>ROCK CLIMBING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15">
-                        <div class="events">
-                            <img src="frontend/img/bungee.png" alt="" class="img-responsive">
-                            <div class="shadow-up"></div>
-                            <div class="shadow-down"></div>
-                            <div class="event-name">
-                                <span>RIVER RAFTING</span>
-                            </div>
-                            <div class="over-layer text-center">
-                                <div class="button-holder">
-                                    <button class="ext-detail">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                <!-- <div class="col-md-12 loadimag text-center ">
-                        <a class="whit_color" ui-sref="home">LOAD  MORE</a>
-                    </div> -->
+
                 <div class="col-md-12 loadimag text-center ">
                     <a class="whit_color" ng-click="loadMoreActivity()" ng-if="viewMore">VIEW  MORE</a>
                     <a class="whit_color" ng-if="viewLess && !viewMore" ng-click="searchExpert()">VIEW  LESS</a>
                 </div>
             </div>
+            <!-- START ERROR  -->
             <div class="text-center" ng-show="noResult && !viewMore">
-                <h4>No Result Found</h4></div>
+                <h4>No Result Found</h4>
+            </div>
+            <!-- END ERROR -->
 
             <!---DETAILS START ---->
             <div class="row pd15 text-center">
                 <h1 class="theboldfont custtitle">3. DETAILS</h1>
             </div>
-            <div class="row detailsfom" ng-if="!custDetailComplete">
-                <form name="myForm" ng-submit="custDetailSubmit(custDetail)">
+            <div class="row detailsfom">
+                <form name="myForm" ng-submit="custDetailSubmit(custDetail)" ng-if="!custDetailComplete">
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
                             <input type="text" class="form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>
-                            <p class="error" ng-show="myForm.name.$error && myForm.name.$dirty">Your name is required</p>
+                            <p class="error" ng-show="myForm.name.$invalid && myForm.name.$touched">Your name is required</p>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
                             <input type="email" class="form-control Robotor" placeholder="Email" name="email" ng-model="custDetail.email" required>
-                            <p class="error" ng-show="myForm.email.$error && myForm.email.$dirty">Email is required</p>
+                            <p class="error" ng-show="myForm.email.$invalid && myForm.email.$touched">Email is required</p>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
                             <input type="number" class="form-control Robotor" placeholder="Phone" name="phone" ng-model="custDetail.phone" required>
-                            <p class="error" ng-show="myForm.phone.$error && myForm.phone.$dirty">Phone is required</p>
+                            <p class="error" ng-show="myForm.phone.$invalid && myForm.phone.$touched">Phone is required</p>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
                             <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.size" required>
-                            <p class="error" ng-show="myForm.size.$error && myForm.size.$dirty">Group Size is required</p>
+                            <p class="error" ng-show="myForm.size.$invalid && myForm.size.$touched">Group Size is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
                             <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
-                            <p class="error" ng-show="myForm.from.$error && myForm.from.$dirty">From is required</p>
+                            <p class="error" ng-show="myForm.from.$invalid && myForm.from.$touched">From is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
                             <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
-                            <p class="error" ng-show="myForm.to.$error && myForm.to.$dirty">To is required</p>
+                            <p class="error" ng-show="myForm.to.$invalid && myForm.to.$touched">To is required</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-l">
                         <div class="col-md-5 pdt10">
                             <input type="text" class="form-control Robotor" placeholder="Budget(per person)" name="budget" ng-model="custDetail.budget" required>
-                            <p class="error" ng-show="myForm.budget.$error && myForm.budget.$dirty">Budget is required</p>
+                            <p class="error" ng-show="myForm.budget.$invalid && myForm.budget.$touched">Budget is required</p>
                         </div>
                         <div class="col-md-7 pdt10">
                             <input type="text pdt15" class="form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan" required>
-                            <p class="error" ng-show="myForm.plan.$error && myForm.plan.$dirty">Plan is required</p>
+                            <p class="error" ng-show="myForm.plan.$invalid && myForm.plan.$touched">Plan is required</p>
                         </div>
                         <div class="col-md-12 pdt10">
                             <textarea class="form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment" required></textarea>
@@ -283,14 +163,18 @@
                         <button ng-disabled="myForm.$invalid" class="whit_color text-center center-block" type="submit">GET YOUR QUOTE NOW</button>
                     </div>
                 </form>
+                <!-- START ERROR -->
+                <div class="text-center" ng-if="custDetailComplete">
+                    <h4>Thank you for Submitting Details</h4>
+                </div>
+                <!-- END ERROR -->
             </div>
-            <div ng-if="custDetailComplete">Thank you for Submitting Details</div>
         </div>
     </div>
 </div>
 </div>
 
-<!---email update  ---->
+<!---START   ENQUIRY FORM---->
 <div class="eupt ">
     <div class="container">
         <div class="col-md-12">
@@ -303,21 +187,21 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
                             <div class="col-md-12 pdt10">
                                 <input type="text" class="form-control Robotor" placeholder="Your name" name="name" ng-model="custEnq.name" required>
-                                <p class="error" ng-show="detailForm.name.$error && detailForm.name.$dirty">Your name is required</p>
+                                <p class="error" ng-show="detailForm.name.$invalid && detailForm.name.$touched">Your name is required</p>
                             </div>
                             <div class="col-md-12 pdt10">
                                 <input type="text" class="form-control Robotor" placeholder="Email" name="email" ng-model="custEnq.email" required>
-                                <p class="error" ng-show="detailForm.email.$error && detailForm.email.$dirty">Email is required</p>
+                                <p class="error" ng-show="detailForm.email.$invalid && detailForm.email.$touched">Email is required</p>
                             </div>
                             <div class="col-md-12 pdt10">
                                 <input type="number" class="form-control Robotor" placeholder="Phone" name="phone" ng-model="custEnq.phone" required>
-                                <p class="error" ng-show="detailForm.phone.$error && detailForm.phone.$dirty">Phone is required</p>
+                                <p class="error" ng-show="detailForm.phone.$invalid && detailForm.phone.$touched">Phone is required</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 padding-l">
                             <div class="col-md-12 pdt10">
                                 <textarea class="form-control text-height" rows="7" placeholder="Write us a message" name="message" ng-model="custEnq.comment" required></textarea>
-                                <p class="error" ng-show="detailForm.message.$error && detailForm.message.$dirty">Message is required</p>
+                                <p class="error" ng-show="detailForm.message.$invalid && detailForm.message.$touched">Message is required</p>
                             </div>
                         </div>
                     </div>
@@ -325,8 +209,10 @@
                         <button ng-disabled="detailForm.$invalid" class="pull-right marg12" type="submit">SEND</button>
                     </div>
                 </form>
-                <div ng-if="custEnqComplete">Thank you for Submitting Details</div>
+                <div class="text-center" ng-if="custEnqComplete">
+                    <h4>Thank you for Submitting Details</h4></div>
             </div>
         </div>
     </div>
 </div>
+<!-- END ENQUIRY FORM -->

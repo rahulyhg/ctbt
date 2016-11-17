@@ -1,5 +1,4 @@
-<!---top image---->
-<!-- desktop slider-->
+<!-- START DESKTOP SLIDER -->
 <div class="homeslidr hidden-xs">
     <flex-slider flex-slide="s in mySlidestop track by $index" class="m1 figure922">
         <li>
@@ -13,7 +12,8 @@
         </li>
     </flex-slider>
 </div>
-<!-- mobile slider -->
+<!-- END DESKTOP -->
+<!-- START MOBILE SLIDER -->
 <div class="homeslidr hidden-sm hidden-md hidden-lg">
     <flex-slider flex-slide="s in mySlidestop track by $index" class="m1 figure922">
         <li>
@@ -27,8 +27,8 @@
         </li>
     </flex-slider>
 </div>
-
-<!---slider images ---->
+<!-- END MOBILE SLIDER -->
+<!-- START POPULAR -->
 <div class="container ">
     <div class="row display">
         <p class=" disp pregular" ui-sref="destination">POPULAR</p>
@@ -41,16 +41,13 @@
             <div class="addimg">
                 <img src="frontend/img/+img.png" alt="" class="img-responsive" ui-sref="destination">
             </div>
-
             <div class="row">
                 <div class="col-md-4 col-sm-4  col-xs-6 displaynon padng0">
                     <p class="p p11 pregular" ui-sref="destination">POPULAR</p>
                     <p class="p2 p22 theboldfont" ui-sref="destination">DESTIN ATIONS</p>
                 </div>
-
                 <div class="col-md-2 col-sm-2 col-xs-6  padng0" ng-repeat="x in popularDestination | limitTo : 4">
                     <div class="eventshome">
-
                         <a ui-sref="pattaya({id:x._id})">
                             <img ng-src="{{x.image|serverimage}}" alt="" class="img-responsive">
                             <div class="shadow-down"></div>
@@ -65,48 +62,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- <div class="col-md-2 col-sm-2 col-xs-6  padng0">
-                    <div class="events">
-                        <img src="frontend/img/3.jpg" alt="" class="img-responsive">
-                        <div class="shadow-down"></div>
-                        <div class="event-name">
-                            <span>CROATIA</span>
-                        </div>
-                        <div class="over-layer text-center">
-                            <div class="hoverimg">
-                                <img class="img-responsive" src="frontend/img/ggl.png">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 padng0 ">
-                    <div class="events">
-                        <img src="frontend/img/2.jpg" alt="" class="img-responsive">
-                        <div class="shadow-down"></div>
-                        <div class="event-name">
-                            <span>IBIZA</span>
-                        </div>
-                        <div class="over-layer text-center">
-                            <div class="hoverimg">
-                                <img class="img-responsive" src="frontend/img/ggl.png">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6  padng0">
-                    <div class="events">
-                        <img src="frontend/img/1.jpg" alt="" class="img-responsive">
-                        <div class="shadow-down"></div>
-                        <div class="event-name">
-                            <span>LAS VEGAS</span>
-                        </div>
-                        <div class="over-layer text-center">
-                            <div class="hoverimg">
-                                <img class="img-responsive" src="frontend/img/ggl.png">
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -131,15 +86,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-md-2 col-sm-2 col-xs-6 padng0">
-                    <img class="img-responsive" src="frontend/img/2.jpg">
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 padng0">
-                    <img class="img-responsive" src="frontend/img/3.jpg">
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 padng0">
-                    <img class="img-responsive" src="frontend/img/1.jpg">
-                </div> -->
                 <div class="col-md-4 col-sm-4 col-xs-4 displaynon padng0">
                     <p class="p p1 theboldfont" ui-sref="activity">POPULAR</p>
                     <p class="p2 p222 theboldfont" ui-sref="activity">ATTRA
@@ -155,7 +101,8 @@
         <p class="disp2 theboldfont" ui-sref="activity">ATTRA CTIONS</p>
     </div>
 </div>
-<!---select optional ---->
+<!-- END POPULAR -->
+<!-- START SELECT FOR CUSTOMISATION -->
 <div class="padd paddup">
     <figure class="m2">
         <img class="img-responsive" src="frontend/img/4.jpg">
@@ -163,29 +110,20 @@
             <div class="links">
                 <div class="onimg">
                     <img class="imgab" src="frontend/img/6.png">
-
                     <form class="himg2" ng-submit="goto(formdata)" ng-init="abc">
                         <label class="pregular labsec">I want to go to</label>
-                        <!--<select class="form-control Robotor" ng-change="selectDesti(x._id);">
-
-                            <option ng-repeat="x in dropDown">{{x.name}}</option>
-                        </select>-->
-
                         <select class="form-control Robotor" ng-model="selected_id" ng-options="o._id as o.name for o in dropDown" ng-change="selectDesti(selected_id);">
                             <option value="">Select Destination</option>
                           </select>
                         <button type="submit" class="gobtn" ng-click="goOn(selected_id)">GO</button>
-                        <!-- <button type="submit" class="gobtn" ui-sref=customisation({id:selected_id})>GO</button> -->
                     </form>
-
                 </div>
             </div>
         </figcaption>
     </figure>
 </div>
-</div>
-
-<!---about ---->
+<!--  END FOR CUSTOMISATION-->
+<!-- START ABOUT -->
 <div class="aboutin">
     <img class="img-responsive imAb" src="frontend/img/wd.png">
     <span class="spAb"><h1 class="theboldfont">ABOUT US</h1>
@@ -193,25 +131,17 @@
       <P class="sado"><a  class="whit_color" ui-sref="home" >KNOW THE TEAM</a></P>
    </span>
 </div>
-
-<!---date selibration ---->
+<!-- END ABOUT -->
+<!-- START SLIDER  -->
 <div class="padd padddown homeslid">
     <flex-slider flex-slide="data in mySlidesss track by $index" class="m1">
         <li>
             <div class="item">
                 <figure class="mim-home ng-scope">
                     <img class="img-responsive " ng-src="{{data.banner | serverimage}}">
-                    <!-- <figcaption>
-                        <div class="links lm2">
-                            <h1 class="theboldfont hclass">
-                            <p class=" hclass1 yellow_color">WHAT'S</p>
-                            <p class=" hclass2"> HOT</p>
-                          </h1>
-                            <p class="Robotor LMP">{{s.events}}<br>{{s.date}}</p>
-                        </div>
-                    </figcaption> -->
                 </figure>
             </div>
         </li>
     </flex-slider>
 </div>
+<!-- END SLIDER  -->
