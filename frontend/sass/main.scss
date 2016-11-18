@@ -276,11 +276,17 @@ a {
 }
 .imgactive img {
     height: 260px !important;
+        max-width: auto !important;
+        display: block;
 }
 .eventshome {
+  overflow: hidden;
     height: 185px;
     img {
-        height: 100%;
+      display: block;
+max-width: auto !important;
+height: 100%;
+
     }
 }
 .events,
@@ -1217,6 +1223,7 @@ figure .links {
 }
 .footermenu {
     background: #012B7F;
+        position: relative;
 }
 //destination css start
 .mainwidht {
@@ -2160,6 +2167,7 @@ input[type="time"].form-control {
     height: 11px !important;
 }
 .flexslider .slides img {
+      max-width: auto !important;
     height: 100% !important;
 }
 .firstimg .front {
@@ -2242,8 +2250,28 @@ input[type="time"].form-control {
     background: url("../../frontend/img/Bachelorite.jpg");
     margin-top: -59px;
     background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.disnon {
+    display: none !important;
+}
+.mycart2 {
+    -webkit-transform: rotate(-90deg);
+    position: absolute;
+    left: -89px;
+    top: 35px;
+    .socialpatt {
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+        padding: 6px;
+        margin: 0;
+    }
+    li {
+        padding: 6px 39px;
+        font-size: 18px;
+    }
 }
 /* Start writing sass here */
 @import "fancybox-override";

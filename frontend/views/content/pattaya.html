@@ -159,7 +159,7 @@
                     <div class="col-md-3 col-sm-3">
                         <div class="pattsocial2">
                             <ul class="list-group socialpatt yellow_back_lightcolor ">
-                                <li class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
+                                <li ng-click="enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }" class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
                             </ul>
                         </div>
                     </div>
@@ -216,12 +216,18 @@
             </div>
         </div>
 
-        <div class="pattsocial ">
+        <div class="pattsocial " ng-hide="enquirybtn || mycart">
             <ul class="list-group socialpatt yellow_back_lightcolor">
-                <li ng-click="enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }" class="Roboto black fontsizep">ENQUIRE NOW
+                <li ng-click="enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }"  class="Roboto black fontsizep">ENQUIRE NOW
                 </li>
             </ul>
         </div>
+        <!-- <div class="pattsocial " ng-hide="mycart">
+            <ul class="list-group socialpatt yellow_back_lightcolor">
+                <li ng-click="enquirybtn = !enquirybtn" ng-class="{ disnon: enquirybtn }" class="Roboto black fontsizep">ENQUIRE NOW
+                </li>
+            </ul>
+        </div> -->
     </div>
 </div>
 <!---END ENQUIRE FORM ---->
@@ -255,7 +261,7 @@
                                         <!-- Please Remove the Below Comment -->
                                         <div class="row padding30" ng-repeat="x in DestinationTitle">
                                             <ul class="list-group socialpatt">
-                                                <li class="Robotor bluecol">
+                                                <li class="Robotor bluecol" ng-if="{{x.name}}">
                                                     <strong class="padding15">{{x.name}}</strong>
                                                 </li>
                                                 <p class="Robotor" ng-bind-html="x.description"></p>

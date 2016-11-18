@@ -20,7 +20,8 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 pdt15 " ng-repeat="data in DestinationLand.popularDestination">
                         <figure>
                             <div class="front">
-                                <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
+                                <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" ></a>
+                                <div class="shadow-down"></div>
                                 <div class="event-name">
                                     <span>{{data.name}}</span>
                                 </div>
@@ -35,7 +36,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12 padd15px" ng-repeat="data2 in data">
                                             <div class="firstimg">
                                                 <div class="front">
-                                                    <a ui-sref="pattaya({id:data2._id})"><img ng-src="{{data2.image | serverimage}}" alt="" class="img-responsive"></a>
+                                                    <a ui-sref="pattaya({id:data2._id})"><img ng-src="{{data2.image | serverimage}}" alt="" ></a>
                                                     <div class="event-name">
                                                         <span>{{data2.name}}</span>
                                                     </div>
@@ -58,7 +59,8 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in allDestination">
                         <figure>
                             <div class="front imgactive">
-                                <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive"></a>
+                                <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data.image | serverimage}}" alt="" ></a>
+                                <div class="shadow-down"></div>
                                 <div class="event-name">
                                     <span>{{data.name}}</span>
                                 </div>
