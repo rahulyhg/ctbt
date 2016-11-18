@@ -83,23 +83,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
         //     'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
         // ];
-// =============== For Cart =================
-$scope.submitCart = false;
-$scope.cartData = {};
-$scope.cartSubmit = function(input) {
-    console.log('input', input);
-    NavigationService.cart($scope.cartData, function(data) {
-        console.log("data", data.value);
-        if (data.value === true) {
-            NavigationService.deleteAllCart(function(data) {
-                console.log(data);
-            })
-            $scope.submitCart = true;
+        // =============== For Cart =================
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+            });
         }
-    });
-}
         $scope.getCartFunHeader = function() {
-          console.log('inside gettttttt cart');
+            console.log('inside gettttttt cart');
             NavigationService.getCart(function(data) {
                 $scope.getCartDataActivity10 = data.data.activities;
                 $scope.getCartDataPackage10 = data.data.package;
@@ -110,7 +110,7 @@ $scope.cartSubmit = function(input) {
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunHeader();
@@ -131,6 +131,15 @@ $scope.cartSubmit = function(input) {
 
         // =============== End Cart =================
     })
+    .controller('ComingsoonCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+
+
+            $scope.template = TemplateService.changecontent("comingsoon");
+            $scope.menutitle = NavigationService.makeactive("Comingsoon");
+            TemplateService.title = $scope.menutitle;
+            $scope.navigation = NavigationService.getnav();
+
+        })
     .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
         $scope.template = TemplateService.changecontent("activity");
@@ -382,7 +391,7 @@ $scope.cartSubmit = function(input) {
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
@@ -434,7 +443,7 @@ $scope.cartSubmit = function(input) {
             });
         }
 
-// ========= End Cart =============
+        // ========= End Cart =============
     })
     .controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
 
@@ -518,7 +527,7 @@ $scope.cartSubmit = function(input) {
             });
         }
         $scope.getCartFunHeader = function() {
-          console.log('inside gettttttt cart');
+            console.log('inside gettttttt cart');
             NavigationService.getCart(function(data) {
                 $scope.getCartDataActivity10 = data.data.activities;
                 $scope.getCartDataPackage10 = data.data.package;
@@ -529,7 +538,7 @@ $scope.cartSubmit = function(input) {
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunHeader();
@@ -1060,13 +1069,13 @@ $scope.cartSubmit = function(input) {
         $scope.formComplete = false;
         $scope.enquiryData = {};
         $scope.enquirySubmitPatt2 = function(input) {
-            console.log('input', input);
-            NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {}
-            });
-        }
-        // =============== For Cart =================
+                console.log('input', input);
+                NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                    console.log("data", data.value);
+                    if (data.value === true) {}
+                });
+            }
+            // =============== For Cart =================
 
         $scope.submitCart = false;
         $scope.cartData = {};
@@ -1094,7 +1103,7 @@ $scope.cartSubmit = function(input) {
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunPattaya2();
@@ -1136,13 +1145,13 @@ $scope.cartSubmit = function(input) {
             });
         }
         $scope.deleteCartAcco = function(type, name) {
-            console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function(data) {
-                console.log('deleted', data);
-                $scope.getCartFunPattaya2();
-            });
-        }
- // ============== End Cart ==============
+                console.log(type, name);
+                NavigationService.deleteCartAccomodation(type, name, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFunPattaya2();
+                });
+            }
+            // ============== End Cart ==============
     })
     .controller('Whats-hot-moreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
 
@@ -1199,7 +1208,7 @@ $scope.cartSubmit = function(input) {
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
@@ -1247,13 +1256,13 @@ $scope.cartSubmit = function(input) {
             });
         }
         $scope.deleteCartAcco = function(type, name) {
-            console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function(data) {
-                console.log('deleted', data);
-                $scope.getCartFun();
-            });
-        }
- // ===== End Cart ===========
+                console.log(type, name);
+                NavigationService.deleteCartAccomodation(type, name, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFun();
+                });
+            }
+            // ===== End Cart ===========
     })
     .controller('WhatsHotCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
 
@@ -1321,7 +1330,7 @@ $scope.cartSubmit = function(input) {
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
@@ -1592,7 +1601,7 @@ $scope.cartSubmit = function(input) {
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunCustomisation();
@@ -1655,18 +1664,18 @@ $scope.cartSubmit = function(input) {
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input) {
-            console.log('input', input);
-            NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
-                    NavigationService.deleteAllCart(function(data) {
-                        console.log(data);
-                    })
-                    $scope.submitCart = true;
-                }
-            });
-        }
-        // ==================End of Cart=======================
+                console.log('input', input);
+                NavigationService.cart($scope.cartData, function(data) {
+                    console.log("data", data.value);
+                    if (data.value === true) {
+                        NavigationService.deleteAllCart(function(data) {
+                            console.log(data);
+                        })
+                        $scope.submitCart = true;
+                    }
+                });
+            }
+            // ==================End of Cart=======================
 
     })
 
@@ -1737,7 +1746,7 @@ $scope.cartSubmit = function(input) {
         });
     }
     $scope.getCartFunHeader = function() {
-      console.log('inside gettttttt cart');
+        console.log('inside gettttttt cart');
         NavigationService.getCart(function(data) {
             $scope.getCartDataActivity10 = data.data.activities;
             $scope.getCartDataPackage10 = data.data.package;
@@ -1748,7 +1757,7 @@ $scope.cartSubmit = function(input) {
             $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
             $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
             $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-            console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+            console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
         });
     }
     $scope.getCartFunHeader();
