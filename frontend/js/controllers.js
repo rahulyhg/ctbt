@@ -29,18 +29,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.mySlidesss = data.data.whatsHotBanner;
             console.log("$scope.mySlides", $scope.mySlidesss);
         });
-  $scope.imDisable = false;
-$scope.goOn = function(id){
-  if(id == undefined){
-    $scope.imDisable = true;
-  }else{
-    // $scope.imDisable = false;
-    console.log(id);
-    $state.go('customisation',{id:id});
-  }
+        $scope.imDisable = false;
+        $scope.goOn = function(id) {
+            if (id == undefined) {
+                $scope.imDisable = true;
+            } else {
+                // $scope.imDisable = false;
+                console.log(id);
+                $state.go('customisation', {
+                    id: id
+                });
+            }
 
 
-}
+        }
 
         //top slider
         //   $scope.mySlidestop = [
@@ -81,6 +83,53 @@ $scope.goOn = function(id){
         //     'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
         //     'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
         // ];
+// =============== For Cart =================
+$scope.submitCart = false;
+$scope.cartData = {};
+$scope.cartSubmit = function(input) {
+    console.log('input', input);
+    NavigationService.cart($scope.cartData, function(data) {
+        console.log("data", data.value);
+        if (data.value === true) {
+            NavigationService.deleteAllCart(function(data) {
+                console.log(data);
+            })
+            $scope.submitCart = true;
+        }
+    });
+}
+        $scope.getCartFunHeader = function() {
+          console.log('inside gettttttt cart');
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+            });
+        }
+        $scope.getCartFunHeader();
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunHeader();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunHeader();
+            });
+        }
+
+        // =============== End Cart =================
     })
     .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
@@ -89,100 +138,100 @@ $scope.goOn = function(id){
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.changeDestination = function(id) {
-          if(id){
-            console.log(id);
-            $scope.saveDestId = id;
-            NavigationService.getChangeDestination(id, function(data) {
-                $scope.changeDestData = data.data.Images;
-                $scope.showBttn = data.data.Images;
-                console.log('$scope.showBttn', $scope.showBttn.length);
-                var images = _.groupBy($scope.changeDestData, function(n) {
-                    if (_.isEmpty(n.image1)) {
-                        return "bigImage";
-                    } else if (n.image1 && n.image2) {
-                        return "bigImage";
-                    } else {
-                        return "smallImage";
-                    }
-                    // if (_.isEmpty(n.image1)) {
-                    //     return "bigImage";
-                    // } else {
-                    //     return "smallImage";
+            if (id) {
+                console.log(id);
+                $scope.saveDestId = id;
+                NavigationService.getChangeDestination(id, function(data) {
+                    $scope.changeDestData = data.data.Images;
+                    $scope.showBttn = data.data.Images;
+                    console.log('$scope.showBttn', $scope.showBttn.length);
+                    var images = _.groupBy($scope.changeDestData, function(n) {
+                        if (_.isEmpty(n.image1)) {
+                            return "bigImage";
+                        } else if (n.image1 && n.image2) {
+                            return "bigImage";
+                        } else {
+                            return "smallImage";
+                        }
+                        // if (_.isEmpty(n.image1)) {
+                        //     return "bigImage";
+                        // } else {
+                        //     return "smallImage";
+                        // }
+                    });
+
+                    // if (images.smallImage) {
+                    //     images.smallImage = _.chunk(images.smallImage, 3);
                     // }
+                    // $scope.activityLand = images;
+                    // if (images.smallImage.length > 0 && images.bigImage.length > 0) {
+                    //     if (images.bigImage.length >= images.smallImage.length) {
+                    //         $scope.activityLoop = _.times(images.bigImage.length, Number);
+                    //     } else {
+                    //         $scope.activityLoop = _.times(images.smallImage.length, Number);
+                    //     }
+                    // }
+                    // console.log($scope.activityLoop);
+
+                    console.log('serdtfyguhsertghjdrfghjedrfghj');
+                    console.log('images', images);
+                    if (images.smallImage) {
+                        console.log(images.smallImage.length);
+                        // if(images.smallImage.length > 2){
+                        //   $scope.viewMore = true;
+                        // }
+                        images.smallImage = _.chunk(images.smallImage, 3);
+                        console.log('images.smallImage', images.smallImage);
+                        $scope.smallImageArray = _.cloneDeep(images.smallImage);
+                        images.smallImage = _.take(images.smallImage, 2);
+                        if (images.smallImage.length > 2) {
+                            $scope.viewMore = true;
+                        }
+
+                    }
+                    if (images.bigImage) {
+
+                        console.log(images.bigImage.length);
+                        $scope.bigImageArray = _.cloneDeep(images.bigImage);
+                        images.bigImage = _.take(images.bigImage, 1);
+                        if (images.bigImage.length > 2) {
+                            $scope.viewMore = true;
+                        }
+
+                    }
+                    // console.log('images.smallImage.length', images.smallImage.length);
+                    $scope.activityLand = images;
+                    if (images.bigImage && !images.smallImage) {
+                        console.log('bigggg imggggg');
+                        $scope.viewMore = false;
+                        $scope.viewLess = false;
+                        $scope.activityLoop = _.times(images.bigImage.length, Number);
+                    } else {
+                        console.log('i m smallll');
+                        $scope.activityLoop = _.times(images.smallImage.length, Number);
+                        // $scope.viewMore = false;
+                        // $scope.viewLess = false;
+                    }
+
+                    console.log("bigImage", images.bigImage);
+
+                    if (images.bigImage.length > 0 && images.smallImage.length > 0) {
+                        if (images.bigImage.length >= images.smallImage.length) {
+                            $scope.activityLoop = _.times(images.bigImage.length, Number);
+                            console.log('if $scope.activityLoop', $scope.activityLoop);
+                        } else {
+                            $scope.activityLoop = _.times(images.smallImage.length, Number);
+                            console.log('else $scope.activityLoop', $scope.activityLoop);
+                        }
+                    }
                 });
 
-                // if (images.smallImage) {
-                //     images.smallImage = _.chunk(images.smallImage, 3);
-                // }
-                // $scope.activityLand = images;
-                // if (images.smallImage.length > 0 && images.bigImage.length > 0) {
-                //     if (images.bigImage.length >= images.smallImage.length) {
-                //         $scope.activityLoop = _.times(images.bigImage.length, Number);
-                //     } else {
-                //         $scope.activityLoop = _.times(images.smallImage.length, Number);
-                //     }
-                // }
-                // console.log($scope.activityLoop);
-
-                console.log('serdtfyguhsertghjdrfghjedrfghj');
-                console.log('images', images);
-                if (images.smallImage) {
-                    console.log(images.smallImage.length);
-                    // if(images.smallImage.length > 2){
-                    //   $scope.viewMore = true;
-                    // }
-                    images.smallImage = _.chunk(images.smallImage, 3);
-                    console.log('images.smallImage', images.smallImage);
-                    $scope.smallImageArray = _.cloneDeep(images.smallImage);
-                    images.smallImage = _.take(images.smallImage, 2);
-                    if (images.smallImage.length > 2) {
-                        $scope.viewMore = true;
-                    }
-
-                }
-                if (images.bigImage) {
-
-                    console.log(images.bigImage.length);
-                    $scope.bigImageArray = _.cloneDeep(images.bigImage);
-                    images.bigImage = _.take(images.bigImage, 1);
-                    if (images.bigImage.length > 2) {
-                        $scope.viewMore = true;
-                    }
-
-                }
-                // console.log('images.smallImage.length', images.smallImage.length);
-                $scope.activityLand = images;
-                if (images.bigImage && !images.smallImage) {
-                    console.log('bigggg imggggg');
-                    $scope.viewMore = false;
-                    $scope.viewLess = false;
-                    $scope.activityLoop = _.times(images.bigImage.length, Number);
-                } else {
-                    console.log('i m smallll');
-                    $scope.activityLoop = _.times(images.smallImage.length, Number);
-                    // $scope.viewMore = false;
-                    // $scope.viewLess = false;
-                }
-
-                console.log("bigImage", images.bigImage);
-
-                if (images.bigImage.length > 0 && images.smallImage.length > 0) {
-                    if (images.bigImage.length >= images.smallImage.length) {
-                        $scope.activityLoop = _.times(images.bigImage.length, Number);
-                        console.log('if $scope.activityLoop', $scope.activityLoop);
-                    } else {
-                        $scope.activityLoop = _.times(images.smallImage.length, Number);
-                        console.log('else $scope.activityLoop', $scope.activityLoop);
-                    }
-                }
-            });
-
-          }else{
-            console.log('m in else');
-            $scope.viewLess = false;
-            $scope.viewMore = false;
-              $scope.loadLessActivities();
-          }
+            } else {
+                console.log('m in else');
+                $scope.viewLess = false;
+                $scope.viewMore = false;
+                $scope.loadLessActivities();
+            }
 
         }
 
@@ -192,12 +241,12 @@ $scope.goOn = function(id){
         $scope.viewLess = false;
         $scope.viewMore = false;
         $scope.loadLessActivities = function() {
-          console.log('$scope.saveDestId',$scope.saveDestId);
-          $scope.saveDestId =undefined;
-          // if($scope.saveDestId !=undefined){
-          //     $scope.changeDestination($scope.saveDestId);
-          //       $scope.changeDestination($scope.saveDestId);
-          // }else{
+            console.log('$scope.saveDestId', $scope.saveDestId);
+            $scope.saveDestId = undefined;
+            // if($scope.saveDestId !=undefined){
+            //     $scope.changeDestination($scope.saveDestId);
+            //       $scope.changeDestination($scope.saveDestId);
+            // }else{
 
             NavigationService.ActivityLand(function(data) {
                 console.log(data);
@@ -283,7 +332,7 @@ $scope.goOn = function(id){
                 }
 
             });
-          // }
+            // }
         }
         $scope.loadLessActivities();
         $scope.loadMoreActivities = function() {
@@ -302,16 +351,44 @@ $scope.goOn = function(id){
             }
         }
 
+        // =============== For Cart =================
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+            });
+        }
+
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
-        console.log('$scope.getCartDataActivity10',$scope.getCartDataActivity10);
+                $scope.getCartDataActivityPage = data.data.activities;
+                console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
+
+                // $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
         $scope.addTocartOnActivityPage = function(id, type) {
             console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+            var indexF = _.findIndex($scope.getCartDataActivityPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
@@ -331,8 +408,8 @@ $scope.goOn = function(id){
         }
 
         $scope.isInWishlistActivityPage = function(id) {
-          // console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+            // console.log(id);
+            var indexF = _.findIndex($scope.getCartDataActivityPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
@@ -342,6 +419,22 @@ $scope.goOn = function(id){
             }
         }
 
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFun();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFun();
+            });
+        }
+
+// ========= End Cart =============
     })
     .controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
 
@@ -393,10 +486,10 @@ $scope.goOn = function(id){
         NavigationService.DestinationLand(function(data) {
 
             $scope.DestinationLand = data.data.popularDestination;
-            $scope.DestinationLand = _.chunk(data.data.popularDestination,2);
+            $scope.DestinationLand = _.chunk(data.data.popularDestination, 2);
             console.log("$scope.DestinationLand", $scope.DestinationLand);
             $scope.allDestination = _.take(data.data.allDestination, 6);
-              console.log("$scope.DestinationLand", $scope.allDestination);
+            console.log("$scope.DestinationLand", $scope.allDestination);
             $scope.viewMoreDest = function() {
                 $scope.show = true;
                 $scope.allDestination = data.data.allDestination;
@@ -407,6 +500,55 @@ $scope.goOn = function(id){
             }
         })
 
+
+        // =============== For Cart =================
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+            });
+        }
+        $scope.getCartFunHeader = function() {
+          console.log('inside gettttttt cart');
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+            });
+        }
+        $scope.getCartFunHeader();
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunHeader();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunHeader();
+            });
+        }
+
+        // ======== End Cart =========
     })
     .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
 
@@ -484,11 +626,11 @@ $scope.goOn = function(id){
         // };
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataActivityPattayaPage = data.data.activities;
                 $scope.getCartDataPackage10 = data.data.package;
                 $scope.getCartDataWhatsHot = data.data.whatshot;
                 $scope.getAccomodation = data.data.accomodation;
-                console.log('accmoddddddddddd1000000000000000000',$scope.getAccomodation);
+                console.log('accmoddddddddddd1000000000000000000', $scope.getAccomodation);
                 // $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
                 // $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
                 //         .groupBy("whatshot.name")
@@ -516,8 +658,8 @@ $scope.goOn = function(id){
                 $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
-                console.log('accmoddddddddddd',$scope.getAccomodation10);
-                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage,$scope.getCartDataWhatsHot10,$scope.getAccomodation10);
+                console.log('accmoddddddddddd', $scope.getAccomodation10);
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -544,7 +686,7 @@ $scope.goOn = function(id){
         }
 
         $scope.isInWishlistActivity = function(id) {
-            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+            var indexF = _.findIndex($scope.getCartDataActivityPattayaPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
@@ -566,7 +708,7 @@ $scope.goOn = function(id){
 
         $scope.addTocartOnActivity = function(id, type) {
             console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+            var indexF = _.findIndex($scope.getCartDataActivityPattayaPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
@@ -618,8 +760,8 @@ $scope.goOn = function(id){
 
                 $scope.getPackage = data.data.getPackage;
                 console.log('$scope.getPackage', $scope.getPackage);
-                if(data.data.getPackage.length > 8){
-                  $scope.viewMore = true;
+                if (data.data.getPackage.length > 8) {
+                    $scope.viewMore = true;
                 }
                 // $scope.getActivity = data.data.getActivity;
                 // console.log('$scope.getActivity',$scope.getActivity);
@@ -692,9 +834,9 @@ $scope.goOn = function(id){
                 return n.model
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
-              if(data.data.Category.length > 8){
-                $scope.viewMoreActivity = true;
-              }
+                if (data.data.Category.length > 8) {
+                    $scope.viewMoreActivity = true;
+                }
 
                 if (data.data.Category.length == 0) {
                     $scope.viewMoreActivity = false;
@@ -776,33 +918,7 @@ $scope.goOn = function(id){
         }
 
 
-        $scope.submitCart = false;
-        $scope.cartData = {};
-        $scope.cartSubmit = function(input) {
-            console.log('input', input);
-            NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
-                    NavigationService.deleteAllCart(function(data) {
-                        console.log(data);
-                    })
-                    $scope.submitCart = true;
-                    //   $timeout(function() {
-                    //     $scope.open4();
-                    //   },1000);
-                    //   // $scope.open4();
-                    //   $timeout(function() {
-                    //     $scope.modalInstance.close();
-                    //       // $scope.formComplete = false;
-                    //       // $scope.enquiryData = {};
-                    //   },6000);
-                    //     // $scope.formComplete = true;
-                }
 
-                // console.log('input',input);
-                // console.log('data',data);
-            });
-        }
 
         $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
@@ -824,10 +940,10 @@ $scope.goOn = function(id){
         //     isFirstDisabled: false
         // });
 
-$scope.DestinationTitle = '';
+        $scope.DestinationTitle = '';
         $scope.openMe = false;
         $scope.goToFunction = function(id) {
-          $scope.DestinationTitle = '';
+            $scope.DestinationTitle = '';
             NavigationService.DestinationContent(id, function(data) {
                 $scope.DestinationTitle = data.data.getTitle;
                 $scope.openMe = true;
@@ -861,6 +977,21 @@ $scope.DestinationTitle = '';
         }
 
 
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+            });
+        }
 
     })
     .controller('Pattaya2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -920,7 +1051,7 @@ $scope.DestinationTitle = '';
         }]
 
         NavigationService.RestApiPattaya2($stateParams.id, function(data) {
-          $scope.myIdPattaya2 = $stateParams.id;
+            $scope.myIdPattaya2 = $stateParams.id;
             console.log(data.data);
             $scope.getPattaya2 = data.data.packageDetails;
             console.log("$scope.getPattaya2", $scope.getPattaya2);
@@ -932,14 +1063,38 @@ $scope.DestinationTitle = '';
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
+                if (data.value === true) {}
+            });
+        }
+        // =============== For Cart =================
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
                 if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
                 }
             });
         }
-
         $scope.getCartFunPattaya2 = function() {
             NavigationService.getCart(function(data) {
                 $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunPattaya2();
@@ -973,7 +1128,21 @@ $scope.DestinationTitle = '';
                 return false;
             }
         }
-
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunPattaya2();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunPattaya2();
+            });
+        }
+ // ============== End Cart ==============
     })
     .controller('Whats-hot-moreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
 
@@ -1001,9 +1170,36 @@ $scope.DestinationTitle = '';
                 $scope.classv = "active-tab";
             }
         };
+
+        // =============== For Cart =================
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+            });
+        }
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
                 $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
@@ -1013,7 +1209,7 @@ $scope.DestinationTitle = '';
         });
         $scope.myid = $stateParams.id;
         $scope.isInWishlistWhatsHotMore = function(id) {
-          console.log('id',id);
+            console.log('id', id);
             var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
                 return key.whatshot._id == id;
             })
@@ -1026,8 +1222,8 @@ $scope.DestinationTitle = '';
         $scope.addTocartOnWhatsHot = function(id, type) {
             console.log(id, type);
             var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
-              console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
-              console.log(key.whatshot._id);
+                console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
+                console.log(key.whatshot._id);
                 return key.whatshot._id == id;
             })
             if (indexF !== -1) {
@@ -1043,8 +1239,21 @@ $scope.DestinationTitle = '';
                 });
             }
         }
-
-
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFun();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFun();
+            });
+        }
+ // ===== End Cart ===========
     })
     .controller('WhatsHotCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
 
@@ -1084,14 +1293,40 @@ $scope.DestinationTitle = '';
             console.log($scope.myEvents);
         });
 
+        // =============== For Cart =================
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+            });
+        }
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
                 $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
             });
         }
         $scope.getCartFun();
         $scope.isInWishlistWhatsHot = function(id) {
-          console.log('id',id);
+            console.log('id', id);
             var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
                 return key.whatshot._id == id;
             })
@@ -1105,8 +1340,8 @@ $scope.DestinationTitle = '';
         $scope.addTocartOnWhatsHot10 = function(id, type) {
             console.log(id, type);
             var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
-              console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
-              console.log(key.whatshot._id);
+                console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
+                console.log(key.whatshot._id);
                 return key.whatshot._id == id;
             })
             if (indexF !== -1) {
@@ -1141,32 +1376,47 @@ $scope.DestinationTitle = '';
         //             });
         //         }
         //     }
-            // $scope.mySlides = [{
-            //     img: "img/qwe.jpg",
-            //     events: "TOMMOROWLAND",
-            //     date: "27th Agust,2016"
-            //
-            //
-            // }, {
-            //     img: "img/qwe.jpg",
-            //     events: "TOMMOROWLAND",
-            //     date: "27th Agust,2016"
-            //
-            //
-            // }, {
-            //     img: "img/qwe.jpg",
-            //     events: "TOMMOROWLAND",
-            //     date: "27th Agust,2016"
-            //
-            //
-            // }, {
-            //     img: "img/qwe.jpg",
-            //     events: "TOMMOROWLAND",
-            //     date: "27th Agust,2016"
-            //
-            //
-            // }];
+        // $scope.mySlides = [{
+        //     img: "img/qwe.jpg",
+        //     events: "TOMMOROWLAND",
+        //     date: "27th Agust,2016"
+        //
+        //
+        // }, {
+        //     img: "img/qwe.jpg",
+        //     events: "TOMMOROWLAND",
+        //     date: "27th Agust,2016"
+        //
+        //
+        // }, {
+        //     img: "img/qwe.jpg",
+        //     events: "TOMMOROWLAND",
+        //     date: "27th Agust,2016"
+        //
+        //
+        // }, {
+        //     img: "img/qwe.jpg",
+        //     events: "TOMMOROWLAND",
+        //     date: "27th Agust,2016"
+        //
+        //
+        // }];
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFun();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFun();
+            });
+        }
 
+        // ========== End Cart  =============
     })
     .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state) {
 
@@ -1232,7 +1482,7 @@ $scope.DestinationTitle = '';
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
                 // $scope.viewMore = true;
-                if(data.data.Category.length > 6 ){
+                if (data.data.Category.length > 6) {
                     $scope.viewMore = true;
                 }
                 if (data.data.Category.length == 0) {
@@ -1293,20 +1543,22 @@ $scope.DestinationTitle = '';
                 // $state.reload();
             });
         }
-        $scope.selected =$stateParams.id;
+        $scope.selected = $stateParams.id;
         console.log($scope.selected);
-        $scope.dropDownClick = function(dataid){
-            $state.go('customisation',{id:dataid});
-          console.log(dataid);
-          $stateParams.id = $scope.selected;
+        $scope.dropDownClick = function(dataid) {
+            $state.go('customisation', {
+                id: dataid
+            });
+            console.log(dataid);
+            $stateParams.id = $scope.selected;
 
-          console.log($stateParams.id);
+            console.log($stateParams.id);
         }
 
-        // ================cart integration=====================
+        // ================cart integration Customization page=====================
         $scope.isInWishlistCustPage = function(id) {
-          // console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+            // console.log(id);
+            var indexF = _.findIndex($scope.getCartDataActivityCust, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
@@ -1316,7 +1568,7 @@ $scope.DestinationTitle = '';
             }
         }
         $scope.isInWishlistAccomodation = function(accName) {
-          // console.log(id);
+            // console.log(id);
             var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
                 return key.name == accName;
             })
@@ -1328,19 +1580,29 @@ $scope.DestinationTitle = '';
         }
         $scope.getCartFunCustomisation = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataActivityCust = data.data.activities;
                 $scope.getCartDataAccomodation = data.data.accomodation;
-        console.log('$scope.getCartDataActivity10',$scope.getCartDataActivity10);
+                console.log('$scope.getCartDataActivityCust', $scope.getCartDataActivityCust);
+                $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunCustomisation();
         $scope.addTocartOnCustPage = function(id, type) {
             console.log(id, type);
-            var indexF = _.findIndex($scope.getCartDataActivity10, function(key) {
+            var indexF = _.findIndex($scope.getCartDataActivityCust, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type,id, function(data) {
+                NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFunCustomisation();
                 });
@@ -1354,18 +1616,18 @@ $scope.DestinationTitle = '';
 
 
         }
-        $scope.addTocartOnAccomodation = function(type,dest,name,image,id) {
-            console.log(type,dest,name,image,id);
+        $scope.addTocartOnAccomodation = function(type, dest, name, image, id) {
+            console.log(type, dest, name, image, id);
             var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
                 return key.name == name;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCartAccomodation(type,name, function(data) {
+                NavigationService.deleteCartAccomodation(type, name, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFunCustomisation();
                 });
             } else {
-                NavigationService.addCartAccomodation(type,dest,name,image, function(data) {
+                NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFunCustomisation();
@@ -1375,8 +1637,35 @@ $scope.DestinationTitle = '';
 
         }
 
+        $scope.deleteCart = function(type, id) {
+            console.log(type, id);
+            NavigationService.deleteCart(type, id, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunCustomisation();
+            });
+        }
+        $scope.deleteCartAcco = function(type, name) {
+            console.log(type, name);
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
+                console.log('deleted', data);
+                $scope.getCartFunCustomisation();
+            });
+        }
 
-
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input) {
+            console.log('input', input);
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+            });
+        }
         // ==================End of Cart=======================
 
     })
@@ -1386,6 +1675,7 @@ $scope.DestinationTitle = '';
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+    console.log('inside headerctrl');
     $scope.allDestMore = false;
     $scope.allActivitiesMore = false;
     $scope.allEventsMore = false;
@@ -1429,6 +1719,45 @@ $scope.DestinationTitle = '';
             }, 2000);
 
         })
+    }
+
+    //  ===== MY CART START ========
+    $scope.submitCart = false;
+    $scope.cartData = {};
+    $scope.cartSubmit = function(input) {
+        console.log('input', input);
+        NavigationService.cart($scope.cartData, function(data) {
+            console.log("data", data.value);
+            if (data.value === true) {
+                NavigationService.deleteAllCart(function(data) {
+                    console.log(data);
+                })
+                $scope.submitCart = true;
+            }
+        });
+    }
+    $scope.getCartFunHeader = function() {
+      console.log('inside gettttttt cart');
+        NavigationService.getCart(function(data) {
+            $scope.getCartDataActivity10 = data.data.activities;
+            $scope.getCartDataPackage10 = data.data.package;
+            $scope.getCartDataWhatsHot = data.data.whatshot;
+            $scope.getAccomodation = data.data.accomodation;
+            $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+            $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+            $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+            $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+            $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+            console.log('$scope.mergeActivityPackage',$scope.mergeActivityPackage);
+        });
+    }
+    $scope.getCartFunHeader();
+    $scope.deleteCartAcco = function(type, name) {
+        console.log(type, name);
+        NavigationService.deleteCartAccomodation(type, name, function(data) {
+            console.log('deleted', data);
+            $scope.getCartFunHeader();
+        });
     }
 })
 
