@@ -1754,23 +1754,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // }
 
 
-    $scope.headerCartOpenCtrl = function() {
-      console.log('yes hereeeeee');
-      $scope.mycart10 = true;
-      $scope.enquirybtn10 = false;
-    }
-    globalfunction.headerCartOpenCtrl = function() {
-
-            $scope.headerCartOpenCtrl();
-        }
-    $scope.headerCartOpenUpPage = function() {
-        $scope.mycart10 = true;
-        $scope.enquirybtn10 = false;
-    }
-    globalfunction.headerCartOpenUpPage = function() {
-
-            $scope.headerCartOpenUpPage();
-        }
+    // $scope.headerCartOpenCtrl = function() {
+    //   console.log('yes hereeeeee');
+    //   $scope.mycart10 = true;
+    //   $scope.enquirybtn10 = false;
+    // }
+    // globalfunction.headerCartOpenCtrl = function() {
+    //
+    //         $scope.headerCartOpenCtrl();
+    //     }
+    // $scope.headerCartOpenUpPage = function() {
+    //     $scope.mycart10 = true;
+    //     $scope.enquirybtn10 = false;
+    // }
+    // globalfunction.headerCartOpenUpPage = function() {
+    //
+    //         $scope.headerCartOpenUpPage();
+    //     }
     console.log('inside headerctrl');
     $scope.allDestMore = false;
     $scope.allActivitiesMore = false;
