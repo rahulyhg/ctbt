@@ -2112,7 +2112,6 @@ figure {
     filter: blur(15px);
 }
 .flipDiv figure .front {
-<<<<<<< HEAD
   backface-visibility: hidden;
    -webkit-transition: all 0.5s;
    -moz-transition: all 0.5s;
@@ -2120,11 +2119,7 @@ figure {
   //  @include transition(all 0.5s);
    //
   //   backface-visibility: hidden;
-=======
-   @include transition(all 0.5s);
 
-    backface-visibility: hidden;
->>>>>>> 06be9cb350da44b5fbc3a73cf0d506f9a3634e32
 }
 // @mixin rotateY($degree: 180deg)
 // {
