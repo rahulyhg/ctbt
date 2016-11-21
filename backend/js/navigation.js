@@ -116,6 +116,11 @@ var navigationservice = angular.module('navigationservice', [])
         name: "Enquire",
         classis: "active",
         sref: "#/page/viewEnquire//"
+    },
+     {
+        name: "MediaCorner",
+        classis: "active",
+        sref: "#/page/viewMediaCorner//"
     }];
     var membershipLevel = [{
         name: "Student",

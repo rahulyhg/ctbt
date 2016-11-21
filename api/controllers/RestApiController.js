@@ -1,5 +1,18 @@
 module.exports = _.cloneDeep(require("sails-wohlig-controller"));
 var controller = {
+
+
+
+    MediaCorner: function (req, res) {
+        if (req.body) {
+            RestApi.MediaCorner(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
       getHomeContent: function (req, res) {
         if (req.body) {
             RestApi.getHomeContent(req.body, res.callback);

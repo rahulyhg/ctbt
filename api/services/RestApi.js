@@ -432,7 +432,59 @@ DestinationLand: function (data, callback) {
 },
 
 
-///
+/// Media Corner Page
+
+
+
+MediaCorner: function (data, callback) {
+    async.parallel({
+      Banner: function (callback) {
+          Banner.findOne({
+              name:"Media Corner",
+              status: "true"
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
+              if (err) {
+                  console.log(err);
+                  callback(err, null);
+              } else if (found) {
+                  callback(null, found);
+              } else {
+                  callback(null, found);
+              }
+          });
+      },
+
+      allMediaCorner: function (callback) {
+          MediaCorner.find({
+              status: "true"
+          }).sort({
+                    order: 1
+                }).exec(function (err, found) {
+              if (err) {
+                  console.log(err);
+                  callback(err, null);
+              } else if (found) {
+                  callback(null, found);
+              } else {
+                  callback(null, found);
+              }
+          });
+      }
+
+
+    }, function (err, results) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else if (results && results.length > 0) {
+            callback(null, results);
+        } else {
+            callback(null, results);
+        }
+    });
+},
 
 
 //

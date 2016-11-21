@@ -1,0 +1,85 @@
+{
+    "title": "Create MediaCorner",
+    "name": "MediaCorner",
+    "jsonPage": "viewMediaCorner",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["MediaCorner"],
+    "fields": [{
+        "name": "Image",
+        "type": "image",
+        "tableRef": "image",
+        "option": "single",
+        "size": "",
+        "placeholder": "Enter Desktop Image",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Description",
+        "type": "textarea",
+        "tableRef": "description",
+        "placeholder": "Enter URL",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "URL",
+        "type": "text",
+        "tableRef": "url",
+        "placeholder": "Enter URL",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Date",
+        "type": "date",
+        "tableRef": "date",
+        "placeholder": "Enter URL",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Order",
+        "type": "number",
+        "tableRef": "order",
+        "placeholder": "Enter Order",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Status",
+        "type": "tags",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "status",
+        "validation": ["", "trim", ""],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "onView": true,
+        "dropDown": ["true", "false"]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitWhatsHot",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMediaCorner"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMediaCorner"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "MediaCorner/save"
+    }
+}
