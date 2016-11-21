@@ -2116,16 +2116,17 @@ figure {
 
     backface-visibility: hidden;
 }
-@mixin rotateY($degree: 180deg)
-{
-  -moz-transform:rotateY($degree)
-  -webkit-transform:rotateY($degree)
-  transform:rotateY($degree)
-}
+// @mixin rotateY($degree: 180deg)
+// {
+//   -moz-transform:rotateY($degree)
+//   -webkit-transform:rotateY($degree)
+//   transform:rotateY($degree)
+// }
 .flipDiv figure:hover .front,
 figure.hover .front {
   @include transition(all 0.5s);
-    @mixin rotateY($degree: 180deg)
+  -moz-transform:rotateY(180deg);
+    // @mixin rotateY($degree: 180deg)
 }
 
 .flipDiv figure:hover figcaption,
