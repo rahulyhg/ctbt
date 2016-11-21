@@ -2112,17 +2112,22 @@ figure {
     filter: blur(15px);
 }
 .flipDiv figure .front {
+   @include transition(all 0.5s);
+
     backface-visibility: hidden;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+}
+@mixin rotateY($degree: 180deg)
+{
+  -moz-transform:rotateY($degree)
+  -webkit-transform:rotateY($degree)
+  transform:rotateY($degree)
 }
 .flipDiv figure:hover .front,
 figure.hover .front {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+  @include transition(all 0.5s);
+    @mixin rotateY($degree: 180deg)
 }
+
 .flipDiv figure:hover figcaption,
 figure.hover figcaption {
     -webkit-transform: rotateY(0);
