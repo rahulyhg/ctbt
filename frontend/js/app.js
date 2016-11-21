@@ -284,6 +284,10 @@ firstapp.filter('TbtIcon', function() {
                 returnImg += "Festivals.png";
                 break;
 
+            case "Get beachy":
+                returnImg += "Get-Beachy.png";
+                break;
+
         }
         return returnImg;
     };

@@ -2112,6 +2112,7 @@ figure {
     filter: blur(15px);
 }
 .flipDiv figure .front {
+<<<<<<< HEAD
   backface-visibility: hidden;
    -webkit-transition: all 0.5s;
    -moz-transition: all 0.5s;
@@ -2119,6 +2120,11 @@ figure {
   //  @include transition(all 0.5s);
    //
   //   backface-visibility: hidden;
+=======
+   @include transition(all 0.5s);
+
+    backface-visibility: hidden;
+>>>>>>> 06be9cb350da44b5fbc3a73cf0d506f9a3634e32
 }
 // @mixin rotateY($degree: 180deg)
 // {
@@ -2128,9 +2134,16 @@ figure {
 // }
 .flipDiv figure:hover .front,
 figure.hover .front {
+<<<<<<< HEAD
   -webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);
       transform: rotateY(180deg);}
+=======
+  @include transition(all 0.5s);
+  -moz-transform:rotateY(180deg);
+    // @mixin rotateY($degree: 180deg)
+}
+>>>>>>> 06be9cb350da44b5fbc3a73cf0d506f9a3634e32
 
 .flipDiv figure:hover figcaption,
 figure.hover figcaption {
