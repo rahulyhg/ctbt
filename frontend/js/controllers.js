@@ -1,3 +1,6 @@
+
+var globalfunction = {};
+
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -582,6 +585,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: false,
             isFirstDisabled: false
         });
+
+        globalfunction.headerCartOpen = function () {
+          console.log('insidectrl');
+        $scope.enqIsHidden = true;
+        $scope.cartIsHidden = false;
+        $scope.headerCartOpen();
+    }
         // $scope.accordian.push({
         //     isFirstOpen: true,
         //     isFirstDisabled: false
@@ -1013,7 +1023,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Pattaya2");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+        globalfunction.headerCartOpen = function () {
+        $scope.enqIsHidden = true;
+        $scope.cartIsHidden = false;
+        $scope.headerCartOpen();
+    }
         $scope.data = [{
             img: "img/p1.jpg",
             day: "Day 1",
@@ -1688,6 +1702,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+    globalfunction.headerCartOpen = function () {
+    $scope.enqIsHidden = true;
+    $scope.cartIsHidden = false;
+    $scope.headerCartOpen();
+}
+
     console.log('inside headerctrl');
     $scope.allDestMore = false;
     $scope.allActivitiesMore = false;
