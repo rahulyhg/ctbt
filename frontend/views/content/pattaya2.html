@@ -66,11 +66,16 @@
     <div class="container">
         <div class="rotat">
             <div class="row">
-                <div class="show-div" ng-show="lions">
+                <div class="show-div" ng-show="enquirybtn">
                     <div class="col-md-3 col-sm-3">
-                        <div class="pattsocial2">
+                        <!-- <div class="pattsocial2">
                             <ul class="list-group socialpatt yellow_back_lightcolor ">
                                 <li class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
+                            </ul>
+                        </div> -->
+                        <div class="pattsocial2">
+                            <ul class="list-group socialpatt yellow_back_lightcolor ">
+                                <li ng-click="headerCartOpenUp(); enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }" class="Roboto black fontsizep white_back_color">ENQUIRE NOW</li>
                             </ul>
                         </div>
                     </div>
@@ -125,9 +130,15 @@
                 </div>
             </div>
         </div>
-        <div class="pattsocial ">
+        <!-- <div class="pattsocial ">
             <ul class="list-group socialpatt yellow_back_lightcolor">
                 <li ng-click="lions = !lions" ng-class="{ active: lions }" class="Roboto black fontsizep">ENQUIRE NOW
+                </li>
+            </ul>
+        </div> -->
+        <div class="pattsocial " ng-hide="enquirybtn || mycart10">
+            <ul class="list-group socialpatt yellow_back_lightcolor">
+                <li ng-click="headerCartOpen(); enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }"  class="Roboto black fontsizep">ENQUIRE NOW
                 </li>
             </ul>
         </div>

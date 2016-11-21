@@ -37,16 +37,16 @@
 
 <!---MY CART START  ---->
 <div class="cartadd">
-    <div class="mycartme"  ng-hide="mycart">
-        <button ng-click="mycart = !mycart" ng-class="{ active: mycart }"  class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
+    <div class="mycartme"  ng-hide="mycart || enquirybtn10">
+        <button ng-click="headerCartOpenCtrl(); mycart = !mycart" ng-class="{ active: mycart }"  class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
     </div>
     <div class="paddmain yellow_back_lightcolor" ng-show="mycart">
         <div class="container ">
             <div class="col-md-12 patmargin3">
-                <div class="whatsmarg4" ng-hide="enqIsHidden">
+                <div class="whatsmarg4" ng-hide="submitCart">
                   <div class="mycart2" >
                             <ul class="list-group socialpatt yellow_back_lightcolor ">
-                                <li ng-click="mycart = !mycart" ng-class="{ active: mycart }"  class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
+                                <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }"  class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
                             </ul>
                     </div>
                     <div class="row textalign">

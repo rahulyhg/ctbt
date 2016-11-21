@@ -1,4 +1,3 @@
-
 var globalfunction = {};
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
@@ -137,16 +136,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('ComingsoonCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 
-            $scope.template = TemplateService.changecontent("comingsoon");
-            $scope.menutitle = NavigationService.makeactive("Comingsoon");
-            $scope.template.header = "";
-            $scope.template.headermenu = "";
-            $scope.template.footermenu = "";
-            $scope.template.footer = "";
-            TemplateService.title = $scope.menutitle;
-            $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("comingsoon");
+        $scope.menutitle = NavigationService.makeactive("Comingsoon");
+        $scope.template.header = "";
+        $scope.template.headermenu = "";
+        $scope.template.footermenu = "";
+        $scope.template.footer = "";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-        })
+    })
     .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
         $scope.template = TemplateService.changecontent("activity");
@@ -585,68 +584,88 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: false,
             isFirstDisabled: false
         });
+        $scope.headerCartOpen = function() {
+          console.log('ddddddddddddddd');
+            $scope.mycart10 = false;
+            $scope.enquirybtn10 = true;
+        }
+        globalfunction.headerCartOpen = function() {
 
-        globalfunction.headerCartOpen = function () {
-          console.log('insidectrl');
-        $scope.enqIsHidden = true;
-        $scope.cartIsHidden = false;
-        $scope.headerCartOpen();
-    }
-        // $scope.accordian.push({
-        //     isFirstOpen: true,
-        //     isFirstDisabled: false
-        // });
-        // $scope.accordian.push({
-        //     isFirstOpen: true,
-        //     isFirstDisabled: false
-        // });
-        // $scope.accordian.push({
-        //     isFirstOpen: true,
-        //     isFirstDisabled: false
-        // });
-        // $scope.accordian.push({
-        //     isFirstOpen: true,
-        //     isFirstDisabled: false
-        // });
-        // $scope.options = [{
-        //     value: 'day',
-        //     selected: true
-        // }, {
-        //     value: 'night',
-        //     selected: true
-        // }];
-        // $scope.isAllSelected = true;
-        // $scope.toggleAll = function() {
-        //     var toggleStatus = !$scope.isAllSelected;
-        //     angular.forEach($scope.options, function(itm) {
-        //         itm.selected = toggleStatus;
-        //     });
-        // }
-        // $scope.typeArr = [];
-        // var dataToSend = {
-        //     destination: $stateParams.id,
-        //     type: [],
-        // };
-        //
-        // $scope.searchChange = function(val) {
-        //     console.log(val);
-        //     $scope.isAllSelected = $scope.options.every(function(itm) {
-        //         return itm.selected;
-        //     })
-        //     var foundIndex = dataToSend.type.indexOf(val);
-        //     if (foundIndex == -1) {
-        //         dataToSend.type.push(val);
-        //         console.log('if  dataToSend.type', dataToSend.type);
-        //     } else {
-        //         dataToSend.type.splice(foundIndex, 1);
-        //         console.log('else  dataToSend.type', dataToSend.type);
-        //     }
-        //
-        //     NavigationService.getSearch(dataToSend, function(data) {
-        //         $scope.getActivity = data.data.Category;
-        //     });
-        //
-        // };
+                $scope.headerCartOpen();
+            }
+        $scope.headerCartOpenUp = function() {
+            $scope.mycart10 = false;
+            $scope.enquirybtn10 = false;
+        }
+        globalfunction.headerCartOpenUp = function() {
+
+                $scope.headerCartOpenUp();
+            }
+            $scope.headerCartOpenCtrl = function() {
+              console.log('yes hereeeeee');
+              $scope.mycart10 = true;
+              $scope.enquirybtn10 = false;
+            }
+            globalfunction.headerCartOpenCtrl = function() {
+
+                    $scope.headerCartOpenCtrl();
+                }
+
+            // $scope.accordian.push({
+            //     isFirstOpen: true,
+            //     isFirstDisabled: false
+            // });
+            // $scope.accordian.push({
+            //     isFirstOpen: true,
+            //     isFirstDisabled: false
+            // });
+            // $scope.accordian.push({
+            //     isFirstOpen: true,
+            //     isFirstDisabled: false
+            // });
+            // $scope.accordian.push({
+            //     isFirstOpen: true,
+            //     isFirstDisabled: false
+            // });
+            // $scope.options = [{
+            //     value: 'day',
+            //     selected: true
+            // }, {
+            //     value: 'night',
+            //     selected: true
+            // }];
+            // $scope.isAllSelected = true;
+            // $scope.toggleAll = function() {
+            //     var toggleStatus = !$scope.isAllSelected;
+            //     angular.forEach($scope.options, function(itm) {
+            //         itm.selected = toggleStatus;
+            //     });
+            // }
+            // $scope.typeArr = [];
+            // var dataToSend = {
+            //     destination: $stateParams.id,
+            //     type: [],
+            // };
+            //
+            // $scope.searchChange = function(val) {
+            //     console.log(val);
+            //     $scope.isAllSelected = $scope.options.every(function(itm) {
+            //         return itm.selected;
+            //     })
+            //     var foundIndex = dataToSend.type.indexOf(val);
+            //     if (foundIndex == -1) {
+            //         dataToSend.type.push(val);
+            //         console.log('if  dataToSend.type', dataToSend.type);
+            //     } else {
+            //         dataToSend.type.splice(foundIndex, 1);
+            //         console.log('else  dataToSend.type', dataToSend.type);
+            //     }
+            //
+            //     NavigationService.getSearch(dataToSend, function(data) {
+            //         $scope.getActivity = data.data.Category;
+            //     });
+            //
+            // };
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
                 $scope.getCartDataActivityPattayaPage = data.data.activities;
@@ -1023,11 +1042,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Pattaya2");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        globalfunction.headerCartOpen = function () {
-        $scope.enqIsHidden = true;
-        $scope.cartIsHidden = false;
-        $scope.headerCartOpen();
-    }
+        $scope.headerCartOpen = function() {
+          console.log('ddddddddddddddd');
+            $scope.mycart10 = false;
+            $scope.enquirybtn10 = true;
+        }
+        globalfunction.headerCartOpen = function() {
+
+                $scope.headerCartOpen();
+            }
+        $scope.headerCartOpenUp = function() {
+            $scope.mycart10 = false;
+            $scope.enquirybtn10 = false;
+        }
+        globalfunction.headerCartOpenUp = function() {
+
+                $scope.headerCartOpenUp();
+            }
+            $scope.headerCartOpenCtrl = function() {
+              console.log('yes hereeeeee');
+              $scope.mycart10 = true;
+              $scope.enquirybtn10 = false;
+            }
+            globalfunction.headerCartOpenCtrl = function() {
+
+                    $scope.headerCartOpenCtrl();
+                }
+
         $scope.data = [{
             img: "img/p1.jpg",
             day: "Day 1",
@@ -1702,12 +1743,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
-    globalfunction.headerCartOpen = function () {
-    $scope.enqIsHidden = true;
-    $scope.cartIsHidden = false;
-    $scope.headerCartOpen();
-}
+    // $scope.headerCartOpen10 = function() {
+    //     console.log('cccccccccccccct');
+    //     $scope.mycart10 = false;
+    //     $scope.enquirybtn10 = true;
+    // }
+    // globalfunction.headerCartOpen10 = function() {
+    //
+    //     $scope.headerCartOpen10();
+    // }
 
+
+    $scope.headerCartOpenCtrl = function() {
+      console.log('yes hereeeeee');
+      $scope.mycart10 = true;
+      $scope.enquirybtn10 = false;
+    }
+    globalfunction.headerCartOpenCtrl = function() {
+
+            $scope.headerCartOpenCtrl();
+        }
+    $scope.headerCartOpenUpPage = function() {
+        $scope.mycart10 = true;
+        $scope.enquirybtn10 = false;
+    }
+    globalfunction.headerCartOpenUpPage = function() {
+
+            $scope.headerCartOpenUpPage();
+        }
     console.log('inside headerctrl');
     $scope.allDestMore = false;
     $scope.allActivitiesMore = false;
