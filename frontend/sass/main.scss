@@ -1933,6 +1933,7 @@ figure .links {
 .scrollmudiv {
     overflow: auto;
     white-space: nowrap;
+        height: 129px;
 }
 .inputform {
     color: #000000 !important;
@@ -2260,7 +2261,7 @@ input[type="time"].form-control {
     -webkit-transform: rotate(-90deg);
     position: absolute;
     left: -89px;
-    top: 35px;
+    top: 36px;
     .socialpatt {
         list-style: none;
         text-align: center;
@@ -2269,10 +2270,14 @@ input[type="time"].form-control {
         margin: 0;
     }
     li {
-        padding: 6px 39px;
+        padding: 6px 40px;
         font-size: 18px;
     }
 }
+.flex-direction-nav .flex-next{    right: -39px !important;}
+.flex-direction-nav .flex-prev{    left: -53px !important;}
+.pad10{padding-bottom: 3%;}
+.socialpatt p{font-size: 16px;}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";

@@ -27,6 +27,15 @@
     }
 }
 @media (max-width: 1000px) {
+  .himg2 .form-control{    font-size: 19px;}
+    .mycart2 {
+        top: 38px;
+    }
+
+    .mycart2 li {
+        padding: 6px 38px;
+    }
+
     .himg2 .gobtn {
         padding-left: 1px;
     }
@@ -47,6 +56,21 @@
     }
 }
 @media (max-width: 992px) {
+  .pattmarg3 {
+    margin-top: -39px;
+    margin-bottom: 3%;
+}
+
+
+    .mycart2 li {
+        padding: 6px 38px;
+        font-size: 17px;
+    }
+
+    .mycart2 {
+        top: 41px;
+    }
+
     .checkboxrow .checkbox label {
         font-size: 13px !important;
         margin-left: 8px !important;
@@ -71,16 +95,8 @@
         bottom: 23px !important;
     }
 
-    .imgactive img {
-        height: inherit !important;
-    }
-
-    .eventshome {
-        height: inherit;
-    }
-
     .eventshome img {
-        height: inherit;
+        height: auto;
     }
 
     .show-div {
@@ -97,7 +113,7 @@
     }
 
     .himg2 .form-control {
-        font-size: 25px;
+        font-size: 16px;
     }
 
     .lm h1 {
@@ -207,8 +223,25 @@
     }
 }
 @media (max-width: 767px) {
+  .imgactive img{    height: inherit !important;
+    width: 100%;}
     body {
         padding-top: 50px;
+    }
+
+    .cartadd .mycartme {
+        top: 313px;
+    }
+    .cartadd{
+      width: 100%; top: 265px;}
+
+    .scrollmudiv {
+        height: inherit;
+    }
+
+    .mycart2 {
+        -webkit-transform: inherit;
+        position: static;
     }
 
     .firstimg .front,
@@ -229,7 +262,12 @@
     }
 
     .m8 .mr {
-        margin-left: 7%;
+        margin-left: 0;
+    }
+
+    .m8 .ml {
+        display: inherit;
+        margin-left: 10%;
     }
 
     .modal-fon4 {
@@ -338,6 +376,7 @@
 
     .patmargin3 .formlabels label {
         font-size: 11px;
+        text-align: inherit;
     }
 
     .pattayamarg4 p {
@@ -889,35 +928,39 @@
     }
 }
 @media (max-width: 480px) {
-  .panelacor .fontpanel {
-    font-size: 12px;
-}.padding30 {
-    font-size: 12px;
-    padding: 0px;
-}
-.event-name span {
-    letter-spacing: inherit;
-    font-size: 11px;
-}
-  .himg2 .form-control {
-    font-size: 12px;
-    overflow: hidden !important;
-    white-space: pre-wrap;
-    text-overflow: ellipsis;
-  }
-  .category .form-group select{width: 100% !important;}
-  .category {
-    background-color: #fdd116;
-    padding: 20px 20px;
-    margin: 0 6%;
-}
-    .select-main {
-        width: 100%;
+    .panelacor .fontpanel {
+        font-size: 12px;
     }
 
-    .flipDiv figure figcaption {
-        padding: 13px 20px;
+    .padding30 {
+        font-size: 12px;
+        padding: 0;
+    }
 
+    .event-name span {
+        letter-spacing: inherit;
+        font-size: 11px;
+    }
+
+    .himg2 .form-control {
+        font-size: 12px;
+        overflow: hidden !important;
+        white-space: pre-wrap;
+        text-overflow: ellipsis;
+    }
+
+    .category .form-group select {
+        width: 100% !important;
+    }
+
+    .category {
+        background-color: #fdd116;
+        padding: 20px;
+        margin: 0 6%;
+    }
+
+    .select-main {
+        width: 100%;
     }
 
     .himg2 .gobtn {
