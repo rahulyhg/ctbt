@@ -6,7 +6,7 @@
     "urlFields": ["_id"],
     "name":"Banner",
     "fields": [{
-        "name": "Name",
+        "name": "Name *(Activities/Destination/Media Corner) ",
         "type": "text",
         "tableRef": "name",
         "placeholder": "Enter Banner Name",

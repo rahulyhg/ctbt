@@ -6,7 +6,7 @@
     "pageType": "create",
     "urlFields": ["Banner"],
     "fields": [{
-        "name": "Name= *(Activities/Destination) ",
+        "name": "Name *(Activities/Destination/Media Corner) ",
         "type": "text",
         "tableRef": "name",
         "placeholder": "Enter Banner Name",
