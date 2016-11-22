@@ -146,6 +146,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+
+    .controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+
+
+        $scope.template = TemplateService.changecontent("mediacorner");
+        $scope.menutitle = NavigationService.makeactive("MediaCorner");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+
+    .controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+
+
+        $scope.template = TemplateService.changecontent("about");
+        $scope.menutitle = NavigationService.makeactive("About");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
     .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
         $scope.template = TemplateService.changecontent("activity");
@@ -1492,8 +1512,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Customisation");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        TemplateService.footermenu = "views/custom_footermenu.html";
-        TemplateService.footer = "views/custom_footer.html";
+        
         NavigationService.cityDetails($stateParams.id, function(data) {
             console.log(data.data.getDestination.accomodation);
             $scope.customisationDestForName = data.data.getDestination.name;

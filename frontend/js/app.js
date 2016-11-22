@@ -49,6 +49,18 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'ComingsoonCtrl'
         })
+        $stateProvider
+            .state('about', {
+                url: "/about",
+                templateUrl: "frontend/views/template.html",
+                controller: 'AboutCtrl'
+            })
+    $stateProvider
+        .state('mediacorner', {
+            url: "/mediacorner",
+            templateUrl: "frontend/views/template.html",
+            controller: 'MediaCornerCtrl'
+        })
     $stateProvider
         .state('tbtstatic', {
             url: "/tbtstatic",
