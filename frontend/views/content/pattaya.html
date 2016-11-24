@@ -124,7 +124,6 @@
                                     </div>
                                 </div>
                                 <figcaption>
-                                    <img ng-src="{{data.image1 | serverimage}}" alt="" class="bluracti img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
                                         <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
                                             <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
@@ -218,16 +217,10 @@
 
         <div class="pattsocial " ng-hide="enquirybtn || mycart10">
             <ul class="list-group socialpatt yellow_back_lightcolor">
-                <li ng-click="headerCartOpen(); enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }"  class="Roboto black fontsizep">ENQUIRE NOW
+                <li ng-click="headerCartOpen(); enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }" class="Roboto black fontsizep">ENQUIRE NOW
                 </li>
             </ul>
         </div>
-        <!-- <div class="pattsocial " ng-hide="mycart">
-            <ul class="list-group socialpatt yellow_back_lightcolor">
-                <li ng-click="enquirybtn = !enquirybtn" ng-class="{ disnon: enquirybtn }" class="Roboto black fontsizep">ENQUIRE NOW
-                </li>
-            </ul>
-        </div> -->
     </div>
 </div>
 <!---END ENQUIRE FORM ---->
@@ -248,39 +241,25 @@
                 <div class="row pregular">
                     <uib-accordion close-others="true">
                         <div uib-accordion-group is-open="accordian[$index].isFirstOpen" class="panel-default panelacor" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
-                            <uib-accordion-heading class="panel-heading" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
-                                <div class="accord-title">
-                                    <h4 class="panel-title fontpanel Pregular bluecol"><img ng-src="{{data.name | TbtIcon}}" alt="" class="image_title" >  {{data.name}}
-                                      <i class="pull-right fa " ng-class="{'fa fa-minus':  accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
-                                    </h4>
+                            <uib-accordion-heading>
+                                <div class="fontpanel Pregular bluecol">
+                                    <img ng-src="{{data.name | TbtIcon}}" class="image_title"> {{data.name}}
+                                    <i class="pull-right fa " ng-class="{'fa fa-minus':  accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
                                 </div>
                             </uib-accordion-heading>
-                            <div class="panel-body yellow_back_color">
-                                <div class="whatsmain">
-                                    <div class="col-md-12">
-                                        <!-- Please Remove the Below Comment -->
-                                        <div class="row padding30" ng-repeat="x in DestinationTitle">
-                                            <ul class="list-group socialpatt">
-                                                <li class="Robotor bluecol" ng-if="{{x.name}}">
-                                                    <strong class="padding15">{{x.name}}</strong>
-                                                </li>
-                                                <p class="Robotor" ng-bind-html="x.description"></p>
-                                            </ul>
-                                            <div class="row padding30">
-                                                <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
-                                                    <figure>
-                                                        <img class="img-responsive" src="{{image.image | serverimage}}">
-                                                        <figcaption>
-                                                            <div class="lin">
-                                                                <div class="frammargin">
-                                                                    <img class="img-responsive doneLoading" src="frontend/img/ply.png">
-                                                                </div>
-                                                            </div>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <!-- Please Remove the Below Comment -->
+                            <div class=" padding30" ng-repeat="x in DestinationTitle">
+                                <ul class="list-group socialpatt">
+                                    <li class="Robotor bluecol" ng-if="{{x.name}}">
+                                        <strong class="padding15">{{x.name}}</strong>
+                                    </li>
+                                    <p class="Robotor" ng-bind-html="x.description"></p>
+                                </ul>
+                                <div class="row padding30">
+                                    <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
+                                        <figure>
+                                            <img class="img-responsive" src="{{image.image | serverimage}}">
+                                        </figure>
                                     </div>
                                 </div>
                             </div>

@@ -1512,7 +1512,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Customisation");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        
+
         NavigationService.cityDetails($stateParams.id, function(data) {
             console.log(data.data.getDestination.accomodation);
             $scope.customisationDestForName = data.data.getDestination.name;

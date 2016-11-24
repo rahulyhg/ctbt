@@ -57,6 +57,10 @@ img {
     outline: none !important;
 }
 
+button {
+    outline: none !important;
+}
+
 .color-white {
     color: #fff;
 }
@@ -302,11 +306,28 @@ a {
     overflow: hidden;
 }
 
+.cart-sec2 {
+    position: absolute;
+    top: 0;
+    right: 13px;
+    z-index: 99;
+
+    .checkboxing input[type="checkbox"] + label span {
+        width: 22px !important;
+        height: 22px !important;
+        box-shadow: 0 2px 30px 3px #fff;
+    }
+}
+
 .cart-sec {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 4px;
     z-index: 99;
+
+    i {
+        text-shadow: #000000 0 0 5px;
+    }
 
     img {
         width: 20px;
@@ -598,6 +619,7 @@ option[value=""][disabled] {
         font-weight: 900;
         letter-spacing: -1px;
         font-size: 26px;
+        text-transform: capitalize;
     }
 
     .eventhr {
@@ -621,6 +643,7 @@ option[value=""][disabled] {
         font-weight: 900;
         letter-spacing: -1px;
         font-size: 26px;
+        text-transform: capitalize;
     }
 
     .eventhr {
@@ -998,7 +1021,6 @@ option {
 .imAb {
     display: inline-block !important;
     width: 250px;
-    margin-top: -97px;
 }
 
 .padd30px {
@@ -1547,8 +1569,8 @@ figure .links {
     padding: 2% 9%;
 }
 
-.checkboxrow2 {
-    padding: 7% 2% 0;
+.custtitle2 {
+    margin: 4% 0 1% !important;
 }
 
 .custtitle {
@@ -1576,7 +1598,7 @@ figure .links {
     background: transparent url("../img/Vector-Smart-Object.png") no-repeat right center;
     border-bottom: 1px solid #0b358c;
     font-size: 22px;
-    color: #777777;
+    color: #002b7f;
     padding: 11px 5px;
     height: auto;
     border-top: none;
@@ -2032,8 +2054,50 @@ figure .links {
     padding: 1% 2% 8%;
 }
 
-.checkboxrow,
 .checkboxrow2 {
+    padding-bottom: 4%;
+    text-transform: capitalize;
+
+    .checkboxing input[type="checkbox"] + label span {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .check_img {
+        display: inline-block;
+        width: 32px;
+    }
+
+    .check_img2 {
+        height: 20px;
+        width: 5px;
+        margin-top: -6px;
+    }
+
+    .pading5 {
+        padding-top: 5px;
+    }
+
+    p {
+        margin: 0 !important;
+        font-size: 21px;
+    }
+
+    .checkbox {
+        display: inline-block !important;
+        padding: 0 9px !important;
+        margin: 0 !important;
+
+        label {
+            font-size: 22px !important;
+            margin-left: 8px !important;
+        }
+    }
+}
+
+.checkboxrow {
+    text-transform: capitalize;
+
     .check_img {
         display: inline-block;
         width: 22px;
@@ -2060,7 +2124,7 @@ figure .links {
         margin: 0 !important;
 
         label {
-            font-size: 16px !important;
+            font-size: 15px !important;
             margin-left: 8px !important;
         }
     }
@@ -2072,6 +2136,7 @@ figure .links {
 }
 
 .pattform {
+    box-shadow: #002b7f -1px 0 13px -1px;
     padding-bottom: 15px;
     padding-top: 15px;
 
@@ -2113,6 +2178,7 @@ figure .links {
     height: 0;
 
     .socialpatt {
+        box-shadow: #002b7f 0 -1px 2px 0;
         list-style: none;
         text-align: center;
         cursor: pointer;
@@ -2139,6 +2205,7 @@ figure .links {
     top: 51px;
 
     .socialpatt {
+        box-shadow: #002b7f 0 -3px 4px -1px;
         list-style: none;
         text-align: center;
         cursor: pointer;
@@ -2157,6 +2224,7 @@ figure .links {
 
 .paddmain {
     padding-bottom: 15px;
+    box-shadow: rgb(0, 43, 127) 0 0 12px 0;
 }
 
 .panel-group {
@@ -2229,7 +2297,7 @@ figure .links {
     .formlabels {
         button {
             font-weight: 600;
-            font-size: 12px;
+            font-size: 16px;
             color: #fff;
             background-image: url("../img/btn-bg.png");
             background-repeat: no-repeat;
@@ -2246,7 +2314,7 @@ figure .links {
 
         label {
             word-spacing: 2px;
-            font-size: 13px;
+            font-size: 14px;
             display: inline-block;
             width: 32%;
             float: left;
@@ -2304,25 +2372,19 @@ figure .links {
     }
 }
 
-.scrollmudiv {
-    overflow: auto;
-    white-space: nowrap;
-    height: 129px;
-}
-
 .inputform {
     color: #000000 !important;
     background-color: rgba(255, 255, 255, 0.65) !important;
     border: none !important;
     width: 66% !important;
-    height: 20px !important;
+    height: 27px !important;
 }
 
 .patevent {
     position: relative;
     padding: 2px;
     float: left;
-    width: 130px;
+    width: 140px;
 }
 
 .margslid {
@@ -2345,7 +2407,7 @@ figure .links {
     background-color: rgba(0, 0, 0, 0) !important;
     border: none !important;
     outline: none !important;
-    font-size: 17px;
+    font-size: 25px;
 }
 
 .image_title {
@@ -2457,6 +2519,7 @@ figure {
 }
 
 .flipDiv figure figcaption {
+    background: black;
     display: block;
     position: absolute;
     z-index: 5;
@@ -2477,7 +2540,7 @@ figure {
     font-family: 'Robotor';
     font-size: 16px;
     margin: 0;
-    color: #000;
+    color: #fdd116 !important;
     text-align: left;
     padding: 30px 17px;
 }
@@ -2656,6 +2719,12 @@ input[type="time"].form-control {
     padding: 0 0 22px;
 }
 
+.scrollmudiv {
+    overflow: auto;
+    white-space: nowrap;
+    height: 160px;
+}
+
 .scrollmudiv::-webkit-scrollbar-track {
     background-color: rgba(245, 245, 245, 0);
 }
@@ -2684,7 +2753,7 @@ input[type="time"].form-control {
         height: 0;
 
         button {
-            border: 2px solid #fff;
+            box-shadow: rgb(0, 43, 127) 0 -1px 2px 0;
             border-bottom: 0;
             -webkit-transform: rotate(-90deg);
         }
@@ -2704,10 +2773,12 @@ input[type="time"].form-control {
 }
 
 .mycart2 {
+    box-shadow: rgb(0, 43, 127) -2px -7px 12px -4px;
     -webkit-transform: rotate(-90deg);
     position: absolute;
     left: -89px;
-    top: 36px;
+    top: 51px;
+    z-index: 9999;
 
     .socialpatt {
         list-style: none;
@@ -2718,7 +2789,7 @@ input[type="time"].form-control {
     }
 
     li {
-        padding: 6px 40px;
+        padding: 6px 55px;
         font-size: 18px;
     }
 }
@@ -2785,19 +2856,50 @@ input[type="time"].form-control {
 }
 
 .padnon {
+    background-color: #fff !important;
+    margin: 0 4% !important;
     padding: 0 !important;
 
     .pad {
-          padding: 6% 9%;
+        padding: 3% 7%;
+
         p {
             font-size: 16px;
         }
     }
 }
 
+.marginbot {
+    margin-bottom: 6%;
+
+    .linheight {
+        line-height: 12px;
+    }
+}
+
+.personinfo {
+    font-size: 13px;
+}
+
 .imgabout {
-    position: absolute;
-    top: -32px;
+    margin-top: -14%;
+}
+
+.abinfo {
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+.socialpatt a {
+    color: black !important;
+}
+
+.margbotom {
+    margin-bottom: 0 !important;
+}
+
+.yellow_back_colorpat {
+    background: #fdd116 !important;
 }
 /* Start writing sass here */
 @import "fancybox-override";

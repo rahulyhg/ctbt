@@ -1,4 +1,16 @@
 @media only screen and (max-width: 1205px) {
+  .m1 {
+    margin-top: 48px;
+}
+    .mycart2 li {
+        padding: 6px 53px;
+        font-size: 18px;
+    }
+
+    .mycart2 {
+        top: 53px;
+    }
+
     .rotatating {
         position: absolute;
         left: 34px;
@@ -27,7 +39,24 @@
     }
 }
 @media (max-width: 1000px) {
-  .himg2 .form-control{    font-size: 19px;}
+    .margbotom {
+        margin-bottom: 0 !important;
+        font-size: 20px;
+    }
+
+    .padnon .pad p {
+        font-size: 13px;
+    }
+
+    .abinfo {
+        font-size: 13px;
+        font-weight: bolder;
+    }
+
+    .himg2 .form-control {
+        font-size: 19px;
+    }
+
     .mycart2 {
         top: 38px;
     }
@@ -56,19 +85,18 @@
     }
 }
 @media (max-width: 992px) {
-  .pattmarg3 {
-    margin-top: -39px;
-    margin-bottom: 3%;
-}
-
+    .pattmarg3 {
+        margin-top: -39px;
+        margin-bottom: 3%;
+    }
 
     .mycart2 li {
-        padding: 6px 38px;
-        font-size: 17px;
+      padding: 6px 49px;
+font-size: 19px;
     }
 
     .mycart2 {
-        top: 41px;
+        top: 55px;
     }
 
     .checkboxrow .checkbox label {
@@ -91,6 +119,10 @@
     }
 }
 @media (max-width: 922px) {
+    .padinfo {
+        padding-bottom: 5%;
+    }
+
     .firstimg .front .event-name {
         bottom: 23px !important;
     }
@@ -121,9 +153,7 @@
     }
 
     .imAb {
-        display: inline-block !important;
         width: 230px;
-        margin-top: -164px;
     }
 
     .p {
@@ -223,8 +253,28 @@
     }
 }
 @media (max-width: 767px) {
-  .imgactive img{    height: inherit !important;
-    width: 100%;}
+    .padinfo {
+        padding-bottom: 9%;
+    }
+
+    .marginbot .linheight {
+        line-height: 12px;
+        text-align: center;
+    }
+
+    .padinfo p {
+        text-align: center;
+    }
+
+    .corpad5 {
+        margin-bottom: 5%;
+    }
+
+    .imgactive img {
+        height: inherit !important;
+        width: 100%;
+    }
+
     body {
         padding-top: 50px;
     }
@@ -232,14 +282,18 @@
     .cartadd .mycartme {
         top: 313px;
     }
-    .cartadd{
-      width: 100%; top: 265px;}
+
+    .cartadd {
+        width: 100%;
+        top: 265px;
+    }
 
     .scrollmudiv {
         height: inherit;
     }
 
     .mycart2 {
+          box-shadow: none;
         -webkit-transform: inherit;
         position: static;
     }
@@ -369,13 +423,13 @@
     }
 
     .inputform {
-        width: 59% !important;
-        height: 17px !important;
-        font-size: 12px;
+      width: 59% !important;
+height: 29px !important;
+font-size: 15px;
     }
 
     .patmargin3 .formlabels label {
-        font-size: 11px;
+        font-size: 14px;
         text-align: inherit;
     }
 
@@ -621,8 +675,7 @@
 
     .imAb {
         margin: 0;
-        width: 75px;
-        display: inline-block;
+        width: 210px;
     }
 
     .sado {
@@ -634,6 +687,7 @@
     .spAb {
         width: auto;
         text-align: center;
+        padding-left: 0;
     }
 
     .eupt .ge {
@@ -928,6 +982,10 @@
     }
 }
 @media (max-width: 480px) {
+    .imAb {
+        width: 115px;
+    }
+
     .panelacor .fontpanel {
         font-size: 12px;
     }
@@ -956,7 +1014,7 @@
     .category {
         background-color: #fdd116;
         padding: 20px;
-        margin: 0 6%;
+        margin: 0 6% !important;
     }
 
     .select-main {

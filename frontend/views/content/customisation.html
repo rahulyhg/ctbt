@@ -23,43 +23,29 @@
                 <!-- END DROP DOWN -->
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
-                        <div class="flipDiv">
-                            <figure>
-                                <div class="front">
-                                    <img ng-src="{{data.accomodation.image | serverimage}}" alt="" class="img-responsive">
-                                    <div class="cart-sec">
-                                        <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
-                                          <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistAccomodation(data.hotelName)"></i>
-                                          <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistAccomodation(data.hotelName)"></i>
-                                        </button>
-                                    </div>
-                                    <div class="shadow-down"></div>
-                                    <div class="event-name">
-                                        <span>{{data.hotelName}}</span>
-                                    </div>
+                        <figure>
+                            <div class="front imgactive">
+                                <img ng-src="{{data.accomodation.image | serverimage}}">
+                                <div class="cart-sec2">
+                                  <div class="checkbox checkboxing">
+                                      <input value="cart" type="checkbox" id="custom">
+                                      <label for="custom"><span></span></label>
+                                  </div>
                                 </div>
-                                <figcaption>
-                                    <img ng-src="{{data.image | serverimage}}" alt="" class="bluracti img-responsive">
-                                    <div class="cart-sec">
-                                        <button class="cart uppercase" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id);">
-                                        <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistAccomodation(data.hotelName)"></i>
-                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistAccomodation(data.hotelName)"></i>
-                                      </button>
-                                    </div>
-                                    <div class="descrip" ng-bind-html="smallImg.description"></div>
-                                </figcaption>
-                            </figure>
-                        </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>{{data.hotelName}}</span>
+                                </div>
+                            </div>
+                        </figure>
                     </div>
                 </div>
             </div>
 
             <!---CHOOSE ACTIVITIES START ---->
-            <div class="row ">
-                <div class="col-md-8 col-sm-7 col-xs-12 textright">
-                    <h1 class="theboldfont custtitle">2. CHOOSE ACTIVITIES<br>NIGHT & DAYTIME </h1>
-                </div>
-                <div class="col-md-4 col-sm-5 col-xs-12  checkboxrow2 textright ">
+            <div class="row text-center">
+                <h1 class="theboldfont custtitle custtitle2">2. CHOOSE ACTIVITIES<br>NIGHT & DAYTIME </h1>
+                <div class="checkboxrow2 ">
                     <div class="checkbox checkboxing">
                         <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
                         <label for="later"><span></span> All</label>
@@ -73,34 +59,21 @@
             </div>
             <div class="row" ng-hide="noResult">
                 <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
-                    <div class="flipDiv">
-                        <figure>
-                            <div class="front">
-                                <img ng-src="{{data.image1 | serverimage}}" alt="" class="img-responsive">
-                                <div class="cart-sec">
-                                    <button class="cart uppercase" ng-click="addTocartOnCustPage(data._id,data.typeCart);">
-                                    <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistCustPage(data._id)"></i>
-                                    <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistCustPage(data._id)"></i>
-                                </button>
-                                </div>
-                                <div class="shadow-down"></div>
-                                <div class="event-name">
-                                    <span>{{data.name}}</span>
-
+                    <figure>
+                        <div class="front imgactive">
+                            <img ng-src="{{data.image1 | serverimage}}">
+                            <div class="cart-sec2">
+                                <div class="checkbox checkboxing">
+                                    <input value="cart" type="checkbox" id="custom2">
+                                    <label for="custom2"><span></span></label>
                                 </div>
                             </div>
-                            <figcaption>
-                                <img ng-src="{{data.image1 | serverimage}}" alt="" class="bluracti img-responsive">
-                                <div class="cart-sec">
-                                    <button class="cart uppercase" ng-click="addTocartOnCustPage(data._id,data.typeCart);">
-                                      <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistCustPage(data._id)"></i>
-                                      <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistCustPage(data._id)"></i>
-                                  </button>
-                                </div>
-                                <div class="descrip" ng-bind-html="smallImg.description"></div>
-                            </figcaption>
-                        </figure>
-                    </div>
+                            <div class="shadow-down"></div>
+                            <div class="event-name">
+                                <span>{{data.name}}</span>
+                            </div>
+                        </div>
+                    </figure>
                 </div>
 
                 <div class="col-md-12 loadimag text-center ">

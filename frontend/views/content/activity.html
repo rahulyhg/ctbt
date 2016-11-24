@@ -43,7 +43,6 @@
                                         </div>
                                     </div>
                                     <figcaption>
-                                        <img ng-src="{{smallImg.image1 |serverimage}}" alt="" class="bluracti img-responsive">
                                         <div class="cart-sec">
                                             <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
                                                 <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(smallImg._id)"></i>
@@ -74,8 +73,7 @@
                                             <span>{{activityLand.bigImage[n].name}}</span>
                                         </div>
                                     </div>
-                                    <figcaption>
-                                        <img ng-src="{{activityLand.bigImage[n].image2 | serverimage}}" alt="" class="bluracti img-responsive">
+                                    <figcaption>                                        
                                         <div class="cart-sec">
                                             <button class="cart uppercase" ng-click="addTocartOnActivityPage(activityLand.bigImage[n]._id,activityLand.bigImage[n].typeCart);">
                                               <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivityPage(activityLand.bigImage[n]._id)"></i>
