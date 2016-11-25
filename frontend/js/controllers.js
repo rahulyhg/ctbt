@@ -138,10 +138,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("comingsoon");
         $scope.menutitle = NavigationService.makeactive("Comingsoon");
-        $scope.template.header = "";
-        $scope.template.headermenu = "";
-        $scope.template.footermenu = "";
-        $scope.template.footer = "";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 

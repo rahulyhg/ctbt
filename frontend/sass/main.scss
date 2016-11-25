@@ -40,6 +40,27 @@ $white: #ffffff !default;
     font-family: "flexslider-icon";
     src: url("../fonts/flexslider-icon.ttf");
 }
+//new font imported
+@font-face {
+    font-family: "plan-dark-bold";
+    src: url("../fonts/plan-dark-bold.ttf");
+}
+@font-face {
+    font-family: "plan-dark-m";
+    src: url("../fonts/plan-dark-m.ttf");
+}
+@font-face {
+    font-family: "plan-dark-r";
+    src: url("../fonts/plan-dark-r.ttf");
+}
+@font-face {
+    font-family: "plan-dark-r1";
+    src: url("../fonts/plan-dark-r1.ttf");
+}
+@font-face {
+    font-family: "plan-dark-sb";
+    src: url("../fonts/plan-dark-sb.ttf");
+}
 
 body {
     padding-top: 59px;
@@ -225,14 +246,13 @@ a {
     color: #012B7F;
 }
 
-.navbar-default .navbar-nav > li > a {
+.headera > a {
     font-weight: bold;
     letter-spacing: 1px;
     border-right: 2px solid #36438c;
-    margin: 14px 0;
-    padding: 0 14px;
-    line-height: 10px;
-    color: #012B7F !important;
+    padding: 0 14px !important;
+    line-height: 10px !important;
+    color: #012B7F;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
@@ -321,7 +341,7 @@ a {
 
 .cart-sec {
     position: absolute;
-    top: 0;
+    top: 7px;
     right: 4px;
     z-index: 99;
 
@@ -329,8 +349,9 @@ a {
         text-shadow: #000000 0 0 5px;
     }
 
-    img {
-        width: 20px;
+    .cartsi {
+        width: 30px;
+        height: inherit !important;
     }
 }
 
@@ -877,20 +898,19 @@ option[value=""][disabled] {
     }
 
     .tp {
-        margin-top: 10px;
         font-size: 11px;
         text-align: center;
         padding-left: 16px;
         color: #000;
+
+        li {
+            padding: 25px 0;
+        }
     }
 }
 
 .hoverimg {
     margin: 42% 30%;
-}
-
-.p5 {
-    padding-top: 5px;
 }
 
 .yec {
@@ -910,10 +930,9 @@ option[value=""][disabled] {
 
 .hdp {
     width: 280px;
-    padding: 25px 0 4px;
+    padding: 21px 0 4px;
     font-weight: 700;
-    color: #0b358c;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .imgab {
@@ -1012,7 +1031,7 @@ option {
 
 .navbar-brand {
     float: left;
-    padding: 10px 15px;
+    padding: 14px 15px;
     font-size: 18px;
     line-height: 20px;
     height: 50px;
@@ -2542,7 +2561,7 @@ figure {
     margin: 0;
     color: #fdd116 !important;
     text-align: left;
-    padding: 30px 17px;
+    padding: 42px 17px;
 }
 
 .flipDiv figure figcaption {
@@ -2762,7 +2781,6 @@ input[type="time"].form-control {
 
 .cominsize {
     background: url("../../frontend/img/Bachelorite.jpg");
-    margin-top: -59px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -2882,7 +2900,11 @@ input[type="time"].form-control {
 }
 
 .imgabout {
-    margin-top: -14%;
+    width: 200px;
+    display: inline-block;
+    float: left;
+    margin-right: 7px;
+    margin-top: -4%;
 }
 
 .abinfo {
@@ -2900,6 +2922,46 @@ input[type="time"].form-control {
 
 .yellow_back_colorpat {
     background: #fdd116 !important;
+}
+
+.padinfo {
+    padding-bottom: 1%;
+}
+
+.borderbot {
+    border-bottom: 1px solid black;
+}
+
+.dropdown-content {
+    margin-top: 25px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: #fdd116;
+    padding: 0 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid gray;
+    font-size: 16px;
+    margin: 11px 12px;
+    text-transform: capitalize;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+    background-color: #002b7f !important;
+}
+
+.dropdown:hover .colchange {
+    color: #fdd116 !important;
+}
+.dropdown:hover{
+      background-color: #002b7f !important;
 }
 /* Start writing sass here */
 @import "fancybox-override";

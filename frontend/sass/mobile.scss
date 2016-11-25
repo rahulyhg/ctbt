@@ -1,7 +1,8 @@
 @media only screen and (max-width: 1205px) {
-  .m1 {
-    margin-top: 48px;
-}
+    .m1 {
+        margin-top: 48px;
+    }
+
     .mycart2 li {
         padding: 6px 53px;
         font-size: 18px;
@@ -31,7 +32,7 @@
     }
 
     .hdp {
-        width: 261px;
+        width: 272px;
         padding: 25px 0 4px;
         font-weight: 700;
         color: #0b358c;
@@ -39,6 +40,14 @@
     }
 }
 @media (max-width: 1000px) {
+    .hbc .tp {
+        margin-top: 29px;
+    }
+
+    .padinfo {
+        padding-bottom: 5%;
+    }
+
     .margbotom {
         margin-bottom: 0 !important;
         font-size: 20px;
@@ -91,8 +100,8 @@
     }
 
     .mycart2 li {
-      padding: 6px 49px;
-font-size: 19px;
+        padding: 6px 49px;
+        font-size: 19px;
     }
 
     .mycart2 {
@@ -253,6 +262,10 @@ font-size: 19px;
     }
 }
 @media (max-width: 767px) {
+    .hbc .tp li {
+        padding: 10px 0;
+    }
+
     .padinfo {
         padding-bottom: 9%;
     }
@@ -293,7 +306,7 @@ font-size: 19px;
     }
 
     .mycart2 {
-          box-shadow: none;
+        box-shadow: none;
         -webkit-transform: inherit;
         position: static;
     }
@@ -423,9 +436,9 @@ font-size: 19px;
     }
 
     .inputform {
-      width: 59% !important;
-height: 29px !important;
-font-size: 15px;
+        width: 59% !important;
+        height: 29px !important;
+        font-size: 15px;
     }
 
     .patmargin3 .formlabels label {
@@ -593,7 +606,7 @@ font-size: 15px;
     }
 
     .hdp {
-        padding: 18px 0 0;
+        padding: 25px 0 0;
     }
 
     .email-form {
@@ -982,6 +995,10 @@ font-size: 15px;
     }
 }
 @media (max-width: 480px) {
+    .imgabout {
+        width: auto;
+    }
+
     .imAb {
         width: 115px;
     }

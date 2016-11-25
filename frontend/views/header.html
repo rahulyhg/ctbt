@@ -3,24 +3,31 @@
         <div class="container">
             <div class="navbar-header hbc">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" ui-sref="home"><img src="frontend/img/logo.png" class="img-responsive img-circle margin himg" style="display:inline"></a>
                 <a ui-sref="home">
-                    <p class="hdp pregular">THE BACHELOR TRIP</p>
-                    <a>
+                    <p class="hdp bluecol pregular">THE BACHELOR TRIP</p>
+                </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse hbc p5 mt3">
                 <ul class="nav navbar-nav tp">
-                    <li><a ui-sref="destination">DESTINATIONS</a></li>
-                    <li><a ui-sref="activity">ACTIVITIES</a></li>
-                    <li><a ui-sref="whats-hot">WHAT'S HOT</a></li>
-                    <li><a >ACCESSORIES</a></li>
-                    <li><a >BACHELORETTE</a></li>
-                    <li><a class="bordern" >HIGH ROLLERS</a></li>
+                    <li class="dropdown headera">
+                        <a class="colchange" ui-sref="destination">DESTINATIONS</a>
+                        <div class="dropdown-content">
+                            <a href="#">destination</a>
+                            <a href="#">destination</a>
+                            <a href="#">destination</a>
+                        </div>
+                    </li>
+                    <li class="headera"><a class="bluecol" ui-sref="activity">ACTIVITIES</a></li>
+                    <li class="headera"><a class="bluecol" ui-sref="whats-hot">WHAT'S HOT</a></li>
+                    <li class="headera"><a class="bluecol">ACCESSORIES</a></li>
+                    <li class="headera"><a class="bluecol" ui-sref="comingsoon">BACHELORETTE</a></li>
+                    <li class="headera"><a class="bordern bluecol">HIGH ROLLERS</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbarleft">
                     <p class="hdn theboldfont">020-7060-7060
@@ -37,17 +44,17 @@
 
 <!---MY CART START  ---->
 <div class="cartadd">
-    <div class="mycartme"  ng-hide="mycart || enquirybtn10">
-        <button ng-click="headerCartOpenCtrl(); mycart = !mycart" ng-class="{ active: mycart }"  class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
+    <div class="mycartme" ng-hide="mycart || enquirybtn10">
+        <button ng-click="headerCartOpenCtrl(); mycart = !mycart" ng-class="{ active: mycart }" class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
     </div>
     <div class="paddmain yellow_back_lightcolor" ng-show="mycart">
         <div class="container ">
             <div class="col-md-12 patmargin3">
                 <div class="whatsmarg4" ng-hide="submitCart">
-                  <div class="mycart2" >
-                            <ul class="list-group socialpatt yellow_back_lightcolor ">
-                                <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }"  class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
-                            </ul>
+                    <div class="mycart2">
+                        <ul class="list-group socialpatt yellow_back_lightcolor ">
+                            <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
+                        </ul>
                     </div>
                     <div class="row textalign">
                         <div class="col-md-4 col-sm-4 col-xs-12 padd8 formlabels Roboto">

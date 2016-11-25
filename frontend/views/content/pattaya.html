@@ -43,24 +43,23 @@
                             <img ng-src="{{data.image | serverimage}}" alt="" class="img-responsive">
                             <div class="cart-sec">
                                 <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                    <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
-                                    <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
-                                </button>
+                                  <i  ng-if="!isInWishlistPackage(data._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                  <i  ng-if="isInWishlistPackage(data._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                              </button>
                             </div>
-
-                            <div class="shadow-down"></div>
+                          <div class="shadow-down"></div>
                             <div class="event-name">
                                 <span>{{data.title1}} {{data.title2}}</span>
                                 <br>
                                 <span>{{data.duration}}</span>
                             </div>
                             <div class="over-layer text-center">
-                                <div class="cart-sec">
-                                    <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                        <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistPackage(data._id)"></i>
-                                        <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistPackage(data._id)"></i>
-                                    </button>
-                                </div>
+                              <div class="cart-sec">
+                                  <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+                                    <i  ng-if="!isInWishlistPackage(data._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                    <i  ng-if="isInWishlistPackage(data._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                </button>
+                              </div>
                                 <div class="button-holder">
                                     <button class="ext-detail" ui-sref="pattaya2({id:data._id})">KNOW MORE</button>
                                 </div>
@@ -111,12 +110,10 @@
                                 <div class="front">
                                     <img ng-src="{{data.image1 | serverimage}}" alt="" class="img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
-                                        <div class="cart-sec">
-                                            <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                                <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
-                                                <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
-                                            </button>
-                                        </div>
+                                        <button class="cart uppercase"  ng-click="addTocartOnActivity(data._id,data.typeCart);">
+                                          <i   ng-if="!isInWishlistActivity(data._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                          <i  ng-if="isInWishlistActivity(data._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                      </button>
                                     </div>
                                     <div class="shadow-down"></div>
                                     <div class="event-name">
@@ -124,12 +121,12 @@
                                     </div>
                                 </div>
                                 <figcaption>
-                                    <div class="cart-sec">
-                                        <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                            <i class="whitecolor fa fa-shopping-cart" ng-if="!isInWishlistActivity(data._id)"></i>
-                                            <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistActivity(data._id)"></i>
-                                        </button>
-                                    </div>
+                                  <div class="cart-sec">
+                                      <button class="cart uppercase"  ng-click="addTocartOnActivity(data._id,data.typeCart);">
+                                        <i   ng-if="!isInWishlistActivity(data._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                        <i  ng-if="isInWishlistActivity(data._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                    </button>
+                                  </div>
                                     <div class="descrip" ng-bind-html="data.description"></div>
                                 </figcaption>
                             </figure>
@@ -209,7 +206,6 @@
                                 <button ng-click="enquirybtn = !enquirybtn" ng-disabled="myForm.$invalid" ng-class="{ active: enquirybtn }" type="submit" class="btn btn-submit">Submit</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -230,7 +226,6 @@
     <div class="container ">
         <div class="col-md-12 margin3">
             <div class="whatsmarg4">
-
 
                 <!---START VIDEO FRAME ---->
                 <div class="pad15pat embed-responsive embed-responsive-16by9" ng-if="getDestination.video">

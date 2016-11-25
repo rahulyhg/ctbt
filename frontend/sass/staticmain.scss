@@ -1,69 +1,4 @@
-@import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
-@import "../../bower_components/flexslider/flexslider";
-@import "../../bower_components/font-awesome/css/font-awesome.min";
-@import "../../bower_components/fancyBox/source/jquery.fancybox";
-@import "../../bower_components/swiper/dist/css/swiper.min";
-@import "../../bower_components/smart-app-banner/smart-app-banner";
-/* Bootstrap Variables Goes Here */
-$brand-primary: #0d9dff !default;
-$brand-success: #84ce3c !default;
-$brand-warning: #fcd116 !default;
-$brand-danger: #fc483f !default;
-$brand-info: #114fc9 !default;
-$grey: #cccccc !default;
-$black: #000000 !default;
-$blue-dark: #0c5c81 !default;
-$white: #ffffff !default;
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-@font-face {
-  font-family: "pregular";
-  src: url("../fonts/PalanquinDark-Regular.ttf");
-}
-@font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-Light_1.ttf");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Robotor";
-  src: url("../fonts/Roboto-Regular_1.ttf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "theboldfont";
-  src: url("../fonts/theboldfont.ttf");
-  font-weight: 700;
-}
-// body {
-//   padding-top: 59px;
-// }
-img.loading {
-  text-align: center;
-  opacity: 1;
-  width: 32px !important;
-  height: auto;
-}
-img {
-  opacity: 0;
-  @include transition(all 300ms ease);
-}
-img.doneLoading {
-  opacity: 1;
-}
-.pregular {
-  font-family: 'pregular';
-}
-.Roboto {
-  font-family: 'Roboto';
-}
-.Robotor {
-  font-family: 'Robotor';
-}
-.theboldfont {
-  font-family: 'theboldfont';
-}
+
 .f-bold {
   font-weight: 700;
 }
@@ -183,20 +118,12 @@ a {
   color: #002b7f;
 }
 .tp {
-  margin-top: 10px;
   font-size: 13px;
   text-align: center;
   padding-left: 77px;
   color: #000;
 }
 
-@media only screen and (max-width: 1205px) {
-  .tp {
-    padding-left: 0;
-    padding-left: 0;
-    padding-left: 0;
-  }
-}
 .fomBackg {
   background: linear-gradient(to bottom, #fdd116 29%, #fdd116 80%, white 80%, white 80%, white 100%, white 100%);
 }
