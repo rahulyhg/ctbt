@@ -26,11 +26,11 @@ a {
   border-radius: 0;
   @include box-shadow(none);
 }
-.form-control:focus {
-  border-color: $brand-primary;
-  outline: 0;
-  @include box-shadow(none);
-}
+// .form-control:focus {
+//   border-color: $brand-primary;
+//   outline: 0;
+//   @include box-shadow(none);
+// }
 .h1c {
   font-size: 70px;
   color: #002b7f;

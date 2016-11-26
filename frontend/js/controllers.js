@@ -133,11 +133,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // =============== End Cart =================
     })
-    .controller('ComingsoonCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    .controller('BachleretteCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 
-        $scope.template = TemplateService.changecontent("comingsoon");
-        $scope.menutitle = NavigationService.makeactive("Comingsoon");
+        $scope.template = TemplateService.changecontent("bachlerette");
+        $scope.menutitle = NavigationService.makeactive("Bachlerette");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -152,7 +152,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
+
+        $scope.template = TemplateService.changecontent("contactus");
+        $scope.menutitle = NavigationService.makeactive("ContactUs");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
     .controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 

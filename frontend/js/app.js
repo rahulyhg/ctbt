@@ -44,10 +44,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'HomeCtrl'
         })
     $stateProvider
-        .state('comingsoon', {
-            url: "/comingsoon",
+        .state('bachlerette', {
+            url: "/bachlerette",
             templateUrl: "frontend/views/template.html",
-            controller: 'ComingsoonCtrl'
+            controller: 'BachleretteCtrl'
         })
         $stateProvider
             .state('about', {
@@ -55,6 +55,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
                 templateUrl: "frontend/views/template.html",
                 controller: 'AboutCtrl'
             })
+            $stateProvider
+                .state('contactus', {
+                    url: "/contactus",
+                    templateUrl: "frontend/views/template.html",
+                    controller: 'ContactCtrl'
+                })
     $stateProvider
         .state('mediacorner', {
             url: "/mediacorner",

@@ -19,7 +19,7 @@ $white: #ffffff !default;
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @font-face {
     font-family: "pregular";
-    src: url("../fonts/PalanquinDark-Regular.ttf");
+    src: url("../fonts/plan-dark-r.ttf");
 }
 @font-face {
     font-family: "Roboto";
@@ -48,10 +48,6 @@ $white: #ffffff !default;
 @font-face {
     font-family: "plan-dark-m";
     src: url("../fonts/plan-dark-m.ttf");
-}
-@font-face {
-    font-family: "plan-dark-r";
-    src: url("../fonts/plan-dark-r.ttf");
 }
 @font-face {
     font-family: "plan-dark-r1";
@@ -335,7 +331,21 @@ a {
     .checkboxing input[type="checkbox"] + label span {
         width: 22px !important;
         height: 22px !important;
-        box-shadow: 0 2px 30px 3px #fff;
+        border: 1px solid #fdd116 !important;
+        box-shadow: 0 2px 30px 3px #000;
+    }
+
+    input[type="checkbox"]:checked+label span {
+        display: none;
+    }
+
+    input[type="checkbox"]:checked+label:before {
+        content: "\f00c";
+        font-family: 'FontAwesome';
+        background: #fdd116;
+        color: #fff;
+        font-size: 20px;
+        padding: 1px;
     }
 }
 
@@ -499,7 +509,6 @@ a {
 
 .form-control {
     display: inline-block;
-    width: auto;
     border: 0;
     position: relative;
     display: inline-block;
@@ -586,6 +595,7 @@ option[value=""][disabled] {
 .categoryup {
     background-color: #fdd116;
     padding: 20px 40px 40px;
+    margin: 0 4%;
 
     h1 {
         font-size: 60px;
@@ -1387,26 +1397,24 @@ figure .links {
 }
 
 .stp {
-    padding: 0 0 5%;
+    padding: 0 0 7%;
     display: block;
     font-size: 20px;
     font-weight: 500;
+
+    .form-control {
+        height: 29px !important;
+        font-weight: 700 !important;
+        width: auto !important;
+    }
 }
 
 .stp2 {
     margin-bottom: 29%;
 }
 
-.imgf {
-    right: 9px;
-    top: -128px;
-    width: 237px;
-    position: absolute;
-}
-
 .mf {
-    padding: 3%;
-    background: #012B7F;
+    padding: 3% 0;
 
     .st {
         display: block;
@@ -1494,8 +1502,11 @@ figure .links {
 }
 
 .footermenu {
-    background: #012B7F;
-    position: relative;
+    background: #000000;
+    background-image: url("../img/footer-img.png");
+    background-repeat: no-repeat;
+    background-position: 100% 108%;
+    background-size: 19%;
 }
 //destination css start
 
@@ -1610,11 +1621,12 @@ figure .links {
 }
 
 .custom-select .form-control {
+    -webkit-appearance: none;
     width: 35%;
     display: inline-block;
     -moz-appearance: none;
     appearance: none;
-    background: transparent url("../img/Vector-Smart-Object.png") no-repeat right center;
+    background: transparent url("../img/chevron-down.png") no-repeat right center;
     border-bottom: 1px solid #0b358c;
     font-size: 22px;
     color: #002b7f;
@@ -1862,6 +1874,13 @@ figure .links {
     }
 
     .whatsmarg4 {
+        .panel-body {
+            background-image: url(../img/accordian.png)!important;
+            background-repeat: no-repeat;
+            background-position: 100% 100%;
+            background-size: 68px;
+        }
+
         .wtimg {
             font-weight: 900;
             font-size: 40px;
@@ -2222,6 +2241,7 @@ figure .links {
     position: absolute;
     right: -72px;
     top: 51px;
+    z-index: 11;
 
     .socialpatt {
         box-shadow: #002b7f 0 -3px 4px -1px;
@@ -2952,7 +2972,7 @@ input[type="time"].form-control {
     text-transform: capitalize;
 }
 
-.dropdown:hover .dropdown-content{
+.dropdown:hover .dropdown-content {
     display: block;
     background-color: #002b7f !important;
 }
@@ -2960,8 +2980,54 @@ input[type="time"].form-control {
 .dropdown:hover .colchange {
     color: #fdd116 !important;
 }
-.dropdown:hover{
-      background-color: #002b7f !important;
+
+.dropdown:hover {
+    background-color: #002b7f !important;
+}
+
+.confoot {
+    font-size: 15px;
+    color: #dadada;
+    word-spacing: 2px;
+
+    img {
+        width: 18px;
+    }
+}
+
+.footermen {
+    margin: 0 !important;
+
+    i {
+        background-color: white;
+        border-radius: 100%;
+        padding: 7px 0;
+        height: 28px;
+        width: 28px;
+        text-align: center;
+        color: black;
+        font-size: 17px;
+        margin: 0 2px;
+    }
+}
+
+.margleft {
+    margin-left: 15%;
+}
+
+.contitle {
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.add {
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.contimg {
+    padding-bottom: 10px;
+    width: 200px;
 }
 /* Start writing sass here */
 @import "fancybox-override";

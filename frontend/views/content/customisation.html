@@ -9,8 +9,8 @@
 <!---START CUSTOMISATION---->
 <div class="pad9">
     <div class="container ">
-        <div class="col-md-12 m4 yellow_back_lightcolor">
-            <div class="marg4">
+        <div class="col-md-12 m4 ">
+            <div class="marg4 yellow_back_lightcolor">
                 <!---POPULAR DESTINATIONS DROP DOWN---->
                 <div class="row pd15 text-center">
                     <div class="custom-select text-center">
@@ -40,7 +40,7 @@
                         </figure>
                     </div>
                 </div>
-            </div>
+
 
             <!---CHOOSE ACTIVITIES START ---->
             <div class="row text-center">
@@ -52,7 +52,7 @@
                     </div>
                     <div class="checkbox checkboxing" ng-repeat="location in locationArr track by $index">
                         <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
-                        <label for="{{location.value}}"><span></span> {{location.value}}</label>
+                        <label for="{{location.value}}" ><span></span> {{location.value}}</label>
                         <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                     </div>
                 </div>
