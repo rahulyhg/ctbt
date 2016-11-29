@@ -18,9 +18,9 @@
                 </div>
 
                 <div class="row marg11">
-                    <div class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}">
+                    <a class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}">
                         <img class="img-responsive doneLoading" src="{{data.image|serverimage}}">
-                    </div>
+                    </a>
                 </div>
 
             </div>
