@@ -26,10 +26,10 @@
                         <div class="masonry-brick padd15px col-md-4" ng-repeat="packdata in getPattaya2.pack">
                             <div class="marginicon">
                                 <div class="pattayevents white_back_color">
-                                    <img ng-src="{{ packdata.image|serverimage  }}" class="img-box" alt="A masonry scope">
+                                    <img ng-src="{{ packdata.image|serverimage  }}" class="img-responsive img-box" alt="A masonry scope">
                                     <div class="tittalep">
                                         <h2 class="bluecol eventh2 Robotor borderhr">{{ packdata.day  }}</h2>
-                                        <p ng-bind-html="packdata.description"></p>
+                                        <p class="ulmarg bluecol" ng-bind-html="packdata.description"></p>
                                     </div>
                                 </div>
                             </div>
@@ -50,8 +50,8 @@
                     <div class="col-md-12 social2">
                         <ul class="ulsocial2 list-group">
                             <li class=""><a class="fontsiz yellow_color pregular"><i class="fa fa-share-alt"></i></a></li>
-                            <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-facebook"></i></a></li>
-                            <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-twitter"></i></a></li>
+                            <li class="ulsocial2i "><a  href="https://www.facebook.com/thebachelortrip/" target="_blank" class="bluecol pregular"><i class="fa fa-facebook"></i></a></li>
+                            <li class="ulsocial2i "><a href="https://twitter.com/TheBachelorTrip" target="_blank" class="bluecol pregular"><i class="fa fa-twitter"></i></a></li>
                             <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-envelope"></i></a></li>
                         </ul>
                     </div>

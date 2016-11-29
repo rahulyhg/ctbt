@@ -308,13 +308,22 @@ a {
     padding: 20px 40px;
     margin: 0 6%;
 
-    .form-group select {
+    .form-group .form-control {
+        -webkit-appearance: none;
+        display: inline-block;
+        -moz-appearance: none;
+        appearance: none;
+        background: transparent url("..//img/chevron-down.png") no-repeat right center;
+        background-size: 24px 12px;
+        height: auto;
+        border-top: none;
+        border-left: none;
+        border-right: none;
         font-size: 16px;
         outline: none;
         border: 0;
         border-bottom: 2px solid #002b7f;
         padding: 5px;
-        background-color: transparent;
     }
 }
 
@@ -343,7 +352,7 @@ a {
         content: "\f00c";
         font-family: 'FontAwesome';
         background: #fdd116;
-        color: #fff;
+        color: #01194a;
         font-size: 20px;
         padding: 1px;
     }
@@ -544,8 +553,8 @@ option[value=""][disabled] {
 .shadow-down {
     position: absolute;
     bottom: 0;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.85));
-    height: 20%;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0));
+    height: 17%;
     width: 100%;
 }
 
@@ -588,7 +597,7 @@ option[value=""][disabled] {
     position: absolute;
     bottom: 0;
     background: rgba(255, 252, 252, 0.82);
-    height: 35%;
+    height: 39%;
     width: 100%;
 }
 
@@ -608,7 +617,7 @@ option[value=""][disabled] {
 
 .over-layer2 {
     display: none;
-    background-color: rgba(255, 255, 255, 0.88);
+    background-color: rgba(226, 226, 226, 0.91);
     height: 100%;
     width: 100%;
     position: absolute;
@@ -641,7 +650,7 @@ option[value=""][disabled] {
 .event-name2 {
     .eventp {
         margin: 0;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .eventh2 {
@@ -655,7 +664,7 @@ option[value=""][disabled] {
 
     .eventhr {
         border-top: 3px solid #fdd116 !important;
-        margin: 0 36% 7px !important;
+        margin: 0 36% 3px !important;
     }
 }
 
@@ -711,12 +720,12 @@ option[value=""][disabled] {
 }
 
 .categoryup2 {
-    background-image: url("/../img/wd.png");
+    background-image: url("./../img/wd.png");
     background-repeat: no-repeat;
     background-size: 28%;
     background-position: 91% 95%;
     padding: 6%;
-    margin: -5% 6%;
+    margin: -5% 6% 0;
 }
 
 .pattayevents {
@@ -733,6 +742,7 @@ option[value=""][disabled] {
         display: inline-block;
         font-weight: bolder;
         letter-spacing: -2px;
+        text-transform: uppercase;
     }
 
     .list2 {
@@ -748,7 +758,7 @@ option[value=""][disabled] {
 }
 
 .img-box {
-    width: 260px !important;
+    width: 100% !important;
 }
 
 .iconmarg {
@@ -968,7 +978,7 @@ option[value=""][disabled] {
         border-bottom: 4px solid #fdd116;
         font-size: 23px;
         color: #fdd116;
-        padding: 6px;
+        padding: 0 6px;
         height: auto;
         border-top: none;
         border-left: none;
@@ -1399,7 +1409,7 @@ figure .links {
 .stp {
     padding: 0 0 7%;
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
 
     .form-control {
@@ -1781,8 +1791,11 @@ figure .links {
     }
 }
 //whats a hot css
+// .flex-direction-nav {
+//     display: none;
+// }
 
-.flex-direction-nav {
+.homeslid .flex-direction-nav {
     display: none;
 }
 
@@ -1801,23 +1814,55 @@ figure .links {
     margin: 2%;
 }
 
+.homeslidr .flex-direction-nav .flex-prev {
+    left: 10px !important;
+}
+
+.homeslidr .flex-direction-nav .flex-next {
+    right: 10px !important;
+}
+
+.homeslidr .flex-nav-prev a::before {
+    background-image: url("./../img/arrow_02.png") !important;
+    content: '\f000';
+    width: 50px;
+}
+
+.homeslidr .flex-nav-next a::before {
+    background-image: url("./../img/arrow_01.png") !important;
+    content: '\f000';
+    width: 50px;
+}
+
 .homeslidr .flex-control-nav {
     position: absolute;
-    bottom: 0 !important;
+    bottom: 17px !important;
     text-align: center !important;
     display: inline-block !important;
     z-index: 2 !important;
     right: 0 !important;
+
+    .flex-direction-nav {
+        display: block !important;
+    }
+
+    .flex-direction-nav a.flex-next:before {
+        color: black;
+    }
+}
+
+.headbox {
+    box-shadow: #002b7f 0 0 1px 0;
 }
 
 .wts .flex-control-nav {
-    width: 27% !important;
+    width: 25% !important;
     position: absolute;
     bottom: 0 !important;
     text-align: center !important;
     display: inline-block !important;
     z-index: 2 !important;
-    right: 10% !important;
+    right: 2% !important;
 }
 
 .homeslid .flex-control-nav {
@@ -1827,7 +1872,7 @@ figure .links {
     text-align: center !important;
     display: inline-block !important;
     z-index: 2 !important;
-    right: 10% !important;
+    right: 7% !important;
     margin-bottom: 2%;
 }
 
@@ -1910,9 +1955,12 @@ figure .links {
     }
 }
 
+.marg11 {
+    margin-bottom: -11%;
+}
+
 .wtsecond {
     background: #fdd116;
-    margin-top: -11%;
 
     .wtsec2 {
         .colora {
@@ -1933,7 +1981,7 @@ figure .links {
 
 .wtintro {
     font-weight: 900;
-    font-size: 24px;
+    font-size: 16px;
     margin-left: -20px;
     color: #002b79;
 }
@@ -2174,7 +2222,7 @@ figure .links {
 }
 
 .pattform {
-    box-shadow: #002b7f -1px 0 13px -1px;
+    box-shadow: #002b7f 0 0 1px 0;
     padding-bottom: 15px;
     padding-top: 15px;
 
@@ -2216,7 +2264,7 @@ figure .links {
     height: 0;
 
     .socialpatt {
-        box-shadow: #002b7f 0 -1px 2px 0;
+        box-shadow: #002b7f 0 0 1px 0;
         list-style: none;
         text-align: center;
         cursor: pointer;
@@ -2244,7 +2292,7 @@ figure .links {
     z-index: 11;
 
     .socialpatt {
-        box-shadow: #002b7f 0 -3px 4px -1px;
+        box-shadow: #002b7f 0 -1px 1px -1px;
         list-style: none;
         text-align: center;
         cursor: pointer;
@@ -2263,7 +2311,6 @@ figure .links {
 
 .paddmain {
     padding-bottom: 15px;
-    box-shadow: rgb(0, 43, 127) 0 0 12px 0;
 }
 
 .panel-group {
@@ -2781,8 +2828,9 @@ input[type="time"].form-control {
 .cartadd {
     position: fixed;
     right: 1px;
-    z-index: 99999;
+    z-index: 99;
     top: 383px;
+    box-shadow: #002b7f 0 0 1px 0;
 
     .mycartme {
         position: fixed;
@@ -2792,7 +2840,7 @@ input[type="time"].form-control {
         height: 0;
 
         button {
-            box-shadow: rgb(0, 43, 127) 0 -1px 2px 0;
+            box-shadow: rgb(0, 43, 127) 0 0 1px 0;
             border-bottom: 0;
             -webkit-transform: rotate(-90deg);
         }
@@ -2811,7 +2859,7 @@ input[type="time"].form-control {
 }
 
 .mycart2 {
-    box-shadow: rgb(0, 43, 127) -2px -7px 12px -4px;
+    box-shadow: #002b7f 0 -1px 1px 0;
     -webkit-transform: rotate(-90deg);
     position: absolute;
     left: -89px;
@@ -2832,11 +2880,11 @@ input[type="time"].form-control {
     }
 }
 
-.flex-direction-nav .flex-next {
+.slidershow .flex-direction-nav .flex-next {
     right: -39px !important;
 }
 
-.flex-direction-nav .flex-prev {
+.slidershow .flex-direction-nav .flex-prev {
     left: -53px !important;
 }
 
@@ -3028,6 +3076,32 @@ input[type="time"].form-control {
 .contimg {
     padding-bottom: 10px;
     width: 200px;
+}
+
+.ulmarg ul {
+    margin-left: -21px !important;
+}
+
+.shadow-downdes {
+    position: relative;
+    bottom: 68px;
+    background: linear-gradient(rgba(255, 255, 255, 0), black);
+    height: 17%;
+    width: 100%;
+}
+
+.submitgo {
+    height: 29px !important;
+    font-weight: 700 !important;
+    font-size: 14px!important;
+    background: #fdd116!important;
+    border: none!important;
+    color: #002b7f!important;
+}
+
+.flex-direction-nav a {
+    width: 50px !important;
+    height: 50px !important;
 }
 /* Start writing sass here */
 @import "fancybox-override";

@@ -17,7 +17,7 @@
                     <span><a ng-click="tabchanges('bz',2)" class="wtvi theboldfont">VIDEOS</a></span>
                 </div>
 
-                <div class="row">
+                <div class="row marg11">
                     <div class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}">
                         <img class="img-responsive doneLoading" src="{{data.image|serverimage}}">
                     </div>
@@ -33,7 +33,7 @@
                     <span><a ng-click="tabchanges('az',1)" class=" wtvi theboldfont">IMAGES</a></span>
                     <span><a ng-click="tabchanges('bz',2)" class=" whit_color theboldfont wtimg">VIDEOS</a></span>
                 </div>
-                <div class="row">
+                <div class="row marg11">
                     <div class="col-md-3 col-sm-4 col-xs-6 pading0" ng-repeat="data in getOneWhatsHot.videos">
                         <figure class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{data.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
                             <img class="img-responsive doneLoading" ng-src="{{data.thumbnail|serverimage}}" ng-if="(data.thumbnail || data.thumbnail != '')">

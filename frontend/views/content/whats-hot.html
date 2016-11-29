@@ -19,10 +19,10 @@
                     <div class="events">
                         <img src="{{data.image| serverimage}}" alt="" class="img-responsive ">
                         <div class="cart-sec">
-                            <button class="cart uppercase" ng-click="addTocartOnWhatsHot10(data._id,data.typeCart);">
-                              <i class="fa fa-shopping-cart" ng-if="!isInWishlistWhatsHot(data._id)"></i>
-                              <i class="yellow_color fa fa-shopping-cart" ng-if="isInWishlistWhatsHot(data._id)"></i>
-                          </button>
+                          <button class="cart uppercase" ng-click="addTocartOnWhatsHot10(data._id,data.typeCart);">
+                            <i   ng-if="!isInWishlistWhatsHot(data._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                            <i  ng-if="isInWishlistWhatsHot(data._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                        </button>                          
                         </div>
                         <div class="shadow-down2"></div>
                         <div class="event-name2">

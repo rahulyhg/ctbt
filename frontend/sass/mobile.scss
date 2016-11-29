@@ -1,5 +1,8 @@
 @media only screen and (max-width: 1205px) {
-  .stp{    font-size: 18px;}
+    .stp {
+        font-size: 18px;
+    }
+
     .m1 {
         margin-top: 48px;
     }
@@ -127,10 +130,16 @@
         font-size: 13px !important;
         width: auto !important;
     }
-    .margleft{    margin-left: 0%;}
+
+    .margleft {
+        margin-left: 0;
+    }
 }
 @media (max-width: 921px) {
-  .margleft{    margin-left: 0%;}
+    .margleft {
+        margin-left: 0;
+    }
+
     .padinfo {
         padding-bottom: 5%;
     }
@@ -265,6 +274,40 @@
     }
 }
 @media (max-width: 767px) {
+    .wts .flex-control-nav {
+        width: 27% !important;
+        position: absolute;
+        bottom: 0 !important;
+        text-align: center !important;
+        display: inline-block !important;
+        z-index: 2 !important;
+        right: 0 !important;
+    }
+
+    .homeslid .flex-control-nav {
+        width: 30% !important;
+        position: absolute;
+        bottom: 0 !important;
+        text-align: center !important;
+        display: inline-block !important;
+        z-index: 2 !important;
+        right: 0 !important;
+        margin-bottom: 2%;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+        background-color: #fdd116 !important;
+    }
+
+    .dropdown:hover .colchange {
+        color: #002b7f !important;
+    }
+
+    .dropdown:hover {
+        background-color: #fdd116 !important;
+    }
+
     .hbc .tp li {
         padding: 10px 0;
     }
@@ -301,7 +344,7 @@
 
     .cartadd {
         width: 100%;
-        top: 265px;
+        top: 319px;
     }
 
     .scrollmudiv {
@@ -317,10 +360,6 @@
     .firstimg .front,
     .flexslider .slides img {
         height: inherit !important;
-    }
-
-    .borderdown {
-        background: linear-gradient(to right, #ffd72b 71%, #f3cb2c 41%, #ffd72b 40%, #f3cb2c 40%, rgba(255, 255, 255, 0) 40%);
     }
 
     .borderup {
@@ -646,10 +685,6 @@
     .eupt .es button {
         font-size: 14px;
         float: initial;
-    }
-
-    .img-box {
-        width: 301px !important;
     }
 
     .hoverhold {
@@ -996,9 +1031,29 @@
     .paddactiv {
         padding-bottom: 11%;
     }
-    .footermenu{    background-image: none;}
+
+    .footermenu {
+        background-image: none;
+    }
+
+    .boxsado {
+        box-shadow: #002b7f 0 2px 1px -1px;
+    }
 }
 @media (max-width: 480px) {
+    .pattayah1 {
+        font-size: 19px;
+    }
+
+    .pattayah1 {
+        line-height: 56px;
+    }
+
+    .hdp {
+        width: auto;
+        letter-spacing: 1px;
+    }
+
     .imgabout {
         width: auto;
     }
@@ -1056,16 +1111,7 @@
         padding-left: 0 !important;
     }
 }
-@media (max-width: 375px) {
-    .img-box {
-        width: 272px !important;
-    }
-}
 @media (max-width: 320px) {
-    .img-box {
-        width: 228px !important;
-    }
-
     .links2 {
         margin: 1% 0;
     }
@@ -1084,9 +1130,10 @@
 
     .himg2 .form-control {
         border-bottom: 1px solid #FDD116;
-        background-size: 16px;
-        font-size: 13px;
-        width: 75%;
+        background-size: 11px;
+        font-size: 9px;
+        width: 79%;
+        padding: 0;
     }
 
     .lm2 .hclass {
