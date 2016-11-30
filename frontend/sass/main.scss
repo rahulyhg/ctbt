@@ -343,7 +343,7 @@ a {
         border: 1px solid #fdd116 !important;
         box-shadow: 0 1px 6px 1px #000;
         margin-right: -1px;
-    margin-top: 3px;
+        margin-top: 3px;
     }
 
     input[type="checkbox"]:checked+label span {
@@ -357,7 +357,7 @@ a {
         color: #01194a;
         font-size: 20px;
         padding: 1px;
-            box-shadow: 0 1px 6px 1px #000;
+        box-shadow: 0 1px 6px 1px #000;
     }
 }
 
@@ -557,7 +557,7 @@ option[value=""][disabled] {
     position: absolute;
     bottom: 0;
     background: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0));
-    height: 17%;
+    height: 32%;
     width: 100%;
 }
 
@@ -1837,7 +1837,6 @@ figure .links {
     width: 50px;
 }
 
-
 .homeslidr .flex-control-nav {
     position: absolute;
     bottom: 17px !important;
@@ -2262,7 +2261,7 @@ figure .links {
 
 .pattsocial {
     position: fixed;
-    right: -65px;
+    right: -66px;
     z-index: 10;
     top: 248px;
     height: 0;
@@ -3107,7 +3106,11 @@ input[type="time"].form-control {
     width: 50px !important;
     height: 50px !important;
 }
-.dislaynonp{display: none !important;}
+
+.dislaynonp {
+    display: none !important;
+}
+
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
