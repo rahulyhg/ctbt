@@ -1,10 +1,14 @@
 @media only screen and (max-width: 1205px) {
+    .margres {
+        margin-top: 90px;
+    }
+
     .stp {
         font-size: 18px;
     }
 
     .m1 {
-        margin-top: 48px;
+        margin-top: 85px;
     }
 
     .mycart2 li {
@@ -25,6 +29,7 @@
 
     .tp {
         padding-left: 0 !important;
+        margin-top: 24px;
     }
 
     .hdn {
@@ -44,6 +49,25 @@
     }
 }
 @media (max-width: 1000px) {
+    .margres {
+        margin-top: 104px;
+    }
+
+    .flexslider .slides img {
+        max-width: auto !important;
+        height: 73% !important;
+    }
+
+    .flipDiv figure p {
+        font-size: 12px;
+    }
+
+    .imgactive img {
+        height: 189px !important;
+        max-width: auto !important;
+        display: block;
+    }
+
     .hbc .tp {
         margin-top: 29px;
     }
@@ -249,7 +273,7 @@
     }
 
     .figure922 {
-        margin-top: 43px;
+        margin-top: 111px;
     }
 
     .eupt .ge {
@@ -274,6 +298,35 @@
     }
 }
 @media (max-width: 767px) {
+
+  .pdt15 {
+      padding-bottom: 30px;
+  }
+    .margbotom {
+        margin-bottom: 0 !important;
+        font-size: 16px;
+    }
+
+    .margres {
+        margin-top: 0;
+    }
+
+    .homeslidr .flex-nav-next a::before {
+        background-image: url("./../img/arrow_01.png") !important;
+        content: '\f000';
+        width: 50px;
+        background-size: 37px 33px;
+        background-repeat: no-repeat;
+    }
+
+    .homeslidr .flex-nav-prev a::before {
+        background-image: url("./../img/arrow_02.png") !important;
+        content: '\f000';
+        width: 50px;
+        background-size: 37px 33px;
+        background-repeat: no-repeat;
+    }
+
     .wts .flex-control-nav {
         width: 27% !important;
         position: absolute;
@@ -344,7 +397,7 @@
 
     .cartadd {
         width: 100%;
-        top: 319px;
+        top: 264px;
     }
 
     .scrollmudiv {
@@ -923,8 +976,16 @@
     }
 
     .event-name2 .eventh2 {
-        font-size: 21px;
+        font-size: 18px;
         margin-bottom: 2px;
+    }
+
+    .shadow-down2 {
+        height: 44%;
+    }
+
+    .wid100 {
+        width: 100%;
     }
 
     .pattform .form-control {
@@ -965,6 +1026,7 @@
 
     .pattayah1 {
         font-size: 28px;
+            line-height:auto;
     }
 
     .links2 .loadh1 {
@@ -1110,6 +1172,8 @@
     .hbc .tp {
         padding-left: 0 !important;
     }
+    .youtubeclass{
+    height: 200px !important}
 }
 @media (max-width: 320px) {
     .links2 {

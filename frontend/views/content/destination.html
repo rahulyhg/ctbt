@@ -1,5 +1,5 @@
 <!-- START DESTINATION -->
-<div class="container text-center">
+<div class="container text-center margres">
     <h1 class="theboldfont yellow_color fsiz">DESTINATIONS</h1>
 </div>
 <!-- START BANNER -->
@@ -34,15 +34,15 @@
                                 <li>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6 col-xs-12 padd15px" ng-repeat="data2 in data">
-                                            <div class="firstimg">
-                                                <div class="front">
-                                                    <a ui-sref="pattaya({id:data2._id})"><img ng-src="{{data2.image | serverimage}}" alt=""></a>
-                                                    <div class="shadow-downdes"></div>
-                                                    <div class="event-name">
-                                                        <span>{{data2.name}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                          <figure>
+                                              <div class="front">
+                                                  <a ui-sref="pattaya({id:data._id})"><img ng-src="{{data2.image | serverimage}}" alt=""></a>
+                                                  <div class="shadow-down"></div>
+                                                  <div class="event-name">
+                                                      <span>{{data2.name}}</span>
+                                                  </div>
+                                              </div>
+                                          </figure>
                                         </div>
                                     </div>
                                 </li>

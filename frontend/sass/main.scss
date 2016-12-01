@@ -813,12 +813,13 @@ option[value=""][disabled] {
     margin: 4% 0;
 
     .loadh1 {
-        line-height: 47px;
+        line-height: 69px;
     }
 
     .pattp1 {
+          margin-left: 23%;
         letter-spacing: -1px;
-        text-align: right;
+        text-align: center;
         font-size: 25px;
         font-weight: bolder;
     }
@@ -841,10 +842,10 @@ option[value=""][disabled] {
         }
     }
 }
-
-.pattayaimg {
-    margin: 0 30%;
-}
+//
+// .pattayaimg {
+//     margin: 0 30%;
+// }
 
 .fingurback {
     background: linear-gradient(rgba(255, 255, 255, 0) 58%, rgb(62, 62, 60));
@@ -1527,9 +1528,6 @@ figure .links {
     width: 100% !important;
 }
 
-.pdt15 {
-    padding-bottom: 30px;
-}
 
 .fsiz {
     font-size: 80px;
@@ -1680,7 +1678,7 @@ figure .links {
 .marg4 {
     margin: 0 4%;
     background: #fdd116 !important;
-    padding: 2% 5%;
+    padding: 9% 5%;
 }
 
 .pdt10 {
@@ -1829,12 +1827,14 @@ figure .links {
     background-image: url("./../img/arrow_02.png") !important;
     content: '\f000';
     width: 50px;
+      background-repeat: no-repeat;
 }
 
 .homeslidr .flex-nav-next a::before {
     background-image: url("./../img/arrow_01.png") !important;
     content: '\f000';
     width: 50px;
+      background-repeat: no-repeat;
 }
 
 .homeslidr .flex-control-nav {
@@ -2582,10 +2582,6 @@ figure .links {
     }
 }
 
-figure {
-    cursor: pointer;
-}
-
 .flipDiv {
     position: relative;
     width: 100%;
@@ -2743,10 +2739,10 @@ input[type="time"].form-control {
     height: 11px !important;
 }
 
-.flexslider .slides img {
-    max-width: auto !important;
-    height: 100% !important;
-}
+// .flexslider .slides img {
+//     max-width: auto !important;
+//     height: 100% !important;
+// }
 
 .firstimg .front {
     height: 405px !important;
@@ -2814,6 +2810,20 @@ input[type="time"].form-control {
     height: 160px;
 }
 
+::-webkit-scrollbar-track {
+    background-color: rgba(245, 245, 245, 0);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: rgba(245, 245, 245, 0);
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)));}
+
+//cart scroll
 .scrollmudiv::-webkit-scrollbar-track {
     background-color: rgba(245, 245, 245, 0);
 }
@@ -2825,8 +2835,7 @@ input[type="time"].form-control {
 }
 
 .scrollmudiv::-webkit-scrollbar-thumb {
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(0, 36, 109, 0.4)), color-stop(0.72, rgba(0, 36, 109, 0.4)), color-stop(0.86, rgba(0, 36, 109, 0.4)));
-}
+background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)));}
 
 .cartadd {
     position: fixed;
@@ -2849,7 +2858,7 @@ input[type="time"].form-control {
         }
     }
 }
-
+.packw{    width: 65%;}
 .cominsize {
     background: url("../../frontend/img/Bachelorite.jpg");
     background-size: cover;
@@ -2862,7 +2871,7 @@ input[type="time"].form-control {
 }
 
 .mycart2 {
-    box-shadow: #002b7f 0 -1px 1px 0;
+    box-shadow: #002b7f 0 -1px 1px -1px;
     -webkit-transform: rotate(-90deg);
     position: absolute;
     left: -89px;
@@ -2888,7 +2897,7 @@ input[type="time"].form-control {
 }
 
 .slidershow .flex-direction-nav .flex-prev {
-    left: -53px !important;
+    left: -61px !important;
 }
 
 .pad10 {
@@ -2964,6 +2973,7 @@ input[type="time"].form-control {
     .linheight {
         line-height: 12px;
     }
+    .linheight2{line-height: 17px;}
 }
 
 .personinfo {
@@ -3110,7 +3120,8 @@ input[type="time"].form-control {
 .dislaynonp {
     display: none !important;
 }
-
+.youtubeclass{width: 100% !important;
+height: 350px !important}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
