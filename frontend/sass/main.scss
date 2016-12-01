@@ -817,7 +817,7 @@ option[value=""][disabled] {
     }
 
     .pattp1 {
-          margin-left: 23%;
+        margin-left: 23%;
         letter-spacing: -1px;
         text-align: center;
         font-size: 25px;
@@ -1528,7 +1528,6 @@ figure .links {
     width: 100% !important;
 }
 
-
 .fsiz {
     font-size: 80px;
 }
@@ -1650,10 +1649,11 @@ figure .links {
 
 .custom-select option {
     color: #fdd116;
-    font-size: 17px;
+    font-size: 18px;
     background-color: #002b7f;
     font-weight: bolder;
     font-family: 'Robotor';
+    padding-bottom: 15px;
 }
 
 .loadimag {
@@ -1827,14 +1827,14 @@ figure .links {
     background-image: url("./../img/arrow_02.png") !important;
     content: '\f000';
     width: 50px;
-      background-repeat: no-repeat;
+    background-repeat: no-repeat;
 }
 
 .homeslidr .flex-nav-next a::before {
     background-image: url("./../img/arrow_01.png") !important;
     content: '\f000';
     width: 50px;
-      background-repeat: no-repeat;
+    background-repeat: no-repeat;
 }
 
 .homeslidr .flex-control-nav {
@@ -2600,14 +2600,14 @@ figure .links {
 .flipDiv figure .front {
     display: block;
     position: relative;
-    z-index: 10;
+    z-index:1;
 }
 
 .flipDiv figure figcaption {
     background: black;
     display: block;
     position: absolute;
-    z-index: 5;
+    z-index: 999;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -2738,7 +2738,6 @@ input[type="time"].form-control {
     width: 11px !important;
     height: 11px !important;
 }
-
 // .flexslider .slides img {
 //     max-width: auto !important;
 //     height: 100% !important;
@@ -2801,7 +2800,7 @@ input[type="time"].form-control {
 }
 
 .padboth15 {
-    padding: 0 0 22px;
+    padding-bottom:22px;
 }
 
 .scrollmudiv {
@@ -2809,20 +2808,20 @@ input[type="time"].form-control {
     white-space: nowrap;
     height: 160px;
 }
-
+::-webkit-scrollbar-button {display: none !important;}
 ::-webkit-scrollbar-track {
-    background-color: rgba(245, 245, 245, 0);
+    background-color: rgba(245, 245, 245, 0)!important;
 }
 
 ::-webkit-scrollbar {
     width: 5px;
-    background-color: rgba(245, 245, 245, 0);
+    background-color: rgba(245, 245, 245, 0) !important;
     height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)));}
-
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)))!important;
+}
 //cart scroll
 .scrollmudiv::-webkit-scrollbar-track {
     background-color: rgba(245, 245, 245, 0);
@@ -2835,12 +2834,13 @@ background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.4
 }
 
 .scrollmudiv::-webkit-scrollbar-thumb {
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)));}
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)));
+}
 
 .cartadd {
     position: fixed;
     right: 1px;
-    z-index: 99;
+    z-index: 9999;
     top: 383px;
     box-shadow: #002b7f 0 0 1px 0;
 
@@ -2858,7 +2858,15 @@ background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.4
         }
     }
 }
-.packw{    width: 65%;}
+
+.pdt15 {
+    padding-bottom: 30px;
+}
+
+.packw {
+    width: 65%;
+}
+
 .cominsize {
     background: url("../../frontend/img/Bachelorite.jpg");
     background-size: cover;
@@ -2973,7 +2981,10 @@ background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.4
     .linheight {
         line-height: 12px;
     }
-    .linheight2{line-height: 17px;}
+
+    .linheight2 {
+        line-height: 17px;
+    }
 }
 
 .personinfo {
@@ -3120,8 +3131,17 @@ background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.4
 .dislaynonp {
     display: none !important;
 }
-.youtubeclass{width: 100% !important;
-height: 350px !important}
+
+.youtubeclass {
+    width: 100% !important;
+    height: 350px !important;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button  {
+  -webkit-appearance: none;
+
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
