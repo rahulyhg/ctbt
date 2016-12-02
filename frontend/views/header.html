@@ -1,4 +1,4 @@
-<header>
+<header ng-controller="headerctrl">
     <nav class="navbar navbar-default navbar-fixed-top hbc headbox">
         <div class="container">
             <div class="navbar-header hbc">
@@ -17,17 +17,17 @@
                 <ul class="nav navbar-nav tp">
                     <li class="dropdown headera">
                         <a class="colchange" ui-sref="destination">DESTINATIONS</a>
-                        <div class="dropdown-content">
-                          <div class="des">
-                            <a href="#">destination</a>
-                            <a href="#">destination</a>
-                            <a href="#">destination</a>
+                        <div class="dropdown-content" ng-repeat="data in onlyDest">
+                          <div class="des" ng-repeat="n in data">
+                            <a ui-sref="pattaya({id:n._id})">{{n.name}}</a>
+                            <!-- <a href="#">destination</a>
+                            <a href="#">destination</a> -->
                           </div>
-                          <div class="des">
+                          <!-- <div class="des">
                             <a href="#">destination</a>
                             <a href="#">destination</a>
                             <a href="#">destination</a>
-                          </div>
+                          </div> -->
                         </div>
                     </li>
                     <li class="headera"><a class="bluecol" ui-sref="activity">ACTIVITIES</a></li>

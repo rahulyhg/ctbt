@@ -3,8 +3,23 @@ var globalfunction = {};
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
-        //Used to name the .html file
 
+        $scope.subscribeData = {};
+        $scope.subscribeComplete = false;
+        $scope.subscribeSubmit = function(subscribeData) {
+            console.log("subscribeData", subscribeData);
+            NavigationService.subscribe(subscribeData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    $scope.subscribeComplete = true;
+                }
+                $timeout(function() {
+                    $scope.subscribeComplete = false;
+                    $scope.subscribeData = {};
+                }, 2000);
+
+            })
+        }
         console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("home");
@@ -143,7 +158,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 
         $scope.template = TemplateService.changecontent("mediacorner");
@@ -171,7 +186,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
     .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-
+        globalfunction.subscribeFun = function() {
+            $scope.subscribeData = {};
+            $scope.subscribeComplete = false;
+            $scope.subscribeSubmit = function(subscribeData) {}
+        }
         $scope.template = TemplateService.changecontent("activity");
         $scope.menutitle = NavigationService.makeactive("Activity");
         TemplateService.title = $scope.menutitle;
@@ -311,7 +330,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (images.smallImage) {
                     console.log(images.smallImage.length);
                     if (images.smallImage.length > 6) {
-                        console.log('hbnjbbbbbbbbbbbbbbbbbbbbbbbbbb');
                         $scope.viewMore = true;
                     }
                     images.smallImage = _.chunk(images.smallImage, 3);
@@ -476,7 +494,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ========= End Cart =============
     })
     .controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-
+      globalfunction.subscribeFun = function() {
+          $scope.subscribeData = {};
+          $scope.subscribeComplete = false;
+          $scope.subscribeSubmit = function(subscribeData) {}
+      }
         $scope.template = TemplateService.changecontent("tbtstatic");
         $scope.menutitle = NavigationService.makeactive("The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
@@ -513,7 +535,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 .controller('DestinationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-
+  globalfunction.subscribeFun = function() {
+      $scope.subscribeData = {};
+      $scope.subscribeComplete = false;
+      $scope.subscribeSubmit = function(subscribeData) {}
+  }
         $scope.template = TemplateService.changecontent("destination");
         $scope.menutitle = NavigationService.makeactive("Destination");
         TemplateService.title = $scope.menutitle;
@@ -590,7 +616,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ======== End Cart =========
     })
     .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
-
+      globalfunction.subscribeFun = function() {
+          $scope.subscribeData = {};
+          $scope.subscribeComplete = false;
+          $scope.subscribeSubmit = function(subscribeData) {}
+      }
         $scope.template = TemplateService.changecontent("pattaya");
         $scope.menutitle = NavigationService.makeactive("Pattaya");
         TemplateService.title = $scope.menutitle;
@@ -609,87 +639,87 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstDisabled: false
         });
         $scope.headerCartOpen = function() {
-          console.log('ddddddddddddddd');
+            console.log('ddddddddddddddd');
             $scope.mycart10 = false;
             $scope.enquirybtn10 = true;
         }
         globalfunction.headerCartOpen = function() {
 
-                $scope.headerCartOpen();
-            }
+            $scope.headerCartOpen();
+        }
         $scope.headerCartOpenUp = function() {
             $scope.mycart10 = false;
             $scope.enquirybtn10 = false;
         }
         globalfunction.headerCartOpenUp = function() {
 
-                $scope.headerCartOpenUp();
-            }
-            $scope.headerCartOpenCtrl = function() {
-              console.log('yes hereeeeee');
-              $scope.mycart10 = true;
-              $scope.enquirybtn10 = false;
-            }
-            globalfunction.headerCartOpenCtrl = function() {
+            $scope.headerCartOpenUp();
+        }
+        $scope.headerCartOpenCtrl = function() {
+            console.log('yes hereeeeee');
+            $scope.mycart10 = true;
+            $scope.enquirybtn10 = false;
+        }
+        globalfunction.headerCartOpenCtrl = function() {
 
-                    $scope.headerCartOpenCtrl();
-                }
+            $scope.headerCartOpenCtrl();
+        }
 
-            // $scope.accordian.push({
-            //     isFirstOpen: true,
-            //     isFirstDisabled: false
-            // });
-            // $scope.accordian.push({
-            //     isFirstOpen: true,
-            //     isFirstDisabled: false
-            // });
-            // $scope.accordian.push({
-            //     isFirstOpen: true,
-            //     isFirstDisabled: false
-            // });
-            // $scope.accordian.push({
-            //     isFirstOpen: true,
-            //     isFirstDisabled: false
-            // });
-            // $scope.options = [{
-            //     value: 'day',
-            //     selected: true
-            // }, {
-            //     value: 'night',
-            //     selected: true
-            // }];
-            // $scope.isAllSelected = true;
-            // $scope.toggleAll = function() {
-            //     var toggleStatus = !$scope.isAllSelected;
-            //     angular.forEach($scope.options, function(itm) {
-            //         itm.selected = toggleStatus;
-            //     });
-            // }
-            // $scope.typeArr = [];
-            // var dataToSend = {
-            //     destination: $stateParams.id,
-            //     type: [],
-            // };
-            //
-            // $scope.searchChange = function(val) {
-            //     console.log(val);
-            //     $scope.isAllSelected = $scope.options.every(function(itm) {
-            //         return itm.selected;
-            //     })
-            //     var foundIndex = dataToSend.type.indexOf(val);
-            //     if (foundIndex == -1) {
-            //         dataToSend.type.push(val);
-            //         console.log('if  dataToSend.type', dataToSend.type);
-            //     } else {
-            //         dataToSend.type.splice(foundIndex, 1);
-            //         console.log('else  dataToSend.type', dataToSend.type);
-            //     }
-            //
-            //     NavigationService.getSearch(dataToSend, function(data) {
-            //         $scope.getActivity = data.data.Category;
-            //     });
-            //
-            // };
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
+        // $scope.accordian.push({
+        //     isFirstOpen: true,
+        //     isFirstDisabled: false
+        // });
+        // $scope.options = [{
+        //     value: 'day',
+        //     selected: true
+        // }, {
+        //     value: 'night',
+        //     selected: true
+        // }];
+        // $scope.isAllSelected = true;
+        // $scope.toggleAll = function() {
+        //     var toggleStatus = !$scope.isAllSelected;
+        //     angular.forEach($scope.options, function(itm) {
+        //         itm.selected = toggleStatus;
+        //     });
+        // }
+        // $scope.typeArr = [];
+        // var dataToSend = {
+        //     destination: $stateParams.id,
+        //     type: [],
+        // };
+        //
+        // $scope.searchChange = function(val) {
+        //     console.log(val);
+        //     $scope.isAllSelected = $scope.options.every(function(itm) {
+        //         return itm.selected;
+        //     })
+        //     var foundIndex = dataToSend.type.indexOf(val);
+        //     if (foundIndex == -1) {
+        //         dataToSend.type.push(val);
+        //         console.log('if  dataToSend.type', dataToSend.type);
+        //     } else {
+        //         dataToSend.type.splice(foundIndex, 1);
+        //         console.log('else  dataToSend.type', dataToSend.type);
+        //     }
+        //
+        //     NavigationService.getSearch(dataToSend, function(data) {
+        //         $scope.getActivity = data.data.Category;
+        //     });
+        //
+        // };
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
                 $scope.getCartDataActivityPattayaPage = data.data.activities;
@@ -1061,37 +1091,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
     .controller('Pattaya2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
-
+      globalfunction.subscribeFun = function() {
+          $scope.subscribeData = {};
+          $scope.subscribeComplete = false;
+          $scope.subscribeSubmit = function(subscribeData) {}
+      }
         $scope.template = TemplateService.changecontent("pattaya2");
         $scope.menutitle = NavigationService.makeactive("Pattaya2");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.headerCartOpen = function() {
-          console.log('ddddddddddddddd');
+            console.log('ddddddddddddddd');
             $scope.mycart10 = false;
             $scope.enquirybtn10 = true;
         }
         globalfunction.headerCartOpen = function() {
 
-                $scope.headerCartOpen();
-            }
+            $scope.headerCartOpen();
+        }
         $scope.headerCartOpenUp = function() {
             $scope.mycart10 = false;
             $scope.enquirybtn10 = false;
         }
         globalfunction.headerCartOpenUp = function() {
 
-                $scope.headerCartOpenUp();
-            }
-            $scope.headerCartOpenCtrl = function() {
-              console.log('yes hereeeeee');
-              $scope.mycart10 = true;
-              $scope.enquirybtn10 = false;
-            }
-            globalfunction.headerCartOpenCtrl = function() {
+            $scope.headerCartOpenUp();
+        }
+        $scope.headerCartOpenCtrl = function() {
+            console.log('yes hereeeeee');
+            $scope.mycart10 = true;
+            $scope.enquirybtn10 = false;
+        }
+        globalfunction.headerCartOpenCtrl = function() {
 
-                    $scope.headerCartOpenCtrl();
-                }
+            $scope.headerCartOpenCtrl();
+        }
 
         $scope.data = [{
             img: "img/p1.jpg",
@@ -1765,6 +1799,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
+
     });
     // $scope.headerCartOpen10 = function() {
     //     console.log('cccccccccccccct');
@@ -1800,6 +1835,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.allEventsMore = false;
     $.fancybox.close(true);
     NavigationService.getAllDest(function(data) {
+      $scope.onlyDest = _.take(data.data.allDestination,24);
+      $scope.onlyDest = _.chunk($scope.onlyDest,6);
+      console.log('data.data.allDestination',$scope.onlyDest);
         $scope.allDest = data.data.popularDestination;
         if (data.data.popularDestination.length > 5) {
             $scope.allDestMore = true;
