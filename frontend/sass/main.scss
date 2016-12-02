@@ -2640,9 +2640,10 @@ figure .links {
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+      @include transition(all 0.5s);
+    // -webkit-transition: all 0.5s;
+    // -moz-transition: all 0.5s;
+    // transition: all 0.5s;
 }
 
 .flipDiv .descrip {
@@ -2661,36 +2662,31 @@ figure .links {
 
 .flipDiv figure .front {
     backface-visibility: hidden;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-    //  @include transition(all 0.5s);
-    //
-    //   backface-visibility: hidden;
+      @include transition(all 0.5s);
+    // -webkit-transition: all 0.5s;
+    // -moz-transition: all 0.5s;
+    // transition: all 0.5s;
 }
-// @mixin rotateY($degree: 180deg)
-// {
-//   -moz-transform:rotateY($degree)
-//   -webkit-transform:rotateY($degree)
-//   transform:rotateY($degree)
-// }
+
 
 .flipDiv figure:hover .front,
 figure.hover .front {
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-    // @mixin rotateY($degree: 180deg)
+  @include transition(all 0.5s);
+    // -webkit-transition: all 0.5s;
+    // -moz-transition: all 0.5s;
+    // transition: all 0.5s;
+     @include transform(rotateY(180deg));
+    // -webkit-transform: rotateY(180deg);
+    // -moz-transform: rotateY(180deg);
+    // transform: rotateY(180deg);
 }
 
 .flipDiv figure:hover figcaption,
 figure.hover figcaption {
-    -webkit-transform: rotateY(0);
-    -moz-transform: rotateY(0);
-    transform: rotateY(0);
+   @include transform(rotateY(0));
+    // -webkit-transform: rotateY(0);
+    // -moz-transform: rotateY(0);
+    // transform: rotateY(0);
 }
 
 input[type="date"].form-control,
