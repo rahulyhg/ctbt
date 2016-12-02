@@ -250,10 +250,6 @@ a {
     line-height: 10px !important;
     color: #012B7F;
 }
-
-.navbar-default .navbar-nav > li > a:hover {
-    color: #fff;
-}
 //STATIC CSS START
 
 .act-banner {
@@ -300,7 +296,21 @@ a {
 
 .dropdown-menu {
     border-radius: 0 !important;
-    width: 100% !important;
+    background-color: #f9f9f9;
+}
+
+.widht {
+    width: 703px !important;
+}
+
+.destin {
+    width: 153px;
+    float: right;
+    margin: 0 11px;
+
+    a {
+        margin: 0 !important;
+    }
 }
 
 .category {
@@ -325,6 +335,10 @@ a {
         border-bottom: 2px solid #002b7f;
         padding: 5px;
     }
+}
+
+.dropdown-menu {
+    border: 1px solid rgb(0, 43, 127);
 }
 
 .big-sec {
@@ -398,7 +412,6 @@ a {
 .firstimg .front .event-name {
     bottom: 47px !important;
 }
-
 
 .events,
 .eventshome {
@@ -2584,7 +2597,7 @@ figure .links {
 .flipDiv figure .front {
     display: block;
     position: relative;
-    z-index:1;
+    z-index: 1;
 }
 
 .flipDiv figure figcaption {
@@ -2624,7 +2637,7 @@ figure .links {
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
-      @include transition(all 0.5s);
+    @include transition(all 0.5s);
     // -webkit-transition: all 0.5s;
     // -moz-transition: all 0.5s;
     // transition: all 0.5s;
@@ -2646,20 +2659,19 @@ figure .links {
 
 .flipDiv figure .front {
     backface-visibility: hidden;
-      @include transition(all 0.5s);
+    @include transition(all 0.5s);
     // -webkit-transition: all 0.5s;
     // -moz-transition: all 0.5s;
     // transition: all 0.5s;
 }
 
-
 .flipDiv figure:hover .front,
 figure.hover .front {
-  @include transition(all 0.5s);
+    @include transition(all 0.5s);
     // -webkit-transition: all 0.5s;
     // -moz-transition: all 0.5s;
     // transition: all 0.5s;
-     @include transform(rotateY(180deg));
+    @include transform(rotateY(180deg));
     // -webkit-transform: rotateY(180deg);
     // -moz-transform: rotateY(180deg);
     // transform: rotateY(180deg);
@@ -2667,7 +2679,7 @@ figure.hover .front {
 
 .flipDiv figure:hover figcaption,
 figure.hover figcaption {
-   @include transform(rotateY(0));
+    @include transform(rotateY(0));
     // -webkit-transform: rotateY(0);
     // -moz-transform: rotateY(0);
     // transform: rotateY(0);
@@ -2780,7 +2792,7 @@ input[type="time"].form-control {
 }
 
 .padboth15 {
-    padding-bottom:22px;
+    padding-bottom: 22px;
 }
 
 .scrollmudiv {
@@ -2788,7 +2800,11 @@ input[type="time"].form-control {
     white-space: nowrap;
     height: 160px;
 }
-::-webkit-scrollbar-button {display: none !important;}
+
+::-webkit-scrollbar-button {
+    display: none !important;
+}
+
 ::-webkit-scrollbar-track {
     background-color: rgba(245, 245, 245, 0)!important;
 }
@@ -2803,6 +2819,7 @@ input[type="time"].form-control {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)))!important;
 }
 //cart scroll
+
 .scrollmudiv::-webkit-scrollbar-track {
     background-color: rgba(245, 245, 245, 0);
 }
@@ -3003,19 +3020,18 @@ input[type="time"].form-control {
 .borderbot {
     border-bottom: 1px solid black;
 }
+// .dropdown-content {
+//     margin-top: 25px;
+//     display: none;
+//     position: absolute;
+//     background-color: #f9f9f9;
+//     min-width: 160px;
+//     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+// }
 
-.dropdown-content {
-    margin-top: 25px;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
+.dropdown-menu a {
     color: #fdd116;
-    padding: 0 16px;
+    padding: 0 7px;
     text-decoration: none;
     display: block;
     border-bottom: 1px solid gray;
@@ -3024,7 +3040,7 @@ input[type="time"].form-control {
     text-transform: capitalize;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-menu {
     display: block;
     background-color: #002b7f !important;
 }
@@ -3116,11 +3132,18 @@ input[type="time"].form-control {
     width: 100% !important;
     height: 350px !important;
 }
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button,input[type=date]::-webkit-inner-spin-button,
-input[type=date]::-webkit-outer-spin-button  {
-  -webkit-appearance: none;
 
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.cont {
+    display: inline-block;
+    float: left;
+    width: 175px;
 }
 /* Start writing sass here */
 @import "fancybox-override";
