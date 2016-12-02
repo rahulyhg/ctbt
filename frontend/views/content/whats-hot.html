@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12 padd15px" ng-repeat="data in myEvents">
                     <div class="events">
-                        <img src="{{data.image| serverimage}}" alt="" class="wid100 img-responsive ">
+                        <img src="{{data.image |serverimage:544:545}}" alt="" class="img-responsive ">
                         <div class="cart-sec">
                           <button class="cart uppercase" ng-click="addTocartOnWhatsHot10(data._id,data.typeCart);">
                             <i   ng-if="!isInWishlistWhatsHot(data._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>

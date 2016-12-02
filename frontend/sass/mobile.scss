@@ -47,6 +47,10 @@
         color: #0b358c;
         letter-spacing: 2px;
     }
+
+    .checkboxrow .checkbox {
+        padding: 0 5px !important;
+    }
 }
 @media (max-width: 1000px) {
     .margres {
@@ -60,12 +64,6 @@
 
     .flipDiv figure p {
         font-size: 12px;
-    }
-
-    .imgactive img {
-        height: 189px !important;
-        max-width: auto !important;
-        display: block;
     }
 
     .hbc .tp {
@@ -298,8 +296,6 @@
     }
 }
 @media (max-width: 767px) {
-
-
     .margbotom {
         margin-bottom: 0 !important;
         font-size: 16px;
@@ -378,11 +374,6 @@
 
     .corpad5 {
         margin-bottom: 5%;
-    }
-
-    .imgactive img {
-        height: inherit !important;
-        width: 100%;
     }
 
     body {
@@ -1024,7 +1015,7 @@
 
     .pattayah1 {
         font-size: 28px;
-            line-height:auto;
+        line-height: auto;
     }
 
     .links2 .loadh1 {
@@ -1170,8 +1161,10 @@
     .hbc .tp {
         padding-left: 0 !important;
     }
-    .youtubeclass{
-    height: 200px !important}
+
+    .youtubeclass {
+        height: 200px !important;
+    }
 }
 @media (max-width: 320px) {
     .links2 {
