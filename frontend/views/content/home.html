@@ -49,7 +49,7 @@
                 <div class="col-md-2 col-sm-2 col-xs-6  padng0" ng-repeat="x in popularDestination | limitTo : 4">
                     <div class="eventshome">
                         <a ui-sref="pattaya({id:x._id})">
-                            <img ng-src="{{x.image|serverimage}}" alt="">
+                            <img ng-src="{{x.image|serverimage:544:545}}" class="img-responsive"alt="">
                             <div class="shadow-down"></div>
                             <div class="event-name">
                                 <span>{{x.name}}</span>
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-md-2 col-sm-2 col-xs-6 padng0" ng-repeat="x in popularAttraction | limitTo : 4">
                     <div class="eventshome" ui-sref="pattaya({id:x.destination})">
-                        <img src="{{x.image1 | serverimage}}" alt="">
+                        <img src="{{x.image1 | serverimage:544:545}}" class="img-responsive" alt="">
                         <div class="shadow-down"></div>
                         <div class="event-name">
                             <span>{{x.name}}</span>
