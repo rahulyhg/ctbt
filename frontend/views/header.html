@@ -18,17 +18,15 @@
                 <ul class="nav navbar-nav tp">
                     <li class="dropdown headera">
                         <a class="colchange" ui-sref="destination">DESTINATIONS</a>
-                        <div class="dropdown-content" ng-repeat="data in onlyDest">
-                          <div class="des" ng-repeat="n in data">
-                            <a ui-sref="pattaya({id:n._id})">{{n.name}}</a>
-                            <!-- <a href="#">destination</a>
-                            <a href="#">destination</a> -->
-                          </div>
-                          <!-- <div class="des">
-                            <a href="#">destination</a>
-                            <a href="#">destination</a>
-                            <a href="#">destination</a>
-                          </div> -->
+                        <div class="dropdown-menu widht">
+                            <div class="cont" ng-repeat="data in onlyDest">
+                                <div class="des" ng-repeat="n in data">
+                                    <a ui-sref="pattaya({id:n._id})">{{n.name}}</a>
+                                </div>
+                            </div>
+                            <div class="destin">
+                                <a ui-sref="destination">More..</a>
+                            </div>
                         </div>
                     </li>
                     <li class="headera"><a class="bluecol" ui-sref="activity">ACTIVITIES</a></li>
