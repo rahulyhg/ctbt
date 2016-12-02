@@ -23,11 +23,13 @@
     <div class="container ">
         <div class="col-md-12 ">
             <!---PACKAGES START ---->
-            <div class="{{classp}} whatsmarg4 displaynonpata" ng-if="tabs=='az'">
-                <div class="row text-center pattmarg2">
-                    <span><a ng-click="tabchanges('az',1)" class=" patpack2 whit_color theboldfont ">PACKAGES</a></span>
-                    <span><a ng-click="tabchanges('bz',2)" class=" patpack theboldfont ">ACTIVITIES</a></span>
-                </div>
+            <div class="{{classv}} whatsmarg4 displaynonpata"  ng-if="tabs=='bz'" >
+              <div class="row text-center pattmarg2">
+                <span><a ng-click="tabchanges('az',1)" class="patpack theboldfont ">ACTIVITIES </a></span>
+
+                <span><a ng-click="tabchanges('bz',2)" class=" patpack2 whit_color theboldfont  ">PACKAGES</a></span>
+              </div>
+
                 <div class="whatsmain">
                     <div class="margincheck">
                         <div class="row checkboxrow Robotor bluecol yellow_back_color">
@@ -78,11 +80,12 @@
             <!---PACKAGES END ---->
 
             <!---ACTIVIES START---->
-            <div class="{{classv}} whatsmarg4 displaynonpata" ng-if="tabs=='bz'">
-                <div class="row text-center pattmarg2">
-                    <span><a ng-click="tabchanges('az',1)" class=" patpack theboldfont">PACKAGES</a></span>
-                    <span><a ng-click="tabchanges('bz',2)" class=" patpack2 whit_color theboldfont ">ACTIVITIES</a></span>
-                </div>
+            <div class="{{classp}} whatsmarg4 displaynonpata" ng-if="tabs=='az'">
+              <div class="row text-center pattmarg2">
+                  <span><a ng-click="tabchanges('az',1)" class=" patpack2 whit_color theboldfont ">ACTIVITIES</a></span>
+                  <span><a ng-click="tabchanges('bz',2)" class=" patpack theboldfont ">PACKAGES </a></span>
+              </div>
+
                 <div class="whatsmain">
                     <div class="margincheck">
                         <div class="row checkboxrow Robotor bluecol yellow_back_color">
