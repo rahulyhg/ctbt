@@ -455,7 +455,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.getCartFun();
                 });
             } else {
-              $scope.addedSuccess = true;
+              // $scope.addedSuccess = true;
                 NavigationService.addCartActivity(id, type, function(data) {
                   if(data.value == true){
                       $scope.addedSuccess = true;
@@ -809,7 +809,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return false;
             }
         }
-
+  $scope.addedSuccessPattaya = false;
         $scope.addTocartOnActivity = function(id, type) {
             console.log(id);
             var indexF = _.findIndex($scope.getCartDataActivityPattayaPage, function(key) {
@@ -822,6 +822,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             } else {
                 NavigationService.addCartActivity(id, type, function(data) {
+                  if(data.value == true){
+                      $scope.addedSuccessPattaya = true;
+                    $timeout(function () {
+                        $scope.addedSuccessPattaya = false;
+                    }, 1000);
+                  }
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFun();
