@@ -494,11 +494,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ========= End Cart =============
     })
     .controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-      globalfunction.subscribeFun = function() {
-          $scope.subscribeData = {};
-          $scope.subscribeComplete = false;
-          $scope.subscribeSubmit = function(subscribeData) {}
-      }
+        globalfunction.subscribeFun = function() {
+            $scope.subscribeData = {};
+            $scope.subscribeComplete = false;
+            $scope.subscribeSubmit = function(subscribeData) {}
+        }
         $scope.template = TemplateService.changecontent("tbtstatic");
         $scope.menutitle = NavigationService.makeactive("The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
@@ -535,11 +535,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 .controller('DestinationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  globalfunction.subscribeFun = function() {
-      $scope.subscribeData = {};
-      $scope.subscribeComplete = false;
-      $scope.subscribeSubmit = function(subscribeData) {}
-  }
+        globalfunction.subscribeFun = function() {
+            $scope.subscribeData = {};
+            $scope.subscribeComplete = false;
+            $scope.subscribeSubmit = function(subscribeData) {}
+        }
         $scope.template = TemplateService.changecontent("destination");
         $scope.menutitle = NavigationService.makeactive("Destination");
         TemplateService.title = $scope.menutitle;
@@ -616,11 +616,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ======== End Cart =========
     })
     .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
-      globalfunction.subscribeFun = function() {
-          $scope.subscribeData = {};
-          $scope.subscribeComplete = false;
-          $scope.subscribeSubmit = function(subscribeData) {}
-      }
+        globalfunction.subscribeFun = function() {
+            $scope.subscribeData = {};
+            $scope.subscribeComplete = false;
+            $scope.subscribeSubmit = function(subscribeData) {}
+        }
         $scope.template = TemplateService.changecontent("pattaya");
         $scope.menutitle = NavigationService.makeactive("Pattaya");
         TemplateService.title = $scope.menutitle;
@@ -726,7 +726,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage10 = data.data.package;
                 $scope.getCartDataWhatsHot = data.data.whatshot;
                 $scope.getAccomodation = data.data.accomodation;
-                console.log('accmoddddddddddd1000000000000000000', $scope.getAccomodation);
+                // console.log('accmoddddddddddd1000000000000000000', $scope.getAccomodation);
                 // $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
                 // $scope.getCartDataWhatsHot10 = _.chain(data.data.whatshot)
                 //         .groupBy("whatshot.name")
@@ -1091,11 +1091,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
     .controller('Pattaya2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
-      globalfunction.subscribeFun = function() {
-          $scope.subscribeData = {};
-          $scope.subscribeComplete = false;
-          $scope.subscribeSubmit = function(subscribeData) {}
-      }
+        globalfunction.subscribeFun = function() {
+            $scope.subscribeData = {};
+            $scope.subscribeComplete = false;
+            $scope.subscribeSubmit = function(subscribeData) {}
+        }
         $scope.template = TemplateService.changecontent("pattaya2");
         $scope.menutitle = NavigationService.makeactive("Pattaya2");
         TemplateService.title = $scope.menutitle;
@@ -1631,24 +1631,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.viewLess = true;
             $scope.getActivity = $scope.getActivityArr;
         };
+
+        //===before changed====
+        // $scope.custDetailComplete = false;
+        // $scope.custDetail = {};
+        // $scope.custDetailSubmit = function(input) {
+        //     console.log('input', input);
+        //     NavigationService.enquiryForm($scope.custDetail, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {
+        //             $scope.custDetailComplete = true;
+        //             // $scope.custDetail = {};
+        //             $timeout(function() {
+        //                 $scope.custDetailComplete = false;
+        //                 $scope.custDetail = {};
+        //
+        //             }, 2000);
+        //         }
+        //         // $state.reload();
+        //     });
+        // }
+        // ==========================
+        //==After changed=======
         $scope.custDetailComplete = false;
         $scope.custDetail = {};
         $scope.custDetailSubmit = function(input) {
-            console.log('input', input);
-            NavigationService.enquiryForm($scope.custDetail, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
-                    $scope.custDetailComplete = true;
-                    // $scope.custDetail = {};
-                    $timeout(function() {
-                        $scope.custDetailComplete = false;
-                        $scope.custDetail = {};
+                console.log('input', input);
+                NavigationService.cartCustomisationSubmit($scope.custDetail, function(data) {
+                    console.log("data", data.value);
+                    if (data.value === true) {
+                        $scope.custDetailComplete = true;
+                        // NavigationService.deleteAllCartCustomisation(function(data) {
+                        //     console.log(data);
+                        // })
+                        // $scope.custDetail = {};
+                        $timeout(function() {
+                            $scope.custDetailComplete = false;
+                            $scope.custDetail = {};
 
-                    }, 2000);
-                }
-                // $state.reload();
-            });
-        }
+                        }, 2000);
+                    }
+                    // $state.reload();
+                });
+            }
+            // =========================
 
         $scope.custEnqComplete = false;
         $scope.custEnq = {};
@@ -1671,127 +1697,164 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selected = $stateParams.id;
         console.log($scope.selected);
         $scope.dropDownClick = function(dataid) {
-            $state.go('customisation', {
-                id: dataid
+                $state.go('customisation', {
+                    id: dataid
+                });
+                console.log(dataid);
+                $stateParams.id = $scope.selected;
+
+                console.log($stateParams.id);
+            }
+
+            // ==========================cart integration Customization page After ===========
+        $scope.addTocartOnAccomodation = function(type, dest, name, image, id,checkboxModel1) {
+            console.log(type, dest, name, image, id,checkboxModel1);
+              if (checkboxModel1 == true) {
+            NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
+                $scope.getData = data;
+                console.log('$scope.getData', $scope.getData);
+                //  $scope.getCartFunCustomisation();
             });
-            console.log(dataid);
-            $stateParams.id = $scope.selected;
-
-            console.log($stateParams.id);
-        }
-
-        // ================cart integration Customization page=====================
-        $scope.isInWishlistCustPage = function(id) {
-            // console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivityCust, function(key) {
-                return key.activities._id == id;
-            })
-            if (indexF !== -1) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        $scope.isInWishlistAccomodation = function(accName) {
-            // console.log(id);
-            var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
-                return key.name == accName;
-            })
-            if (indexF !== -1) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        $scope.getCartFunCustomisation = function() {
-            NavigationService.getCart(function(data) {
-                $scope.getCartDataActivityCust = data.data.activities;
-                $scope.getCartDataAccomodation = data.data.accomodation;
-                console.log('$scope.getCartDataActivityCust', $scope.getCartDataActivityCust);
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
-                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
-            });
-        }
-        $scope.getCartFunCustomisation();
-        $scope.addTocartOnCustPage = function(id, type) {
-            console.log(id, type);
-            var indexF = _.findIndex($scope.getCartDataActivityCust, function(key) {
-                return key.activities._id == id;
-            })
-            if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function(data) {
-                    console.log('deleted', data);
-                    $scope.getCartFunCustomisation();
-                });
-            } else {
-                NavigationService.addCartActivity(id, type, function(data) {
-                    $scope.getData = data;
-                    console.log('$scope.getData', $scope.getData);
-                    $scope.getCartFunCustomisation();
-                });
-            }
-
-
-        }
-        $scope.addTocartOnAccomodation = function(type, dest, name, image, id) {
-            console.log(type, dest, name, image, id);
-            var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
-                return key.name == name;
-            })
-            if (indexF !== -1) {
-                NavigationService.deleteCartAccomodation(type, name, function(data) {
-                    console.log('deleted', data);
-                    $scope.getCartFunCustomisation();
-                });
-            } else {
-                NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
-                    $scope.getData = data;
-                    console.log('$scope.getData', $scope.getData);
-                    $scope.getCartFunCustomisation();
-                });
-            }
-
-
-        }
-
-        $scope.deleteCart = function(type, id) {
-            console.log(type, id);
-            NavigationService.deleteCart(type, id, function(data) {
-                console.log('deleted', data);
-                $scope.getCartFunCustomisation();
-            });
-        }
-        $scope.deleteCartAcco = function(type, name) {
-            console.log(type, name);
+          }else{
             NavigationService.deleteCartAccomodation(type, name, function(data) {
-                console.log('deleted', data);
-                $scope.getCartFunCustomisation();
-            });
+                      console.log('deleted', data);
+                      // $scope.getCartFunCustomisation();
+                  });
+          }
         }
 
-        $scope.submitCart = false;
-        $scope.cartData = {};
-        $scope.cartSubmit = function(input) {
-                console.log('input', input);
-                NavigationService.cart($scope.cartData, function(data) {
-                    console.log("data", data.value);
-                    if (data.value === true) {
-                        NavigationService.deleteAllCart(function(data) {
-                            console.log(data);
-                        })
-                        $scope.submitCart = true;
-                    }
-                });
+        $scope.addTocartOnCustPage = function(id, type, checkboxModel) {
+                console.log(id, type, checkboxModel);
+                if (checkboxModel == true) {
+                    NavigationService.addCartActivityCustomisation(id, type, function(data) {
+                        $scope.getData = data;
+                        console.log('$scope.getData', $scope.getData);
+                        // $scope.getCartFunCustomisation();
+                    });
+
+                } else {
+                    NavigationService.deleteCartCustomisation(type, id, function(data) {
+                        console.log('deleted', data);
+                        //  $scope.getCartFunCustomisation();
+                    });
+                }
             }
-            // ==================End of Cart=======================
+            // ==========================End Cart ===========================
+
+
+
+        // ================cart integration Customization page Before=====================
+        // $scope.isInWishlistCustPage = function(id) {
+        //     // console.log(id);
+        //     var indexF = _.findIndex($scope.getCartDataActivityCust, function(key) {
+        //         return key.activities._id == id;
+        //     })
+        //     if (indexF !== -1) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+        // $scope.isInWishlistAccomodation = function(accName) {
+        //     // console.log(id);
+        //     var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
+        //         return key.name == accName;
+        //     })
+        //     if (indexF !== -1) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+        // $scope.getCartFunCustomisation = function() {
+        //     NavigationService.getCart(function(data) {
+        //         $scope.getCartDataActivityCust = data.data.activities;
+        //         $scope.getCartDataAccomodation = data.data.accomodation;
+        //         console.log('$scope.getCartDataActivityCust', $scope.getCartDataActivityCust);
+        //         $scope.getCartDataActivity10 = data.data.activities;
+        //         $scope.getCartDataPackage10 = data.data.package;
+        //         $scope.getCartDataWhatsHot = data.data.whatshot;
+        //         $scope.getAccomodation = data.data.accomodation;
+        //         $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+        //         $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+        //         $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+        //         $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+        //         $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+        //         console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+        //     });
+        // }
+        // $scope.getCartFunCustomisation();
+        // $scope.addTocartOnCustPage = function(id, type) {
+        //     console.log(id, type);
+        //     var indexF = _.findIndex($scope.getCartDataActivityCust, function(key) {
+        //         return key.activities._id == id;
+        //     })
+        //     if (indexF !== -1) {
+        //         NavigationService.deleteCart(type, id, function(data) {
+        //             console.log('deleted', data);
+        //             $scope.getCartFunCustomisation();
+        //         });
+        //     } else {
+        //         NavigationService.addCartActivity(id, type, function(data) {
+        //             $scope.getData = data;
+        //             console.log('$scope.getData', $scope.getData);
+        //             $scope.getCartFunCustomisation();
+        //         });
+        //     }
+        //
+        //
+        // }
+        // $scope.addTocartOnAccomodation = function(type, dest, name, image, id) {
+        //     console.log(type, dest, name, image, id);
+        //     var indexF = _.findIndex($scope.getCartDataAccomodation, function(key) {
+        //         return key.name == name;
+        //     })
+        //     if (indexF !== -1) {
+        //         NavigationService.deleteCartAccomodation(type, name, function(data) {
+        //             console.log('deleted', data);
+        //             $scope.getCartFunCustomisation();
+        //         });
+        //     } else {
+        //         NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
+        //             $scope.getData = data;
+        //             console.log('$scope.getData', $scope.getData);
+        //             $scope.getCartFunCustomisation();
+        //         });
+        //     }
+        //
+        //
+        // }
+        //
+        // $scope.deleteCart = function(type, id) {
+        //     console.log(type, id);
+        //     NavigationService.deleteCart(type, id, function(data) {
+        //         console.log('deleted', data);
+        //         $scope.getCartFunCustomisation();
+        //     });
+        // }
+        // $scope.deleteCartAcco = function(type, name) {
+        //     console.log(type, name);
+        //     NavigationService.deleteCartAccomodation(type, name, function(data) {
+        //         console.log('deleted', data);
+        //         $scope.getCartFunCustomisation();
+        //     });
+        // }
+        //
+        // $scope.submitCart = false;
+        // $scope.cartData = {};
+        // $scope.cartSubmit = function(input) {
+        //         console.log('input', input);
+        //         NavigationService.cart($scope.cartData, function(data) {
+        //             console.log("data", data.value);
+        //             if (data.value === true) {
+        //                 NavigationService.deleteAllCart(function(data) {
+        //                     console.log(data);
+        //                 })
+        //                 $scope.submitCart = true;
+        //             }
+        //         });
+        //     }
+        // ==================End of Cart=======================
 
     })
 
@@ -1835,9 +1898,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.allEventsMore = false;
     $.fancybox.close(true);
     NavigationService.getAllDest(function(data) {
-      $scope.onlyDest = _.take(data.data.allDestination,20);
-      $scope.onlyDest = _.chunk($scope.onlyDest,6);
-      console.log('data.data.allDestination',$scope.onlyDest);
+        $scope.onlyDest = _.take(data.data.allDestination, 20);
+        $scope.onlyDest = _.chunk($scope.onlyDest, 6);
+        console.log('data.data.allDestination', $scope.onlyDest);
         $scope.allDest = data.data.popularDestination;
         if (data.data.popularDestination.length > 5) {
             $scope.allDestMore = true;

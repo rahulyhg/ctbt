@@ -57,13 +57,13 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        // deleteAllCart: function(callback) {
-        //     $http({
-        //         url: adminurl + 'cart/deleteAllCart',
-        //         method: 'POST',
-        //         withCredentials: true
-        //     }).success(callback);
-        // },
+        deleteAllCartCustomisation: function(callback) {
+            $http({
+                url: adminurl + 'customisation/deleteAllCart',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
         DestinationTitle: function(callback) {
             $http({
                 url: adminurl + 'RestApi/DestinationTitle',
@@ -72,6 +72,7 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getAllDest: function(callback) {
+          // console.log(callback);
             $http({
                 url: adminurl + 'RestApi/DestinationLand',
                 method: 'POST',
@@ -121,43 +122,55 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        deleteCart: function(type,id, callback) {
-          var data = {
-              type: type,
-              activities:id
-          };
-          var data1 = {
-              type: type,
-              package:id
-          };
-          var data2 = {
-              type: type,
-              whatshot:id
-          };
-          if(type == 'Activities'){
+        deleteCart: function(type, id, callback) {
+            var data = {
+                type: type,
+                activities: id
+            };
+            var data1 = {
+                type: type,
+                package: id
+            };
+            var data2 = {
+                type: type,
+                whatshot: id
+            };
+            if (type == 'Activities') {
+                $http({
+                    url: adminurl + 'cart/deleteCart',
+                    method: 'POST',
+                    withCredentials: true,
+                    data: data
+                }).success(callback);
+            } else if (type == 'Package') {
+                $http({
+                    url: adminurl + 'cart/deleteCart',
+                    method: 'POST',
+                    withCredentials: true,
+                    data: data1
+                }).success(callback);
+            } else {
+                $http({
+                    url: adminurl + 'cart/deleteCart',
+                    method: 'POST',
+                    withCredentials: true,
+                    data: data2
+                }).success(callback);
+            }
+
+
+        },
+        deleteCartCustomisation: function(type, id, callback) {
+            var data = {
+                type: type,
+                activities: id
+            };
             $http({
-                url: adminurl + 'cart/deleteCart',
+                url: adminurl + 'customisation/deleteCart',
                 method: 'POST',
                 withCredentials: true,
                 data: data
             }).success(callback);
-          }else if(type == 'Package'){
-            $http({
-                url: adminurl + 'cart/deleteCart',
-                method: 'POST',
-                withCredentials: true,
-                data: data1
-            }).success(callback);
-          }else{
-            $http({
-                url: adminurl + 'cart/deleteCart',
-                method: 'POST',
-                withCredentials: true,
-                data: data2
-            }).success(callback);
-          }
-
-
         },
         ActivitiesImages: function(id, callback) {
             var data = {
@@ -170,19 +183,31 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        deleteCartAccomodation: function(type,name, callback) {
+        deleteCartAccomodation: function(type, name, callback) {
             var data = {
                 type: type,
                 name: name
             };
             $http({
-                url: adminurl + 'cart/deleteCart',
+                url: adminurl + 'customisation/deleteCart',
                 method: 'POST',
                 withCredentials: true,
                 data: data
             }).success(callback);
         },
-        addCartPackage: function(id,type, callback) {
+        // deleteCartAccomodation: function(type,name, callback) {
+        //     var data = {
+        //         type: type,
+        //         name: name
+        //     };
+        //     $http({
+        //         url: adminurl + 'cart/deleteCart',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data: data
+        //     }).success(callback);
+        // },
+        addCartPackage: function(id, type, callback) {
             var data = {
                 package: id,
                 type: type
@@ -194,7 +219,7 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        addCartActivity: function(id,type, callback) {
+        addCartActivity: function(id, type, callback) {
             var data = {
                 activities: id,
                 type: type
@@ -206,7 +231,7 @@ var navigationservice = angular.module('navigationservice', [])
                 data: data
             }).success(callback);
         },
-        addCartAccomodation: function(type,dest,name,image, callback) {
+        addCartAccomodation: function(type, dest, name, image, callback) {
             var data = {
                 type: type,
                 destination: dest,
@@ -214,13 +239,39 @@ var navigationservice = angular.module('navigationservice', [])
                 image: image
             };
             $http({
-                url: adminurl + 'cart/addToCart',
+                url: adminurl + 'customisation/addToCart',
                 method: 'POST',
                 withCredentials: true,
                 data: data
             }).success(callback);
         },
-        addCartWhatsHot: function(id,type, callback) {
+        addCartActivityCustomisation: function(id, type, callback) {
+            var data = {
+                activities: id,
+                type: type
+            };
+            $http({
+                url: adminurl + 'customisation/addToCart',
+                method: 'POST',
+                withCredentials: true,
+                data: data
+            }).success(callback);
+        },
+        // addCartAccomodation: function(type,dest,name,image, callback) {
+        //     var data = {
+        //         type: type,
+        //         destination: dest,
+        //         name: name,
+        //         image: image
+        //     };
+        //     $http({
+        //         url: adminurl + 'cart/addToCart',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data: data
+        //     }).success(callback);
+        // },
+        addCartWhatsHot: function(id, type, callback) {
             var data = {
                 whatshot: id,
                 type: type
@@ -248,18 +299,26 @@ var navigationservice = angular.module('navigationservice', [])
             $http({
                 url: adminurl + 'enquire/save',
                 method: 'POST',
-                data:formData
+                data: formData
             }).success(callback);
         },
-         cart: function(cartData, callback) {
+        cart: function(cartData, callback) {
             //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'cart/saveCart',
                 method: 'POST',
-                data:cartData
+                data: cartData
             }).success(callback);
         },
-         getCart: function(callback) {
+        cartCustomisationSubmit: function(cartData, callback) {
+            //console.log('Navigation form data: ', formData);
+            $http({
+                url: adminurl + 'customisation/saveCart',
+                method: 'POST',
+                data: cartData
+            }).success(callback);
+        },
+        getCart: function(callback) {
             //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'cart/getCart',
@@ -277,7 +336,9 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'RestApi/Pattaya2',
                 method: 'POST',
                 withCredentials: true,
-                data: {id:id}
+                data: {
+                    id: id
+                }
             }).success(callback);
         },
         getChangeDestination: function(id, callback) {
@@ -285,7 +346,9 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'RestApi/ActivitiesImages',
                 method: 'POST',
                 withCredentials: true,
-                data: {destination:id}
+                data: {
+                    destination: id
+                }
             }).success(callback);
         },
         whatsHotMore: function(id, callback) {
@@ -293,7 +356,9 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'RestApi/WhatsHotDetails',
                 method: 'POST',
                 withCredentials: true,
-                data: {id:id}
+                data: {
+                    id: id
+                }
             }).success(callback);
         },
         getSearch: function(formData, callback) {
