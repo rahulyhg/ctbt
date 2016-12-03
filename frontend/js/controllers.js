@@ -442,6 +442,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
+        $scope.addedSuccess = false;
         $scope.getCartFun();
         $scope.addTocartOnActivityPage = function(id, type) {
             console.log(id);
@@ -454,7 +455,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.getCartFun();
                 });
             } else {
+              $scope.addedSuccess = true;
                 NavigationService.addCartActivity(id, type, function(data) {
+                  if(data.value == true){
+                      $scope.addedSuccess = true;
+                    $timeout(function () {
+                        $scope.addedSuccess = false;
+                    }, 1000);
+                  }
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFun();
@@ -844,6 +852,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.loadLessPackage = function() {
             var myarr = [];
             NavigationService.cityDetails($stateParams.id, function(data) {
+              console.log('data.data imppppppppppppppp',data.data);
                 $scope.getTitle = data.data.getTitle;
                 $scope.getDestination = data.data.getDestination;
                 console.log('$scope.myvideoUrl', data.data.getDestination.video);
@@ -1043,7 +1052,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.DestinationContent(id, function(data) {
                 $scope.DestinationTitle = data.data.getTitle;
                 $scope.openMe = true;
-                console.log("$scope.DestinationTitle", $scope.DestinationTitle);
+                console.log("$scope.DestinationTitle", $scope.DestinationTitle[0]);
             });
         };
         $scope.cart = false;

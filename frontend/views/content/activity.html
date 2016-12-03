@@ -49,7 +49,8 @@
                                                 <i  ng-if="isInWishlistActivityPage(smallImg._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                             </button>
                                         </div>
-                                        <div class="descrip" ng-bind-html="smallImg.description | shorten :150"></div>
+                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="smallImg.description | shorten :150"></div>
+                                        <div ng-if="addedSuccess" class="descrip">Added Successfully into Cart.</div>
                                     </figcaption>
                                 </figure>
                             </div>
@@ -79,7 +80,8 @@
                                               <i  ng-if="isInWishlistActivityPage(activityLand.bigImage[n]._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                           </button>
                                       </div>
-                                        <div class="descrip" ng-bind-html="activityLand.bigImage[n].description"></div>
+                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="activityLand.bigImage[n].description"></div>
+                                        <div ng-if="addedSuccess" class="descrip">Added Successfully into Cart.</div>
                                     </figcaption>
                                 </figure>
                             </div>
