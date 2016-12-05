@@ -461,7 +461,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                       $scope.addedSuccess = true;
                     $timeout(function () {
                         $scope.addedSuccess = false;
-                    }, 1000);
+                    }, 2000);
                   }
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
@@ -538,8 +538,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         };
+//
+//         alert("hiiii");
+// console.log("?innnnnnnnn");
+        $scope.subscribeData = {};
+        $scope.subscribeComplete = false;
+        $scope.subscribeSubmit = function(subscribeData) {
+            console.log("subscribeData", subscribeData);
+            NavigationService.subscribe(subscribeData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    $scope.subscribeComplete = true;
+                }
+                $timeout(function() {
+                    $scope.subscribeComplete = false;
+                    $scope.subscribeData = {};
+                }, 2000);
 
-
+            })
+        }
     })
 
 .controller('DestinationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -826,7 +843,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                       $scope.addedSuccessPattaya = true;
                     $timeout(function () {
                         $scope.addedSuccessPattaya = false;
-                    }, 1000);
+                    }, 2000);
                   }
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
@@ -1995,7 +2012,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     }
 })
+.controller('footerCtrl',function ($scope,TemplateService,NavigationService,$timeout) {
+  console.log("footerCtrl");
+  $scope.subscribeData = {};
+  $scope.subscribeComplete = false;
+  $scope.subscribeSubmit = function(subscribeData) {
+    console.log("sadsadasdsads");
+      console.log("subscribeData", subscribeData);
+      NavigationService.subscribe(subscribeData, function(data) {
+          console.log("data", data.value);
+          if (data.value === true) {
+              $scope.subscribeComplete = true;
+          }
+          $timeout(function() {
+              $scope.subscribeComplete = false;
+              $scope.subscribeData = {};
+          }, 2000);
 
+      })
+  }
+})
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
 
     $scope.changeLanguage = function() {
