@@ -158,6 +158,7 @@
     }
 }
 @media (max-width: 921px) {
+  .category{margin:0px;}
     .margleft {
         margin-left: 0;
     }
@@ -690,7 +691,7 @@
     }
 
     .hdp {
-        padding: 25px 0 0;
+        padding: 16px 0 0;
     }
 
     .email-form {
@@ -1100,9 +1101,10 @@
     font-size: 12px;
 }
 
-  .cartadd {
+.cartadd {
     width: 100%;
-    top: 150px;
+    top: inherit;
+    bottom: 0;
 }
   .mycart2 li{    font-size: 14px;}
   .fsiz {
@@ -1157,7 +1159,7 @@
     .category {
         background-color: #fdd116;
         padding: 20px;
-        margin: 0 6% !important;
+
     }
 
     .select-main {
@@ -1183,6 +1185,7 @@
     }
 }
 @media (max-width: 320px) {
+  .cart-sec{    right: 0px;}
     .links2 {
         margin: 1% 0;
     }

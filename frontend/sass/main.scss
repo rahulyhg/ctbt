@@ -2604,7 +2604,7 @@ figure .links {
     background: black;
     display: block;
     position: absolute;
-    z-index: 999;
+    // z-index: 999;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -2667,14 +2667,15 @@ figure .links {
 
 .flipDiv figure:hover .front,
 figure.hover .front {
-    @include transition(all 0.5s);
+    // @include transition(all 0.5s);
     // -webkit-transition: all 0.5s;
     // -moz-transition: all 0.5s;
     // transition: all 0.5s;
-    @include transform(rotateY(180deg));
-    // -webkit-transform: rotateY(180deg);
-    // -moz-transform: rotateY(180deg);
-    // transform: rotateY(180deg);
+    // @include transform(rotateY(180deg));
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    z-index:0;
 }
 
 .flipDiv figure:hover figcaption,
@@ -3160,7 +3161,8 @@ input[type=number]::-webkit-outer-spin-button {
   text-indent: -100%;
   opacity: 1;
 }
-
+.toppad{text-align: center;
+padding-top: 20px;}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
