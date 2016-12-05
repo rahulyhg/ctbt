@@ -130,7 +130,9 @@
                                         <i  ng-if="isInWishlistActivity(data._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
                                   </div>
-                                    <div class="descrip" ng-bind-html="data.description"></div>
+                                    <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description"></div>
+                                    <div ng-if="addedSuccessPattaya" class="descrip">Added Successfully into Cart.</div>
+
                                 </figcaption>
                             </figure>
                         </div>
@@ -240,18 +242,19 @@
                     <uib-accordion close-others="true">
                         <div uib-accordion-group is-open="accordian[$index].isFirstOpen" class="panel-default panelacor" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}" ng-repeat="data in getTitle" ng-click="goToFunction(data._id)">
                             <uib-accordion-heading>
-                                <div class="fontpanel Pregular bluecol">
+                                <div class="fontpanel Pregular bluecol" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
                                     <img ng-src="{{data.name | TbtIcon}}" class="image_title"> {{data.name}}
                                     <i class="pull-right fa " ng-class="{'fa fa-minus':  accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
                                 </div>
                             </uib-accordion-heading>
                             <!-- Please Remove the Below Comment -->
-                            <div class=" padding30" ng-repeat="x in DestinationTitle">
+                            <div class=" padding30">
+                            <!-- <div class=" padding30" ng-repeat="x in DestinationTitle"> -->
                                 <ul class="list-group socialpatt">
-                                    <li class="Robotor bluecol" ng-if="{{x.name}}">
-                                        <strong class="padding15">{{x.name}}</strong>
+                                    <li class="Robotor bluecol" ng-if="{{DestinationTitle[0].name}}">
+                                        <strong class="padding15">{{DestinationTitle[0].name}}</strong>
                                     </li>
-                                    <!-- <p class="Robotor" ng-bind-html="x.description"></p> -->
+                                    <p class="Robotor" ng-bind-html="DestinationTitle[0].description"></p>
                                 </ul>
                                 <!-- <div class="row padding30">
                                     <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
