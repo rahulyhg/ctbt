@@ -1101,9 +1101,10 @@
     font-size: 12px;
 }
 
-  .cartadd {
+.cartadd {
     width: 100%;
-    top: 150px;
+    top: inherit;
+    bottom: 0;
 }
   .mycart2 li{    font-size: 14px;}
   .fsiz {
@@ -1158,7 +1159,7 @@
     .category {
         background-color: #fdd116;
         padding: 20px;
-      
+
     }
 
     .select-main {
