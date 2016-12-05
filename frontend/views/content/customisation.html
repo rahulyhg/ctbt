@@ -95,41 +95,41 @@
                 <form name="myForm" ng-submit="custDetailSubmit(custDetail)" ng-if="!custDetailComplete">
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
-                            <input type="text" class="form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>
+                            <input type="text" class="hideinput form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>
                             <p class="error" ng-show="myForm.name.$invalid && myForm.name.$touched">Your name is required</p>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
-                            <input type="email" class="form-control Robotor" placeholder="Email" name="email" ng-model="custDetail.email" required>
+                            <input type="email" class="hideinput form-control Robotor" placeholder="Email" name="email" ng-model="custDetail.email" required>
                             <p class="error" ng-show="myForm.email.$invalid && myForm.email.$touched">Email is required</p>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
-                            <input type="number" class="form-control Robotor" placeholder="Phone" name="phone" ng-model="custDetail.phone" required>
+                            <input type="number" class="hideinput form-control Robotor" placeholder="Phone" name="phone" ng-model="custDetail.phone" required>
                             <p class="error" ng-show="myForm.phone.$invalid && myForm.phone.$touched">Phone is required</p>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
-                            <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.size" required>
+                            <input type="text pdt15" class="hideinput form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.size" required>
                             <p class="error" ng-show="myForm.size.$invalid && myForm.size.$touched">Group Size is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
-                            <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
+                            <input type="date" class="hideinput form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
                             <p class="error" ng-show="myForm.from.$invalid && myForm.from.$touched">From is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
-                            <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
+                            <input type="date" class="hideinput form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
                             <p class="error" ng-show="myForm.to.$invalid && myForm.to.$touched">To is required</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-l">
                         <div class="col-md-5 pdt10">
-                            <input type="text" class="form-control Robotor" placeholder="Budget(per person)" name="budget" ng-model="custDetail.budget" required>
+                            <input type="text" class="hideinput form-control Robotor" placeholder="Budget(per person)" name="budget" ng-model="custDetail.budget" required>
                             <p class="error" ng-show="myForm.budget.$invalid && myForm.budget.$touched">Budget is required</p>
                         </div>
                         <div class="col-md-7 pdt10">
-                            <input type="text pdt15" class="form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan" required>
+                            <input type="text pdt15" class="hideinput form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan" required>
                             <p class="error" ng-show="myForm.plan.$invalid && myForm.plan.$touched">Plan is required</p>
                         </div>
                         <div class="col-md-12 pdt10">
-                            <textarea class="form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment" required></textarea>
+                            <textarea class="hideinput form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment" required></textarea>
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 lodm text-center sub">

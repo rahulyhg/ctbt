@@ -25,11 +25,12 @@
                 <strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">SUBSCRIBE TO US</a></strong>
                 <div class="stp Robotor">
                     <form name="myFormFooter" ng-submit="subscribeSubmit(subscribeData)" ng-if="!subscribeComplete">
-                        <input type="email" placeholder="ENTER YOUR EMAIL ID" class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-email ng-touched" name="email" ng-model="subscribeData.email" required="" style="">
+                        <input type="email" placeholder="ENTER YOUR EMAIL ID" class="hideinput form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-email ng-touched" name="email" ng-model="subscribeData.email" required="" style="">
                         <button class="submitgo" type="submit" name="button">GO</button>
                     </form>
                 </div>
-                <div ng-if="subscribeComplete" class="ge text-center">Thank You For Subscribing.</div>
+                <div class="text-center">
+                  <strong ng-if="subscribeComplete"  class="stp Robotor yellow_color">Thank You For Subscribing.</strong></div>
                 <div class="footermen">
                     <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
                     <a href="https://href.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>

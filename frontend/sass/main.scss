@@ -1698,7 +1698,7 @@ figure .links {
     }
 
     .form-control {
-        font-size: 15px;
+        font-size: 14px;
         height: 44px;
         border: none;
         border-radius: 0;
@@ -2624,7 +2624,7 @@ figure .links {
     margin: 0;
     color: #fdd116 !important;
     text-align: left;
-    padding: 42px 17px;
+    padding: 49px 17px 15px;
 }
 
 .flipDiv figure figcaption {
@@ -3150,6 +3150,17 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0 !important;
   margin: 10px 15px !important;
 }
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease;
+  opacity: 0;
+}
+
+.hideinput:focus::-webkit-input-placeholder {
+  transition: text-indent 0.5s 0.5s ease;
+  text-indent: -100%;
+  opacity: 1;
+}
+
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
