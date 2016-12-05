@@ -296,6 +296,12 @@
     }
 }
 @media (max-width: 767px) {
+  .flipDiv figure p {
+      font-size: 16px;
+  }
+  .pd50 {
+    padding: 0 27px;
+}
     .margbotom {
         margin-bottom: 0 !important;
         font-size: 16px;
@@ -342,7 +348,7 @@
         margin-bottom: 2%;
     }
 
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover .dropdown-menu {
         display: none;
         background-color: #fdd116 !important;
     }
@@ -383,12 +389,6 @@
     .cartadd .mycartme {
         top: 313px;
     }
-
-    .cartadd {
-        width: 100%;
-        top: 264px;
-    }
-
     .scrollmudiv {
         height: inherit;
     }
@@ -644,7 +644,7 @@
     }
 
     .fsiz {
-        font-size: 30px;
+        font-size: 64px;
     }
 
     .pdb30 {
@@ -1090,8 +1090,24 @@
     .boxsado {
         box-shadow: #002b7f 0 2px 1px -1px;
     }
+    .cartadd {
+    width: 100%;
+    top: 150px;
+}
 }
 @media (max-width: 480px) {
+  .flipDiv figure p {
+    font-size: 12px;
+}
+
+  .cartadd {
+    width: 100%;
+    top: 150px;
+}
+  .mycart2 li{    font-size: 14px;}
+  .fsiz {
+      font-size: 30px;
+  }
     .pattayah1 {
         font-size: 19px;
     }

@@ -402,9 +402,10 @@ DestinationLand: function (data, callback) {
 
       allDestination: function (callback) {
           Destination.find({
-              type:"None",
+            //   type:"None", All Destination
               status: "true"
-          }).sort({
+          }).sort({ 
+                    name:1,
                     order: 1
                 }).exec(function (err, found) {
               if (err) {
