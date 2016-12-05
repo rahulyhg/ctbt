@@ -2016,6 +2016,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   console.log("footerCtrl");
   $scope.subscribeData = {};
   $scope.subscribeComplete = false;
+  $scope.alreadySubscribed = false;
   $scope.subscribeSubmit = function(subscribeData) {
     console.log("sadsadasdsads");
       console.log("subscribeData", subscribeData);
@@ -2023,11 +2024,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log("data", data.value);
           if (data.value === true) {
               $scope.subscribeComplete = true;
+              $timeout(function() {
+                  $scope.subscribeComplete = false;
+                  $scope.subscribeData = {};
+              }, 2000);
+          }else{
+            $scope.alreadySubscribed = true;
+            $timeout(function() {
+              $scope.alreadySubscribed = false;
+                $scope.subscribeData = {};
+            }, 2000);
           }
-          $timeout(function() {
-              $scope.subscribeComplete = false;
-              $scope.subscribeData = {};
-          }, 2000);
+
 
       })
   }

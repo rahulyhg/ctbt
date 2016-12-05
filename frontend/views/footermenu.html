@@ -24,13 +24,13 @@
             <div class="margleft">
                 <strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">SUBSCRIBE TO US</a></strong>
                 <div class="stp Robotor">
-                    <form name="myFormFooter" ng-submit="subscribeSubmit(subscribeData)" ng-if="!subscribeComplete">
+                    <form name="myFormFooter" ng-submit="subscribeSubmit(subscribeData)" ng-if="!subscribeComplete && !alreadySubscribed">
                         <input type="email" placeholder="ENTER YOUR EMAIL ID" class="hideinput form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-email ng-touched" name="email" ng-model="subscribeData.email" required="" style="">
                         <button class="submitgo" type="submit" name="button">GO</button>
                     </form>
                 </div>
-                <div class="text-center">
-                  <strong ng-if="subscribeComplete"  class="stp Robotor yellow_color">Thank You For Subscribing.</strong></div>
+                  <strong ng-if="subscribeComplete"  class="stp Robotor yellow_color">Thank You For Subscribing.</strong>
+                  <strong ng-if="alreadySubscribed"  class="stp Robotor yellow_color">Sorry, You have already Subscribed.</strong>
                 <div class="footermen">
                     <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
                     <a href="https://href.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -41,64 +41,3 @@
         </div>
     </div>
 </div>
-
-
-
-<!---email update  ---->
-<!-- <div class="eupt">
-    <div class="container">
-        <div class="row" ng-controller="headerctrl">
-            <form name="myForm" ng-submit="formSubmit(formData)" ng-if="!formComplete">
-                <div class="col-md-4 col-sm-4 col-xs-12 ge">GET EMAIL UPDATE</div>
-                <div class="col-md-5 col-sm-4 col-xs-12 ie">
-                    <input type="email" placeholder="Your email address" class="form-control" name="email" ng-model="formData.email" required>
-                    <p class="error" ng-show="myForm.email.invalid && myForm.email.$touched">Email is required</p>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12 es">
-                    <button type="submit">SUBSCRIBE</button>
-                </div>
-            </form>
-            <div ng-if="formComplete" class="ge text-center">Thank You For Subscribing.</div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row mf" ng-controller="headerctrl">
-      <div class="col-md-2 col-sm-3 col-xs-6"><strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">DESTINATIONS</a></strong>
-
-              <ul class="list-group">
-                <li class="list Robotor " ng-repeat="dest in allDest"><a class="whit_color" ui-sref="pattaya({id:dest._id})">{{dest.name}}</a></li>
-
-              </ul>
-              <strong><a class="yellow_color" ui-sref="destination" ng-if="allDestMore">More...</a></strong>
-          </div>
-
-      <div class="col-md-2 col-sm-3 col-xs-6 spt"><strong class="stp Robotor"><a class="yellow_color" ui-sref="activity">ACTIVITIES</a></strong>
-        <ul class="list-group">
-          <li class="list Robotor " ng-repeat="data in allActivities"><a class="whit_color" ui-sref="pattaya({id:data._id})">{{data.name}}</a></li>
-
-        </ul>
-        <strong><a class="yellow_color" ui-sref="activity" ng-if="allActivitiesMore">More...</a></strong>
-      </div>
-      <div class="col-md-2 col-sm-3 col-xs-6 margin4footer"><strong class="stp Robotor"><a class="yellow_color" ui-sref="whats-hot">WHAT'S HOT</a></strong>
-        <ul class="list-group">
-          <li class="list Robotor " ng-repeat="data in allEvents"><a class="whit_color" ui-sref="whats-hot-more({id:data._id})">{{data.name}}</a></li>
-
-        </ul>
-
-          <strong ng-if="allEventsMore"><a class="yellow_color" ui-sref="whats-hot" >More...</a></strong>
-      </div>
-      <div class="col-md-2 col-sm-6 col-xs-6"><strong class="stp Robotor"><a class="yellow_color" ui-sref="home">HIGH ROLLERS</a></strong>
-        <ul class="list-group">
-          <li class="list Robotor "><a class="whit_color" ui-sref="home">Tommorowland</a></li>
-          <li class="list Robotor"><a class="whit_color" ui-sref="home">Way Out West</a></li>
-          <li class="list Robotor"><a class="whit_color" ui-sref="home">Positiv Festival</a></li>
-          <li class="list Robotor"><a class="whit_color" ui-sref="home">Utopica Island</a></li>
-          <li class="list Robotor"><a class="whit_color" ui-sref="home">Way Out West</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2 col-sm-6 col-xs-6">
-        <strong class="stp Robotor stp2"><a class="yellow_color" ui-sref="home">ABOUT US MEDIA CORNER CONTACT US</a></strong>
-      </div>
-  </div>
-</div> -->
