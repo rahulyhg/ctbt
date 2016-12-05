@@ -2057,7 +2057,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.allEvents = _.take(data.data.Events, 5);
             console.log($scope.allEvents);
         });
-<<<<<<< HEAD
         $scope.formData = {};
         $scope.formComplete = false;
         $scope.formSubmit = function(formData) {
@@ -2140,48 +2139,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // console.log("Language CLicked");
 
             if (!$.jStorage.get("language")) {
-=======
-    }
-})
-.controller('footerCtrl',function ($scope,TemplateService,NavigationService,$timeout) {
-  console.log("footerCtrl");
-  $scope.subscribeData = {};
-  $scope.subscribeComplete = false;
-  $scope.alreadySubscribed = false;
-  $scope.subscribeSubmit = function(subscribeData) {
-    console.log("sadsadasdsads");
-      console.log("subscribeData", subscribeData);
-      NavigationService.subscribe(subscribeData, function(data) {
-          console.log("data", data.value);
-          if (data.value === true) {
-              $scope.subscribeComplete = true;
-              $timeout(function() {
-                  $scope.subscribeComplete = false;
-                  $scope.subscribeData = {};
-              }, 2000);
-          }else{
-            $scope.alreadySubscribed = true;
-            $timeout(function() {
-              $scope.alreadySubscribed = false;
-                $scope.subscribeData = {};
-            }, 2000);
-          }
-
-
-      })
-  }
-})
-.controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
-
-    $scope.changeLanguage = function() {
-        // console.log("Language CLicked");
-
-        if (!$.jStorage.get("language")) {
-            $translate.use("hi");
-            $.jStorage.set("language", "hi");
-        } else {
-            if ($.jStorage.get("language") == "en") {
->>>>>>> 78b175ed55cf099e0b23285b0811fd559edd4e38
                 $translate.use("hi");
                 $.jStorage.set("language", "hi");
             } else {
