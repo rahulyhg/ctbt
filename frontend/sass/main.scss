@@ -709,9 +709,9 @@ option[value=""][disabled] {
 //PATTAYA2 CSS START
 
 .cartsum {
-    display: inline;
-    font-size: 18px;
+    font-size: 38px;
     color: #002B7F;
+    padding: 0 15%;
 }
 
 .mim1 {
@@ -1517,7 +1517,7 @@ figure .links {
     background-image: url("../img/footer-img.png");
     background-repeat: no-repeat;
     background-position: 100% 100%;
-    background-size: 245px  ;
+    background-size: 245px;
 }
 //destination css start
 
@@ -1815,9 +1815,11 @@ figure .links {
 .homeslidr .flex-direction-nav .flex-prev {
     left: 10px !important;
 }
+
 .wts .flexslider:hover .flex-direction-nav .flex-prev {
     left: -16px !important;
 }
+
 .homeslidr .flex-direction-nav .flex-next {
     right: 10px !important;
 }
@@ -2189,6 +2191,7 @@ figure .links {
     .check_img {
         display: inline-block;
         width: 22px;
+        margin-left: 2px;
     }
 
     .check_img2 {
@@ -2677,7 +2680,7 @@ figure.hover .front {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
-    z-index:0;
+    z-index: 0;
 }
 
 .flipDiv figure:hover figcaption,
@@ -2837,26 +2840,27 @@ input[type="time"].form-control {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)));
 }
 
+.mycartme {
+    position: fixed;
+    right: -48px;
+    z-index: 10;
+    top: 430px;
+    height: 0;
+
+    button {
+        box-shadow: rgb(0, 43, 127) 0 0 1px 0;
+        border-bottom: 0;
+        -webkit-transform: rotate(-90deg);
+    }
+}
+
 .cartadd {
+    height: 197px;
     position: fixed;
     right: 1px;
     z-index: 9999;
     top: 383px;
     box-shadow: #002b7f 0 0 1px 0;
-
-    .mycartme {
-        position: fixed;
-        right: -48px;
-        z-index: 10;
-        top: 430px;
-        height: 0;
-
-        button {
-            box-shadow: rgb(0, 43, 127) 0 0 1px 0;
-            border-bottom: 0;
-            -webkit-transform: rotate(-90deg);
-        }
-    }
 }
 
 .pdt15 {
@@ -3150,21 +3154,25 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .panel-heading {
-  padding: 0 !important;
-  margin: 10px 15px !important;
+    padding: 0 !important;
+    margin: 10px 15px !important;
 }
+
 [placeholder]:focus::-webkit-input-placeholder {
-  transition: opacity 0.5s 0.5s ease;
-  opacity: 0;
+    transition: opacity 0.5s 0.5s ease;
+    opacity: 0;
 }
 
 .hideinput:focus::-webkit-input-placeholder {
-  transition: text-indent 0.5s 0.5s ease;
-  text-indent: -100%;
-  opacity: 1;
+    transition: text-indent 0.5s 0.5s ease;
+    text-indent: -100%;
+    opacity: 1;
 }
-.toppad{text-align: center;
-padding-top: 20px;}
+
+.toppad {
+    text-align: center;
+    padding-top: 20px;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";

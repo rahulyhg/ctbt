@@ -1,5 +1,5 @@
 <header ng-controller="headerctrl">
-<!-- <header> -->
+    <!-- <header> -->
     <nav class="navbar navbar-default navbar-fixed-top hbc headbox">
         <div class="container">
             <div class="navbar-header hbc">
@@ -49,11 +49,11 @@
 </header>
 
 <!---MY CART START  ---->
-<div class="cartadd">
-    <div class="mycartme" ng-hide="mycart || enquirybtn10">
-        <button ng-click="headerCartOpenCtrl(); mycart = !mycart" ng-class="{ active: mycart }" class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
-    </div>
-    <div class="paddmain yellow_back_lightcolor" ng-show="mycart">
+<div class="mycartme" ng-hide="mycart || enquirybtn10">
+    <button ng-click="headerCartOpenCtrl(); mycart = !mycart" ng-class="{ active: mycart }" class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
+</div>
+<div class="cartadd yellow_back_lightcolor" ng-show="mycart">
+    <div class="paddmain yellow_back_lightcolor" >
         <div class="container ">
             <div class="col-md-12 patmargin3">
                 <div class="whatsmarg4" ng-hide="submitCart">
@@ -123,8 +123,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="cartsum" ng-show="submitCart">Thank you for Submitting Cart</div>
             </div>
         </div>
     </div>
+    <div class="cartsum" ng-show="submitCart">Thank You for Submitting <br>We'll get in touch with you Soon</div>
 </div>
