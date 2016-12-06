@@ -1815,7 +1815,9 @@ figure .links {
 .homeslidr .flex-direction-nav .flex-prev {
     left: 10px !important;
 }
-
+.wts .flexslider:hover .flex-direction-nav .flex-prev {
+    left: -16px !important;
+}
 .homeslidr .flex-direction-nav .flex-next {
     right: 10px !important;
 }
