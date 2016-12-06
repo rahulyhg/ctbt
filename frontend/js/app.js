@@ -43,31 +43,31 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'HomeCtrl'
         })
-    $stateProvider
+
         .state('bachlerette', {
             url: "/bachlerette",
             templateUrl: "frontend/views/template.html",
             controller: 'BachleretteCtrl'
         })
-        $stateProvider
+
             .state('about', {
                 url: "/about",
                 templateUrl: "frontend/views/template.html",
                 controller: 'AboutCtrl'
             })
-            $stateProvider
+
                 .state('contactus', {
                     url: "/contactus",
                     templateUrl: "frontend/views/template.html",
                     controller: 'ContactCtrl'
                 })
-    $stateProvider
+
         .state('mediacorner', {
             url: "/mediacorner",
             templateUrl: "frontend/views/template.html",
             controller: 'MediaCornerCtrl'
         })
-    $stateProvider
+    
         .state('tbtstatic', {
             url: "/tbtstatic",
             templateUrl: "frontend/views/template.html",

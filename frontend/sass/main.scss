@@ -3173,6 +3173,18 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     padding-top: 20px;
 }
+#scroll-area {
+    width:400px;
+    border:2px solid;
+    background-color:#ccc;
+    overflow:hidden;
+}
+#scroll-area div {
+    width:3000px;
+    position:relative;
+    /* relative positioned */
+    padding:10px 14px;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
