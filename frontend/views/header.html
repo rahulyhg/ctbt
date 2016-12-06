@@ -95,25 +95,25 @@
                                 <strong class="naming bluecol">{{key}}</strong>
                                 <div class="img1" ng-repeat="img in value">
                                     <div class="patevent" ng-if="img.package">
-                                        <img ng-src="{{img.package.image | serverimage}}" alt="" class="img-responsive">
+                                        <img ng-src="{{img.package.image |serverimage:545:413}}" alt="" class="img-responsive">
                                         <div class="cart-section" ng-if="img.package.image">
                                             <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
                                         </div>
                                     </div>
                                     <div class="patevent" ng-if="img.activities">
-                                        <img ng-src="{{img.activities.image1 | serverimage}}" alt="" class="img-responsive">
+                                        <img ng-src="{{img.activities.image1  |serverimage:545:413}}" alt="" class="img-responsive">
                                         <div class="cart-section" ng-if="img.activities.image1">
                                             <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
                                         </div>
                                     </div>
                                     <div class="patevent" ng-if="img.whatshot">
-                                        <img ng-src="{{img.whatshot.image | serverimage}}" alt="" class="img-responsive">
+                                        <img ng-src="{{img.whatshot.image  |serverimage:545:413}}" alt="" class="img-responsive">
                                         <div class="cart-section" ng-if="img.whatshot.image">
                                             <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
                                         </div>
                                     </div>
                                     <div class="patevent" ng-if="img.type == 'Accomodation'">
-                                        <img ng-src="{{img.image | serverimage}}" alt="" class="img-responsive">
+                                        <img ng-src="{{img.image  |serverimage:545:413}}" alt="" class="img-responsive">
                                         <div class="cart-section" ng-if="img.image">
                                             <i class="fa fa-times" aria-hidden="true" ng-click="deleteCartAcco(img.type,img.name)"></i>
                                         </div>
