@@ -113,7 +113,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFunHeader();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
         $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
@@ -422,7 +428,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFun();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
 
         $scope.getCartFun = function() {
@@ -605,7 +617,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFunHeader();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
         $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
@@ -1219,7 +1237,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFun();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
 
     })
@@ -1339,7 +1363,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFunPattaya2();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
         $scope.getCartFunPattaya2 = function() {
             NavigationService.getCart(function(data) {
@@ -1444,7 +1474,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFun();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
@@ -1566,7 +1602,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFun();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
@@ -2106,7 +2148,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService,$timeout) {
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
@@ -2202,7 +2244,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                     $scope.submitCart = true;
                 }
+                $scope.getCartFunHeader();
+                  $scope.cartData = {};
             });
+            $timeout(function () {
+              console.log('inside timeout');
+              $scope.submitCart = false;
+            }, 5000);
         }
         $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');

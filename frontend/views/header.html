@@ -56,7 +56,7 @@
     <div class="paddmain yellow_back_lightcolor" >
         <div class="container ">
             <div class="col-md-12 patmargin3">
-                <div class="whatsmarg4" ng-hide="submitCart">
+                <div class="whatsmarg4" ng-if="!submitCart">
                     <div class="mycart2">
                         <ul class="list-group socialpatt yellow_back_lightcolor ">
                             <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
@@ -126,5 +126,5 @@
             </div>
         </div>
     </div>
-    <div class="cartsum" ng-show="submitCart">Thank You for Submitting <br>We'll get in touch with you Soon</div>
+    <div class="cartsum" ng-if="submitCart">Thank You for Submitting <br>We'll get in touch with you Soon</div>
 </div>
