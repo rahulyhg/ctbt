@@ -1875,6 +1875,121 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // ==========================End Cart ===========================
 
 
+            // ======================filter changed======================
+
+            $scope.selectedAll = {};
+            $scope.selectedAll.location = true;
+            $scope.checkAllPackages = function() {
+
+                $scope.searchAllPackages();
+            };
+
+            $scope.noResult = false;
+            $scope.viewMoreActivity = false;
+            $scope.viewLessActivity = false;
+            $scope.day = {};
+            $scope.night = {};
+            $scope.day.model = false;
+            $scope.night.model = false;
+            $scope.searchAllPackages = function() {
+
+                if ($scope.selectedAll.location == true) {
+                    $scope.day.model = false;
+                    $scope.night.model = false;
+                    var dataToSend = {
+                        destination: $stateParams.id,
+                        type: ["day", "night"]
+                    }
+                } else {
+                    $scope.day.model = true;
+                    $scope.night.model = true;
+                    var dataToSend = {
+                        destination: $stateParams.id,
+                        type: []
+                    }
+                }
+                NavigationService.getSearch(dataToSend, function(data) {
+                    console.log('DTAA TO SEND', dataToSend);
+                    if (data.data.Category.length > 8) {
+                        $scope.viewMoreActivity = true;
+                    }
+
+                    if (data.data.Category.length == 0) {
+                        $scope.viewMoreActivity = false;
+                        $scope.noResult = true;
+                    } else {
+
+                        $scope.noResult = false;
+                        $scope.getActivity = data.data.Category;
+                        console.log('data.data', $scope.getActivity.length);
+                        $scope.getActivityArr = _.cloneDeep($scope.getActivity);
+                        console.log('  $scope.getActivityArr', $scope.getActivityArr);
+                        $scope.getActivity = _.take($scope.getActivity, 8);
+                    }
+                });
+            };
+            $scope.searchDay = function() {
+                console.log('dayclick');
+                $scope.night.model = false;
+                $scope.day.model = true;
+                $scope.selectedAll.location = false;
+                var dataToSend = {
+                    destination: $stateParams.id,
+                    type: ["day"]
+                }
+                NavigationService.getSearch(dataToSend, function(data) {
+                    console.log('DTAA TO SEND', dataToSend);
+                    if (data.data.Category.length > 8) {
+                        $scope.viewMoreActivity = true;
+                    }
+
+                    if (data.data.Category.length == 0) {
+                        $scope.viewMoreActivity = false;
+                        $scope.noResult = true;
+                    } else {
+
+                        $scope.noResult = false;
+                        $scope.getActivity = data.data.Category;
+                        console.log('data.data', $scope.getActivity.length);
+                        $scope.getActivityArr = _.cloneDeep($scope.getActivity);
+                        $scope.getActivity = _.take($scope.getActivity, 6);
+                    }
+                });
+            }
+            $scope.searchNight = function() {
+                    console.log('nightclick');
+                    $scope.day.model = false;
+                    console.log('$scope.day.model', $scope.day.model);
+                    $scope.night.model = true;
+
+                    $scope.selectedAll.location = false;
+                    var dataToSend = {
+                        destination: $stateParams.id,
+                        type: ["night"]
+                    }
+                    NavigationService.getSearch(dataToSend, function(data) {
+                        console.log('DTAA TO SEND', dataToSend);
+                        if (data.data.Category.length > 8) {
+                            $scope.viewMoreActivity = true;
+                        }
+
+                        if (data.data.Category.length == 0) {
+                            $scope.viewMoreActivity = false;
+                            $scope.noResult = true;
+                        } else {
+
+                            $scope.noResult = false;
+                            $scope.getActivity = data.data.Category;
+                            console.log('data.data', $scope.getActivity.length);
+                            $scope.getActivityArr = _.cloneDeep($scope.getActivity);
+                            console.log('  $scope.getActivityArr', $scope.getActivityArr);
+                            $scope.getActivity = _.take($scope.getActivity, 8);
+                        }
+                    });
+                }
+    // =======================filter end ===============================================
+
+
 
         // ================cart integration Customization page Before=====================
         // $scope.isInWishlistCustPage = function(id) {
@@ -2112,6 +2227,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFunHeader();
             });
         }
+
     })
     .controller('footerCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         console.log("footerCtrl");

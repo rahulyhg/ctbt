@@ -46,7 +46,19 @@
             <div class="row text-center">
                 <h1 class="theboldfont custtitle custtitle2">2. CHOOSE ACTIVITIES<br>NIGHT & DAYTIME </h1>
                 <div class="checkboxrow2 ">
-                    <div class="checkbox checkboxing">
+                  <div class="checkbox checkboxing">
+                      <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllPackages()" id="later">
+                      <label for="later"><span></span> All</label>
+                  </div>
+                  <div class="checkbox checkboxing">
+                      <input type="checkbox" ng-model="day.model" id="day" ng-click="searchDay()">
+                      <label for="day"><span></span>Day</label>
+                      <img src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
+                      <input type="checkbox" ng-model="night.model" id="night" ng-click="searchNight()">
+                      <label for="night"><span></span> Night</label>
+                      <img src="frontend/img/Vector.png" alt="" class="check_img vector">
+                  </div>
+                    <!-- <div class="checkbox checkboxing">
                         <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
                         <label for="later"><span></span> All</label>
                     </div>
@@ -54,7 +66,7 @@
                         <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
                         <label for="{{location.value}}" ><span></span> {{location.value}}</label>
                         <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="row" ng-hide="noResult">
