@@ -1,5 +1,5 @@
 <header ng-controller="headerctrl">
-    <!-- <header> -->
+<!-- <header> -->
     <nav class="navbar navbar-default navbar-fixed-top hbc headbox">
         <div class="container">
             <div class="navbar-header hbc">
@@ -49,14 +49,14 @@
 </header>
 
 <!---MY CART START  ---->
-<div class="mycartme" ng-hide="mycart || enquirybtn10">
-    <button ng-click="headerCartOpenCtrl(); mycart = !mycart" ng-class="{ active: mycart }" class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
-</div>
-<div class="cartadd yellow_back_lightcolor" ng-show="mycart">
-    <div class="paddmain yellow_back_lightcolor" >
+<div class="cartadd">
+    <div class="mycartme" ng-hide="mycart || enquirybtn10">
+        <button ng-click="headerCartOpenCtrl(); mycart = !mycart" ng-class="{ active: mycart }" class="paddleft1 pregular bluecol yellow_back_color ">MY CART</button>
+    </div>
+    <div class="paddmain yellow_back_lightcolor" ng-show="mycart">
         <div class="container ">
             <div class="col-md-12 patmargin3">
-                <div class="whatsmarg4" ng-if="!submitCart">
+                <div class="whatsmarg4" ng-hide="submitCart">
                     <div class="mycart2">
                         <ul class="list-group socialpatt yellow_back_lightcolor ">
                             <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
@@ -123,8 +123,8 @@
                         </div>
                     </div>
                 </div>
+                <div class="cartsum" ng-show="submitCart">Thank you for Submitting Cart</div>
             </div>
         </div>
     </div>
-    <div class="cartsum" ng-if="submitCart">Thank You for Submitting <br>We'll get in touch with you Soon</div>
 </div>

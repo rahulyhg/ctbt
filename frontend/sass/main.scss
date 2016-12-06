@@ -2840,19 +2840,7 @@ input[type="time"].form-control {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0, 43, 127)), color-stop(0.72, rgb(0, 43, 127)), color-stop(0.86, rgb(0, 43, 127)));
 }
 
-.mycartme {
-    position: fixed;
-    right: -48px;
-    z-index: 10;
-    top: 430px;
-    height: 0;
 
-    button {
-        box-shadow: rgb(0, 43, 127) 0 0 1px 0;
-        border-bottom: 0;
-        -webkit-transform: rotate(-90deg);
-    }
-}
 
 .cartadd {
     height: 197px;
@@ -2861,6 +2849,19 @@ input[type="time"].form-control {
     z-index: 9999;
     top: 383px;
     box-shadow: #002b7f 0 0 1px 0;
+    .mycartme {
+        position: fixed;
+        right: -48px;
+        z-index: 10;
+        top: 430px;
+        height: 0;
+
+        button {
+            box-shadow: rgb(0, 43, 127) 0 0 1px 0;
+            border-bottom: 0;
+            -webkit-transform: rotate(-90deg);
+        }
+    }
 }
 
 .pdt15 {
@@ -3173,18 +3174,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     padding-top: 20px;
 }
-#scroll-area {
-    width:400px;
-    border:2px solid;
-    background-color:#ccc;
-    overflow:hidden;
-}
-#scroll-area div {
-    width:3000px;
-    position:relative;
-    /* relative positioned */
-    padding:10px 14px;
-}
+
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
