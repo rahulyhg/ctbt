@@ -5,58 +5,58 @@ var schema = new Schema({
   mobile: String,
   groupSize: Number,
   myCart: {
-    package:[{
-      type2:String,
-      package:{
-      type: Schema.Types.ObjectId,
-      ref: 'Package',
-      index: true
-    }
-  }],
+    package: [{
+      type2: String,
+      package: {
+        type: Schema.Types.ObjectId,
+        ref: 'Package',
+        index: true
+      }
+    }],
     activities: [{
-      type2:String,
-      activities:{
-      type: Schema.Types.ObjectId,
-      ref: 'Activities',
-      index: true
-    }
-  }],
-    whatshot:[{
-      type2:String,
-      whatshot:{
-      type: Schema.Types.ObjectId,
-      ref: 'WhatsHot',
-      index: true
-    }
-  }],
-  accomodation:[{
-      destination:String,
-      name:String,
-      image:String
-  }]
-},
-   order: {
-      type: Number,
-      default:0
+      type2: String,
+      activities: {
+        type: Schema.Types.ObjectId,
+        ref: 'Activities',
+        index: true
+      }
+    }],
+    whatshot: [{
+      type2: String,
+      whatshot: {
+        type: Schema.Types.ObjectId,
+        ref: 'WhatsHot',
+        index: true
+      }
+    }],
+    accomodation: [{
+      destination: String,
+      name: String,
+      image: String
+    }]
+  },
+  order: {
+    type: Number,
+    default: 0
   }
 });
 
 schema.plugin(deepPopulate, {
   populate: {
     'myCart.package.package': {
-      select:'_id image title1 title2 destination'
+      select: '_id image title1 title2 destination'
     },
-    'myCart.package.package.destination':{
-      select:'_id name'
+    'myCart.package.package.destination': {
+      select: '_id name'
     },
-    'myCart.activities.activities':{
-      select:'_id  name destination image1'
+    'myCart.activities.activities': {
+      select: '_id  name destination image1'
     },
-      'myCart.activities.activities.destination':{
-      select:'_id name'
+    'myCart.activities.activities.destination': {
+      select: '_id name'
     },
-    'myCart.whatshot.whatshot':{
-      select:'_id  name image'
+    'myCart.whatshot.whatshot': {
+      select: '_id  name image'
     }
   }
 });
@@ -66,10 +66,10 @@ module.exports = mongoose.model('Cart', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.whatshot.whatshot myCart.activities.activities.destination myCart.activities.activities myCart.package myCart.package.package.destination myCart.activities myCart.whatshot", "myCart.whatshot.whatshot myCart.activities.activities.destination myCart.activities.activities myCart.package myCart.package.package.destination myCart.activities myCart.whatshot"));
 var model = {
-  getMyCart: function(data, callback) {
+  getMyCart: function (data, callback) {
     Cart.findOne({
       _id: data._id
-    }).populate("myCart.activities",'_id image1 name destination').populate("myCart.package",'_id image title1 destination').populate("myCart.package.destination",'_id name').exec(function(err, found) {
+    }).populate("myCart.activities", '_id image1 name destination').populate("myCart.package", '_id image title1 destination').populate("myCart.package.destination", '_id name').exec(function (err, found) {
       if (err) {
         // console.log(err);
         callback(err, null);
@@ -89,95 +89,158 @@ var model = {
     })
   },
 
-  saveCart: function(data, callback) {
+  saveCart: function (data, callback) {
     var mycartdata = data;
     // blue(mycartdata.myCart);
     // red(data.myCart);
     console.log(data.myCart);
-      mycartdata.myCart.package=_.map(data.myCart.package,function(n) {
-        n.type2 = n.type;
-        delete n.type;  
-        return n;
-      });
+    mycartdata.myCart.package = _.map(data.myCart.package, function (n) {
+      n.type2 = n.type;
+      delete n.type;
+      return n;
+    });
 
-      mycartdata = this(mycartdata);
-//       var Model = this;
-// // var newdata = this(data);
+    mycartdata = this(mycartdata);
+    //       var Model = this;
+    // // var newdata = this(data);
 
-// // var mycartdata ={};
-// mycartdata.package=data.myCart.package;
+    // // var mycartdata ={};
+    // mycartdata.package=data.myCart.package;
 
-// newdata = mycartdata;
+    // newdata = mycartdata;
 
-    mycartdata.save(function(err, respo) {
+    mycartdata.save(function (err, respo) {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, respo);
+        console.log("respo", respo);
+        Cart.populate(respo, [{
+          path: 'myCart.activities.activities',
+          select: 'name _id image1',
+
+        }, {
+          path: 'myCart.package.package',
+          select: 'title1 image _id'
+        }, {
+          path: 'myCart.whatshot.whatshot',
+          select: 'name image _id'
+        }], function (err, data) {
+          if (err) {
+            callback(err, null);
+          } else {
+            console.log("data", data);
+
+            console.log("data ACT", data.myCart.activities);
+            console.log("data PACK", data.myCart.package);
+            console.log("data WHTH", data.myCart.whatshot);
+            var emailData = {};
+            emailData.email = data.email;
+            emailData.cc = "pratik.gawand@wohlig.com";
+            emailData.content = data;
+            emailData.contentAct = data.myCart.activities;
+            emailData.contentPack = data.myCart.package;
+            emailData.contentWhot = data.myCart.whatshot;
+            emailData.filename = "cartMailer.ejs";
+            emailData.subject = "TBT - CART INFO";
+            // console.log("FINAL DATA",data.myCart.activities.activities.name);
+            Config.email(emailData, function (err, emailRespo) {
+              if (err) {
+                console.log("EROR in EMAIL CONFIG", err);
+                callback(err, null);
+              } else {
+                console.log(emailRespo);
+
+                callback(null, data);
+              }
+              //  callback(null, data);
+            });
+            //  callback(null,data);
+          }
+        });
       }
     });
   },
-getCart: function (data, callback) {
-  
-       var newreturns = {};
-      //  newreturns.package = [];
-      //  newreturns.activities = [];
-       async.parallel([
-           function (callback1) {
-         Package.populate(data.package,{ path:"package", select:"image title1 title2 destination", options:{lean: true},populate:{
-           path:'destination',
-           select:'name'
-         }},function(err,found){
-        if(err){
-          callback1(err, null);
-        }else{
-          console.log("aaa", found);
-          (newreturns.package) = found;
-        callback1(null,newreturns);
-        }
-      });
-    },
-function (callback1) {
-         WhatsHot.populate(data.whatshot,{ path:"whatshot", select:"image name", options:{lean: true}},function(err,found){
-        if(err){
-          callback1(err, null);
-        }else{
-          console.log("aaa", found);
-          (newreturns.whatshot) = found;
-        callback1(null,newreturns);
-        }
-      });
-    },
-           function (callback1) {
-               Activities.populate(data.activities,{ path:"activities", select:"name destination image1", options:{lean: true},populate:{
-           path:'destination',
-           select:'name'
-         }},function(err,found2){
-        if(err){
-          callback1(err, null);
-        }else{
-          console.log("bbb", found2);
-          newreturns.activities = found2;
-        callback1(null,newreturns);
-        }
-      });
-           },
+  getCart: function (data, callback) {
 
-           function (callback1) {
-           newreturns.accomodation = data.accomodation;
-        callback1(null,newreturns);
+    var newreturns = {};
+    //  newreturns.package = [];
+    //  newreturns.activities = [];
+    async.parallel([
+      function (callback1) {
+        Package.populate(data.package, {
+          path: "package",
+          select: "image title1 title2 destination",
+          options: {
+            lean: true
+          },
+          populate: {
+            path: 'destination',
+            select: 'name'
+          }
+        }, function (err, found) {
+          if (err) {
+            callback1(err, null);
+          } else {
+            console.log("aaa", found);
+            (newreturns.package) = found;
+            callback1(null, newreturns);
+          }
+        });
+      },
+      function (callback1) {
+        WhatsHot.populate(data.whatshot, {
+          path: "whatshot",
+          select: "image name",
+          options: {
+            lean: true
+          }
+        }, function (err, found) {
+          if (err) {
+            callback1(err, null);
+          } else {
+            console.log("aaa", found);
+            (newreturns.whatshot) = found;
+            callback1(null, newreturns);
+          }
+        });
+      },
+      function (callback1) {
+        Activities.populate(data.activities, {
+          path: "activities",
+          select: "name destination image1",
+          options: {
+            lean: true
+          },
+          populate: {
+            path: 'destination',
+            select: 'name'
+          }
+        }, function (err, found2) {
+          if (err) {
+            callback1(err, null);
+          } else {
+            console.log("bbb", found2);
+            newreturns.activities = found2;
+            callback1(null, newreturns);
+          }
+        });
+      },
+
+      function (callback1) {
+        newreturns.accomodation = data.accomodation;
+        callback1(null, newreturns);
       }
-           
 
-       ], function (err, respo) {
-           if (err) {
-               console.log(err);
-               callback(err, null);
-           } else {
-               callback(null, newreturns);
-           }
-       });
-   },
+
+    ], function (err, respo) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else {
+        callback(null, newreturns);
+      }
+    });
+  },
 
 
 
