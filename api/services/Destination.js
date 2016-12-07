@@ -20,11 +20,11 @@ var schema = new Schema({
   },
   type: {
     type: String,
-    enum: ["None","Popular Destination"]
+    enum: ["None", "Popular Destination"]
   },
-  accomodation:[{
-    hotelName:String,
-    image:String,
+  accomodation: [{
+    hotelName: String,
+    image: String,
     status: {
       type: String,
       enum: ["true", "false"]
@@ -33,12 +33,11 @@ var schema = new Schema({
   status: {
     type: String,
     enum: ["true", "false"]
-  }
-  ,   order:{
+  },
+  order: {
     type: Number,
-    default:0
+    default: 0
   }
-
 });
 
 schema.plugin(deepPopulate, {});
@@ -68,7 +67,7 @@ var model = {
         }
       }
 
-    })
+    });
   },
   getActivities: function (data, callback) {
     Destination.findOne({

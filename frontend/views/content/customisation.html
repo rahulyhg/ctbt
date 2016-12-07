@@ -25,7 +25,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
                         <figure>
                             <div class="front ">
-                                <img ng-src="{{data.image |serverimage:544:545}}" class="img-responsive">
+                                <img ng-src="{{data.image |serverimage:544:545}}" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
                                       <input value="cart" type="checkbox" ng-model="checkboxModel1" id="{{data._id}}" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
@@ -73,7 +73,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
                     <figure>
                         <div class="front">
-                            <img ng-src="{{data.image1 |serverimage:544:545}}" class="img-responsive">
+                            <img ng-src="{{data.image1 |serverimage:544:545}}" class="mainwidht img-responsive">
                             <div class="cart-sec2">
                                 <div class="checkbox checkboxing">
                                     <input value="cart" type="checkbox" ng-model="checkboxModel" id="{{data._id}}" ng-click="addTocartOnCustPage(data._id,data.typeCart,checkboxModel);">
@@ -95,7 +95,7 @@
             </div>
             <!-- START ERROR  -->
             <div class="text-center" ng-show="noResult && !viewMore">
-                <h4>No Result Found</h4>
+                <h4 class="nodata">No Result Found</h4>
             </div>
             <!-- END ERROR -->
 
@@ -119,7 +119,7 @@
                             <p class="error" ng-show="myForm.phone.$invalid && myForm.phone.$touched">Phone is required</p>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 pdt10">
-                            <input type="text pdt15" class="hideinput form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.size" required>
+                            <input type="number" class="hideinput form-control Robotor" placeholder="Group Size" name="size" ng-model="custDetail.group" required>
                             <p class="error" ng-show="myForm.size.$invalid && myForm.size.$touched">Group Size is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
@@ -137,11 +137,11 @@
                             <p class="error" ng-show="myForm.budget.$invalid && myForm.budget.$touched">Budget is required</p>
                         </div>
                         <div class="col-md-7 pdt10">
-                            <input type="text pdt15" class="hideinput form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan" required>
+                            <input type="text pdt15" class="hideinput form-control Robotor" placeholder="WHAT STAGE IS YOUR  PLAN IN?" name="plan" ng-model="custDetail.plan">
                             <p class="error" ng-show="myForm.plan.$invalid && myForm.plan.$touched">Plan is required</p>
                         </div>
                         <div class="col-md-12 pdt10">
-                            <textarea class="hideinput form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment" required></textarea>
+                            <textarea class="hideinput form-control text-height Robotor" rows="7" placeholder="SOMETHING ELSE?" ng-model="custDetail.comment"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 lodm text-center sub">

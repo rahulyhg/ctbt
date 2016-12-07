@@ -49,7 +49,7 @@
                                                 <i  ng-if="isInWishlistActivityPage(smallImg._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                             </button>
                                         </div>
-                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="smallImg.description | shorten :150"></div>
+                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="smallImg.description | shorten :100"></div>
                                         <div ng-if="addedSuccess" class="descrip"><p class="toppad">Your query has been added to the cart.</p></div>
                                     </figcaption>
                                 </figure>
@@ -80,7 +80,7 @@
                                               <i  ng-if="isInWishlistActivityPage(activityLand.bigImage[n]._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                           </button>
                                       </div>
-                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="activityLand.bigImage[n].description"></div>
+                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="activityLand.bigImage[n].description | shorten :100"></div>
                                         <div ng-if="addedSuccess" class="descrip"><p class="toppad">Your query has been added to the cart.</p></div>
                                     </figcaption>
                                 </figure>
@@ -90,7 +90,7 @@
                 </div>
                 <!-- ERROR BOX -->
                 <div ng-if="showBttn.length==0">
-                    <h1><center>No data Found</center></h1>
+                    <h1 class="nodata"><center>No data Found</center></h1>
                 </div>
                 <!-- START VIEW MORE BUTTON -->
                 <div class="load-more text-center" ng-hide="showBttn.length==0">
