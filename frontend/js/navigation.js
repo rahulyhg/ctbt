@@ -297,7 +297,7 @@ var navigationservice = angular.module('navigationservice', [])
         enquiryForm: function(formData, callback) {
             //console.log('Navigation form data: ', formData);
             $http({
-                url: adminurl + 'enquire/save',
+                url: adminurl + 'Enquire/saveEnquire',
                 method: 'POST',
                 data: formData
             }).success(callback);
