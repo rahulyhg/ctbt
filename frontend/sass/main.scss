@@ -2297,7 +2297,7 @@ figure .links {
     z-index: 11;
 
     .socialpatt {
-        box-shadow: #002b7f 0 -1px 1px -1px;
+        box-shadow: #002b7f 0 -1px 1px 0px;
         list-style: none;
         text-align: center;
         cursor: pointer;
@@ -2848,7 +2848,7 @@ input[type="time"].form-control {
     right: 1px;
     z-index: 9999;
     top: 383px;
-    box-shadow: #002b7f 0 0 1px 0;
+    box-shadow: #002b7f 4px 1px 2px 0px;
     .mycartme {
         position: fixed;
         right: -48px;
