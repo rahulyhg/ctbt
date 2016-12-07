@@ -2841,12 +2841,12 @@ input[type="time"].form-control {
 }
 
 .cartadd {
-    height: 197px;
+    // height: 197px;
     position: fixed;
     right: 1px;
     z-index: 9999;
     top: 383px;
-    box-shadow: #002b7f 4px 1px 2px 0;
+    box-shadow: #002b7f 4px 0px 2px 0;
 
     .mycartme {
         position: fixed;
