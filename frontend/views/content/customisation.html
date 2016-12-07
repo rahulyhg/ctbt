@@ -25,7 +25,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
                         <figure>
                             <div class="front ">
-                                <img ng-src="{{data.image |serverimage:544:545}}" class="img-responsive">
+                                <img ng-src="{{data.image |serverimage:544:545}}" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
                                       <input value="cart" type="checkbox" ng-model="checkboxModel1" id="{{data._id}}" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
@@ -73,7 +73,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
                     <figure>
                         <div class="front">
-                            <img ng-src="{{data.image1 |serverimage:544:545}}" class="img-responsive">
+                            <img ng-src="{{data.image1 |serverimage:544:545}}" class="mainwidht img-responsive">
                             <div class="cart-sec2">
                                 <div class="checkbox checkboxing">
                                     <input value="cart" type="checkbox" ng-model="checkboxModel" id="{{data._id}}" ng-click="addTocartOnCustPage(data._id,data.typeCart,checkboxModel);">

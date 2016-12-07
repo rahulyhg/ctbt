@@ -9,7 +9,7 @@
 <!---SELECTION START---->
 <div class="whatsmain">
     <div class="container ">
-        <div class="col-md-12 margin3">
+        <div class="col-md-12 margin3 white_back_color">
             <!---IMAGES START ---->
             <div class="{{classp}} whatsmarg4 displaynonpata" ng-if="tabs=='az'">
                 <div class="row text-center whatspadd3">
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="row marg11">
-                    <a class="col-md-3 col-sm-3 col-xs-3 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}">
+                    <a class="col-md-3 col-sm-4 col-xs-6 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}">
                         <img class="img-responsive " src="{{data.image|serverimage}}">
                     </a>
                 </div>
@@ -90,7 +90,7 @@
 <div class="container ">
     <div class="col-md-12 wtlast">
         <div class="wtlast2">
-            <img class="img-responsive" ng-src="{{getOneWhatsHot.tableImage|serverimage}}">
+            <img class="img-responsive" ng-src="{{getOneWhatsHot.tableImage | serverimage}}">
         </div>
     </div>
 </div>

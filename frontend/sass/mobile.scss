@@ -551,14 +551,14 @@
     }
 
     .wtsocial {
-        margin-top: -91%;
-        margin-right: 4.3%;
+        margin-top: -77%;
+        margin-right: 5px;
     }
 
     .wtsocial .socialgr {
         margin-bottom: 0;
         margin-left: -44px;
-        padding: 1px 0;
+        padding: 5px 0;
         width: 98px;
         font-size: 9px;
     }
@@ -1101,6 +1101,7 @@
     .cartadd {
         width: 100%;
         top: 150px;
+        height: auto;
     }
 }
 @media (max-width: 480px) {
@@ -1203,7 +1204,7 @@
         width: 100%;
         top: inherit;
         bottom: 0;
-            height: auto;
+        height: auto;
     }
 
     .mycart2 li {
@@ -1213,6 +1214,39 @@
     .fsiz {
         font-size: 30px;
     }
+
+    .checkboxrow2 .checkbox label {
+        font-size: 16px !important;
+    }
+
+    .checkboxrow2 .checkboxing input[type="checkbox"] + label span {
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    .hoverhold .morebutton {
+        font-size: 9px;
+    }
+
+    .hoverhold .eventp {
+        font-size: 14px;
+    }
+
+    .hoverhold .eventh2 {
+        font-size: 17px;
+    }
+
+    .hoverhold {
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .wts .flex-direction-nav .flex-prev {
+        left: -16px;
+    }
+    .wtintro {
+    font-size: 12px;
+}
 }
 @media (max-width: 320px) {
     .cartsum {
