@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="text-center" ng-show="getPackage.length == 0">
-                    <h4>No Result Found</h4>
+                    <h4 class="nodata">No Result Found</h4>
                 </div>
                 <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center " ng-hide="getPackage.length == 0">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMore">VIEW  MORE</a>
@@ -153,7 +153,7 @@
                     </div>
                 </div>
                 <div class="marg45 text-center" ng-show="noResult && !viewMoreActivity">
-                    <h4>No Result Found</h4>
+                    <h4 class="nodata">No Result Found</h4>
                 </div>
                 <div class="col-md-12  col-sm-12 col-xs-12 loadimag text-center " ng-hide="getActivity.length == 0">
                     <a class="whit_color" ng-click="loadMorePackage()" ng-if="viewMoreActivity">VIEW  MORE</a>
