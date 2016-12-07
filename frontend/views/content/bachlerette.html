@@ -22,14 +22,14 @@
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData)">
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
-                                <p class="error" ng-show="myForm.cities.$invalid && myForm.cities.$touched">Interested Cities Size is required</p>
+                                <p class="error" ng-show="myForm.cities.$invalid && myForm.cities.$touched">Interested Cities is required</p>
                             </div>
                             <div class="col-md-6 col-sm-6 padboth15">
                                 <input type="text" class="form-control Roboto" placeholder="Interested Activities" name="activitie" ng-model="enquiryData.activities" required>
                                 <p class="error" ng-show="myForm.activitie.$invalid && myForm.activitie.$touched">Interested Activities is required</p>
                             </div>
                             <div class="col-md-3 col-sm-3 padboth15">
-                                <input type="text pdt15" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="enquiryData.size" required>
+                                <input type="number" class="form-control Robotor" placeholder="Group Size" name="size" ng-model="enquiryData.size" required>
                                 <p class="error" ng-show="myForm.size.$invalid && myForm.size.$touched">Group Size is required</p>
                             </div>
 
@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="col-md-8 col-sm-8 ">
-                                <input type="text" class="form-control Robotor" placeholder="Email ID" name="email" ng-model="enquiryData.email" required>
+                                <input type="email" class="form-control Robotor" placeholder="Email ID" name="email" ng-model="enquiryData.email" required>
                                 <p class="error" ng-show="myForm.email.$invalid && myForm.email.$touched">Email ID is required</p>
                             </div>
                             <div class="col-md-4 col-sm-3 ">
