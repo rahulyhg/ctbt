@@ -5,7 +5,7 @@ var schema = new Schema({
     default: ""
   },
   description: String,
-   destination: {
+  destination: {
     type: Schema.Types.ObjectId,
     ref: 'Destination',
     index: true
@@ -26,19 +26,19 @@ var schema = new Schema({
     type: String,
     enum: ["true", "false"]
   },
-    order: {
-      type: Number,
-      default:0
+  order: {
+    type: Number,
+    default: 0
   }
 });
 
 schema.plugin(deepPopulate, {
-  populate:{
-    'destination':{
-      select:'name _id'
+  populate: {
+    'destination': {
+      select: 'name _id'
     },
-    'destinationTitle':{
-      select:'name _id'
+    'destinationTitle': {
+      select: 'name _id'
     }
   }
 });
@@ -46,13 +46,13 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('DestinationContent', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema,'destinationTitle destination','destinationTitle destination'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'destinationTitle destination', 'destinationTitle destination'));
 var model = {
 
-  getImages: function(data, callback) {
+  getImages: function (data, callback) {
     DestinationContent.findOne({
       _id: data._id
-    }).exec(function(err, found) {
+    }).exec(function (err, found) {
       if (err) {
         // console.log(err);
         callback(err, null);
@@ -73,7 +73,7 @@ var model = {
   },
 
 
-  getOneImages: function(data, callback) {
+  getOneImages: function (data, callback) {
     DestinationContent.aggregate([{
       $unwind: "$images"
     }, {
@@ -86,11 +86,11 @@ var model = {
         "images.description": 1,
         "images.order": 1,
         "images.status": 1,
-        "images.image":1,
+        "images.image": 1,
         "images.descriptionTitle": 1,
         "images._id": 1
       }
-    }]).exec(function(err, found) {
+    }]).exec(function (err, found) {
       if (err) {
         console.log(err);
         callback(err, null);
@@ -101,7 +101,7 @@ var model = {
   },
 
 
-  deleteImages: function(data, callback) {
+  deleteImages: function (data, callback) {
     DestinationContent.update({
       "images._id": data._id
     }, {
@@ -110,7 +110,7 @@ var model = {
           "_id": objectid(data._id)
         }
       }
-    }, function(err, updated) {
+    }, function (err, updated) {
       console.log(updated);
       if (err) {
         console.log(err);
@@ -122,7 +122,7 @@ var model = {
   },
 
 
-  saveImages: function(data, callback) {
+  saveImages: function (data, callback) {
     //  var product = data.product;
     //  console.log(product);
     console.log("dddddd", data);
@@ -133,7 +133,7 @@ var model = {
         $push: {
           images: data
         }
-      }, function(err, updated) {
+      }, function (err, updated) {
         if (err) {
           console.log(err);
           callback(err, null);
@@ -145,14 +145,14 @@ var model = {
       data._id = objectid(data._id);
       tobechanged = {};
       var attribute = "images.$.";
-      _.forIn(data, function(value, key) {
+      _.forIn(data, function (value, key) {
         tobechanged[attribute + key] = value;
       });
       DestinationContent.update({
         "images._id": data._id
       }, {
         $set: tobechanged
-      }, function(err, updated) {
+      }, function (err, updated) {
         if (err) {
           console.log(err);
           callback(err, null);
