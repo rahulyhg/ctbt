@@ -144,7 +144,7 @@
                                         <i  ng-if="isInWishlistActivity(data._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
                                   </div>
-                                    <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description"></div>
+                                    <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description | shorten :100"></div>
                                     <div ng-if="addedSuccessPattaya" class="descrip"><p class="toppad">Your query has been added to the cart.</p></div>
 
                                 </figcaption>
