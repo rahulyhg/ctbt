@@ -1,35 +1,35 @@
 var schema = new Schema({
-  order: {
-      type: Number,
-      default:0
-  },
-  typeCart: {
-      type: String,
-      default: "Activities"
-  },
+    order: {
+        type: Number,
+        default: 0
+    },
+    typeCart: {
+        type: String,
+        default: "Activities"
+    },
     name: {
         type: String,
         default: ""
     },
-    description:{
-      type:String,
-      default:""
-    },
-    image1:{
+    description: {
         type: String,
         default: ""
     },
-    image2:{
+    image1: {
         type: String,
         default: ""
     },
-    image3:{
+    image2: {
         type: String,
         default: ""
     },
-    type:{
-      type:String,
-      enum:["day","night"]
+    image3: {
+        type: String,
+        default: ""
+    },
+    type: {
+        type: String,
+        enum: ["day", "night"]
     },
     destination: {
         type: Schema.Types.ObjectId,
@@ -38,29 +38,29 @@ var schema = new Schema({
     },
     isSlider: {
         type: String,
-        enum:["Yes","No"]
+        enum: ["Yes", "No"]
     },
     status: {
         type: String,
-        enum:["true","false"]
+        enum: ["true", "false"]
     },
     popular: {
-      type: String,
-      enum: ["None","Popular Attraction"]
+        type: String,
+        enum: ["None", "Popular Attraction"]
     }
 });
 
 schema.plugin(deepPopulate, {
-  populate: {
-      'destination': {
-          select: 'name _id'
-      }
-  }
+    populate: {
+        'destination': {
+            select: 'name _id'
+        }
+    }
 });
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Activities', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema,'destination','destination'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'destination', 'destination'));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);
