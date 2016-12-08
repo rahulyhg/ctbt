@@ -280,6 +280,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
+        $scope.cartr = function () {
+            modal = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/cartdialogremove.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.template = TemplateService.changecontent("activity");
         $scope.menutitle = NavigationService.makeactive("Activity");
         TemplateService.title = $scope.menutitle;
@@ -755,6 +763,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
+        $scope.cartd = function () {
+            modal = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/cartdialog.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+        $scope.cartr = function () {
+            modal = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/cartdialogremove.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.template = TemplateService.changecontent("pattaya");
         $scope.menutitle = NavigationService.makeactive("Pattaya");
         TemplateService.title = $scope.menutitle;
@@ -907,9 +931,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 _.each($scope.getTitle, function(n) {
                     // console.log(n._id);
                     NavigationService.DestinationContent(n._id, function(data) {
-                        console.log('inside service');
-                        console.log(data.data.getTitle);
-                        console.log(data.data.getTitle[0]);
+                        // console.log('inside service');
+                        // console.log(data.data.getTitle);
+                        // console.log(data.data.getTitle[0]);
                         n.description = data.data.getTitle[0].description;
                         if (data.data.getTitle[0].name) {
                             n.name1 = data.data.getTitle[0].name;
@@ -1110,8 +1134,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitEnq = false;
-                  $scope.enquiryData = {};
-                  $
+                  // $scope.enquiryData = {};
+
             }, 5000);
         }
 

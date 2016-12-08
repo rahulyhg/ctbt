@@ -56,13 +56,13 @@
     <div class="paddmain yellow_back_lightcolor" ng-show="mycart">
         <div class="container ">
             <div class="col-md-12 patmargin3">
-                <div class="whatsmarg4" ng-hide="submitCart">
+                <div class="whatsmarg4">
                     <div class="mycart2">
                         <ul class="list-group socialpatt yellow_back_lightcolor ">
                             <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
                         </ul>
                     </div>
-                    <div class="row textalign">
+                    <div class="row textalign" ng-hide="submitCart">
                         <div class="col-md-4 col-sm-4 col-xs-12 padd8 formlabels Roboto">
                             <form name="detailForm" ng-submit="cartSubmit(cartData,detailForm)">
                                 <div class="form-group">
