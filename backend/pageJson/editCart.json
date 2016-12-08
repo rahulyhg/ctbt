@@ -174,24 +174,7 @@
             "validation": ["", "trim", ""],
             "url": ""
         }]
-        },{
-        "name": "Accomodation",
-        "type": "box",
-        "tableRef": "myCart",
-         "tableValue": "accomodation",
-        "validation": ["", "trim", ""],
-        "fields": [{
-            "name": "Destination",
-            "type": "text",
-            "viewType": "viewType",
-            "tableValue": "destination",
-            "placeholder": "Enter name",
-            "id": "input1",
-            "onView": true,
-            "validation": ["", "trim", ""],
-            "url": ""
-        }]
-        }      
+        }     
     ],
     "action": [{
         "name": "submit",
