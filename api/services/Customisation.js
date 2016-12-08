@@ -111,7 +111,12 @@ var model = {
             console.log("data ACC", data.myCart.accomodation);
             console.log("data group", data.group);
             console.log("data group", data.plan);
-            console.log("data comm", data.comment); 
+            console.log("data comm", data.comment);
+            var dateFrom = data.from;
+            var dateTo = data.to;
+
+            var fromDate = moment(dateFrom).format('MM/DD/YYYY');
+            var toDate = moment(dateTo).format('MM/DD/YYYY');
 
 
 
@@ -121,7 +126,10 @@ var model = {
             emailData.content = data;
             emailData.contentAct = data.myCart.activities;
             emailData.contentAcc = data.myCart.accomodation;
-            emailData.filename = "custommailer.ejs";
+            emailData.contentFrom = fromDate;
+            emailData.contentTo = toDate;
+
+            emailData.filename = "customMailer.ejs";
             emailData.subject = "TBT - CART INFO";
 
 
@@ -134,7 +142,7 @@ var model = {
 
                 callback(null, data);
               }
-          //   callback(null, data);
+              //   callback(null, data);
             });
           }
         });
@@ -142,7 +150,7 @@ var model = {
         ///----------///
 
 
-       // callback(null, data);
+        //s callback(null, data);
       }
     });
   }

@@ -4,11 +4,13 @@
 <body>
 <p><b>Name: </b><%= content.name    %> </p>
     <p><b>Email :</b> <%= content.email    %></p>
-    <p><b>Mobile:</b> <%= content.mobile    %></p>
+    <p><b>Mobile:</b> <%= content.phone    %></p>
     <p><b>Group Size:</b> <%= content.group    %></p>
     <p><b>Stage of Plan:</b> <%= content.plan    %></p>
     <p><b>Something Else:</b> <%= content.comment  %></p>
-    <p><b>Something Else:</b> <%= contentAcc  %></p>
+    <p><b>From:</b>    <%= contentFrom    %></p>
+    <p><b>To:</b>    <%= contentTo    %></p>
+  
     
      <% contentAct.forEach(function(a) { %>  
      <p>  Activities : <%= a.activities.name%></p>
