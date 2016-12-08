@@ -30,11 +30,11 @@
                             <div class="flipDiv">
                                 <figure>
                                     <div class="front">
-                                        <img ng-src="{{smallImg.image1 |serverimage:544:545}}" alt="" class="mainwidht img-responsive">
+                                        <img ng-src="{{smallImg.image1 |serverimage :auto:290}}" alt="" class="maxht maxwidth">
                                         <div class="cart-sec">
                                             <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
-                                              <i  ng-if="!isInWishlistActivityPage(smallImg._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                              <i  ng-if="isInWishlistActivityPage(smallImg._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                              <i  ng-if="!isInWishlistActivityPage(smallImg._id)" ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                              <i  ng-if="isInWishlistActivityPage(smallImg._id)" ng-click="cartd();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                           </button>
                                         </div>
                                         <div class="shadow-down"></div>
@@ -45,11 +45,11 @@
                                     <figcaption>
                                         <div class="cart-sec">
                                             <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
-                                                <i  ng-if="!isInWishlistActivityPage(smallImg._id)"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                                <i  ng-if="isInWishlistActivityPage(smallImg._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                                <i  ng-if="!isInWishlistActivityPage(smallImg._id)" ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                                <i  ng-if="isInWishlistActivityPage(smallImg._id)" ng-click="cartd();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                             </button>
                                         </div>
-                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="smallImg.description | shorten :100"></div>
+                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="smallImg.description | shorten :180"></div>
                                         <div ng-if="addedSuccess" class="descrip"><p class="toppad">Your query has been added to the cart.</p></div>
                                     </figcaption>
                                 </figure>
@@ -80,7 +80,7 @@
                                               <i  ng-if="isInWishlistActivityPage(activityLand.bigImage[n]._id)"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                           </button>
                                       </div>
-                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="activityLand.bigImage[n].description | shorten :100"></div>
+                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="activityLand.bigImage[n].description | shorten :180"></div>
                                         <div ng-if="addedSuccess" class="descrip"><p class="toppad">Your query has been added to the cart.</p></div>
                                     </figcaption>
                                 </figure>
