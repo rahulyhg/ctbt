@@ -116,7 +116,6 @@
                 "url": ""
             }]
         },
-
         {
             "name": "Accomodation",
             "type": "box",
@@ -126,11 +125,31 @@
             "fields": [{
                 "name": "Destination",
                 "type": "text",
-                "viewType": "viewType1",
                 "tableRef": "destination",
+                "tableValue": "destination",
                 "placeholder": "Enter name",
                 "id": "input1",
                 "onView": true,
+                "validation": ["", "trim", ""],
+                "url": ""
+            },{
+                "name": "Accomodation",
+                "type": "text",
+                "tableRef": "name",
+                "tableValue": "name",
+                "placeholder": "Enter name",
+                "id": "input1",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "url": ""
+            },{
+                "name": "Image",
+                "type": "viewImage",
+                "tableRef": "image",
+                "tableValue": "image",
+                "option": "single",
+                "placeholder": "Enter Image",
+                "id": "input1",
                 "validation": ["", "trim", ""],
                 "url": ""
             }]
