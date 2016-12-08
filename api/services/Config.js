@@ -14,7 +14,7 @@ var lodash = require('lodash');
 var moment = require('moment');
 var MaxImageSize = 1600;
 var request = require("request");
-
+var requrl = "http://localhost:80/api/";
 var gfs = Grid(mongoose.connections[0].db, mongoose);
 gfs.mongo = mongoose.mongo;
 var Schema = mongoose.Schema;
@@ -240,6 +240,68 @@ var models = {
             }
         });
 
+    },
+    email: function (data, callback) {
+        // console.log(data);
+        Password.find().exec(function (err, userdata) {
+            if (err) {
+                //     console.log(err);
+                callback(err, null);
+            } else if (userdata && userdata.length > 0) {
+                if (data.filename && data.filename != "") {
+                    request.post({
+                        url: requrl + "config/emailReader/",
+                        json: data
+                    }, function (err, http, body) {
+                        //console.log(err,http,body);
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                            //   console.log('email else');
+                            if (body && body.value != false) {
+                                //console.log("body", body);
+                                var sendgrid = require("sendgrid")(userdata[0].name);
+                                sendgrid.send({
+                                    to: data.email,
+                                    cc: data.cc,
+                                    from: "info@wohlig.com",
+                                    subject: data.subject,
+                                    html: body
+                                }, function (err, json) {
+                                    if (err) {
+                                        console.log('in email error');
+                                        callback(err, null);
+                                    } else {
+                                        //  console.log('not in error');
+                                        //  console.log({
+                                        //      to: data.email,
+                                        //      from: "info@wohlig.com",
+                                        //      subject: data.subject,
+                                        //      html: body
+                                        //  });
+                                        //  console.log(json);
+                                        callback(null, json);
+                                    }
+                                });
+                            } else {
+                                callback({
+                                    message: "Some error in html"
+                                }, null);
+                            }
+                        }
+                    });
+                } else {
+                    callback({
+                        message: "Please provide params"
+                    }, null);
+                }
+            } else {
+                callback({
+                    message: "No api keys found"
+                }, null);
+            }
+        });
     },
     readUploaded: function (filename, width, height, style, res) {
         var readstream = gfs.createReadStream({

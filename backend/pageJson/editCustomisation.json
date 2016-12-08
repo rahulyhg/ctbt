@@ -1,0 +1,166 @@
+{
+    "title": "Edit Customisation",
+    "jsonPage": "viewCustomisation",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Email",
+            "type": "text",
+            "tableRef": "email",
+            "placeholder": "Enter Email",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Mobile",
+            "type": "text",
+            "tableRef": "phone",
+            "placeholder": "Enter Mobile",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Group Size",
+            "type": "number",
+            "tableRef": "group",
+            "placeholder": "Enter Group Size",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "From",
+            "type": "date",
+            "tableRef": "from",
+            "placeholder": "Enter name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "model": "from"
+        }, {
+            "name": "To",
+            "type": "date",
+            "tableRef": "to",
+            "placeholder": "Enter name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "model": "to"
+        }, {
+            "name": "Plan",
+            "type": "text",
+            "tableRef": "plan",
+            "placeholder": "Enter Mobile",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Something Else",
+            "type": "text",
+            "tableRef": "comment",
+            "placeholder": "Enter Mobile",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Activities",
+            "type": "box",
+            "tableRef": "myCart",
+            "tableValue": "activities",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Destination",
+                "type": "selectFromTable",
+                "viewType": "viewType",
+                "dropDownType": "single",
+                "searchApi": "searchCall",
+                "tableRef": "activities",
+                "tableValue": "destination.name",
+                "onView": true,
+                "placeholder": "Enter Category-Name",
+                "id": "input1",
+                "validation": ["", "trim", ""],
+                "url": "Activities/search"
+            }, {
+                "name": "Activities Name",
+                "type": "selectFromTable",
+                "viewType": "viewType",
+                "dropDownType": "single",
+                "searchApi": "searchCall",
+                "tableRef": "activities",
+                "tableValue": "name",
+                "onView": true,
+                "placeholder": "Enter Category-Name",
+                "id": "input1",
+                "validation": ["", "trim", ""],
+                "url": "Activities/search"
+            }, {
+                "name": "Image",
+                "type": "viewImage",
+                "tableRef": "activities",
+                "tableValue": "image1",
+                "option": "single",
+                "size": "width = 413",
+                "placeholder": "Enter Image",
+                "id": "input1",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "url": ""
+            }]
+        },
+
+        {
+            "name": "Accomodation",
+            "type": "box",
+            "tableRef": "myCart",
+            "tableValue": "accomodation",
+            "validation": ["", "trim", ""],
+            "fields": [{
+                "name": "Destination",
+                "type": "text",
+                "viewType": "viewType1",
+                "tableRef": "destination",
+                "placeholder": "Enter name",
+                "id": "input1",
+                "onView": true,
+                "validation": ["", "trim", ""],
+                "url": ""
+            }]
+        }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitCustomisation",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCustomisation"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCustomisation"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Customisation/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Customisation/getOne",
+        "params": "_id"
+    }
+}

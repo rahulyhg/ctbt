@@ -636,6 +636,10 @@ firstapp.directive('viewField', function ($http, $filter) {
             if ($scope.type.viewType == "viewType"){
                 $scope.type.type = "viewType";
             }
+            if ($scope.type.viewType == "viewType1"){
+                 $scope.form.model = $scope.type.tableRef;
+                $scope.type.type = "viewType";
+            }
             // if($scope.type.viewType=="viewImage"){
             //     $scope.type.type="viewImage";
             // }

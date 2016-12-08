@@ -118,6 +118,11 @@ var navigationservice = angular.module('navigationservice', [])
         sref: "#/page/viewEnquire//"
     },
      {
+        name: "Customization",
+        classis: "active",
+        sref: "#/page/viewCustomisation//"
+    },
+     {
         name: "MediaCorner",
         classis: "active",
         sref: "#/page/viewMediaCorner//"

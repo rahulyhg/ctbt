@@ -1,0 +1,52 @@
+<div style="width:600px;padding: 15px; background: #ffca03;">
+  <h1 style="text-align:center;color: #0b358c;padding: 6px 0px;">TBT | CART INFO</h1>
+    <div style="border-bottom: 3px solid #0b358c;border-top: 3px solid #0b358c;margin-bottom: 27px;">
+        <p><strong>Name</strong> : <%= content.name    %>  </p>
+        <p><strong>Email</strong> : <%= content.email    %></p>
+        <p><strong>Mobile</strong> : <%= content.mobile    %></p>
+        <p><strong>Group Size</strong> : <%= content.groupSize  %></p>
+    </div>
+    <div class="">
+        <h2 style="padding: 8px 0px; margin: 9px 0px; border-bottom: 1px solid #0b358c;border-top: 1px solid #0b358c;">Activities</h2>
+        <table>
+		<%var i =1; %>
+  		<% contentAct.forEach(function(a) { %>  
+            <tbody>
+                <tr>
+			<td style="padding: 15px;font-size: 20px;"><%= i%></td>
+                    <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.activities.image1%>" 	style="width:150px;height:100px;"></td>
+                    <td style="padding: 15px;font-size: 20px;">  <%= a.activities.name%></td>
+                </tr>
+            </tbody>
+		<% i++; }); %>
+        </table>
+ <h2 style="padding: 8px 0px; margin: 9px 0px; border-bottom: 1px solid #0b358c;border-top: 1px solid #0b358c;">Packages</h2>
+        <table>
+		<%var j =1; %>
+  		<% contentPack.forEach(function(a) { %>  
+            <tbody>
+                <tr>
+			<td style="padding: 15px;font-size: 20px;"><%= j%></td>
+                    <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.package.image%>" 	style="width:150px;height:100px;"></td>
+                    <td style="padding: 15px;font-size: 20px;">   <%= a.package.title1%></td>
+                </tr>
+            </tbody>
+		<% j++;}); %>
+        </table>
+    </div>
+ <h2 style="padding: 8px 0px; margin: 9px 0px; border-bottom: 1px solid #0b358c;border-top: 1px solid #0b358c;">Whats-Hot</h2>
+        <table>
+		<%var k =1; %>
+  		 <% contentWhot.forEach(function(a) { %>  
+            <tbody>
+                <tr>
+		<td style="padding: 15px;font-size: 20px;"><%= k%></td>
+                    <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.whatshot.image%>"	style="width:150px;height:100px;"></td>
+                    <td style="padding: 15px;font-size: 20px;">   <%= a.whatshot.name%></td>
+                </tr>
+            </tbody>
+		<% k++;}); %>
+        </table>
+    </div>
+
+</div>
