@@ -266,12 +266,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
+        $scope.cartd = function () {
+            modal = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/cartdialog.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.template = TemplateService.changecontent("activity");
         $scope.menutitle = NavigationService.makeactive("Activity");
         TemplateService.title = $scope.menutitle;
@@ -2067,7 +2075,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);

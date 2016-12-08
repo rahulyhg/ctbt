@@ -300,6 +300,10 @@
     }
 }
 @media (max-width: 767px) {
+    .maxwidth {
+        width: 100% !important;
+    }
+
     .flipDiv figure p {
         font-size: 16px;
     }
@@ -1244,9 +1248,10 @@
     .wts .flex-direction-nav .flex-prev {
         left: -16px;
     }
+
     .wtintro {
-    font-size: 12px;
-}
+        font-size: 12px;
+    }
 }
 @media (max-width: 320px) {
     .cartsum {
