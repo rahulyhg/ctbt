@@ -30,7 +30,7 @@
                             <div class="flipDiv">
                                 <figure>
                                     <div class="front">
-                                        <img ng-src="{{smallImg.image1 |serverimage :auto:290}}" alt="" class="maxht maxwidth">
+                                        <img ng-src="{{smallImg.image1 |serverimage :auto:313}}" alt="" class="maxht maxwidth">
                                         <div class="cart-sec">
                                             <button class="cart uppercase" ng-click="addTocartOnActivityPage(smallImg._id,smallImg.typeCart);">
                                               <i  ng-if="!isInWishlistActivityPage(smallImg._id)" ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
@@ -90,7 +90,7 @@
                 </div>
                 <!-- ERROR BOX -->
                 <div ng-if="showBttn.length==0">
-                    <h1 class="nodata"><center>No data Found</center></h1>
+                    <h4 class="nodata">No data Found</h4>
                 </div>
                 <!-- START VIEW MORE BUTTON -->
                 <div class="load-more text-center" ng-hide="showBttn.length==0">

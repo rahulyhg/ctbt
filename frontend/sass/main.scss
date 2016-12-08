@@ -947,6 +947,8 @@ option[value=""][disabled] {
     width: 66px;
     background-color: #fff;
     box-shadow: 0 0 0 5px #ffffff;
+    position: absolute;
+    z-index: 9999;
 }
 
 .hdp {
@@ -2104,10 +2106,6 @@ figure .links {
     margin-top: 20%;
 }
 
-.frammargin {
-    margin: 18% 40%;
-}
-
 .patpack {
     font-weight: 900;
     color: #fdd116 !important;
@@ -3201,7 +3199,23 @@ input[type=number]::-webkit-outer-spin-button {
 .modal-dialog2 .modal-open .modal {
     top: 15% !important;
 }
-.maxht{max-height: 100% !important;}
+
+.maxht {
+    max-height: 100% !important;
+}
+
+.lin {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    left: 0;
+    bottom: 0;
+
+    .frammargin {
+        margin: 27% 40%;
+    }
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
