@@ -1087,12 +1087,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
         $scope.formComplete = false;
         $scope.enquiryData = {};
-        $scope.enquirySubmit = function(input) {
+          $scope.submitEnq=false;
+        $scope.enquirySubmit = function(input,myForm) {
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
-                if (data.value === true) {}
+                myForm.cities.$touched = false;
+                myForm.activitie.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.comments.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.email.$touched = false;
+                if (data.value === true) {
+                    $scope.enquiryData = {};
+                    $scope.submitEnq=true;
+                }
+
             });
+            $timeout(function() {
+                console.log('inside timeout');
+                $scope.submitEnq = false;
+                  $scope.enquiryData = {};
+                  $
+            }, 5000);
         }
 
         $scope.items = ['Item 1', 'Item 2', 'Item 3'];
