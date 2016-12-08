@@ -16,6 +16,8 @@
 			<td style="padding: 15px;font-size: 20px;"><%= i%></td>
                     <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.activities.image1%>" 	style="width:150px;height:100px;"></td>
                     <td style="padding: 15px;font-size: 20px;">  <%= a.activities.name%></td>
+                    <td style="padding: 15px;font-size: 20px;">  <%= a.activities.destination.name%></td>
+         
                 </tr>
             </tbody>
 		<% i++; }); %>
@@ -29,6 +31,8 @@
 			<td style="padding: 15px;font-size: 20px;"><%= j%></td>
                     <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.package.image%>" 	style="width:150px;height:100px;"></td>
                     <td style="padding: 15px;font-size: 20px;">   <%= a.package.title1%></td>
+                 <td style="padding: 15px;font-size: 20px;">  <%= a.package.destination.name%></td>
+         
                 </tr>
             </tbody>
 		<% j++;}); %>
@@ -43,6 +47,7 @@
 		<td style="padding: 15px;font-size: 20px;"><%= k%></td>
                     <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.whatshot.image%>"	style="width:150px;height:100px;"></td>
                     <td style="padding: 15px;font-size: 20px;">   <%= a.whatshot.name%></td>
+                     <td style="padding: 15px;font-size: 20px;">   <%= a.whatshot.location%></td>
                 </tr>
             </tbody>
 		<% k++;}); %>

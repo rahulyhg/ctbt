@@ -20,5 +20,22 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Password', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+
+    deleteData: function(data, callback) {
+       this.findOneAndRemove({
+           _id: data._id
+       }, function(err, deleted) {
+           if (err) {
+               callback(err, null)
+           } else {
+               callback(null, deleted)
+           }
+       });
+   },
+
+
+   
+
+};
 module.exports = _.assign(module.exports, exports, model);

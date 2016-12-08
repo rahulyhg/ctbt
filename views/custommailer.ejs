@@ -1,29 +1,48 @@
-<html>
-<head>
-</head>
-<body>
-<p><b>Name: </b><%= content.name    %> </p>
+<div style="width:600px;padding: 15px; background: #ffca03;">
+  <h1 style="text-align:center;color: #0b358c;padding: 6px 0px;">TBT MY CART  CUSTOMIZATION</h1>
+    <div style="border-bottom: 3px solid #0b358c;border-top: 3px solid #0b358c;margin-bottom: 27px;">
+   
+    <p><b>Name: </b><%= content.name    %> </p>
     <p><b>Email :</b> <%= content.email    %></p>
     <p><b>Mobile:</b> <%= content.phone    %></p>
     <p><b>Group Size:</b> <%= content.group    %></p>
-    <p><b>Stage of Plan:</b> <%= content.plan    %></p>
-    <p><b>Something Else:</b> <%= content.comment  %></p>
     <p><b>From:</b>    <%= contentFrom    %></p>
     <p><b>To:</b>    <%= contentTo    %></p>
+    <p><b>Stage of Plan:</b> <%= content.plan    %></p>
+    <p><b>Something Else:</b> <%= content.comment  %></p>
   
-    
-     <% contentAct.forEach(function(a) { %>  
-     <p>  Activities : <%= a.activities.name%></p>
-     <img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.activities.image1%>"  alt="User Image" width="130px" height="auto">
 
-<% }); %>
-   <% contentAcc.forEach(function(a) { %>  
-     <p>  ACC : <%= a.destination%></p>
-       <p> IMAGE : <%= a.image%></p>
-          <p>  Name : <%= a.name%></p>
-<% }); %>
+    </div>
+    <div class="">
+        <h3 style="padding: 8px 0px; margin: 9px 0px; border-bottom: 1px solid #0b358c;border-top: 1px solid #0b358c;">Activities</h3>
+        <table>
+		<%var i =1; %>
+  		<% contentAct.forEach(function(a) { %>  
+            <tbody>
+                <tr>
+			<td style="padding: 15px;font-size: 20px;"><%= i%></td>
+                    <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.activities.image1%>" 	style="width:150px;height:100px;"></td>
+                    <td style="padding: 15px;font-size: 20px;">  <%= a.activities.name%></td>
+                </tr>
+            </tbody>
+		<% i++; }); %>
+        </table>
+ <h3 style="padding: 8px 0px; margin: 9px 0px; border-bottom: 1px solid #0b358c;border-top: 1px solid #0b358c;">Accommodation</h3>
+        <table>
+		<%var j =1; %>
+  		<% contentAcc.forEach(function(a) { %>  
+            <tbody>
+                <tr>
+                <td style="padding: 15px;font-size: 20px;"><%= j%></td>
+			<td style="padding: 15px;font-size: 20px;"><%= a.destination%></td>
+                    <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.image%>" 	style="width:150px;height:100px;"></td>
+                    <td style="padding: 15px;font-size: 20px;">   <%= a.name%></td>
+                </tr>
+            </tbody>
+		<% j++; }); %>
+        </table>
+    </div>
 
+    </div>
 
- 
-</body>
-</html>
+</div>

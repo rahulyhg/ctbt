@@ -56,7 +56,7 @@ schema.plugin(deepPopulate, {
       select: '_id name'
     },
     'myCart.whatshot.whatshot': {
-      select: '_id  name image'
+      select: '_id  name image location'
     }
   }
 });
@@ -108,27 +108,20 @@ var model = {
     // mycartdata.package=data.myCart.package;
 
     // newdata = mycartdata;
-
+    var deepSearch = "myCart.whatshot.whatshot  myCart.activities.activities.destination myCart.activities.activities myCart.package myCart.package.package.destination myCart.activities myCart.whatshot";
     mycartdata.save(function (err, respo) {
       if (err) {
         callback(err, null);
       } else {
         console.log("respo", respo);
-        Cart.populate(respo, [{
-          path: 'myCart.activities.activities',
-          select: 'name _id image1',
-
-        }, {
-          path: 'myCart.package.package',
-          select: 'title1 image _id'
-        }, {
-          path: 'myCart.whatshot.whatshot',
-          select: 'name image _id'
-        }], function (err, data) {
+        Cart.deepPopulate(respo, deepSearch, function (err, data) {
           if (err) {
             callback(err, null);
           } else {
             console.log("data", data);
+
+            // console.log("data DEST", data.myCart.activities[0].activities.destination.name);
+            //  console.log("data DEST", data.myCart.package[0].package.destination);
 
             console.log("data ACT", data.myCart.activities);
             console.log("data PACK", data.myCart.package);

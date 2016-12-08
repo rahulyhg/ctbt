@@ -182,7 +182,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
-                        <form name="myForm" ng-submit="enquirySubmit(enquiryData)">
+                        <form name="myForm" ng-submit="enquirySubmit(enquiryData,myForm)">
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="hideinput form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
                                 <p class="error" ng-show="myForm.cities.$invalid && myForm.cities.$touched">Interested Cities is required</p>
@@ -215,7 +215,7 @@
                                 <p class="error" ng-show="myForm.name.$invalid && myForm.name.$touched">Name is required</p>
                             </div>
                             <div class="col-md-6 col-sm-6 padboth15">
-                                <input type="number" class="hideinput form-control Robotor" placeholder="Phone No" name="phone" ng-model="enquiryData.phone" required>
+                                <input type="number" class="hideinput form-control Robotor" placeholder="Phone No" name="phone" ng-model="enquiryData.phone" required minlength="10" maxlength="10">
                                 <p class="error" ng-show="myForm.phone.$invalid && myForm.phone.$touched">Phone No is required</p>
                             </div>
 
@@ -224,7 +224,7 @@
                                 <p class="error" ng-show="myForm.email.$invalid && myForm.email.$touched">Email ID is required</p>
                             </div>
                             <div class="col-md-4 col-sm-3 ">
-                                <button ng-click="enquirybtn = !enquirybtn" ng-disabled="myForm.$invalid" ng-class="{ active: enquirybtn }" type="submit" class="btn btn-submit">Submit</button>
+                                <button ng-disabled="myForm.$invalid" ng-class="{ active: enquirybtn }" type="submit" class="btn btn-submit">Submit</button>
                             </div>
                         </form>
                       </div>
