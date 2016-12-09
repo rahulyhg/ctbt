@@ -41,7 +41,6 @@
     }
 
     .hdp {
-        width: 315px;
         padding: 25px 0 4px;
         font-weight: 700;
         color: #0b358c;
@@ -304,6 +303,8 @@
     }
 }
 @media (max-width: 767px) {
+
+
     .maxwidth {
         width: 100% !important;
     }
@@ -1097,11 +1098,6 @@
     .paddactiv {
         padding-bottom: 11%;
     }
-
-    .footermenu {
-        background-image: none;
-    }
-
     .boxsado {
         box-shadow: #002b7f 0 2px 1px -1px;
     }
@@ -1144,7 +1140,6 @@
     }
 
     .hdp {
-        width: auto;
         letter-spacing: 1px;
     }
 

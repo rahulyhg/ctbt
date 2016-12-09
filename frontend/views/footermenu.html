@@ -1,42 +1,39 @@
-<div class="container"  ng-controller="footerCtrl">
-<!-- <div class="container" ng-controller="HomeCtrl"> -->
-    <div class="row mf" >
-        <div class="col-md-2 col-sm-6 col-xs-12">
+<div class="container" ng-controller="footerCtrl">
+    <!-- <div class="container" ng-controller="HomeCtrl"> -->
+    <div class="row mf">
+        <div class="col-md-3 col-sm-3 col-xs-12">
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">DESTINATIONS</a></strong>
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="activity">ACTIVITIES</a></strong>
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="whats-hot">WHAT'S HOT</a></strong>
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="whats-hot">ACCESSORIES</a></strong>
         </div>
-        <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-3 col-xs-12">
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="bachlerette">BACHELORETTE</a></strong>
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="highrollers">HIGHROLLERS</a></strong>
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="about">ABOUT US</a></strong>
             <!-- <strong class="stp Robotor"><a class="yellow_color" ui-sref="mediacorner">MEDIA CORNER</a></strong> -->
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="margleft">
-                <strong class="stp Robotor"><a class="yellow_color" ui-sref="contactus">CONTACT US</a></strong>
-                <p class="confoot Robotor"><img src="frontend/img/call.png"> &nbsp;+91 9321 77 9999</p>
-                <p class="confoot Robotor"><img src="frontend/img/email.png"> &nbsp;sales@thebachelortrip.com</p>
-            </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <strong class="stp Robotor"><a class="yellow_color" ui-sref="contactus">CONTACT US</a></strong>
+            <p class="confoot Robotor"><img src="frontend/img/call.png"> &nbsp;<a  href="tel:+919321779999" class="greydark_color">+91 9321 77 9999</a></p>
+            <p class="confoot Robotor"><img src="frontend/img/email.png"> &nbsp;<a href="mailto:sales@thebachelortrip.com" target="_blank" class="greydark_color">sales@thebachelortrip.com</a></p>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="margleft">
-                <strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">SUBSCRIBE TO US</a></strong>
-                <div class="stp Robotor">
-                    <form name="myFormFooter" ng-submit="subscribeSubmit(subscribeData)" ng-if="!subscribeComplete && !alreadySubscribed">
-                        <input type="email" placeholder="ENTER YOUR EMAIL ID" class="hideinput form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-email ng-touched" name="email" ng-model="subscribeData.email" required="" style="">
-                        <button class="submitgo" type="submit" name="button">GO</button>
-                    </form>
-                </div>
-                  <strong ng-if="subscribeComplete"  class="stp Robotor yellow_color">Thank You For Subscribing.</strong>
-                  <strong ng-if="alreadySubscribed"  class="stp Robotor yellow_color">Sorry, You have already Subscribed.</strong>
-                <div class="footermen">
-                    <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a href="https://href.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/thebachelortripin/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <!-- <a href="home" target="_blank"><i class="fa fa-pinterest-p"></i></a> -->
-                </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">SUBSCRIBE TO US</a></strong>
+            <div class="stp Robotor">
+                <form name="myFormFooter" ng-submit="subscribeSubmit(subscribeData)" ng-if="!subscribeComplete && !alreadySubscribed">
+                    <input type="email" placeholder="ENTER YOUR EMAIL ID" class="hideinput form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-email ng-touched" name="email" ng-model="subscribeData.email" required="" style="">
+                    <button class="submitgo" type="submit" name="button">GO</button>
+                </form>
+            </div>
+            <strong ng-if="subscribeComplete" class="stp Robotor yellow_color">Thank You For Subscribing.</strong>
+            <strong ng-if="alreadySubscribed" class="stp Robotor yellow_color">Sorry, You have already Subscribed.</strong>
+            <div class="footermen">
+                <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://href.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="home" target="_blank"><i class="fa fa-youtube"></i></a>
+                <a href="https://www.instagram.com/thebachelortripin/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+                <!-- <a href="home" target="_blank"><i class="fa fa-pinterest-p"></i></a> -->
             </div>
         </div>
     </div>

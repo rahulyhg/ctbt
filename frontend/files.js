@@ -23,6 +23,7 @@ module.exports = [
     'bower_components/angulartics/dist/angulartics.min.js',
     'bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
     'bower_components/angular-swiper/dist/angular-swiper.js',
+    'bower_components/angular-ui-select/dist/select.js',
   // Work files
   'frontend/js/app.js',
   'frontend/js/language.js',

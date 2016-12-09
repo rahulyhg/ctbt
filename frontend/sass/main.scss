@@ -6,6 +6,7 @@
 @import "../../bower_components/fancyBox/source/jquery.fancybox";
 @import "../../bower_components/swiper/dist/css/swiper.min";
 @import "../../bower_components/smart-app-banner/smart-app-banner";
+@import "../../bower_components/angular-ui-select/dist/select";
 /* Bootstrap Variables Goes Here */
 $brand-primary: #0d9dff !default;
 $brand-success: #84ce3c !default;
@@ -163,6 +164,15 @@ a:hover {
     color: #807b7b !important;
     text-decoration: none;
 }
+.greydark_color {
+    color: #dadada !important;
+}
+
+.greydark_color:hover {
+    color: #dadada !important;
+    text-decoration: none;
+}
+
 
 .grey_color2 {
     color: #bbb8b8 !important;
@@ -300,7 +310,7 @@ a {
 }
 
 .widht {
-    width: 703px !important;
+    width: 880px !important;
 }
 
 .destin {
@@ -390,7 +400,7 @@ a {
         height: inherit !important;
     }
 }
-
+.font20{    font-size: 20px;}
 .event-name {
     position: absolute;
     left: 50%;
@@ -554,7 +564,7 @@ option[value=""][disabled] {
     position: absolute;
     bottom: 0;
     background: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0));
-    height: 32%;
+    height: 20%;
     width: 100%;
 }
 
@@ -709,11 +719,10 @@ option[value=""][disabled] {
 //PATTAYA2 CSS START
 
 .cartsum {
-  font-size: 22px;
-color: #002B7F;
-padding: 36px 15%;
-background: #fdd116;
-
+    font-size: 22px;
+    color: #002B7F;
+    padding: 36px 15%;
+    background: #fdd116;
 }
 
 .mim1 {
@@ -791,9 +800,9 @@ background: #fdd116;
 
 .paddleft1 {
     display: inline-block;
-    padding: 10px 28px;
+    padding: 10px 23px;
     margin-left: 0 !important;
-    font-size: 22px;
+    font-size: 16px;
     border: none;
     outline: none;
 }
@@ -927,7 +936,7 @@ background: #fdd116;
         color: #000;
 
         li {
-            padding: 25px 0;
+            padding: 23px 0;
         }
     }
 }
@@ -954,7 +963,8 @@ background: #fdd116;
 }
 
 .hdp {
-    width: 280px;
+    text-align: right;
+    width: 248px;
     padding: 21px 0 4px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -975,6 +985,18 @@ background: #fdd116;
     margin-top: 2.5%;
     border-radius: 24px;
 
+    .btn-default:hover {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        outline: none !important;
+    }
+
+    .ui-select-placeholder {
+        color: #fdd116 !important;
+    }
+.inputtag{    width: 80%;
+    display: inline-block;}
+    .inputtag:hover{background: none !important}
     .form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -982,14 +1004,14 @@ background: #fdd116;
         background: transparent url("../img/Vector-Smart-Object.png") no-repeat right center;
         border-bottom: 4px solid #fdd116;
         font-size: 23px;
-        color: #fdd116;
+        color: #fdd116 !important;
         padding: 0 6px;
         height: auto;
         border-top: none;
         border-left: none;
         border-right: none;
         font-weight: bolder;
-        width: 80%;
+
         display: inline-block;
         background-size: 24px;
     }
@@ -1072,9 +1094,6 @@ option {
     padding-top: 15px !important;
 }
 
-.padd15px {
-    padding-bottom: 15px;
-}
 
 .spAb {
     width: 50%;
@@ -1412,7 +1431,7 @@ figure .links {
 }
 
 .stp {
-    padding: 0 0 7%;
+    padding: 0 0 5%;
     display: block;
     font-size: 18px;
     font-weight: 500;
@@ -1518,10 +1537,6 @@ figure .links {
 
 .footermenu {
     background: #000000;
-    background-image: url("../img/footer-img.png");
-    background-repeat: no-repeat;
-    background-position: 100% 100%;
-    background-size: 245px;
 }
 //destination css start
 
@@ -2058,7 +2073,7 @@ figure .links {
         text-align: center;
         font-size: 14px;
         background: #002b7f;
-        padding: 7px 0;
+        padding: 9px 0;
         transform: rotate(-90deg);
         -ms-transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
@@ -2263,7 +2278,7 @@ figure .links {
 
 .pattsocial {
     position: fixed;
-    right: -66px;
+    right: -49px;
     z-index: 10;
     top: 248px;
     height: 0;
@@ -2277,8 +2292,8 @@ figure .links {
         -webkit-transform: rotate(-90deg);
 
         .fontsizep {
-            padding: 5px 19px;
-            font-size: 20px;
+            padding: 3px 10px;
+            font-size: 16px;
         }
     }
 }
@@ -2316,7 +2331,7 @@ figure .links {
 
 .paddmain {
     padding-bottom: 15px;
-    box-shadow: #002b7f 4px 0 2px 0;
+    box-shadow: #002b7f 0 0 2px 0;
 }
 
 .panel-group {
@@ -2537,13 +2552,13 @@ figure .links {
     margin-right: 15px;
     margin-top: -66px;
 }
-/* when hiding the thing */
-.ng-hide-add {
+/* when hiding the thing */eqform
+.cartadd .ng-hide-add,.eqform .ng-hide-add {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
 }
 /* when showing the thing */
-.ng-hide-remove {
+.cartadd .ng-hide-remove,.eqform .ng-hide-remove{
     -webkit-animation: 0.5s flipInX ease;
     animation: 0.5s flipInX ease;
 }
@@ -2850,13 +2865,13 @@ input[type="time"].form-control {
 
     .mycartme {
         position: fixed;
-        right: -48px;
+        right: -35px;
         z-index: 10;
-        top: 430px;
+        top: 419px;
         height: 0;
 
         button {
-            box-shadow: rgb(0, 43, 127) 0 0 1px 0;
+            box-shadow: rgb(0, 43, 127) 0 0 2px 0;
             border-bottom: 0;
             -webkit-transform: rotate(-90deg);
         }
@@ -3047,6 +3062,10 @@ input[type="time"].form-control {
     text-transform: capitalize;
 }
 
+.ui-select-bootstrap .ui-select-toggle > .caret {
+    display: none;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
     background-color: #002b7f !important;
@@ -3056,7 +3075,7 @@ input[type="time"].form-control {
     color: #fdd116 !important;
 }
 
-.dropdown:hover {
+.tp .dropdown:hover {
     background-color: #002b7f !important;
 }
 
@@ -3084,10 +3103,6 @@ input[type="time"].form-control {
         font-size: 17px;
         margin: 0 2px;
     }
-}
-
-.margleft {
-    margin-left: 15%;
 }
 
 .contitle {
@@ -3217,6 +3232,9 @@ input[type=number]::-webkit-outer-spin-button {
     .frammargin {
         margin: 27% 40%;
     }
+}
+.padd15px {
+    padding-bottom: 15px;
 }
 /* Start writing sass here */
 @import "fancybox-override";

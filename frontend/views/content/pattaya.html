@@ -34,7 +34,7 @@
                     <div class="margincheck">
                         <div class="row checkboxrow Robotor bluecol yellow_back_color">
                             <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                <p>Customise your trip by adding to cart</p>
+                                <p>Customise your trip</p>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
         <div class="rotat">
             <div class="row hei">
                 <div class="show-div" ng-show="enquirybtn">
-                  <div class="" ng-if="!submitEnq">
+                  <!-- <div class=""> -->
                     <div class="col-md-3 col-sm-3">
                         <div class="pattsocial2">
                             <ul class="list-group socialpatt yellow_back_lightcolor ">
@@ -179,7 +179,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
+                    <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform"  ng-if="!submitEnq">
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData,myForm)">
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="hideinput form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
@@ -226,7 +226,7 @@
                             </div>
                         </form>
                       </div>
-                    </div>
+                    <!-- </div> -->
                     <div class="cartsum" ng-if="submitEnq">Thank you for submitting the details. We'll get in touch with you soon.</div>
                 </div>
             </div>

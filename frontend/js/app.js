@@ -67,7 +67,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'MediaCornerCtrl'
         })
-    
+
         .state('tbtstatic', {
             url: "/tbtstatic",
             templateUrl: "frontend/views/template.html",

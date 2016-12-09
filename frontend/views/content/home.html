@@ -4,10 +4,10 @@
         <li>
             <!-- <div class="item">
                 <figure class=" ng-scope"> -->
-                    <!-- <a href={{s.url}} target="_blank"> -->
-                        <img class="img-responsive " ng-src="{{s.image|serverimage}}">
-                    <!-- </a> -->
-                <!-- </figure>
+            <!-- <a href={{s.url}} target="_blank"> -->
+            <img class="img-responsive " ng-src="{{s.image|serverimage}}">
+            <!-- </a> -->
+            <!-- </figure>
             </div> -->
         </li>
     </flex-slider>
@@ -20,7 +20,7 @@
             <div class="item">
                 <figure class=" ng-scope">
                     <!-- <a href={{s.url}} target="_blank"> -->
-                        <img class="img-responsive " ng-src="{{s.image2|serverimage}}">
+                    <img class="img-responsive " ng-src="{{s.image2|serverimage}}">
                     <!-- </a> -->
                 </figure>
             </div>
@@ -49,7 +49,7 @@
                 <div class="col-md-2 col-sm-2 col-xs-6  padng0" ng-repeat="x in popularDestination | limitTo : 4">
                     <div class="eventshome">
                         <a ui-sref="pattaya({id:x._id})">
-                            <img ng-src="{{x.image|serverimage:544:545}}" class="img-responsive"alt="">
+                            <img ng-src="{{x.image|serverimage:544:545}}" class="img-responsive" alt="">
                             <div class="shadow-down"></div>
                             <div class="event-name">
                                 <span>{{x.name}}</span>
@@ -112,9 +112,17 @@
                     <img class="imgab" src="frontend/img/6.png">
                     <form class="himg2" ng-submit="goto(formdata)" ng-init="abc">
                         <label class="pregular labsec">I want to go to</label>
-                        <select class="form-control plan-dark-bold " ng-model="selected_id" ng-options="o._id as o.name for o in dropDown" ng-change="selectDesti(selected_id);">
+                        <fieldset class="inputtag">
+                            <ui-select ng-model="ctrl.person.selected" class="plan-dark-bold ">
+                                <ui-select-match  placeholder="Select Destination"></ui-select-match>
+                                <ui-select-choices repeat="item in ctrl.people | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </fieldset>
+                        <!-- <select class="form-control plan-dark-bold " ng-model="selected_id" ng-options="o._id as o.name for o in dropDown" ng-change="selectDesti(selected_id);">
                             <option  class="homescrollbar" value="">Select Destination</option>
-                          </select>
+                          </select> -->
                         <button type="submit" class="gobtn" ng-click="goOn(selected_id)">GO</button>
                     </form>
                 </div>
@@ -125,17 +133,18 @@
 <!--  END FOR CUSTOMISATION-->
 <!-- START ABOUT -->
 <div class="aboutin">
-  <div class="imAb">  <img class="img-responsive " src="frontend/img/wd.png"></div>
+    <div class="imAb"> <img class="img-responsive " src="frontend/img/wd.png"></div>
 
-    <div class="spAb"><h1 class="theboldfont">ABOUT US</h1>
-      <div class="ain">
-         <h3 class="whit_color theboldfont margbotom">THERE ARE SOME EXPERIENCES THAT COME ONCE IN YOUR LIFETIME.</h3>
-        <p class="bluecol Robotor">And your <strong class="abinfo pregular bluecol">Bachelor Trip</strong> is definitely one of them. We're the first Indian company that taken it upon itself to give you the best Bachelor Trip plan. Planning your trip with us gives
-            you access to parties across the <strong class="abinfo pregular bluecol">globe</strong>, crazy adrenaline pumping adventures you've been wanting to try out and some of naughty affairs you wouldn't mind indulging in. The best of experiences offered globally, handpicked and
-            ready to explore, just for you. So sit back, relax and let the professionals handle your <strong class="abinfo pregular bluecol">Bachelor Trip planning!</strong></p>
-          </div>
-      <P class="sado"><a  class="whit_color" ui-sref="about" >KNOW THE TEAM</a></P>
-   </div>
+    <div class="spAb">
+        <h1 class="theboldfont">ABOUT US</h1>
+        <div class="ain">
+            <h3 class="whit_color theboldfont margbotom">THERE ARE SOME EXPERIENCES THAT COME ONCE IN YOUR LIFETIME.</h3>
+            <p class="bluecol Robotor">And your <strong class="abinfo pregular bluecol">Bachelor Trip</strong> is definitely one of them. We're the first Indian company that taken it upon itself to give you the best Bachelor Trip plan. Planning your trip with us gives you access
+                to parties across the <strong class="abinfo pregular bluecol">globe</strong>, crazy adrenaline pumping adventures you've been wanting to try out and some of naughty affairs you wouldn't mind indulging in. The best of experiences offered
+                globally, handpicked and ready to explore, just for you. So sit back, relax and let the professionals handle your <strong class="abinfo pregular bluecol">Bachelor Trip planning!</strong></p>
+        </div>
+        <P class="sado"><a class="whit_color" ui-sref="about">KNOW THE TEAM</a></P>
+    </div>
 </div>
 <!-- END ABOUT -->
 <!-- START SLIDER  -->
