@@ -33,8 +33,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
 
-
-
         NavigationService.HomeSlider(function(data) {
             $scope.mySlidestop = data.data.HomeSlider;
 
