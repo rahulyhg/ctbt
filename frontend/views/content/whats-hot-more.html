@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="row marg11">
-                    <a class="col-md-3 col-sm-4 col-xs-6 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="" href="{{data.image|serverimage}}">
+                    <a class="col-md-3 col-sm-4 col-xs-12 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="">
                         <img class="img-responsive " src="{{data.image|serverimage}}">
                     </a>
                 </div>
@@ -52,7 +52,21 @@
         </div>
     </div>
 </div>
-
+<div class=" wtsocial ">
+    <div class="social1">
+        <div class="Robotor" ng-click="addTocartOnWhatsHot(myid,'WhatsHot')">
+            <a class="pregular yellow_color">
+                <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistWhatsHotMore(myid)"></i>
+                <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistWhatsHotMore(myid)"></i> ADD TO CART</a>
+        </div>
+    </div>
+    <ul class="ulsocial2 list-group">
+        <li class=""><a class="fontsiz yellow_color pregular"><i class="fa fa-share-alt"></i></a></li>
+        <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-facebook"></i></a></li>
+        <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-twitter"></i></a></li>
+        <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-envelope"></i></a></li>
+    </ul>
+</div>
 <!-- SECOND IMG -->
 <div class="container ">
     <div class="wtsecond">
@@ -63,35 +77,24 @@
                 </div>
             </div>
         </div>
-        <div class="pull-right wtsocial">
-            <div class="col-md-12 social1">
-                <ul class="list-group socialgr">
-                    <li class="Robotor" ng-click="addTocartOnWhatsHot(myid,'WhatsHot')">
-                        <a class="pregular yellow_color">
-                            <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistWhatsHotMore(myid)"></i>
-                            <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistWhatsHotMore(myid)"></i> ADD TO CART</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-12 social2">
-                <ul class="ulsocial2 list-group">
-                    <li class=""><a class="fontsiz yellow_color pregular"><i class="fa fa-share-alt"></i></a></li>
-                    <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-facebook"></i></a></li>
-                    <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-twitter"></i></a></li>
-                    <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-envelope"></i></a></li>
-                </ul>
-            </div>
-        </div>
     </div>
 </div>
+
 
 <!-- END SELECTION  -->
 <!--  START TABLE CHART -->
 <div class="container ">
-    <div class="col-md-12 wtlast">
+    <div class="wtlast">
         <div class="wtlast2">
             <img class="img-responsive" ng-src="{{getOneWhatsHot.tableImage | serverimage}}">
         </div>
     </div>
+</div>
+<div class="container ">
+<div class="Robotor bluecol_back secondcart " ng-click="addTocartOnWhatsHot(myid,'WhatsHot')">
+    <a class="pregular yellow_color">
+        <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistWhatsHotMore(myid)"></i>
+        <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistWhatsHotMore(myid)"></i> ADD TO CART</a>
+      </div>
 </div>
 <!-- END TABLE CHART  -->

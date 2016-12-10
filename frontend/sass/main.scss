@@ -164,6 +164,7 @@ a:hover {
     color: #807b7b !important;
     text-decoration: none;
 }
+
 .greydark_color {
     color: #dadada !important;
 }
@@ -172,7 +173,6 @@ a:hover {
     color: #dadada !important;
     text-decoration: none;
 }
-
 
 .grey_color2 {
     color: #bbb8b8 !important;
@@ -400,7 +400,11 @@ a {
         height: inherit !important;
     }
 }
-.font20{    font-size: 20px;}
+
+.font20 {
+    font-size: 20px;
+}
+
 .event-name {
     position: absolute;
     left: 50%;
@@ -808,8 +812,7 @@ option[value=""][disabled] {
 }
 
 .patayasocial {
-    margin-top: -80% !important;
-    margin-right: -11.4% !important;
+    right: 5% !important;
 }
 
 .patayasocial2 {
@@ -922,7 +925,7 @@ option[value=""][disabled] {
 
 .hbc {
     text-align: center;
-    border: none !important;
+    border-color: rgba(0, 43, 127, 0.19) !important;
     background-color: #fdd116 !important;
 
     .rit {
@@ -987,16 +990,23 @@ option[value=""][disabled] {
 
     .btn-default:hover {
         background-color: transparent !important;
-        border-color: transparent !important;
+        // border-color: transparent !important;
         outline: none !important;
     }
 
     .ui-select-placeholder {
         color: #fdd116 !important;
     }
-.inputtag{    width: 80%;
-    display: inline-block;}
-    .inputtag:hover{background: none !important}
+
+    .inputtag {
+        display: inline;
+        width: 81%;
+    }
+
+    .inputtag:hover {
+        background: none !important;
+    }
+
     .form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -1011,12 +1021,12 @@ option[value=""][disabled] {
         border-left: none;
         border-right: none;
         font-weight: bolder;
-
         display: inline-block;
         background-size: 24px;
     }
 
     .gobtn {
+        width: 15%;
         padding: 0;
         font-size: 26px;
         font-family: 'Robotor';
@@ -1093,7 +1103,6 @@ option {
     padding-bottom: 30px !important;
     padding-top: 15px !important;
 }
-
 
 .spAb {
     width: 50%;
@@ -1261,6 +1270,7 @@ option {
 .labsec {
     font-weight: 500 !important;
     font-size: 22px;
+    display: block;
 }
 
 .p1 {
@@ -1439,7 +1449,7 @@ figure .links {
     .form-control {
         height: 29px !important;
         font-weight: 700 !important;
-        width: auto !important;
+        width: 80% !important;
     }
 }
 
@@ -1589,7 +1599,7 @@ figure .links {
 }
 
 .m1 {
-    margin-top: -1px;
+    margin-top: -2px;
 }
 
 .lodm {
@@ -1874,10 +1884,6 @@ figure .links {
     }
 }
 
-.headbox {
-    box-shadow: #002b7f 0 0 1px 0;
-}
-
 .wts .flex-control-nav {
     width: 25% !important;
     position: absolute;
@@ -2010,8 +2016,7 @@ figure .links {
 }
 
 .wtlast {
-    padding-bottom: 15%;
-    margin: -5% 0;
+    margin: -5% 0 15%;
     background: rgba(255, 255, 255, 0);
 
     .wtlast2 {
@@ -2048,51 +2053,44 @@ figure .links {
 }
 
 .wtsocial {
-    width: 4%;
-    margin-top: -33%;
-    margin-right: -3.7%;
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    bottom: -24%;
+    height: 0;
 
     .socialimg {
         transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
         display: inline-block;
-        width: 29px;
-        padding-right: 7px;
+        font-size: 18px;
     }
 
     .social1 {
-        height: 98px;
-    }
-
-    .socialgr {
         border-radius: 4px;
         list-style: none;
         width: 153px;
-        margin-left: -70px;
+        margin-left: -59px;
         text-align: center;
         font-size: 14px;
         background: #002b7f;
-        padding: 9px 0;
+        padding: 10px 0;
         transform: rotate(-90deg);
         -ms-transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
     }
 
-    .social2 {
-        margin-left: -12px;
-        margin-top: 22px;
-    }
-
     .ulsocial2 {
+        margin-top: 88px;
         border-radius: 4px;
         list-style: none;
         width: 39px;
-        margin: 0;
         text-align: center;
         font-size: 13px;
         background: #002b7f;
         padding: 16px 0;
+        display: inline-block;
 
         .fontsiz {
             font-size: 23px;
@@ -2552,13 +2550,23 @@ figure .links {
     margin-right: 15px;
     margin-top: -66px;
 }
-/* when hiding the thing */eqform
-.cartadd .ng-hide-add,.eqform .ng-hide-add {
+/* when hiding the thing */
+eqform .cartadd .ng-hide-add {
+    -webkit-animation: 0.5s lightSpeedOut ease;
+    animation: 0.5s lightSpeedOut ease;
+}
+
+.eqform .ng-hide-add {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
 }
 /* when showing the thing */
-.cartadd .ng-hide-remove,.eqform .ng-hide-remove{
+.cartadd .ng-hide-remove {
+    -webkit-animation: 0.5s flipInX ease;
+    animation: 0.5s flipInX ease;
+}
+
+.eqform .ng-hide-remove {
     -webkit-animation: 0.5s flipInX ease;
     animation: 0.5s flipInX ease;
 }
@@ -3083,6 +3091,7 @@ input[type="time"].form-control {
     font-size: 15px;
     color: #dadada;
     word-spacing: 2px;
+    word-break: break-all;
 
     img {
         width: 18px;
@@ -3095,12 +3104,12 @@ input[type="time"].form-control {
     i {
         background-color: white;
         border-radius: 100%;
-        padding: 7px 0;
+        padding: 6px 0;
         height: 28px;
         width: 28px;
         text-align: center;
         color: black;
-        font-size: 17px;
+        font-size: 18px;
         margin: 0 2px;
     }
 }
@@ -3139,6 +3148,7 @@ input[type="time"].form-control {
     background: #fdd116!important;
     border: none!important;
     color: #002b7f!important;
+    width: 17%;
 }
 
 .flex-direction-nav a {
@@ -3228,14 +3238,35 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 9;
     left: 0;
     bottom: 0;
+    cursor: pointer;
 
     .frammargin {
         margin: 27% 40%;
     }
 }
+
 .padd15px {
     padding-bottom: 15px;
 }
+
+.padleft {
+    padding-left: 0 !important;
+}
+
+.padright {
+    padding-right: 0 !important;
+}
+
+.secondcart {
+    display: inline-block;
+    padding: 7px 26px;
+
+    i {
+        font-size: 17px;
+        padding-right: 7px;
+    }
+}
+.ytp-chrome-top,.ytp-share-button-visible{display: none !important}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";

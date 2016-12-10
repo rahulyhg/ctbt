@@ -8,9 +8,9 @@
                     <h1 class="pattayah1 theboldfont yellow_color">{{getPattaya2.title1}}</h1>
                     <h1 class="loadh1 pattayah1 theboldfont">{{getPattaya2.title2}}</h1>
 
-                      <p class=" pattp1">({{getPattaya2.duration}})</p>
-                        <div class="packw">
-                      <span class=" pattp2 yellow_back_lightcolor bluecol">
+                    <p class=" pattp1">({{getPattaya2.duration}})</p>
+                    <div class="packw">
+                        <span class=" pattp2 yellow_back_lightcolor bluecol">
                         <p class="span">{{getPattaya2.price}}</p>
                       </span>
                     </div>
@@ -18,6 +18,21 @@
             </div>
         </figcaption>
     </figure>
+</div>
+<div class=" wtsocial patayasocial">
+    <div class="social1">
+        <div class="Robotor" ng-click="addTocartOnPackagePattaya2(myIdPattaya2,'Package')">
+            <a class="pregular yellow_color">
+                <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistPackagePattaya2(myIdPattaya2)"></i>
+                <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistPackagePattaya2(myIdPattaya2)"></i> ADD TO CART</a>
+        </div>
+    </div>
+    <ul class="ulsocial2 list-group">
+        <li class=""><a class="fontsiz yellow_color pregular"><i class="fa fa-share-alt"></i></a></li>
+        <li class="ulsocial2i "><a href="https://www.facebook.com/thebachelortrip/" target="_blank" class="bluecol pregular"><i class="fa fa-facebook"></i></a></li>
+        <li class="ulsocial2i "><a href="https://twitter.com/TheBachelorTrip" target="_blank" class="bluecol pregular"><i class="fa fa-twitter"></i></a></li>
+        <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-envelope"></i></a></li>
+    </ul>
 </div>
 <!-- END PACKEGE -->
 <div class="container">
@@ -39,26 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="pull-right wtsocial patayasocial">
-                    <div class="col-md-12 social1">
-                        <ul class="list-group socialgr">
-                            <li class="Robotor" ng-click="addTocartOnPackagePattaya2(myIdPattaya2,'Package')">
-                                <a class="pregular yellow_color" >
-                                    <i class="color-white fa fa-shopping-cart socialimg" ng-if="!isInWishlistPackagePattaya2(myIdPattaya2)"></i>
-                                    <i class="yellow_color fa fa-shopping-cart socialimg" ng-if="isInWishlistPackagePattaya2(myIdPattaya2)"></i>
-                                    ADD TO CART</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-12 social2">
-                        <ul class="ulsocial2 list-group">
-                            <li class=""><a class="fontsiz yellow_color pregular"><i class="fa fa-share-alt"></i></a></li>
-                            <li class="ulsocial2i "><a  href="https://www.facebook.com/thebachelortrip/" target="_blank" class="bluecol pregular"><i class="fa fa-facebook"></i></a></li>
-                            <li class="ulsocial2i "><a href="https://twitter.com/TheBachelorTrip" target="_blank" class="bluecol pregular"><i class="fa fa-twitter"></i></a></li>
-                            <li class="ulsocial2i "><a class="bluecol pregular"><i class="fa fa-envelope"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -141,7 +137,7 @@
         </div> -->
         <div class="pattsocial " ng-hide="enquirybtn || mycart10">
             <ul class="list-group socialpatt yellow_back_lightcolor">
-                <li ng-click="headerCartOpen(); enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }"  class="Roboto black fontsizep">ENQUIRE NOW
+                <li ng-click="headerCartOpen(); enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }" class="Roboto black fontsizep">ENQUIRE NOW
                 </li>
             </ul>
         </div>

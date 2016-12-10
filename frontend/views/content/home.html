@@ -31,8 +31,10 @@
 <!-- START POPULAR -->
 <div class="container display">
     <div class="row ">
-        <p class=" disp pregular" ui-sref="destination">POPULAR</p>
-        <p class="disp2 theboldfont" ui-sref="destination">DESTIN ATIONS</p>
+        <div class="col-xs-12">
+            <p class=" disp pregular" ui-sref="destination">POPULAR</p>
+            <p class="disp2 theboldfont" ui-sref="destination">DESTIN ATIONS</p>
+        </div>
     </div>
 </div>
 <div class="m8">
@@ -97,11 +99,25 @@
 </div>
 <div class="container display2">
     <div class="row ">
-        <p class=" disp pregular" ui-sref="activity">POPULAR</p>
-        <p class="disp2 theboldfont" ui-sref="activity">ATTRA CTIONS</p>
+        <div class="col-xs-12">
+            <p class=" disp pregular" ui-sref="activity">POPULAR</p>
+            <p class="disp2 theboldfont" ui-sref="activity">ATTRA CTIONS</p>
+        </div>
     </div>
 </div>
 <!-- END POPULAR -->
+<div class="whatsmain pad10">
+    <div class="container ">
+        <div class="col-md-12 margin3">
+            <div class="whatsmarg4">
+                <!---START VIDEO FRAME ---->
+                <div class="pad15pat embed-responsive embed-responsive-16by9">
+                    <iframe  class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/4dejw2EEKRo"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- START SELECT FOR CUSTOMISATION -->
 <div class="padd paddup">
     <figure class="m2">
@@ -114,7 +130,7 @@
                         <label class="pregular labsec">I want to go to</label>
                         <fieldset class="inputtag">
                             <ui-select ng-model="ctrl.person.selected" class="plan-dark-bold ">
-                                <ui-select-match  placeholder="Select Destination"></ui-select-match>
+                                <ui-select-match placeholder="Select Destination"></ui-select-match>
                                 <ui-select-choices repeat="item in ctrl.people | filter: $select.search">
                                     <div ng-bind-html="item.name | highlight: $select.search"></div>
                                 </ui-select-choices>
@@ -149,7 +165,7 @@
 <!-- END ABOUT -->
 <!-- START SLIDER  -->
 <div class="padd padddown homeslid">
-    <flex-slider flex-slide="data in mySlidesss track by $index" slideshow-speed="2500" slideshow="true" animation-speed="1000" class="m1 carousel">
+    <flex-slider flex-slide="data in mySlidesss track by $index" slideshow-speed="2500" slideshow="true" animation-speed="1000" class="carousel">
         <li>
             <div class="item">
                 <figure class="mim-home ng-scope">

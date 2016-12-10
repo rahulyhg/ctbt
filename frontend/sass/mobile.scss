@@ -52,6 +52,10 @@
     }
 }
 @media (max-width: 1000px) {
+    .stp {
+        font-size: 16px;
+    }
+
     .margres {
         margin-top: 104px;
     }
@@ -155,12 +159,17 @@
     .margleft {
         margin-left: 0;
     }
+
+    .stp .form-control {
+        font-size: 10px;
+    }
 }
 @media (max-width: 921px) {
-  .maxht {
-    max-height: 100% !important;
-    max-width: 100%;
-}
+    .maxht {
+        max-height: 100% !important;
+        max-width: 100%;
+    }
+
     .category {
         margin: 0;
     }
@@ -273,10 +282,6 @@
         margin-bottom: 4%;
     }
 
-    .wtsocial {
-        margin-top: -44%;
-    }
-
     .figure922 {
         margin-top: 111px;
     }
@@ -303,7 +308,38 @@
     }
 }
 @media (max-width: 767px) {
+    .tp .dropdown:hover {
+        background-color: #fdd116 !important;
+    }
 
+    .whatsmain .pading0 {
+        padding: 5px !important;
+    }
+
+    .wtsocial {
+        left: 95%;
+        bottom: 0;
+    }
+
+    .wtsocial .social1 {
+        width: 116px;
+        margin-left: -41px;
+        text-align: center;
+        font-size: 11px;
+        padding: 7px 0;
+    }
+
+    .shadow-down {
+        height: 13%;
+    }
+
+    .event-name span {
+        font-size: 23px;
+    }
+
+    .desti .flex-control-nav {
+        bottom: -9px !important;
+    }
 
     .maxwidth {
         width: 100% !important;
@@ -559,15 +595,10 @@
         font-size: 10px;
     }
 
-    .wtsocial {
-        margin-top: -77%;
-        margin-right: 5px;
-    }
-
     .wtsocial .socialgr {
         margin-bottom: 0;
         margin-left: -44px;
-        padding: 5px 0;
+        padding: 10px 0;
         width: 98px;
         font-size: 9px;
     }
@@ -598,7 +629,6 @@
     .wtsocial .socialimg {
         width: 16px;
         padding-right: 0;
-        padding-top: 13px;
     }
 
     .select-main {
@@ -611,7 +641,6 @@
 
     .wtintro {
         font-size: 17px;
-        text-align: center;
     }
 
     .whatsmain .whatsmarg4 .whatspadd3 {
@@ -841,12 +870,6 @@
         margin: 0 0 15px !important;
     }
 
-    .footb p,
-    .footb2 p,
-    .footerfom {
-        text-align: center;
-    }
-
     .footb2 p {
         font-size: 12px;
     }
@@ -1049,8 +1072,7 @@
     }
 
     .patayasocial {
-        margin-top: -363% !important;
-        margin-right: -5.4% !important;
+        left: 91% !important;
     }
 
     .pattayevents .borderhr {
@@ -1098,6 +1120,7 @@
     .paddactiv {
         padding-bottom: 11%;
     }
+
     .boxsado {
         box-shadow: #002b7f 0 2px 1px -1px;
     }
@@ -1107,14 +1130,32 @@
         top: 150px;
         height: auto;
     }
+
+    .footermen {
+        margin: 0 !important;
+        padding: 15px 0;
+    }
 }
 @media (max-width: 480px) {
+    .wtsocial {
+        left: 89%;
+    }
+
+    .cartpop {
+        font-size: 20px;
+    }
+
+    .cartdis {
+        padding: 20px 5px;
+        font-size: 16px;
+    }
+
     .cartsum {
         font-size: 24px;
     }
 
     .flipDiv figure p {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .cartadd {
@@ -1251,6 +1292,32 @@
     .wtintro {
         font-size: 12px;
     }
+
+    .homeslidr .flex-control-nav {
+        bottom: 32px !important;
+    }
+
+    .sado {
+        font-size: 9px;
+        padding: 8px 20px;
+    }
+
+    .stp .form-control {
+        font-size: 15px;
+    }
+
+    .shadow-down {
+        height: 22%;
+    }
+
+    .checkboxrow {
+        padding: 1% 2% 19%;
+        text-align: center;
+    }
+
+    .patayasocial {
+        left: 87% !important;
+    }
 }
 @media (max-width: 320px) {
     .cartsum {
@@ -1281,7 +1348,6 @@
         border-bottom: 1px solid #FDD116;
         background-size: 11px;
         font-size: 9px;
-        width: 79%;
         padding: 0;
     }
 

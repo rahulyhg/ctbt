@@ -34,15 +34,15 @@
                     <div class="margincheck">
                         <div class="row checkboxrow Robotor bluecol yellow_back_color">
                             <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                <p>Customise your trip</p>
+                                <p>Explore our Ready Packages made by our EXPERTS!!</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row pattmarg3">
-                    <div class="col-md-3 col-sm-3 col-xs-6 pading0" ng-repeat="data in getPackage">
+                    <div class="col-md-3 col-sm-3 col-xs-12 pading0" ng-repeat="data in getPackage">
                         <div class="events">
-                            <img ng-src="{{data.image |serverimage:544:545}}" alt="" class="img-responsive">
+                            <img ng-src="{{data.image |serverimage:544:545}}" alt="" class="maxwidth img-responsive">
                             <div class="cart-sec">
                                 <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
                                   <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
@@ -121,11 +121,11 @@
                     </div>
                 </div>
                 <div class="row pattmarg3" ng-hide="noResult">
-                    <div class="col-md-3 col-sm-4 col-xs-6 pading0" ng-repeat="data in getActivity">
+                    <div class="col-md-3 col-sm-4 col-xs-12 pading0" ng-repeat="data in getActivity">
                         <div class="flipDiv">
                             <figure>
                                 <div class="front">
-                                    <img ng-src="{{data.image1 |serverimage:544:545}}" alt="" class="img-responsive" ng-click="addTocart(data)">
+                                    <img ng-src="{{data.image1 |serverimage:544:545}}" alt="" class="maxwidth img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
                                         <button class="cart uppercase"  ng-click="addTocartOnActivity(data._id,data.typeCart);">
                                           <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
