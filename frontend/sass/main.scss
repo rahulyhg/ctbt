@@ -1160,7 +1160,7 @@ option {
 }
 
 .m8 {
-    margin: 8% 0;
+    margin: 6% 0;
 
     .mr {
         cursor: pointer;
@@ -3266,7 +3266,34 @@ input[type=number]::-webkit-outer-spin-button {
         padding-right: 7px;
     }
 }
-.ytp-chrome-top,.ytp-share-button-visible{display: none !important}
+
+.ytp-chrome-top,
+.ytp-share-button-visible {
+    display: none !important;
+}
+
+.hompad8 {
+    margin: 0 8%;
+}
+
+.rightimg {
+    position: absolute;
+    z-index: 9;
+    right: 0;
+    top: 0;
+    width: 14%;
+}
+
+.pad15 {
+    padding: 12px;
+}
+
+.leftimg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 14%;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
