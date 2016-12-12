@@ -3295,6 +3295,9 @@ input[type=number]::-webkit-outer-spin-button {
 .pad15 {
     padding: 12px;
 }
+.himg2 .dropdown:hover {
+    background-color: transparent !important;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
