@@ -45,7 +45,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("$scope.mySlides", $scope.mySlidesss);
         });
         $scope.imDisable = false;
-        $scope.goOn = function(id) {
+        $scope.forSearch = function(id){
+          $scope.thisId = id;
+        }
+        $scope.goOn = function($scope.thisId) {
+          console.log('idd',id);
             if (id == undefined) {
                 $scope.imDisable = true;
             } else {
