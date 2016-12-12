@@ -308,6 +308,9 @@
     }
 }
 @media (max-width: 767px) {
+  .homeslidr .flex-control-nav {
+    bottom: 62px !important;
+  }
     .tp .dropdown:hover {
         background-color: #fdd116 !important;
     }

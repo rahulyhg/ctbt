@@ -2157,7 +2157,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.allEventsMore = false;
         $.fancybox.close(true);
         NavigationService.getAllDest(function(data) {
-            $scope.onlyDest = _.take(data.data.allDestination, 45);
+            $scope.onlyDest = _.take(data.data.allDestination, 49);
             $scope.onlyDest = _.chunk($scope.onlyDest, 10);
             console.log('data.data.allDestination', $scope.onlyDest);
             $scope.allDest = data.data.popularDestination;
