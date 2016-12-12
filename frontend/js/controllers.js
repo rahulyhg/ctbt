@@ -40,15 +40,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.popularAttraction = data.data.popularAttraction;
             $scope.dropDown = data.data.DestinationDropdown;
+            console.log('$scope.dropDown',$scope.dropDown);
 
             $scope.mySlidesss = data.data.whatsHotBanner;
             console.log("$scope.mySlides", $scope.mySlidesss);
         });
         $scope.imDisable = false;
         $scope.forSearch = function(id){
+          console.log('forSearchID',id);
           $scope.thisId = id;
         }
-        $scope.goOn = function($scope.thisId) {
+        $scope.goOn = function(id) {
           console.log('idd',id);
             if (id == undefined) {
                 $scope.imDisable = true;
