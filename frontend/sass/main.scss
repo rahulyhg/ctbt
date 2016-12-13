@@ -3373,8 +3373,33 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .autoplayv .modal-dialog {
-    width: 700px;
+    width: 100% !important;
     margin: 100px auto;
+}
+
+.paddd5 {
+  position: absolute;
+bottom: 50px;
+left: 44%;
+
+    a {
+        font-weight: 600;
+        font-size: 16px;
+        color: #fff;
+        background-image: url("../img/btn-bg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding: 13px 31px;
+        width: 199px;
+    }
+}
+
+.autoplayv .embed-responsive-16by9 {
+    padding: 340px !important;
+}
+
+.autoplayv .modal-dialog {
+    margin: 0 !important;
 }
 /* Start writing sass here */
 @import "fancybox-override";

@@ -26,11 +26,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 animation: $scope.animationsEnabled,
                 templateUrl: 'frontend/views/modal/videoplay.html',
                 // controller: 'HomeCtrl',
-
                 windowClass: 'autoplayv',
                 scope: $scope
             });
         };
+
         $scope.$on('$viewContentLoaded', function() {
             if (!$.jStorage.get('FirstTime')) {
                 $.jStorage.set('FirstTime', {
