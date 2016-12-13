@@ -3301,6 +3301,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .himg2 .open > .dropdown-menu {
+      min-width: 148px !important;
     display: block;
     background: #fdd116 !important;
 }
@@ -3358,6 +3359,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .pad5 {
     padding: 5% 0;
+}
+
+.paddup figure {
+    overflow: inherit !important;
 }
 /* Start writing sass here */
 @import "fancybox-override";
