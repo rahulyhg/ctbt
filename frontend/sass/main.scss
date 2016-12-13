@@ -347,7 +347,7 @@ a {
     }
 }
 
-.dropdown-menu {
+.tp .dropdown-menu {
     border: 1px solid rgb(0, 43, 127);
 }
 
@@ -3295,11 +3295,69 @@ input[type=number]::-webkit-outer-spin-button {
 .pad15 {
     padding: 12px;
 }
+
 .himg2 .dropdown:hover {
     background-color: transparent !important;
 }
-.pamor{    padding: 7px 51px !important;}
-.pad5{    padding: 5% 0;}
+
+.himg2 .open > .dropdown-menu {
+    display: block;
+    background: #fdd116 !important;
+}
+
+.ui-select-choices-row:hover {
+    background-color: transparent !important;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a:focus,
+.ui-select-bootstrap .ui-select-choices-row > a:hover {
+    text-decoration: none;
+    color: #262626;
+    background-color: #fdd116;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a:focus,
+.ui-select-bootstrap .ui-select-choices-row > a:hover {
+    color: #ffffff !important;
+    background-color: #062563 !important;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > a {
+    color: #fff !important;
+    background-color: #0e306d !important;
+}
+
+.ui-select-bootstrap > .ui-select-choices,
+.ui-select-bootstrap > .ui-select-no-choice {
+    margin-top: -2px !important;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a {
+    font-weight: bolder !important;
+    color: #002b7f !important;
+}
+
+.btn-default-focus {
+    outline: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.himg2 .dropdown-menu a {
+    border-bottom: 1px solid white !important;
+}
+
+.pamor {
+    padding: 7px 51px !important;
+}
+
+.himg2 .dropdown:hover .dropdown-menu {
+    background-color: #fdd116 !important;
+}
+
+.pad5 {
+    padding: 5% 0;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";

@@ -308,9 +308,10 @@
     }
 }
 @media (max-width: 767px) {
-  .homeslidr .flex-control-nav {
-    bottom: 62px !important;
-  }
+    .homeslidr .flex-control-nav {
+        bottom: 62px !important;
+    }
+
     .tp .dropdown:hover {
         background-color: #fdd116 !important;
     }
@@ -1006,15 +1007,6 @@
         font-size: 13px;
     }
 
-    .event-name2 .eventh2 {
-        font-size: 18px;
-        margin-bottom: 2px;
-    }
-
-    .shadow-down2 {
-        height: 44%;
-    }
-
     .wid100 {
         width: 100%;
     }
@@ -1142,8 +1134,21 @@
     .pad15 {
         padding: 4px;
     }
+
+    .shadow-down2 {
+        height: 25%;
+    }
 }
 @media (max-width: 480px) {
+    .shadow-down2 {
+        height: 44%;
+    }
+
+    .event-name2 .eventh2 {
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+
     .wtsocial {
         left: 89%;
     }
