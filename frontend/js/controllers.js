@@ -1,8 +1,8 @@
 var globalfunction = {};
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice','ui.select', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.select', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
         $scope.subscribeData = {};
         $scope.subscribeComplete = false;
@@ -20,7 +20,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             })
         }
-        console.log("Testing Consoles");
+
+        $scope.openModals = function() {
+            $scope.modalInstanceABC = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/videoplay.html',
+                // controller: 'HomeCtrl',
+
+                windowClass: 'autoplayv',
+                scope: $scope
+            });
+        };
+        $scope.$on('$viewContentLoaded', function() {
+            if (!$.jStorage.get('FirstTime')) {
+                $.jStorage.set('FirstTime', {
+                    value: true
+                });
+                $scope.openModals();
+            }
+        });
+
+        // console.log("Testing Consoles");
+        //
+        // $timeout(function(){
+        //    $dialog.dialog({}).open('frontend/views/modal/videoplay.html');
+        //  }, 3000);
 
         $scope.template = TemplateService.changecontent("home");
         $scope.menutitle = NavigationService.makeactive("Home");
@@ -40,18 +64,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.popularAttraction = data.data.popularAttraction;
             $scope.dropDown = data.data.DestinationDropdown;
-            console.log('$scope.dropDown',$scope.dropDown);
+            console.log('$scope.dropDown', $scope.dropDown);
 
             $scope.mySlidesss = data.data.whatsHotBanner;
             console.log("$scope.mySlides", $scope.mySlidesss);
         });
         $scope.imDisable = false;
-        $scope.forSearch = function(id){
-          console.log('forSearchID',id);
-          $scope.thisId = id;
+        $scope.forSearch = function(id) {
+            console.log('forSearchID', id);
+            $scope.thisId = id;
         }
         $scope.goOn = function(id) {
-          console.log('idd',id);
+            console.log('idd', id);
             if (id == undefined) {
                 $scope.imDisable = true;
             } else {
@@ -276,7 +300,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
-        $scope.cartd = function () {
+        $scope.cartd = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialog.html",
@@ -284,7 +308,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-        $scope.cartr = function () {
+        $scope.cartr = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialogremove.html",
@@ -767,7 +791,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
-        $scope.cartd = function () {
+        $scope.cartd = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialog.html",
@@ -775,7 +799,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-        $scope.cartr = function () {
+        $scope.cartr = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialogremove.html",
@@ -1115,8 +1139,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
         $scope.formComplete = false;
         $scope.enquiryData = {};
-          $scope.submitEnq=false;
-        $scope.enquirySubmit = function(input,myForm) {
+        $scope.submitEnq = false;
+        $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
@@ -1131,14 +1155,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 myForm.email.$touched = false;
                 if (data.value === true) {
                     $scope.enquiryData = {};
-                    $scope.submitEnq=true;
+                    $scope.submitEnq = true;
                 }
 
             });
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitEnq = false;
-                  // $scope.enquiryData = {};
+                // $scope.enquiryData = {};
 
             }, 5000);
         }
