@@ -1037,10 +1037,11 @@ option[value=""][disabled] {
         outline: none;
     }
 }
+
 .inputtag {
     display: inline;
-
 }
+
 label {
     font-size: 26px;
 }
@@ -3299,7 +3300,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 12px;
 }
 
-
 .ui-select-choices-row:hover {
     background-color: transparent !important;
 }
@@ -3339,7 +3339,8 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: none !important;
 }
 
-.himg2 .dropdown-menu a,.customs .dropdown-menu a {
+.customs .dropdown-menu a,
+.himg2 .dropdown-menu a {
     border-bottom: 1px solid white !important;
 }
 
@@ -3347,16 +3348,20 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 7px 51px !important;
 }
 
-.himg2 .dropdown:hover,.customs .dropdown:hover {
+.customs .dropdown:hover,
+.himg2 .dropdown:hover {
     background-color: transparent !important;
 }
 
-.himg2 .open > .dropdown-menu,.customs .open > .dropdown-menu{
+.customs .open > .dropdown-menu,
+.himg2 .open > .dropdown-menu {
     min-width: 148px !important;
     display: block;
     background: #fdd116 !important;
 }
-.himg2 .dropdown:hover .dropdown-menu ,.customs .dropdown:hover .dropdown-menu {
+
+.customs .dropdown:hover .dropdown-menu,
+.himg2 .dropdown:hover .dropdown-menu {
     background-color: #fdd116 !important;
 }
 
@@ -3381,9 +3386,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .paddd5 {
-  position: absolute;
-bottom: 13%;
-left: 44%;
+    position: absolute;
+    bottom: 13%;
+    left: 44%;
 
     a {
         font-weight: 600;
@@ -3397,23 +3402,27 @@ left: 44%;
     }
 }
 
-
-
 .autoplayv .modal-dialog {
     margin: 0 !important;
 }
+
 .contplay {
     position: relative;
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
 }
+
 .video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.curs {
+    cursor: default !important;
 }
 /* Start writing sass here */
 @import "fancybox-override";
