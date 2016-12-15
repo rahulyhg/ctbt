@@ -807,8 +807,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-        $scope.template = TemplateService.changecontent("pattaya");
-        $scope.menutitle = NavigationService.makeactive("Pattaya");
+        $scope.template = TemplateService.changecontent("customdestination");
+        $scope.menutitle = NavigationService.makeactive("customdestination");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.tabs = 'az';
@@ -1240,8 +1240,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
-        $scope.template = TemplateService.changecontent("pattaya2");
-        $scope.menutitle = NavigationService.makeactive("Pattaya2");
+        $scope.template = TemplateService.changecontent("pakage");
+        $scope.menutitle = NavigationService.makeactive("Pakage");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.headerCartOpen = function() {

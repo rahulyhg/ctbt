@@ -84,13 +84,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'DestinationCtrl'
         })
-        .state('pattaya', {
-            url: "/pattaya/:id",
+        .state('customdestination', {
+            url: "/customdestination/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'PattayaCtrl'
         })
-        .state('pattaya2', {
-            url: "/pattaya2/:id",
+        .state('pakage', {
+            url: "/pakage/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'Pattaya2Ctrl'
         })
