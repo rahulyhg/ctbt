@@ -3386,9 +3386,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .paddd5 {
-  position: fixed;
-bottom: 29px;
-left: 44%;
+    position: fixed;
+    bottom: 54px;
+    left: 44%;
 
     a {
         font-weight: 600;
@@ -3424,6 +3424,13 @@ left: 44%;
 .curs {
     cursor: default !important;
 }
+
+.red {
+    color: red;
+}
+.crose{float: right;
+    padding-right: 15px;
+    color: #000000;}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
