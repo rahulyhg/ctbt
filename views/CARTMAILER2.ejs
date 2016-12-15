@@ -1,0 +1,128 @@
+<div style="width:600px;padding: 0px;font-family: sans-serif;">
+    <img style="position: absolute;width: 87px;top: 21px;background-color: #fff;box-shadow: 0 0 0 5px #fff;border-radius: 50%;left: 70px;" src="backend/img/emaillogo.png">
+    <h1 style="margin: 0;text-align:center;color: #0b358c;padding:17px 17px 17px 74px;background: #ffca03;">THE BACHLOR TRIP</h1>
+    <img src="backend/img/emailbanner.png" width="100%" alt="" />
+
+    <h1 style="text-align:center;margin-bottom: 3px;color: #0b358c;">HEY  <%= content.name%></h1>
+    <p style="font-size: 20px;text-align: center;margin: 0;line-height: 19px;">
+        We're glad you're letting the pros handle the
+    </p>
+    <p style="font-size: 20px;text-align: center;margin: 0;line-height: 19px;">
+        most important trip of your life.
+    </p>
+
+    <p style="font-size: 20px;text-align: center;margin: 0;line-height: 19px;">
+        Welcome to an experience with The Bachlor Trip.
+    </p>
+    <div style="padding:2px 40px">
+
+        <div style=" padding: 15px 0px; border-bottom: 1px solid #b0b1b1;border-top: 1px solid #b0b1b1;margin: 20px 0;">
+            <div style="display: inline-block;float: left;padding-left: 22px;">
+                <img src="backend/img/emailcard.png" width="190" alt="" />
+            </div>
+            <div>
+                <h3 style="color:#0b358c;">YOUR DETAILS:</h3>
+                <p>Name :
+                    <%= content.name    %>
+                </p>
+                <p>Email :
+                    <%= content.email    %>
+                </p>
+                <p>Mobile :
+                    <%= content.mobile    %>
+                </p>
+                <p>Group Size :
+                    <%= content.groupSize  %>
+                </p>
+            </div>
+
+        </div>
+        <div style="text-align: center;line-height: 30px;padding: 15px 0;">
+            <img style="width: 64px;position: absolute;left: 80px;bottom: -44px;" src="backend/img/emailvector.png" alt="" />
+            <h2 style="margin: 0;color:#0b358c;font-size: 28px;">HERE'S YOUR LIST OF</h2>
+            <h1 style="margin: 0;color:#0b358c;font-size: 38px;">SINS AND FANTASIES</h1>
+
+        </div>
+        <div style="background: #fdd116; padding: 0px 10px;">
+            <h2 style="padding: 8px 0px; margin: 9px 0px;color: #0b358c; ">Activities</h2>
+            <table>
+                <%var i =1; %>
+                    <% contentAct.forEach(function(a) { %>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= i%>
+                                </td>
+                                <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.activities.image1%>" style="width:150px;height:100px;"></td>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= a.activities.name%>
+                                </td>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= a.activities.destination.name%>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <% i++; }); %>
+            </table>
+        </div>
+        <div style="background: #fdd116; padding: 0px 10px;">
+            <h2 style="padding: 8px 0px; margin: 9px 0px;color: #0b358c;">Packages</h2>
+            <table>
+                <%var j =1; %>
+                    <% contentPack.forEach(function(a) { %>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 15px;font-size: 20px;">
+                                    <%= j%>
+                                </td>
+                                <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.package.image%>" style="width:150px;height:100px;"></td>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= a.package.title1%>
+                                </td>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= a.package.destination.name%>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <% j++;}); %>
+            </table>
+        </div>
+        <div style="background: #fdd116; padding: 0px 10px;">
+            <h2 style="padding: 8px 0px; margin: 9px 0px;color: #0b358c;">Whats-Hot</h2>
+            <table>
+                <%var k =1; %>
+                    <% contentWhot.forEach(function(a) { %>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= k%>
+                                </td>
+                                <td><img src="http://bachlors.tingdom.in/api/upload/readFile?file=<%=a.whatshot.image%>" style="width:150px;height:100px;"></td>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= a.whatshot.name%>
+                                </td>
+                                <td style="padding: 15px;font-size: 20px;color: #0b358c;">
+                                    <%= a.whatshot.location%>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <% k++;}); %>
+            </table>
+        </div>
+    </div>
+    <h3 style="margin: 9px 0 0;text-align: center;background: #012b7f;padding: 22px 0;color: #fff;">Cheers to ending your bachelorhood with a bang!<br>We'er definitely on-board planning your trip.</h3>
+    <div style="background: #000;padding:8px 46px 6px;font-size: 13px;">
+        <div style="color: #fff;display: inline-block;float: left;padding-top: 3px;">
+            The Bachelor Trip 2016
+        </div>
+        <div style="text-align: right;">
+            <a href="https://www.facebook.com/thebachelortrip/" target="_blank"> <img width="23px" src="backend/img/emailf.png" alt="" /></a>
+            <a href="https://www.twitter.com/TheBachelorTrip" target="_blank"> <img width="23px" src="backend/img/emailt.png" alt="" /></a>
+            <a href="#"> <img width="23px" src="backend/img/emaily.png" alt="" /></a>
+            <a href="https://www.instagram.com/thebachelortripin/?hl=en" target="_blank"> <img width="23px" src="backend/img/emaili.png" alt="" /></a>
+        </div>
+
+    </div>
+</div>

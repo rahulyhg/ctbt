@@ -133,7 +133,7 @@ var model = {
             emailData.contentAct = data.myCart.activities;
             emailData.contentPack = data.myCart.package;
             emailData.contentWhot = data.myCart.whatshot;
-            emailData.filename = "cartMailer.ejs";
+            emailData.filename = "CARTMAILER2.ejs";
             emailData.subject = "TBT - CART INFO";
             // console.log("FINAL DATA",data.myCart.activities.activities.name);
             Config.email(emailData, function (err, emailRespo) {

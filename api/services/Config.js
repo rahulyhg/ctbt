@@ -14,8 +14,8 @@ var lodash = require('lodash');
 var moment = require('moment');
 var MaxImageSize = 1600;
 var request = require("request");
-//var requrl = "http://localhost:80/api/";
-var requrl = "http://bachlors.tingdom.in/api/";
+var requrl = "http://localhost:80/api/";
+//var requrl = "http://bachlors.tingdom.in/api/";
 
 var gfs = Grid(mongoose.connections[0].db, mongoose);
 gfs.mongo = mongoose.mongo;
