@@ -2555,7 +2555,7 @@ figure .links {
     margin-top: -66px;
 }
 /* when hiding the thing */
-eqform .cartadd .ng-hide-add {
+.eqform .cartadd .ng-hide-add {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
 }
@@ -2873,13 +2873,13 @@ input[type="time"].form-control {
     position: fixed;
     right: 1px;
     z-index: 999;
-    top: 383px;
+    top: 458;
 
     .mycartme {
         position: fixed;
         right: -35px;
         z-index: 10;
-        top: 419px;
+        top: 498px;
         height: 0;
 
         button {
