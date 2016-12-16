@@ -267,7 +267,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
-.controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    .controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 
         $scope.template = TemplateService.changecontent("mediacorner");
@@ -276,6 +276,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('AccessoriesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+
+        $scope.template = TemplateService.changecontent("accessories");
+        $scope.menutitle = NavigationService.makeactive("Accessories");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('HighrollersCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+        $scope.template = TemplateService.changecontent("highrollers");
+        $scope.menutitle = NavigationService.makeactive("Highrollers");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+
     .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 

@@ -44,31 +44,41 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'HomeCtrl'
         })
 
-        .state('bachlerette', {
-            url: "/bachlerette",
-            templateUrl: "frontend/views/template.html",
-            controller: 'BachleretteCtrl'
-        })
+    .state('accessories', {
+        url: "/accessories",
+        templateUrl: "frontend/views/template.html",
+        controller: 'AccessoriesCtrl'
+    })
+    .state('highrollers', {
+        url: "/highrollers",
+        templateUrl: "frontend/views/template.html",
+        controller: 'HighrollersCtrl'
+    })
+    .state('bachlerette', {
+        url: "/bachlerette",
+        templateUrl: "frontend/views/template.html",
+        controller: 'BachleretteCtrl'
+    })
 
-            .state('about', {
-                url: "/about",
-                templateUrl: "frontend/views/template.html",
-                controller: 'AboutCtrl'
-            })
+    .state('about', {
+        url: "/about",
+        templateUrl: "frontend/views/template.html",
+        controller: 'AboutCtrl'
+    })
 
-                .state('contactus', {
-                    url: "/contactus",
-                    templateUrl: "frontend/views/template.html",
-                    controller: 'ContactCtrl'
-                })
+    .state('contactus', {
+        url: "/contactus",
+        templateUrl: "frontend/views/template.html",
+        controller: 'ContactCtrl'
+    })
 
-        .state('mediacorner', {
-            url: "/mediacorner",
-            templateUrl: "frontend/views/template.html",
-            controller: 'MediaCornerCtrl'
-        })
+    .state('mediacorner', {
+        url: "/mediacorner",
+        templateUrl: "frontend/views/template.html",
+        controller: 'MediaCornerCtrl'
+    })
 
-        .state('tbtstatic', {
+    .state('tbtstatic', {
             url: "/tbtstatic",
             templateUrl: "frontend/views/template.html",
             controller: 'StaticCtrl'
