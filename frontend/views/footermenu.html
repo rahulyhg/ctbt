@@ -21,7 +21,7 @@
         <div class="col-md-3 col-sm-3 col-xs-12">
             <strong class="stp Robotor"><a class="yellow_color" ui-sref="destination">SUBSCRIBE TO US</a></strong>
             <div class="stp Robotor">
-                <form name="myFormFooter" ng-submit="subscribeSubmit(subscribeData)" ng-if="!subscribeComplete && !alreadySubscribed">
+                <form name="myFormFooter" ng-submit="subscribeSubmit(subscribeData)" ng-hide="subscribeComplete || alreadySubscribed">
                     <input type="email" placeholder="ENTER YOUR EMAIL ID" class="hideinput form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-email ng-touched" name="email" ng-model="subscribeData.email" required="" style="">
                     <button class="submitgo" type="submit" name="button">GO</button>
                 </form>
