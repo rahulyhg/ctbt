@@ -5,7 +5,7 @@
             <!-- <div class="item">
                 <figure class=" ng-scope"> -->
             <!-- <a href={{s.url}} target="_blank"> -->
-            <img class="img-responsive " ng-src="{{s.image|serverimage}}">
+            <img alt="tbt" title="tbt"  class="img-responsive " ng-src="{{s.image|serverimage}}">
             <!-- </a> -->
             <!-- </figure>
             </div> -->
@@ -21,7 +21,7 @@
             <div class="item">
                 <figure class=" ng-scope">
                     <!-- <a href={{s.url}} target="_blank"> -->
-                    <img class="img-responsive " ng-src="{{s.image2|serverimage}}">
+                    <img alt="tbt" title="tbt"  class="img-responsive " ng-src="{{s.image2|serverimage}}">
                     <!-- </a> -->
                 </figure>
             </div>
@@ -42,7 +42,7 @@
     <div class="mr">
         <div class="container borderup">
             <div class="addimg">
-                <img src="frontend/img/+img.png" alt="" class="img-responsive" ui-sref="destination">
+                <img alt="destination" title="destination"  src="frontend/img/+img.png" class="img-responsive" ui-sref="destination">
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-4  col-xs-6 displaynon padng0">
@@ -52,14 +52,14 @@
                 <div class="col-md-2 col-sm-2 col-xs-6  padng0" ng-repeat="x in popularDestination | limitTo : 4">
                     <div class="eventshome">
                         <a ui-sref="customdestination({id:x._id})">
-                            <img ng-src="{{x.image|serverimage:544:545}}" class="img-responsive" alt="">
+                            <img alt="{{x.name}}" title="{{x.name}}" ng-src="{{x.image|serverimage:544:545}}" class="img-responsive" >
                             <div class="shadow-down"></div>
                             <div class="event-name">
                                 <span>{{x.name}}</span>
                             </div>
                             <div class="over-layer text-center">
                                 <div class="hoverimg">
-                                    <img class="img-responsive" src="frontend/img/ggl.png">
+                                    <img alt="ggl" title="ggl" class="img-responsive" src="frontend/img/ggl.png">
                                 </div>
                             </div>
                         </a>
@@ -72,19 +72,19 @@
     <div class="ml">
         <div class="container borderdown">
             <div class="addimg1">
-                <img src="frontend/img/+img.png" alt="" class="img-responsive" ui-sref="activity">
+                <img alt="activity" title="activity"  src="frontend/img/+img.png"  class="img-responsive" ui-sref="activity">
             </div>
             <div class="row">
                 <div class="col-md-2 col-sm-2 col-xs-6 padng0" ng-repeat="x in popularAttraction | limitTo : 4">
                     <div class="eventshome" ui-sref="customdestination({id:x.destination})">
-                        <img src="{{x.image1 | serverimage:544:545}}" class="img-responsive" alt="">
+                        <img alt="{{x.name}}" title="{{x.name}}"  src="{{x.image1 | serverimage:544:545}}" class="img-responsive" >
                         <div class="shadow-down"></div>
                         <div class="event-name">
                             <span>{{x.name}}</span>
                         </div>
                         <div class="over-layer text-center">
                             <div class="hoverimg">
-                                <img class="img-responsive" src="frontend/img/ggl.png">
+                                <img alt="ggl" title="ggl"  class="img-responsive" src="frontend/img/ggl.png">
                             </div>
                         </div>
                     </div>
@@ -115,9 +115,9 @@
             <div class="hompad8">
                 <!---START VIDEO FRAME ---->
                 <div class="pad15pat embed-responsive embed-responsive-16by9">
-                    <img class="rightimg img-responsive" src="frontend/img/videoright.png">
+                    <img alt="videoright" title="videoright"  class="rightimg img-responsive" src="frontend/img/videoright.png">
                     <iframe class="pad15 embed-responsive-item" src="https://www.youtube-nocookie.com/embed/D09yD0MN4Vg"></iframe>
-                    <img class="leftimg img-responsive" src="frontend/img/videoleft.png">
+                    <img alt="videoleft" title="videoleft"  class="leftimg img-responsive" src="frontend/img/videoleft.png">
                 </div>
             </div>
         </div>
@@ -128,11 +128,11 @@
 <!-- START SELECT FOR CUSTOMISATION -->
 <div class="padd paddup">
     <figure class="m2">
-        <img class="img-responsive" src="frontend/img/4.jpg">
+        <img alt="4" title="4"  class="img-responsive" src="frontend/img/4.jpg">
         <figcaption>
             <div class="links">
                 <div class="onimg">
-                    <img class="imgab" src="frontend/img/6.png">
+                    <img alt="6" title="6"  class="imgab" src="frontend/img/6.png">
                     <form class="himg2" ng-submit="goto(formdata)" ng-init="abc">
                         <label class="pregular labsec">I want to go to</label>
                         <fieldset class="inputtag">
@@ -156,7 +156,7 @@
 <!--  END FOR CUSTOMISATION-->
 <!-- START ABOUT -->
 <div class="aboutin">
-    <div class="imAb"> <img class="img-responsive " src="frontend/img/wd.png"></div>
+    <div class="imAb"> <img alt="wd" title="wd"  class="img-responsive " src="frontend/img/wd.png"></div>
     <div class="spAb">
         <h1 class="theboldfont">ABOUT US</h1>
         <div class="ain">
@@ -165,7 +165,7 @@
                 to parties across the <strong class="abinfo pregular bluecol">globe</strong>, crazy adrenaline pumping adventures you've been wanting to try out and some of naughty affairs you wouldn't mind indulging in. The best of experiences offered
                 globally, handpicked and ready to explore, just for you. So sit back, relax and let the professionals handle your <strong class="abinfo pregular bluecol">Bachelor Trip planning!</strong></p>
         </div>
-        <P class="sado"><a class="whit_color" ui-sref="about">KNOW THE TEAM</a></P>
+        <P class="sado"><a class="whit_color" ui-sref="aboutus">KNOW THE TEAM</a></P>
     </div>
 </div>
 <!-- END ABOUT -->
@@ -175,7 +175,7 @@
         <li>
             <div class="item">
                 <figure class="mim-home ng-scope">
-                    <img class="img-responsive " ng-src="{{data.banner | serverimage}}">
+                    <img alt="tbt" title="tbt"  class="img-responsive " ng-src="{{data.banner | serverimage}}">
                 </figure>
             </div>
         </li>

@@ -1,7 +1,7 @@
 <!-- START  BANNER  -->
 <div class="container ">
     <figure class="m1 figure922">
-        <img class="img-responsive" ng-src="{{getOneWhatsHot.banner|serverimage}}">
+        <img alt="whats-hot-more" title="whats-hot-more"  class="img-responsive" ng-src="{{getOneWhatsHot.banner|serverimage}}">
     </figure>
 </div>
 <!-- END BANNER  -->
@@ -19,7 +19,7 @@
 
                 <div class="row marg11">
                     <a class="col-md-3 col-sm-4 col-xs-12 pading0 curserpionter" ng-repeat="data in getOneWhatsHot.images" ng-href="{{data.image|serverimage}}" rel="gallery1" fancybox-box="">
-                        <img class="img-responsive " src="{{data.image|serverimage}}">
+                        <img alt="tbt" title="tbt"  class="img-responsive " src="{{data.image|serverimage}}">
                     </a>
                 </div>
 
@@ -36,11 +36,11 @@
                 <div class="row marg11">
                     <div class="col-md-3 col-sm-4 col-xs-6 pading0" ng-repeat="data in getOneWhatsHot.videos">
                         <figure class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{data.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
-                            <img class="img-responsive " ng-src="{{data.thumbnail|serverimage}}" ng-if="(data.thumbnail || data.thumbnail != '')">
-                            <img class="img-responsive " ng-src="{{data.url|youtubethumb}}" ng-if="!(data.thumbnail || data.thumbnail != '')">
+                            <img alt="tbt" title="tbt"  class="img-responsive " ng-src="{{data.thumbnail|serverimage}}" ng-if="(data.thumbnail || data.thumbnail != '')">
+                            <img alt="tbt" title="tbt"  class="img-responsive " ng-src="{{data.url|youtubethumb}}" ng-if="!(data.thumbnail || data.thumbnail != '')">
                             <div class="lin">
                                 <div class="frammargin">
-                                    <img class="img-responsive " src="frontend/img/ply.png">
+                                    <img alt="ply" title="ply"  class="img-responsive " src="frontend/img/ply.png">
                                 </div>
                             </div>
                             </figcaption>
@@ -86,7 +86,7 @@
 <div class="container ">
     <div class="wtlast">
         <div class="wtlast2">
-            <img class="img-responsive" ng-src="{{getOneWhatsHot.tableImage | serverimage}}">
+            <img alt="tbt" title="tbt"  class="img-responsive" ng-src="{{getOneWhatsHot.tableImage | serverimage}}">
         </div>
     </div>
 </div>

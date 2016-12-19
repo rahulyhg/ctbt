@@ -1,7 +1,7 @@
 <!-- START BANNER -->
 <div class="container ">
     <figure class="m1 figure922">
-        <img class="img-responsive" src="frontend/img/activity-ban.jpg">
+        <img alt="customisation" title="customisation"  class="img-responsive" src="frontend/img/activity-ban.jpg">
     </figure>
 </div>
 <!-- END BANNER -->
@@ -33,7 +33,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
                         <figure>
                             <div class="front ">
-                                <img ng-src="{{data.image |serverimage:544:545}}" class="mainwidht img-responsive">
+                                <img alt="{{data.hotelName}}" title="{{data.hotelName}}"  ng-src="{{data.image |serverimage:544:545}}" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
                                       <input value="cart" type="checkbox" ng-model="checkboxModel1" id="{{data._id}}" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
@@ -61,10 +61,10 @@
                   <div class="checkbox checkboxing">
                       <input type="checkbox" ng-model="day.model" id="day" ng-click="searchDay()">
                       <label for="day"><span></span>Day</label>
-                      <img src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
+                      <img alt="Object1" title="Object1"  src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
                       <input type="checkbox" ng-model="night.model" id="night" ng-click="searchNight()">
                       <label for="night"><span></span> Night</label>
-                      <img src="frontend/img/Vector.png" alt="" class="check_img vector">
+                      <img alt="Vector" title="Vector"  src="frontend/img/Vector.png" alt="" class="check_img vector">
                   </div>
                     <!-- <div class="checkbox checkboxing">
                         <input value="{{location.value}}" type="checkbox" ng-model="selectedAll.location" ng-click="checkAllLocation()" id="later">
@@ -73,7 +73,7 @@
                     <div class="checkbox checkboxing" ng-repeat="location in locationArr track by $index">
                         <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
                         <label for="{{location.value}}" ><span></span> {{location.value}}</label>
-                        <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
+                        <img alt="" title=""  src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                     </div> -->
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in getActivity">
                     <figure>
                         <div class="front">
-                            <img ng-src="{{data.image1 |serverimage:544:545}}" class="mainwidht img-responsive">
+                            <img alt="{{data.name}}" title="{{data.name}}"  ng-src="{{data.image1 |serverimage:544:545}}" class="mainwidht img-responsive">
                             <div class="cart-sec2">
                                 <div class="checkbox checkboxing">
                                     <input value="cart" type="checkbox" ng-model="checkboxModel" id="{{data._id}}" ng-click="addTocartOnCustPage(data._id,data.typeCart,checkboxModel);">

@@ -60,8 +60,8 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
         controller: 'BachleretteCtrl'
     })
 
-    .state('about', {
-        url: "/about",
+    .state('aboutus', {
+        url: "/aboutus",
         templateUrl: "frontend/views/template.html",
         controller: 'AboutCtrl'
     })

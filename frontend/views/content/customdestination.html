@@ -1,7 +1,7 @@
 <!-- START BANNER  -->
 <div class="container">
     <figure class="m1 figure922">
-        <img class="img-responsive" ng-src="{{getDestination.banner | serverimage}}">
+        <img alt="custom" title="custom"  class="img-responsive" ng-src="{{getDestination.banner | serverimage}}">
     </figure>
 </div>
 <!-- END BANNER  -->
@@ -42,11 +42,11 @@
                 <div class="row pattmarg3">
                     <div class="col-md-3 col-sm-3 col-xs-12 pading0" ng-repeat="data in getPackage">
                         <div class="events">
-                            <img ng-src="{{data.image |serverimage:544:545}}" alt="" class="maxwidth img-responsive">
+                            <img alt="{{data.title1}} {{data.title2}}" title="{{data.title1}} {{data.title2}}"  ng-src="{{data.image |serverimage:544:545}}" alt="" class="maxwidth img-responsive">
                             <div class="cart-sec">
                                 <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                  <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                  <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                  <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                  <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                               </button>
                             </div>
                           <div class="shadow-down"></div>
@@ -58,8 +58,8 @@
                             <div class="over-layer text-center">
                               <div class="cart-sec">
                                   <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                    <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                    <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                    <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                    <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                 </button>
                               </div>
                                 <div class="button-holder">
@@ -97,10 +97,10 @@
                                 <div class="checkbox checkboxing">
                                     <input type="checkbox" ng-model="day.model" id="day" ng-click="searchDay()">
                                     <label for="day"><span></span>Day</label>
-                                    <img src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
+                                    <img alt="Object1" title="Object1"  src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
                                     <input type="checkbox" ng-model="night.model" id="night" ng-click="searchNight()">
                                     <label for="night"><span></span> Night</label>
-                                    <img src="frontend/img/Vector.png" alt="" class="check_img vector">
+                                    <img alt="Vector" title="Vector"  src="frontend/img/Vector.png" alt="" class="check_img vector">
                                 </div>
                             </div>
                             <!-- <div class="col-md-4 col-sm-6 col-xs-12  pading5 ">
@@ -111,7 +111,7 @@
                                 <div class="checkbox checkboxing" ng-repeat="location in locationArr track by $index">
                                     <input type="checkbox" ng-model="locationArr[$index].model" id="{{location.value}}" ng-change="searchExpert()" id="me">
                                     <label for="{{location.value}}"><span></span> {{location.value}}</label>
-                                    <img src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
+                                    <img alt="" title=""  src="{{location.image}}" alt="" class="check_img {{location.imageClass}}">
                                 </div>
                             </div> -->
                             <div class="col-md-8 col-sm-6 col-xs-12">
@@ -125,11 +125,11 @@
                         <div class="flipDiv">
                             <figure>
                                 <div class="front">
-                                    <img ng-src="{{data.image1 |serverimage:544:545}}" alt="" class="maxwidth img-responsive" ng-click="addTocart(data)">
+                                    <img alt="{{data.name}}" title="{{data.name}}"  ng-src="{{data.image1 |serverimage:544:545}}" alt="" class="maxwidth img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
                                         <button class="cart uppercase"  ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                          <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                          <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                          <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                          <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                       </button>
                                     </div>
                                     <div class="shadow-down"></div>
@@ -140,8 +140,8 @@
                                 <figcaption>
                                   <div class="cart-sec">
                                       <button class="cart uppercase"  ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                        <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                        <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                        <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                        <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
                                   </div>
                                     <div  class="descrip" ng-bind-html="data.description | shorten :180"></div>
@@ -267,7 +267,7 @@
                         <div uib-accordion-group is-open="accordian[$index].isFirstOpen" class="panel-default panelacor" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}" ng-repeat="data in getTitle">
                             <uib-accordion-heading>
                                 <div class="fontpanel Pregular bluecol" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
-                                    <img ng-src="{{data.name | TbtIcon}}" class="image_title"> {{data.name}}
+                                    <img alt="{{data.name}}" title="{{data.name}}"  ng-src="{{data.name | TbtIcon}}" class="image_title"> {{data.name}}
                                     <i class="pull-right fa " ng-class="{'fa fa-minus':  accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
                                 </div>
                             </uib-accordion-heading>
@@ -283,7 +283,7 @@
                                 <!-- <div class="row padding30">
                                     <div class="col-md-3 col-sm-3 col-xs-3  pading0" ng-repeat="image in x.images">
                                         <figure>
-                                            <img class="img-responsive" src="{{image.image | serverimage}}">
+                                            <img alt="" title=""  class="img-responsive" src="{{image.image | serverimage}}">
                                         </figure>
                                     </div>
                                 </div> -->

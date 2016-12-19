@@ -489,8 +489,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 
-        $scope.template = TemplateService.changecontent("about");
-        $scope.menutitle = NavigationService.makeactive("About");
+        $scope.template = TemplateService.changecontent("aboutus");
+        $scope.menutitle = NavigationService.makeactive("AboutUs");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
