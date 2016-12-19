@@ -144,8 +144,9 @@
                                         <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
                                   </div>
-                                    <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description | shorten :180"></div>
-                                    <div ng-if="addedSuccessPattaya" class="descrip" ><p class="toppad">Your query has been added to the cart.</p></div>
+                                    <div  class="descrip" ng-bind-html="data.description | shorten :180"></div>
+                                    <!-- <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description | shorten :180"></div>
+                                    <div ng-if="addedSuccessPattaya" class="descrip" ><p class="toppad">Your query has been added to the cart.</p></div> -->
 
                                 </figcaption>
                             </figure>
@@ -170,6 +171,7 @@
     <div class="container">
         <div class="rotat">
             <div class="row hei">
+              <!-- <div class="show-div" ng-show="enquirybtn" ng-if="!submitEnq"> -->
                 <div class="show-div" ng-show="enquirybtn">
                   <!-- <div class=""> -->
                     <div class="col-md-3 col-sm-3">
@@ -179,7 +181,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform"  ng-if="!submitEnq">
+                    <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform"  >
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData,myForm)">
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="hideinput form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
@@ -227,8 +229,15 @@
                         </form>
                       </div>
                     <!-- </div> -->
-                    <div class="cartsum" ng-if="submitEnq">Thank you for submitting the details. We'll get in touch with you soon.</div>
                 </div>
+                <!-- <div ng-if="submitEnq">
+                  <div class="mycart2 enqcart2">
+                      <ul class="list-group socialpatt yellow_back_lightcolor ">
+                          <li ng-click="headerCartOpenUp(); enquirybtn = !enquirybtn" ng-class="{ active: enquirybtn }" class="Roboto black fontsizep white_back_color active" style="">ENQUIRE NOW</li>
+                      </ul>
+                  </div>
+                  <div class="cartsum enqcart" >Thank you for submitting the details. We'll get in touch with you soon.</div>
+                </div> -->
             </div>
         </div>
         <div class="pattsocial " ng-hide="enquirybtn || mycart10">

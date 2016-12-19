@@ -49,8 +49,9 @@
                                                 <i  ng-if="isInWishlistActivityPage(smallImg._id)" ng-click="cartr();"><img src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                             </button>
                                         </div>
-                                        <div ng-if="!addedSuccess" class="descrip" ng-bind-html="smallImg.description | shorten :180"></div>
-                                        <div ng-if="addedSuccess" class="descrip"><p class="toppad">Your query has been added to the cart.</p></div>
+                                        <div class="descrip" ng-bind-html="smallImg.description | shorten :180"></div>
+                                        <!-- <div ng-if="!addedSuccess" class="descrip" ng-bind-html="smallImg.description | shorten :180"></div> -->
+                                        <!-- <div ng-if="addedSuccess" class="descrip"><p class="toppad">Your query has been added to the cart.</p></div> -->
                                     </figcaption>
                                 </figure>
                             </div>

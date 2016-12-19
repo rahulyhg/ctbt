@@ -725,7 +725,7 @@ option[value=""][disabled] {
 .cartsum {
     font-size: 22px;
     color: #002B7F;
-    padding: 36px 15%;
+    padding: 48px 15px 80px 62px;
     background: #fdd116;
 }
 
@@ -1419,7 +1419,7 @@ figure .links {
     border-radius: 2px;
     padding: 2px 4px;
     position: absolute;
-    z-index: 1;
+    z-index: 99999999;
     font-size: 13px;
     text-align: center;
     margin: 0 !important;
@@ -2333,7 +2333,7 @@ figure .links {
 
 .paddmain {
     padding-bottom: 15px;
-    box-shadow: #002b7f 0 0 2px 0;
+    box-shadow: #002b7f 0 0 1px 0;
 }
 
 .panel-group {
@@ -2800,6 +2800,7 @@ input[type="time"].form-control {
         vertical-align: middle;
         cursor: pointer;
         border: 1px solid #01194A;
+        margin-top: -2px;
     }
 
     input[type="checkbox"]+label span {
@@ -2904,12 +2905,14 @@ input[type="time"].form-control {
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+
 .acess {
     background: url("../../frontend/img/accessdesk.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+
 .hight {
     background: url("../../frontend/img/highroldesk.jpg");
     background-size: cover;
@@ -3160,7 +3163,7 @@ input[type="time"].form-control {
 .submitgo {
     height: 29px !important;
     font-weight: 700 !important;
-    font-size: 14px!important;
+    font-size: 11px!important;
     background: #fdd116!important;
     border: none!important;
     color: #002b7f!important;
@@ -3242,7 +3245,9 @@ input[type=number]::-webkit-outer-spin-button {
 .modal-dialog2 .modal-open .modal {
     top: 15% !important;
 }
-
+.modal-dialog2 .modal-dialog {
+  margin-top: 15% !important;
+}
 .maxht {
     max-height: 100% !important;
 }
@@ -3440,9 +3445,53 @@ input[type=number]::-webkit-outer-spin-button {
 .red {
     color: red;
 }
-.crose{float: right;
+
+.crose {
+    float: right;
     padding-right: 15px;
-    color: #000000;}
+    color: #000000;
+}
+
+.enqcart {
+    padding: 86px 15px 80px 62px !important;
+    margin-top: -23px !important;
+}
+
+.enqcart2 li {
+    padding: 6px 33px !important;
+}
+
+.ytp-large-play-button-bg {
+    fill: #002b7f !important;
+}
+
+.pd20 {
+    padding: 26px 33px;
+    height: 127px;
+}
+
+.enqimg {
+    display: inline-block;
+    width: 93px;
+    float: left;
+    padding-right: 12px;
+}
+
+.enqtext {
+    text-align: left;
+    padding: 7px;
+    font-size: 23px;
+}
+
+.crosimg {
+    position: absolute;
+    right: -10px;
+    top: -9px;
+
+    img {
+        width: 27px;
+    }
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
