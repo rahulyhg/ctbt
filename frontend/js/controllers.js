@@ -4,22 +4,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
-        $scope.subscribeData = {};
-        $scope.subscribeComplete = false;
-        $scope.subscribeSubmit = function(subscribeData) {
-            console.log("subscribeData", subscribeData);
-            NavigationService.subscribe(subscribeData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
-                    $scope.subscribeComplete = true;
-                }
-                $timeout(function() {
-                    $scope.subscribeComplete = false;
-                    $scope.subscribeData = {};
-                }, 2000);
-
-            })
-        }
+        // $scope.subscribeData = {};
+        // $scope.subscribeComplete = false;
+        // $scope.alreadySubscribed = false;
+        // $scope.subscribeSubmit = function(subscribeData) {
+        //     console.log("subscribeData", subscribeData);
+        //     NavigationService.subscribe(subscribeData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data) {
+        //             console.log('insiddee ifff');
+        //             $scope.subscribeComplete = true;
+        //             $timeout(function() {
+        //                 $scope.subscribeComplete = false;
+        //                 $scope.subscribeData = {};
+        //             }, 2000);
+        //         } else {
+        //             console.log('inside elseeee');
+        //             $scope.alreadySubscribed = true;
+        //             $timeout(function() {
+        //                 $scope.alreadySubscribed = false;
+        //                 $scope.subscribeData = {};
+        //             }, 2000);
+        //         }
+        //
+        //     })
+        // }
 
         $scope.openModals = function() {
             $scope.modalInstanceABC = $uibModal.open({
@@ -193,23 +202,52 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Bachlerette");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
-        $scope.subscribeData = {};
-        $scope.subscribeComplete = false;
-        $scope.subscribeSubmit = function(subscribeData) {
-            console.log("subscribeData", subscribeData);
-            NavigationService.subscribe(subscribeData, function(data) {
+        $scope.formComplete = false;
+        $scope.enquiryData = {};
+        $scope.submitEnq = false;
+        $scope.enquirySubmit = function(input, myForm) {
+            console.log('input', input);
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
+                myForm.cities.$touched = false;
+                myForm.activitie.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.comments.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.email.$touched = false;
                 if (data.value === true) {
-                    $scope.subscribeComplete = true;
+                    $scope.enquiryData = {};
+                    $scope.submitEnq = true;
                 }
-                $timeout(function() {
-                    $scope.subscribeComplete = false;
-                    $scope.subscribeData = {};
-                }, 2000);
 
-            })
+            });
+            $timeout(function() {
+                console.log('inside timeout');
+                $scope.submitEnq = false;
+                // $scope.enquiryData = {};
+
+            }, 5000);
         }
+
+        // $scope.subscribeData = {};
+        // $scope.subscribeComplete = false;
+        // $scope.subscribeSubmit = function(subscribeData) {
+        //     console.log("subscribeData", subscribeData);
+        //     NavigationService.subscribe(subscribeData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {
+        //             $scope.subscribeComplete = true;
+        //         }
+        //         $timeout(function() {
+        //             $scope.subscribeComplete = false;
+        //             $scope.subscribeData = {};
+        //         }, 2000);
+        //
+        //     })
+        // }
 
         $scope.submitCart = false;
         $scope.cartData = {};
@@ -267,7 +305,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
-    .controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 
         $scope.template = TemplateService.changecontent("mediacorner");
@@ -283,6 +321,80 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+
+        // $scope.subscribeData = {};
+        // $scope.subscribeComplete = false;
+        // $scope.subscribeSubmit = function(subscribeData) {
+        //     console.log("subscribeData", subscribeData);
+        //     NavigationService.subscribe(subscribeData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {
+        //             $scope.subscribeComplete = true;
+        //         }
+        //         $timeout(function() {
+        //             $scope.subscribeComplete = false;
+        //             $scope.subscribeData = {};
+        //         }, 2000);
+        //
+        //     })
+        // }
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input, myForm) {
+            console.log('input', myForm);
+            myForm.email.$touched = false;
+            myForm.name.$touched = false;
+            myForm.phone.$touched = false;
+            myForm.size.$touched = false;
+
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+                $scope.getCartFun();
+
+            });
+            $timeout(function() {
+                console.log('inside timeout');
+                $scope.submitCart = false;
+                $scope.cartData = {};
+            }, 5000);
+        }
+
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivityPage = data.data.activities;
+                console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
+
+                // $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+            });
+        }
+        $scope.getCartFun();
+        $scope.formComplete = false;
+        $scope.enquiryData = {};
+        $scope.enquirySubmit = function(input) {
+            console.log('input', input);
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {}
+            });
+        }
+
+
     })
     .controller('HighrollersCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
         $scope.template = TemplateService.changecontent("highrollers");
@@ -290,9 +402,82 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        // $scope.subscribeData = {};
+        // $scope.subscribeComplete = false;
+        // $scope.subscribeSubmit = function(subscribeData) {
+        //     console.log("subscribeData", subscribeData);
+        //     NavigationService.subscribe(subscribeData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {
+        //             $scope.subscribeComplete = true;
+        //         }
+        //         $timeout(function() {
+        //             $scope.subscribeComplete = false;
+        //             $scope.subscribeData = {};
+        //         }, 2000);
+        //
+        //     })
+        // }
+
+        $scope.submitCart = false;
+        $scope.cartData = {};
+        $scope.cartSubmit = function(input, myForm) {
+            console.log('input', myForm);
+            myForm.email.$touched = false;
+            myForm.name.$touched = false;
+            myForm.phone.$touched = false;
+            myForm.size.$touched = false;
+
+            NavigationService.cart($scope.cartData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {
+                    NavigationService.deleteAllCart(function(data) {
+                        console.log(data);
+                    })
+                    $scope.submitCart = true;
+                }
+                $scope.getCartFun();
+
+            });
+            $timeout(function() {
+                console.log('inside timeout');
+                $scope.submitCart = false;
+                $scope.cartData = {};
+            }, 5000);
+        }
+
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
+                $scope.getCartDataActivityPage = data.data.activities;
+                console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
+
+                // $scope.getCartDataActivity10 = data.data.activities;
+                $scope.getCartDataPackage10 = data.data.package;
+                $scope.getCartDataWhatsHot = data.data.whatshot;
+                $scope.getAccomodation = data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+            });
+        }
+        $scope.getCartFun();
+        $scope.formComplete = false;
+        $scope.enquiryData = {};
+        $scope.enquirySubmit = function(input) {
+            console.log('input', input);
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                console.log("data", data.value);
+                if (data.value === true) {}
+            });
+        }
+
+
     })
 
-    .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
 
         $scope.template = TemplateService.changecontent("contactus");
@@ -692,22 +877,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         //         alert("hiiii");
         // console.log("?innnnnnnnn");
-        $scope.subscribeData = {};
-        $scope.subscribeComplete = false;
-        $scope.subscribeSubmit = function(subscribeData) {
-            console.log("subscribeData", subscribeData);
-            NavigationService.subscribe(subscribeData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
-                    $scope.subscribeComplete = true;
-                }
-                $timeout(function() {
-                    $scope.subscribeComplete = false;
-                    $scope.subscribeData = {};
-                }, 2000);
-
-            })
-        }
+        // $scope.subscribeData = {};
+        // $scope.subscribeComplete = false;
+        // $scope.subscribeSubmit = function(subscribeData) {
+        //     console.log("subscribeData", subscribeData);
+        //     NavigationService.subscribe(subscribeData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {
+        //             $scope.subscribeComplete = true;
+        //         }
+        //         $timeout(function() {
+        //             $scope.subscribeComplete = false;
+        //             $scope.subscribeData = {};
+        //         }, 2000);
+        //
+        //     })
+        // }
     })
 
 .controller('DestinationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1642,7 +1827,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.getCartFun();
         $scope.isInWishlistWhatsHot = function(id) {
-            console.log('id', id);
+            // console.log('id', id);
             var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
                 return key.whatshot._id == id;
             })
@@ -1742,8 +1927,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         NavigationService.cityDetails($stateParams.id, function(data) {
-            console.log(data.data.getDestination.accomodation);
+            console.log(data.data.getDestination.name);
+            $scope.nameofCust = data.data.getDestination.name;
             $scope.customisationDestForName = data.data.getDestination.name;
+            console.log('$scope.customisationDestForName', $scope.customisationDestForName);
             $scope.customisationDest = data.data.getDestination.accomodation;
             $scope.customisationActivity = data.data.getActivity;
         })
@@ -1796,6 +1983,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return n.model
             }), 'value');
             NavigationService.getSearch(dataToSend, function(data) {
+                console.log(data);
                 // $scope.viewMore = true;
                 if (data.data.Category.length > 6) {
                     $scope.viewMore = true;
@@ -1814,6 +2002,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.searchExpert();
+        $scope.goOnCust = function(id, name) {
+            // $scope.nameofCust = name;
+            //   console.log('idd', $scope.nameofCust);
+            if (id == undefined) {
+                $scope.imDisable = true;
+            } else {
+                // $scope.imDisable = false;
+                console.log(id);
+                $state.go('customisation', {
+                    id: id
+                });
+            }
+
+
+        }
         $scope.loadMoreActivity = function() {
             console.log('inside loadmore fun');
             $scope.more = true;
@@ -2300,18 +2503,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("footerCtrl");
         $scope.subscribeData = {};
         $scope.subscribeComplete = false;
+        $scope.alreadySubscribed = false;
         $scope.subscribeSubmit = function(subscribeData) {
             console.log("sadsadasdsads");
             console.log("subscribeData", subscribeData);
             NavigationService.subscribe(subscribeData, function(data) {
                 console.log("data", data.value);
-                if (data.value === true) {
+                if (data.data) {
+                  console.log('hhhhhhhhh');
                     $scope.subscribeComplete = true;
+                    $timeout(function() {
+                        $scope.subscribeComplete = false;
+                        $scope.subscribeData = {};
+                    }, 2000);
+                } else {
+                  console.log('eeeeeeeeeee');
+                    console.log('inside elseeee');
+                    $scope.alreadySubscribed = true;
+                    $timeout(function() {
+                        $scope.alreadySubscribed = false;
+                        $scope.subscribeData = {};
+                    }, 2000);
                 }
-                $timeout(function() {
-                    $scope.subscribeComplete = false;
-                    $scope.subscribeData = {};
-                }, 2000);
+
 
             })
         }

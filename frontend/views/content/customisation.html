@@ -15,8 +15,8 @@
                 <div class="row pd15 text-center">
                     <div class="custom-select text-center customs">
                       <fieldset class="inputtag">
-                          <ui-select ng-model="ctrl.person.selected" ng-change="forSearch($select.selected._id)" class="plan-dark-bold ">
-                              <ui-select-match placeholder="Select Destination">{{$select.selected.name}}</ui-select-match>
+                          <ui-select ng-model="customisationDestForName" ng-change="goOnCust($select.selected._id)" class="plan-dark-bold ">
+                              <ui-select-match placeholder="Select Destination">{{customisationDestForName}}</ui-select-match>
                               <ui-select-choices repeat="item in dropDown | orderBy:'name' | filter: {name:$select.search}">
                                   <div ng-bind-html="item.name | highlight: $select.search"></div>
                               </ui-select-choices>
