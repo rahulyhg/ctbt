@@ -30,6 +30,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     })
         // }
 
+
         $scope.openModals = function() {
             $scope.modalInstanceABC = $uibModal.open({
                 animation: $scope.animationsEnabled,
@@ -138,6 +139,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
         // ];
         // =============== For Cart =================
+
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
@@ -149,6 +160,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -159,7 +171,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
             $timeout(function() {
                 console.log('inside timeout');
-                $scope.submitCart = false;
+                // $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
         $scope.getCartFunHeader = function() {
@@ -262,6 +275,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         $scope.submitCart = false;
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
             console.log('input', myForm);
@@ -273,6 +295,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -283,7 +306,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
             $timeout(function() {
                 console.log('inside timeout');
-                $scope.submitCart = false;
+                // $scope.submitCart = false;
+                $scope.onSubmitCart.close();
                 $scope.cartData = {};
             }, 5000);
         }
@@ -353,6 +377,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.submitCart = false;
         $scope.cartData = {};
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+
         $scope.cartSubmit = function(input, myForm) {
             console.log('input', myForm);
             myForm.email.$touched = false;
@@ -363,6 +396,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -374,6 +408,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
                 $scope.cartData = {};
             }, 5000);
         }
@@ -470,6 +505,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         $scope.submitCart = false;
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
             console.log('input', myForm);
@@ -481,6 +524,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -493,6 +537,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.cartData = {};
+                $scope.onSubmitCart.close();
             }, 5000);
         }
 
@@ -816,6 +861,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // =============== For Cart =================
 
         $scope.submitCart = false;
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
@@ -826,6 +879,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -837,6 +891,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
 
@@ -1007,7 +1062,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         // =============== For Cart =================
-
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
@@ -1019,6 +1081,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1030,6 +1093,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
         $scope.getCartFunHeader = function() {
@@ -1523,7 +1587,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
 
-
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
 
         $scope.submitCart = false;
         $scope.cartData = {};
@@ -1536,6 +1607,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1547,6 +1619,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
 
@@ -1691,7 +1764,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }
             // =============== For Cart =================
-
+            $scope.cartSubmitPopup = function() {
+                $scope.onSubmitCart = $uibModal.open({
+                    animation: true,
+                    templateUrl: "frontend/views/modal/mycart.html",
+                    windowClass: "modal-dialog2",
+                    scope: $scope
+                });
+            };
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
@@ -1703,6 +1783,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1714,6 +1795,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
         $scope.getCartFunPattaya2 = function() {
@@ -1806,7 +1888,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         // =============== For Cart =================
-
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
@@ -1818,6 +1907,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1829,6 +1919,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
         $scope.getCartFun = function() {
@@ -1938,7 +2029,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
         // =============== For Cart =================
-
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
@@ -1950,6 +2048,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1961,6 +2060,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
         $scope.getCartFun = function() {
@@ -2603,6 +2703,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         //  ===== MY CART START ========
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
@@ -2614,6 +2722,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
+                  $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -2625,6 +2734,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
+                $scope.onSubmitCart.close();
             }, 5000);
         }
         $scope.getCartFunHeader = function() {
