@@ -224,7 +224,7 @@
                                 <p class="error" ng-show="myForm.email.$invalid && myForm.email.$touched">Email ID is required</p>
                             </div>
                             <div class="col-md-4 col-sm-3 ">
-                                <button ng-disabled="myForm.$invalid" ng-class="{ active: enquirybtn }" type="submit" class="btn btn-submit">Submit</button>
+                                <button ng-click="enquirybtn = !enquirybtn" ng-disabled="myForm.$invalid" ng-class="{ active: enquirybtn }" type="submit" class="btn btn-submit">Submit</button>
                             </div>
                         </form>
                       </div>
