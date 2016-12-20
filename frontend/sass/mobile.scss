@@ -17,7 +17,7 @@
     }
 
     .m1 {
-          margin-top: auto;
+        margin-top: 83px;
     }
 
     .mycart2 li {
@@ -68,12 +68,10 @@
     .margres {
         margin-top: 104px;
     }
-
     // .flexslider .slides img {
     //     max-width: auto !important;
     //     height: 73% !important;
     // }
-
     .flipDiv figure p {
         font-size: 12px;
     }
@@ -123,10 +121,10 @@
         padding: 0 !important;
         margin: 0;
     }
-    .m1 {
-    margin-top: 124px;
-}
 
+    .m1 {
+        margin-top: 124px;
+    }
 }
 @media (max-width: 992px) {
     .pattmarg3 {
@@ -318,12 +316,14 @@
     }
 }
 @media (max-width: 767px) {
-  .m1 {
+    .m1 {
         margin-top: auto;
-}
-  .fsiz {
-    padding: 36px 0px;
-}
+    }
+
+    .fsiz {
+        padding: 36px 0;
+    }
+
     .fancybox-type-iframe .fancybox-inner {
         -webkit-overflow-scrolling: touch;
         height: auto !important;
@@ -484,7 +484,6 @@
     .borderup {
         background: linear-gradient(to right, white 30%, white 30%, white 30%, white 30%, #FDD116 29%);
     }
-
 
     .m8 .mr {
         margin-left: 0;

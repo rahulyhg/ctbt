@@ -402,7 +402,7 @@ a {
 }
 
 .font20 {
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 .event-name {
@@ -633,7 +633,7 @@ option[value=""][disabled] {
     display: none;
     background-color: rgba(226, 226, 226, 0.91);
     height: 100%;
-    width: 100%;
+    width: 101%;
     position: absolute;
     top: 50%;
     left: 50%;
