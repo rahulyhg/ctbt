@@ -87,7 +87,7 @@
                                     <p class="error" ng-show="detailForm.size.$invalid && detailForm.size.$touched">Group Size is required</p>
                                 </div>
                                 <div class="row text-center">
-                                    <button class="btn btn-submit" ng-disabled="detailForm.$invalid" type="submit">SUBMIT</button>
+                                    <button ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }"  class="btn btn-submit" ng-disabled="detailForm.$invalid" type="submit">SUBMIT</button>
                                 </div>
                             </form>
                         </div>
@@ -126,7 +126,5 @@
                 </div>
             </div>
         </div>
-        <div class="cartsum" ng-show="submitCart">Thank you for submitting your query. We'll get in touch with you soon.</div>
     </div>
-
 </div>

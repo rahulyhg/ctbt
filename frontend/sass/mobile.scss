@@ -17,7 +17,7 @@
     }
 
     .m1 {
-        margin-top: 85px;
+          margin-top: auto;
     }
 
     .mycart2 li {
@@ -69,10 +69,10 @@
         margin-top: 104px;
     }
 
-    .flexslider .slides img {
-        max-width: auto !important;
-        height: 73% !important;
-    }
+    // .flexslider .slides img {
+    //     max-width: auto !important;
+    //     height: 73% !important;
+    // }
 
     .flipDiv figure p {
         font-size: 12px;
@@ -123,13 +123,10 @@
         padding: 0 !important;
         margin: 0;
     }
+    .m1 {
+    margin-top: 124px;
+}
 
-    .hdp {
-        padding: 25px 0 4px;
-        font-weight: 700;
-        color: #0b358c;
-        letter-spacing: 2px;
-    }
 }
 @media (max-width: 992px) {
     .pattmarg3 {
@@ -298,10 +295,6 @@
 
     .margin4footer {
         margin-bottom: 4%;
-    }
-
-    .figure922 {
-        margin-top: 111px;
     }
 
     .eupt .ge {
@@ -487,9 +480,6 @@
         background: linear-gradient(to right, white 30%, white 30%, white 30%, white 30%, #FDD116 29%);
     }
 
-    .figure922 {
-        margin-top: -1px;
-    }
 
     .m8 .mr {
         margin-left: 0;
