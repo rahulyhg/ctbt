@@ -1,11 +1,13 @@
 <!-- START DESTINATION -->
 <div class="container text-center margres">
-    <h1 class="theboldfont yellow_color fsiz">DESTINATIONS</h1>
+    <div class="row">
+        <h1 class="theboldfont yellow_color fsiz">DESTINATIONS</h1>
+    </div>
 </div>
 <!-- START BANNER -->
-<figure>
+<!-- <figure>
     <img alt="DESTINATIONS" title="DESTINATIONS"  class="mainwidht" ng-src="{{DestinationLand.Banner.banner | serverimage}}">
-</figure>
+</figure> -->
 <!-- END BANNER -->
 
 <div class="pad9">
@@ -20,7 +22,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 pdt15 " ng-repeat="data in DestinationLand.popularDestination">
                         <figure>
                             <div class="front">
-                                <a ui-sref="customdestination({id:data._id})"><img alt="{{data.name}}" title="{{data.name}}"  ng-src="{{data.image |serverimage:544:545}}" class="img-responsive" ></a>
+                                <a ui-sref="customdestination({id:data._id})"><img alt="{{data.name}}" title="{{data.name}}" ng-src="{{data.image |serverimage:544:545}}" class="img-responsive"></a>
                                 <div class="shadow-down"></div>
                                 <div class="event-name">
                                     <span class="font20">{{data.name}}</span>
@@ -30,13 +32,13 @@
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="slidershow">
-                            <flex-slider prev-text="" next-text="" flex-slide="data in DestinationLand track by $index" class="desti m1 figure922 yellow_back_color">
+                            <flex-slider prev-text="" next-text="" flex-slide="data in DestinationLand track by $index" class="desti yellow_back_color">
                                 <li>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6 col-xs-12 padd15px" ng-repeat="data2 in data">
                                             <figure>
                                                 <div class="front">
-                                                    <a ui-sref="customdestination({id:data2._id})"><img alt="{{data2.name}}" title="{{data2.name}}"  ng-src="{{data2.image |serverimage:544:545}}" class="img-responsive" ></a>
+                                                    <a ui-sref="customdestination({id:data2._id})"><img alt="{{data2.name}}" title="{{data2.name}}" ng-src="{{data2.image |serverimage:544:545}}" class="img-responsive"></a>
                                                     <div class="shadow-down"></div>
                                                     <div class="event-name">
                                                         <span class="font20">{{data2.name}}</span>
@@ -60,7 +62,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in allDestination">
                         <figure>
                             <div class="front">
-                                <a ui-sref="customdestination({id:data._id})"><img alt="{{data.name}}" title="{{data.name}}"  ng-src="{{data.image |serverimage:544:545}}" class="img-responsive"></a>
+                                <a ui-sref="customdestination({id:data._id})"><img alt="{{data.name}}" title="{{data.name}}" ng-src="{{data.image |serverimage:544:545}}" class="img-responsive"></a>
                                 <div class="shadow-down"></div>
                                 <div class="event-name">
                                     <span>{{data.name}}</span>

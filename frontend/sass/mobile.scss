@@ -264,7 +264,6 @@
 
     .fsiz {
         font-size: 73px;
-        margin-top: 9%;
     }
 
     .m4 .m2 .padup {
@@ -319,6 +318,12 @@
     }
 }
 @media (max-width: 767px) {
+  .m1 {
+        margin-top: auto;
+}
+  .fsiz {
+    padding: 36px 0px;
+}
     .fancybox-type-iframe .fancybox-inner {
         -webkit-overflow-scrolling: touch;
         height: auto !important;

@@ -939,7 +939,7 @@ option[value=""][disabled] {
         color: #000;
 
         li {
-            padding: 23px 0;
+            padding: 24px 0;
         }
     }
 }
@@ -1559,7 +1559,9 @@ figure .links {
 }
 
 .fsiz {
-    font-size: 80px;
+  font-size: 80px;
+  padding: 67px 0px;
+  margin: 0;
 }
 
 .dlm {
@@ -1600,10 +1602,6 @@ figure .links {
             padding: 89% 0 0;
         }
     }
-}
-
-.m1 {
-    margin-top: -2px;
 }
 
 .lodm {
