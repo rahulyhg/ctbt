@@ -195,7 +195,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // =============== End Cart =================
     })
-    .controller('BachleretteCtrl', function($scope, TemplateService, NavigationService, $timeout, $state,$uibModal) {
+    .controller('BachleretteCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
 
         $scope.template = TemplateService.changecontent("bachlerette");
@@ -213,20 +213,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-            // $scope.enqSubmitPopup();
+        // $scope.enqSubmitPopup();
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
-                // myForm.cities.$touched = false;
-                // myForm.activitie.$touched = false;
-                // myForm.size.$touched = false;
-                // myForm.from.$touched = false;
-                // myForm.to.$touched = false;
-                // myForm.comments.$touched = false;
-                // myForm.name.$touched = false;
-                // myForm.phone.$touched = false;
-                // myForm.email.$touched = false;
+                myForm.cities.$touched = false;
+                myForm.activitie.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.comments.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.email.$touched = false;
                 if (data.value === true) {
                     $scope.enquiryData = {};
                     console.log('inside ifff');
@@ -532,35 +532,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.enquirySubmit = function(input, myForm) {
-            console.log('inputEnqqqqqq', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data.value", data.value);
-                // myForm.cities.$touched = false;
-                // myForm.activitie.$touched = false;
-                // myForm.size.$touched = false;
-                // myForm.from.$touched = false;
-                // myForm.to.$touched = false;
-                // myForm.comments.$touched = false;
-                // myForm.name.$touched = false;
-                // myForm.phone.$touched = false;
-                // myForm.email.$touched = false;
+                myForm.cities.$touched = false;
+                myForm.activitie.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.comments.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.email.$touched = false;
                 if (data.value === true) {
                     $scope.enquiryData = {};
-                    console.log('inside ifff');
-                    // $scope.submitEnq = true;
                     $scope.enqSubmitPopup();
                     $timeout(function() {
                         console.log('inside timeout');
                         $scope.onSubmitEnq.close();
-                        // $scope.enquiryData = {};
-
                     }, 5000);
                 }
-
             });
-
         }
-
 
     })
 
@@ -1466,15 +1458,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
-                // myForm.cities.$touched = false;
-                // myForm.activitie.$touched = false;
-                // myForm.size.$touched = false;
-                // myForm.from.$touched = false;
-                // myForm.to.$touched = false;
-                // myForm.comments.$touched = false;
-                // myForm.name.$touched = false;
-                // myForm.phone.$touched = false;
-                // myForm.email.$touched = false;
+                myForm.cities.$touched = false;
+                myForm.activitie.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.comments.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.email.$touched = false;
                 if (data.value === true) {
                     $scope.enquiryData = {};
                     console.log('inside ifff');
@@ -1559,7 +1551,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     })
-    .controller('Pattaya2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+    .controller('Pattaya2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
         globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
@@ -1670,34 +1662,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //         });
         //     }
         $scope.enquirySubmit = function(input, myForm) {
-            console.log('input', input);
-            NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data", data.value);
-                // myForm.cities.$touched = false;
-                // myForm.activitie.$touched = false;
-                // myForm.size.$touched = false;
-                // myForm.from.$touched = false;
-                // myForm.to.$touched = false;
-                // myForm.comments.$touched = false;
-                // myForm.name.$touched = false;
-                // myForm.phone.$touched = false;
-                // myForm.email.$touched = false;
-                if (data.value === true) {
-                    $scope.enquiryData = {};
-                    console.log('inside ifff');
-                    // $scope.submitEnq = true;
-                    $scope.enqSubmitPopup();
-                    $timeout(function() {
-                        console.log('inside timeout');
-                        $scope.onSubmitEnq.close();
-                        // $scope.enquiryData = {};
+                console.log('input', input);
+                NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                    console.log("data", data.value);
+                    myForm.cities.$touched = false;
+                    myForm.activitie.$touched = false;
+                    myForm.size.$touched = false;
+                    myForm.from.$touched = false;
+                    myForm.to.$touched = false;
+                    myForm.comments.$touched = false;
+                    myForm.name.$touched = false;
+                    myForm.phone.$touched = false;
+                    myForm.email.$touched = false;
+                    if (data.value === true) {
+                        $scope.enquiryData = {};
+                        console.log('inside ifff');
+                        // $scope.submitEnq = true;
+                        $scope.enqSubmitPopup();
+                        $timeout(function() {
+                            console.log('inside timeout');
+                            $scope.onSubmitEnq.close();
+                            // $scope.enquiryData = {};
 
-                    }, 5000);
-                }
+                        }, 5000);
+                    }
 
-            });
+                });
 
-        }
+            }
             // =============== For Cart =================
 
         $scope.submitCart = false;
@@ -2671,14 +2663,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.subscribe(subscribeData, function(data) {
                 console.log("data", data.value);
                 if (data.data) {
-                  console.log('hhhhhhhhh');
+                    console.log('hhhhhhhhh');
                     $scope.subscribeComplete = true;
                     $timeout(function() {
                         $scope.subscribeComplete = false;
                         $scope.subscribeData = {};
                     }, 2000);
                 } else {
-                  console.log('eeeeeeeeeee');
+                    console.log('eeeeeeeeeee');
                     console.log('inside elseeee');
                     $scope.alreadySubscribed = true;
                     $timeout(function() {

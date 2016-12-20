@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
-                        <form name="myForm" ng-submit="enquirySubmitPatt2(enquiryData)">
+                        <form name="myForm" ng-submit="enquirySubmit(enquiryData,myForm)">
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="hideinput form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
                                 <p class="error" ng-show="myForm.cities.$invalid && myForm.cities.$touched">Interested Cities Size is required</p>
