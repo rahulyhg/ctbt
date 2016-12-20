@@ -195,7 +195,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // =============== End Cart =================
     })
-    .controller('BachleretteCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    .controller('BachleretteCtrl', function($scope, TemplateService, NavigationService, $timeout, $state,$uibModal) {
 
 
         $scope.template = TemplateService.changecontent("bachlerette");
@@ -205,31 +205,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.formComplete = false;
         $scope.enquiryData = {};
         $scope.submitEnq = false;
+        $scope.enqSubmitPopup = function() {
+            $scope.onSubmitEnq = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/enq.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+            // $scope.enqSubmitPopup();
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
-                myForm.cities.$touched = false;
-                myForm.activitie.$touched = false;
-                myForm.size.$touched = false;
-                myForm.from.$touched = false;
-                myForm.to.$touched = false;
-                myForm.comments.$touched = false;
-                myForm.name.$touched = false;
-                myForm.phone.$touched = false;
-                myForm.email.$touched = false;
+                // myForm.cities.$touched = false;
+                // myForm.activitie.$touched = false;
+                // myForm.size.$touched = false;
+                // myForm.from.$touched = false;
+                // myForm.to.$touched = false;
+                // myForm.comments.$touched = false;
+                // myForm.name.$touched = false;
+                // myForm.phone.$touched = false;
+                // myForm.email.$touched = false;
                 if (data.value === true) {
                     $scope.enquiryData = {};
-                    $scope.submitEnq = true;
+                    console.log('inside ifff');
+                    // $scope.submitEnq = true;
+                    $scope.enqSubmitPopup();
+                    $timeout(function() {
+                        console.log('inside timeout');
+                        $scope.onSubmitEnq.close();
+                        // $scope.enquiryData = {};
+
+                    }, 5000);
                 }
 
             });
-            $timeout(function() {
-                console.log('inside timeout');
-                $scope.submitEnq = false;
-                // $scope.enquiryData = {};
 
-            }, 5000);
         }
 
         // $scope.subscribeData = {};
@@ -296,13 +308,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartFun();
         $scope.formComplete = false;
         $scope.enquiryData = {};
-        $scope.enquirySubmit = function(input) {
-            console.log('input', input);
-            NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {}
-            });
-        }
+        // $scope.enquirySubmit = function(input) {
+        //     console.log('input', input);
+        //     NavigationService.enquiryForm($scope.enquiryData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {}
+        //     });
+        // }
     })
 
 .controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -314,7 +326,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AccessoriesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    .controller('AccessoriesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
         $scope.template = TemplateService.changecontent("accessories");
         $scope.menutitle = NavigationService.makeactive("Accessories");
@@ -386,17 +398,55 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartFun();
         $scope.formComplete = false;
         $scope.enquiryData = {};
-        $scope.enquirySubmit = function(input) {
-            console.log('input', input);
+        $scope.enqSubmitPopup = function() {
+            $scope.onSubmitEnq = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/enq.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+        // $scope.enquirySubmit = function(input) {
+        //     console.log('input', input);
+        //     NavigationService.enquiryForm($scope.enquiryData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {}
+        //     });
+        // }
+        $scope.enquirySubmit = function(input, myForm) {
+            // console.log('input', input);
+            console.log('myForm', myForm);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
-                if (data.value === true) {}
+                myForm.cities.$touched = false;
+                myForm.activitie.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.comments.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.email.$touched = false;
+                if (data.value === true) {
+                    $scope.enquiryData = {};
+                    console.log('inside ifff');
+                    // $scope.submitEnq = true;
+                    $scope.enqSubmitPopup();
+                    $timeout(function() {
+                        console.log('inside timeout');
+                        $scope.onSubmitEnq.close();
+                        // $scope.enquiryData = {};
+
+                    }, 5000);
+                }
+
             });
+
         }
 
 
     })
-    .controller('HighrollersCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+    .controller('HighrollersCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
         $scope.template = TemplateService.changecontent("highrollers");
         $scope.menutitle = NavigationService.makeactive("Highrollers");
         TemplateService.title = $scope.menutitle;
@@ -466,12 +516,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartFun();
         $scope.formComplete = false;
         $scope.enquiryData = {};
-        $scope.enquirySubmit = function(input) {
-            console.log('input', input);
-            NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {}
+        // $scope.enquirySubmit = function(input) {
+        //     console.log('input', input);
+        //     NavigationService.enquiryForm($scope.enquiryData, function(data) {
+        //         console.log("data", data.value);
+        //         if (data.value === true) {}
+        //     });
+        // }
+        $scope.enqSubmitPopup = function() {
+            $scope.onSubmitEnq = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/enq.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
             });
+        };
+        $scope.enquirySubmit = function(input, myForm) {
+            console.log('inputEnqqqqqq', input);
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                console.log("data.value", data.value);
+                // myForm.cities.$touched = false;
+                // myForm.activitie.$touched = false;
+                // myForm.size.$touched = false;
+                // myForm.from.$touched = false;
+                // myForm.to.$touched = false;
+                // myForm.comments.$touched = false;
+                // myForm.name.$touched = false;
+                // myForm.phone.$touched = false;
+                // myForm.email.$touched = false;
+                if (data.value === true) {
+                    $scope.enquiryData = {};
+                    console.log('inside ifff');
+                    // $scope.submitEnq = true;
+                    $scope.enqSubmitPopup();
+                    $timeout(function() {
+                        console.log('inside timeout');
+                        $scope.onSubmitEnq.close();
+                        // $scope.enquiryData = {};
+
+                    }, 5000);
+                }
+
+            });
+
         }
 
 
@@ -1341,31 +1428,68 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.formComplete = false;
         $scope.enquiryData = {};
         $scope.submitEnq = false;
+        $scope.enqSubmitPopup = function() {
+            $scope.onSubmitEnq = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/enq.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+        // $scope.enquirySubmit = function(input, myForm) {
+        //     console.log('input', input);
+        //     NavigationService.enquiryForm($scope.enquiryData, function(data) {
+        //         console.log("data", data.value);
+        //         myForm.cities.$touched = false;
+        //         myForm.activitie.$touched = false;
+        //         myForm.size.$touched = false;
+        //         myForm.from.$touched = false;
+        //         myForm.to.$touched = false;
+        //         myForm.comments.$touched = false;
+        //         myForm.name.$touched = false;
+        //         myForm.phone.$touched = false;
+        //         myForm.email.$touched = false;
+        //         if (data.value === true) {
+        //             $scope.enquiryData = {};
+        //             $scope.submitEnq = true;
+        //         }
+        //
+        //     });
+        //     $timeout(function() {
+        //         console.log('inside timeout');
+        //         $scope.submitEnq = false;
+        //         // $scope.enquiryData = {};
+        //
+        //     }, 5000);
+        // }
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.value);
-                myForm.cities.$touched = false;
-                myForm.activitie.$touched = false;
-                myForm.size.$touched = false;
-                myForm.from.$touched = false;
-                myForm.to.$touched = false;
-                myForm.comments.$touched = false;
-                myForm.name.$touched = false;
-                myForm.phone.$touched = false;
-                myForm.email.$touched = false;
+                // myForm.cities.$touched = false;
+                // myForm.activitie.$touched = false;
+                // myForm.size.$touched = false;
+                // myForm.from.$touched = false;
+                // myForm.to.$touched = false;
+                // myForm.comments.$touched = false;
+                // myForm.name.$touched = false;
+                // myForm.phone.$touched = false;
+                // myForm.email.$touched = false;
                 if (data.value === true) {
                     $scope.enquiryData = {};
-                    $scope.submitEnq = true;
+                    console.log('inside ifff');
+                    // $scope.submitEnq = true;
+                    $scope.enqSubmitPopup();
+                    $timeout(function() {
+                        console.log('inside timeout');
+                        $scope.onSubmitEnq.close();
+                        // $scope.enquiryData = {};
+
+                    }, 5000);
                 }
 
             });
-            $timeout(function() {
-                console.log('inside timeout');
-                $scope.submitEnq = false;
-                // $scope.enquiryData = {};
 
-            }, 5000);
         }
 
         $scope.items = ['Item 1', 'Item 2', 'Item 3'];
@@ -1530,13 +1654,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.formComplete = false;
         $scope.enquiryData = {};
-        $scope.enquirySubmitPatt2 = function(input) {
-                console.log('input', input);
-                NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                    console.log("data", data.value);
-                    if (data.value === true) {}
-                });
-            }
+        $scope.enqSubmitPopup = function() {
+            $scope.onSubmitEnq = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/enq.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+        // $scope.enquirySubmitPatt2 = function(input) {
+        //         console.log('input', input);
+        //         NavigationService.enquiryForm($scope.enquiryData, function(data) {
+        //             console.log("data", data.value);
+        //             if (data.value === true) {}
+        //         });
+        //     }
+        $scope.enquirySubmit = function(input, myForm) {
+            console.log('input', input);
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                console.log("data", data.value);
+                // myForm.cities.$touched = false;
+                // myForm.activitie.$touched = false;
+                // myForm.size.$touched = false;
+                // myForm.from.$touched = false;
+                // myForm.to.$touched = false;
+                // myForm.comments.$touched = false;
+                // myForm.name.$touched = false;
+                // myForm.phone.$touched = false;
+                // myForm.email.$touched = false;
+                if (data.value === true) {
+                    $scope.enquiryData = {};
+                    console.log('inside ifff');
+                    // $scope.submitEnq = true;
+                    $scope.enqSubmitPopup();
+                    $timeout(function() {
+                        console.log('inside timeout');
+                        $scope.onSubmitEnq.close();
+                        // $scope.enquiryData = {};
+
+                    }, 5000);
+                }
+
+            });
+
+        }
             // =============== For Cart =================
 
         $scope.submitCart = false;
