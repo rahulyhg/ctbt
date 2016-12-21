@@ -187,7 +187,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
-                console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
+                // console.log('$scope.checkCartIsEmpty',$scope.checkCartIsEmpty);
+                // console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
         $scope.getCartFunHeader();
@@ -326,6 +328,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -427,6 +430,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -555,6 +559,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -909,6 +914,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -1108,6 +1114,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -1206,6 +1213,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 // console.log('accmoddddddddddd', $scope.getAccomodation10);
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 // console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -1810,6 +1818,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -1934,6 +1943,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -2075,6 +2085,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
@@ -2749,6 +2760,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
                 $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
+                $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
             });
         }
