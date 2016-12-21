@@ -58,6 +58,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("home");
         $scope.menutitle = NavigationService.makeactive("Home");
+        TemplateService.header = "frontend/views/home_header.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.formdata = {};
