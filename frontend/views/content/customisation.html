@@ -131,11 +131,11 @@
                             <p class="error" ng-show="myForm.size.$invalid && myForm.size.$touched">Group size is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
-                            <input type="date" class="hideinput form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
+                            <input type="date" min="{{currentDate | date:'yyyy-MM-dd'}}" class="hideinput form-control Robotor" placeholder="From" name="from" ng-model="custDetail.from" required>
                             <p class="error" ng-show="myForm.from.$invalid && myForm.from.$touched">From is required</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 pdt10">
-                            <input type="date" class="hideinput form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
+                            <input type="date" min="{{custDetail.from | date:'yyyy-MM-dd'}}" ng-disabled="!custDetail.from" class="hideinput form-control Robotor" placeholder="To" name="to" ng-model="custDetail.to" required>
                             <p class="error" ng-show="myForm.to.$invalid && myForm.to.$touched">To is required</p>
                         </div>
                     </div>

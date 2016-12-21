@@ -200,10 +200,8 @@
                                 <input type="date" class="hideinput form-control Robotor" placeholder="From" name="from" ng-model="enquiryData.from" min="{{currentDate | date:'yyyy-MM-dd'}}" required>
                                 <p class="error" ng-show="myForm.from.$invalid && myForm.from.$touched">From is required</p>
                             </div>
-                            {{enquiryData.from}}
-                            <pre>{{currentDate}}</pre>
                             <div class="col-md-4 col-sm-4 padboth15">
-                                <input type="date" class="hideinput form-control Robotor" placeholder="To" name="to" ng-model="enquiryData.to" min="{{enquiryData.from | date:'yyyy-MM-dd'}} || {{currentDate | date:'yyyy-MM-dd'}}" required>
+                                <input type="date" ng-disabled="!enquiryData.from" class="hideinput form-control Robotor" placeholder="To" name="to" ng-model="enquiryData.to" min="{{enquiryData.from | date:'yyyy-MM-dd'}}" required>
                                 <p class="error" ng-show="myForm.to.$invalid && myForm.to.$touched">To is required</p>
                             </div>
 

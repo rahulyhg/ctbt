@@ -229,6 +229,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
+          $scope.currentDate = new Date();
         // $scope.enqSubmitPopup();
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
@@ -361,7 +362,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-
+  $scope.currentDate = new Date();
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
         // $scope.subscribeSubmit = function(subscribeData) {
@@ -491,7 +492,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Highrollers");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+  $scope.currentDate = new Date();
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
         // $scope.subscribeSubmit = function(subscribeData) {
@@ -1642,6 +1643,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
+          $scope.currentDate = new Date();
         $scope.template = TemplateService.changecontent("pakage");
         $scope.menutitle = NavigationService.makeactive("Pakage");
         TemplateService.title = $scope.menutitle;
@@ -2193,7 +2195,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Customisation");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+$scope.currentDate = new Date();
         NavigationService.cityDetails($stateParams.id, function(data) {
             console.log(data.data.getDestination.name);
             $scope.nameofCust = data.data.getDestination.name;
@@ -2389,7 +2391,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (checkboxModel == true) {
                     NavigationService.addCartActivityCustomisation(id, type, function(data) {
                         $scope.getData = data;
-                        console.log('$scope.getData', $scope.getData);
+                        console.log('$scope.getData', data.data);
                         // $scope.getCartFunCustomisation();
                     });
 
@@ -2400,6 +2402,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     });
                 }
             }
+            // console.log('$scope.getData0000', $scope.getData);
             // ==========================End Cart ===========================
 
 

@@ -270,9 +270,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
                 if($scope.totalItems==undefined){
                     $scope.totalItems = data.data.results.length;
-                    $scope.maxRow = 20;
                 }
-
             });
     };
     JsonService.refreshView = $scope.getAllItems;
