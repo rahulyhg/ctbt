@@ -1136,12 +1136,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // ======== End Cart =========
     })
-    .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+    .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter) {
         globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
+      // $scope.currentDate = $filter('date')(new Date(), 'yyyy MM dd');
+        $scope.currentDate = new Date();
+        console.log($scope.currentDate);
         $scope.cartd = function() {
             modal = $uibModal.open({
                 animation: true,
