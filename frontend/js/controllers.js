@@ -228,6 +228,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
+          $scope.currentDate = new Date();
         // $scope.enqSubmitPopup();
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
@@ -360,7 +361,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-
+  $scope.currentDate = new Date();
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
         // $scope.subscribeSubmit = function(subscribeData) {
@@ -490,7 +491,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Highrollers");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+  $scope.currentDate = new Date();
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
         // $scope.subscribeSubmit = function(subscribeData) {
@@ -1641,6 +1642,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
+          $scope.currentDate = new Date();
         $scope.template = TemplateService.changecontent("pakage");
         $scope.menutitle = NavigationService.makeactive("Pakage");
         TemplateService.title = $scope.menutitle;

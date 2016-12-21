@@ -41,11 +41,11 @@
                             </div>
 
                             <div class="col-md-5 col-sm-5 padboth15">
-                                <input type="date" class="form-control Robotor" placeholder="From" name="from" ng-model="enquiryData.from" required>
+                                <input type="date" min="{{currentDate | date:'yyyy-MM-dd'}}" class="form-control Robotor" placeholder="From" name="from" ng-model="enquiryData.from" required>
                                 <p class="error" ng-show="myForm.from.$invalid && myForm.from.$touched">From is required</p>
                             </div>
                             <div class="col-md-4 col-sm-4 padboth15">
-                                <input type="date" class="form-control Robotor" placeholder="To" name="to" ng-model="enquiryData.to" required>
+                                <input type="date" min="{{enquiryData.from | date:'yyyy-MM-dd'}}" ng-disabled="!enquiryData.from" class="form-control Robotor" placeholder="To" name="to" ng-model="enquiryData.to" required>
                                 <p class="error" ng-show="myForm.to.$invalid && myForm.to.$touched">To is required</p>
                             </div>
 
