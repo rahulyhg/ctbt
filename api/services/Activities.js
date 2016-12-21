@@ -107,21 +107,23 @@ var model = {
             }, {
                 $match: {
                     $or: [{
-                        "destination.name": RegExp(data.keyword,'i')
+                        "destination.name": RegExp(data.keyword, 'i')
                     }, {
-                        "name": RegExp(data.keyword,'i')
+                        "name": RegExp(data.keyword, 'i')
                     }]
                 }
+            }, {
+                $limit: 10
             }], function (err, data) {
                 if (err) {
                     console.log("In Err");
                     callback(err, null);
                 } else {
-                    var count1 =10;
+                    var count1 = 10;
                     var data1 = {
                         results: data,
                         options: {
-                            count : count1
+                            count: count1
                         }
                     };
                     console.log("In Data", data1);
