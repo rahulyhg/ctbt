@@ -61,7 +61,7 @@ var model = {
         // emailData.contentAct = data.myCart.activities;
         // emailData.contentPack = data.myCart.package;
         // emailData.contentWhot = data.myCart.whatshot;
-        emailData.filename = "enquireletter.ejs";
+        emailData.filename = "ENQUIREMAILER.ejs";
         emailData.subject = "Enquiry Info TBT ";
         // console.log("FINAL DATA",data.myCart.activities.activities.name);
         Config.email(emailData, function (err, emailRespo) {
