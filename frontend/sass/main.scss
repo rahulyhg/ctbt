@@ -1067,7 +1067,7 @@ option {
 .hdn {
     color: #0b358c;
     font-size: 12px;
-    width: 114px;
+    width: 141px;
     margin-top: 10px;
     margin-bottom: 0;
 
@@ -1080,13 +1080,14 @@ option {
         border-radius: 100%;
         padding: 5px 0;
         height: 20px;
-        width: 21px;
+        width: 20px;
         text-align: center;
     }
 
     a {
         color: #fdd116;
         font-size: 12px;
+        padding: 0 1px;
     }
 }
 
@@ -2557,6 +2558,7 @@ figure .links {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
 }
+
 .cartadd .ng-hide-remove {
     -webkit-animation: 0.5s flipInX ease;
     animation: 0.5s flipInX ease;
@@ -2566,21 +2568,22 @@ figure .links {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
 }
+
 .eqform .ng-hide-remove {
     -webkit-animation: 0.5s flipInX ease;
     animation: 0.5s flipInX ease;
 }
+
 .navbarleft .ng-hide-add {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
 }
+
 .navbarleft .ng-hide-remove {
     -webkit-animation: 0.5s flipInX ease;
     animation: 0.5s flipInX ease;
 }
 /* when showing the thing */
-
-
 /* ANIMATIONS (FROM ANIMATE) */
 /* flip in */
 @keyframes flipInX {
