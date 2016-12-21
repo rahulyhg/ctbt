@@ -204,7 +204,7 @@ var model = {
             emailData.contentFrom = fromDate;
             emailData.contentTo = toDate;
 
-            emailData.filename = "customMailer.ejs";
+            emailData.filename = "CUSTOMMAILER.ejs";
             emailData.subject = "TBT - CUSTOMIZED CART INFO";
 
 
