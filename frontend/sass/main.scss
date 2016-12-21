@@ -1559,9 +1559,9 @@ figure .links {
 }
 
 .fsiz {
-  font-size: 80px;
-  padding: 67px 0px;
-  margin: 0;
+    font-size: 80px;
+    padding: 67px 0;
+    margin: 0;
 }
 
 .dlm {
@@ -2553,25 +2553,34 @@ figure .links {
     margin-top: -66px;
 }
 /* when hiding the thing */
-.eqform .cartadd .ng-hide-add {
+.cartadd .ng-hide-add {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
+}
+.cartadd .ng-hide-remove {
+    -webkit-animation: 0.5s flipInX ease;
+    animation: 0.5s flipInX ease;
 }
 
 .eqform .ng-hide-add {
     -webkit-animation: 0.5s lightSpeedOut ease;
     animation: 0.5s lightSpeedOut ease;
 }
-/* when showing the thing */
-.cartadd .ng-hide-remove {
-    -webkit-animation: 0.5s flipInX ease;
-    animation: 0.5s flipInX ease;
-}
-
 .eqform .ng-hide-remove {
     -webkit-animation: 0.5s flipInX ease;
     animation: 0.5s flipInX ease;
 }
+.navbarleft .ng-hide-add {
+    -webkit-animation: 0.5s lightSpeedOut ease;
+    animation: 0.5s lightSpeedOut ease;
+}
+.navbarleft .ng-hide-remove {
+    -webkit-animation: 0.5s flipInX ease;
+    animation: 0.5s flipInX ease;
+}
+/* when showing the thing */
+
+
 /* ANIMATIONS (FROM ANIMATE) */
 /* flip in */
 @keyframes flipInX {
@@ -3243,9 +3252,11 @@ input[type=number]::-webkit-outer-spin-button {
 .modal-dialog2 .modal-open .modal {
     top: 15% !important;
 }
+
 .modal-dialog2 .modal-dialog {
-  margin-top: 15% !important;
+    margin-top: 15% !important;
 }
+
 .maxht {
     max-height: 100% !important;
 }
@@ -3489,6 +3500,15 @@ input[type=number]::-webkit-outer-spin-button {
     img {
         width: 27px;
     }
+}
+
+.homecart {
+    position: absolute !important;
+    right: 0 !important;
+    top: 59px !important;
+    z-index: 999 !important;
+    padding-bottom: 15px !important;
+    box-shadow: #002b7f 0 0 1px 0 !important;
 }
 /* Start writing sass here */
 @import "fancybox-override";
