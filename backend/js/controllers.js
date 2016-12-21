@@ -252,6 +252,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.getAllItems = function (keywordChange) {
+        console.log("in list")
         $scope.totalItems = undefined;
         if (keywordChange) {
             $scope.currentPage = 1;
@@ -261,11 +262,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 keyword: $scope.search.keyword
             }, ++i,
             function (data, ini) {
+                console.log(data)
                 if (ini == i) {
                     $scope.items = data.data.results;
                     $scope.totalItems = data.data.total;
                     $scope.maxRow = data.data.options.count;
                 }
+                if($scope.totalItems==undefined){
+                    $scope.totalItems = data.data.results.length;
+                    $scope.maxRow = 20;
+                }
+
             });
     };
     JsonService.refreshView = $scope.getAllItems;
