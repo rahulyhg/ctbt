@@ -49,81 +49,155 @@ module.exports = mongoose.model('DestinationContent', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'destinationTitle destination', 'destinationTitle destination'));
 var model = {
 
-    search: function (data, callback) {
-        var Model = this;
-        var Const = this(data);
-        var maxRow = Config.maxRow;
-        var page = 1;
-        // var name1=subString()
-        if (data.page) {
-            page = data.page;
+  search: function (data, callback) {
+    var Model = this;
+    var Const = this(data);
+    var maxRow = Config.maxRow;
+    var pagestartfrom = (data.page - 1) * maxRow;
+    var page = 1;
+    // var name1=subString()
+    if (data.page) {
+      page = data.page;
+    }
+    var field = data.field;
+    var options = {
+      field: data.field,
+      filters: {
+        keyword: {
+          fields: ['name'],
+          term: data.keyword
         }
-        var field = data.field;
-        var options = {
-            field: data.field,
-            filters: {
-                keyword: {
-                    fields: ['name'],
-                    term: data.keyword
-                }
-            },
+      },
 
-            sort: {
-                desc: "name",
-            },
-            start: (page - 1) * maxRow,
-            count: maxRow
-        };
-        _.each(data.filter, function (n, key) {
-            if (_.isEmpty(n)) {
-                n = undefined;
+      sort: {
+        desc: "name",
+      },
+      start: (page - 1) * maxRow,
+      count: maxRow
+    };
+    _.each(data.filter, function (n, key) {
+      if (_.isEmpty(n)) {
+        n = undefined;
+      }
+    });
+    if (data.keyword != "") {
+      async.parallel([
+        //Start 
+        function (callback) {
+          var Search = DestinationContent.aggregate([{
+            $lookup: {
+              from: "destinations",
+              localField: "destination",
+              foreignField: "_id",
+              as: "destination"
             }
-        });
-        if (data.keyword != "") {
-            var Search = DestinationContent.aggregate([{
-                $lookup: {
-                    from: "destinations",
-                    localField: "destination",
-                    foreignField: "_id",
-                    as: "destination"
+          }, {
+            $unwind: "$destination"
+          }, {
+            $match: {
+              $or: [{
+                "destination.name": {
+                  $regex: data.keyword,
+                  $options: 'i'
                 }
-            }, {
-                $unwind: "$destination"
-            }, {
-                $match: {
-                    $or: [{
-                        "destination.name": RegExp(data.keyword,'i')
-                    }, {
-                        "name": RegExp(data.keyword,'i')
-                    }]
+              }, {
+                "name": {
+                  $regex: data.keyword,
+                  $options: 'i'
                 }
-            }, {
-                $limit: 20
-            }], function (err, data) {
-                if (err) {
-                    console.log("In Err");
-                    callback(err, null);
-                } else {
-                    var count1 =10;
-                    var data1 = {
-                        results: data,
-                        options: {
-                            count : count1
-                        }
-                    };
-                    console.log("In Data", data1);
-                    callback(null, data1);
-                }
-            });
-        } else {
-            var Search = Model.find(data.filter)
+              }]
+            }
+          }, {
+            $skip: parseInt(pagestartfrom)
+          }, {
+            $limit: maxRow
+          }], function (err, data1) {
+            if (err) {
+              console.log("In Err");
+              callback(err, null);
+            } else {
+              console.log("In Data data", data1);
+              callback(null, data1);
+            }
+          });
 
-            .order(options)
-                .deepPopulate("destination")
-                .keyword(options)
-                .page(options, callback);
+        },
+
+        function (callback) {
+          var Search = DestinationContent.aggregate([{
+            $lookup: {
+              from: "destinations",
+              localField: "destination",
+              foreignField: "_id",
+              as: "destination"
+            }
+          }, {
+            $unwind: "$destination"
+          }, {
+            $match: {
+              $or: [{
+                "destination.name": RegExp(data.keyword, 'i')
+              }, {
+                "name": RegExp(data.keyword, 'i')
+              }]
+            }
+          }, {
+            $group: {
+              _id: null,
+              count: {
+                $sum: 1
+              }
+            }
+          }, {
+            $project: {
+              "_id": 1,
+              "count": 1
+            }
+          }], function (err, data2) {
+            if (err) {
+              console.log("In Err");
+              callback(err, null);
+            } else {
+              console.log("In Data", data2);
+              callback(null, data2);
+            }
+          });
         }
-    },
+
+        //end
+      ], function (err, data4) {
+        if (err) {
+          callback(err, null);
+        }
+        if (_.isEmpty(data4[1])) {
+          var data5 = {
+            results: data4[0],
+            options: {
+              count: 0
+            }
+          };
+        } else {
+          var data5 = {
+            results: data4[0],
+            options: {
+              count: maxRow
+            }
+          };
+          data5.total = data4[1][0].count;
+        }
+
+        console.log("Data 5 ", data5);
+        callback(null, data5);
+      });
+    } else {
+      var Search = Model.find(data.filter)
+
+      .order(options)
+        .deepPopulate("destination")
+        .keyword(options)
+        .page(options, callback);
+    }
+  },
 
   // 
 
