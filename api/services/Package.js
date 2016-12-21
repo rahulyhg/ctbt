@@ -222,6 +222,8 @@ var model = {
                         "name": RegExp(data.keyword,'i')
                     }]
                 }
+            }, {
+                $limit: 10
             }], function (err, data) {
                 if (err) {
                     console.log("In Err");
