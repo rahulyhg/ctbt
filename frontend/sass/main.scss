@@ -3594,11 +3594,24 @@ input[type=number]::-webkit-outer-spin-button {
     padding-bottom: 15px !important;
     box-shadow: #002b7f 0 0 1px 0 !important;
 }
-.pbtn{    padding: 7px 40px;
+
+.pbtn {
+    padding: 7px 40px;
     line-height: 15px;
-    text-align: center;}
-.pb{    font-size: 23px;}
-.pd{font-size: 17px;}
+    text-align: center;
+}
+
+.pb {
+    font-size: 23px;
+}
+
+.pd {
+    font-size: 17px;
+}
+
+.wdp {
+    width: 100%;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";

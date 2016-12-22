@@ -2,7 +2,7 @@
 <div class="homeslidr hidden-xs">
     <flex-slider id="homeslider" flex-slide="s in mySlidestop track by $index" slideshow-speed="2500" slideshow="true" animation-speed="1000" class="m1 carousel">
         <li>
-            <img alt="tbt" title="tbt"  class="img-responsive " ng-src="{{s.image|serverimage}}">
+            <img alt="tbt" title="tbt" class="img-responsive " ng-src="{{s.image|serverimage}}">
         </li>
     </flex-slider>
 </div>
@@ -15,7 +15,7 @@
             <div class="item">
                 <figure class=" ng-scope">
                     <!-- <a href={{s.url}} target="_blank"> -->
-                    <img alt="tbt" title="tbt"  class="img-responsive " ng-src="{{s.image2|serverimage}}">
+                    <img alt="tbt" title="tbt" class="img-responsive " ng-src="{{s.image2|serverimage}}">
                     <!-- </a> -->
                 </figure>
             </div>
@@ -36,7 +36,7 @@
     <div class="mr">
         <div class="container borderup">
             <div class="addimg">
-                <img alt="destination" title="destination"  src="frontend/img/+img.png" class="img-responsive" ui-sref="destination">
+                <img alt="destination" title="destination" src="frontend/img/+img.png" class="img-responsive" ui-sref="destination">
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-4  col-xs-6 displaynon padng0">
@@ -46,7 +46,7 @@
                 <div class="col-md-2 col-sm-2 col-xs-6  padng0" ng-repeat="x in popularDestination | limitTo : 4">
                     <div class="eventshome">
                         <a ui-sref="customdestination({id:x._id})">
-                            <img alt="{{x.name}}" title="{{x.name}}" ng-src="{{x.image|serverimage:544:545}}" class="img-responsive" >
+                            <img alt="{{x.name}}" title="{{x.name}}" ng-src="{{x.image|serverimage:544:545}}" class="img-responsive">
                             <div class="shadow-down"></div>
                             <div class="event-name">
                                 <span>{{x.name}}</span>
@@ -66,19 +66,19 @@
     <div class="ml">
         <div class="container borderdown">
             <div class="addimg1">
-                <img alt="activity" title="activity"  src="frontend/img/+img.png"  class="img-responsive" ui-sref="activity">
+                <img alt="activity" title="activity" src="frontend/img/+img.png" class="img-responsive" ui-sref="activity">
             </div>
             <div class="row">
                 <div class="col-md-2 col-sm-2 col-xs-6 padng0" ng-repeat="x in popularAttraction | limitTo : 4">
                     <div class="eventshome" ui-sref="customdestination({id:x.destination})">
-                        <img alt="{{x.name}}" title="{{x.name}}"  src="{{x.image1 | serverimage:544:545}}" class="img-responsive" >
+                        <img alt="{{x.name}}" title="{{x.name}}" src="{{x.image1 | serverimage:544:545}}" class="img-responsive">
                         <div class="shadow-down"></div>
                         <div class="event-name">
                             <span>{{x.name}}</span>
                         </div>
                         <div class="over-layer text-center">
                             <div class="hoverimg">
-                                <img alt="ggl" title="ggl"  class="img-responsive" src="frontend/img/ggl.png">
+                                <img alt="ggl" title="ggl" class="img-responsive" src="frontend/img/ggl.png">
                             </div>
                         </div>
                     </div>
@@ -108,10 +108,18 @@
         <div class="col-md-12">
             <div class="hompad8">
                 <!---START VIDEO FRAME ---->
-                <div class="pad15pat embed-responsive embed-responsive-16by9">
-                    <img alt="videoright" title="videoright"  class="rightimg img-responsive" src="frontend/img/videoright.png">
-                    <iframe class="pad15 embed-responsive-item" src="https://www.youtube-nocookie.com/embed/wiIOQE23h9c"></iframe>
-                    <img alt="videoleft" title="videoleft"  class="leftimg img-responsive" src="frontend/img/videoleft.png">
+                <!-- <div class="pad15pat embed-responsive embed-responsive-16by9">
+                    <img alt="videoright" title="videoright" class="rightimg img-responsive" src="frontend/img/videoright.png">
+                    <img alt="videoleft" title="videoleft" class="img-responsive" src="frontend/img/4.jpg">
+                    <img alt="videoleft" title="videoleft" class="leftimg img-responsive" src="frontend/img/videoleft.png">
+                  </div>
+                </div> -->
+                <div class="hompad8">
+                    <div class="pad15pat embed-responsive embed-responsive-16by9">
+                        <img alt="videoright" title="videoright" class="rightimg img-responsive" src="frontend/img/videoright.png">
+                        <iframe class="pad15 embed-responsive-item" src="https://www.youtube-nocookie.com/embed/wiIOQE23h9c"></iframe>
+                        <img alt="videoleft" title="videoleft" class="leftimg img-responsive" src="frontend/img/videoleft.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,11 +130,11 @@
 <!-- START SELECT FOR CUSTOMISATION -->
 <div class="padd paddup">
     <figure class="m2">
-        <img alt="4" title="4"  class="img-responsive" src="frontend/img/4.jpg">
+        <img alt="4" title="4" class="img-responsive" src="frontend/img/4.jpg">
         <figcaption>
             <div class="links">
                 <div class="onimg">
-                    <img alt="6" title="6"  class="imgab" src="frontend/img/6.png">
+                    <img alt="6" title="6" class="imgab" src="frontend/img/6.png">
                     <form class="himg2" ng-submit="goto(formdata)" ng-init="abc">
                         <label class="pregular labsec">I want to go to</label>
                         <fieldset class="inputtag">
@@ -150,15 +158,16 @@
 <!--  END FOR CUSTOMISATION-->
 <!-- START ABOUT -->
 <div class="aboutin">
-    <div class="imAb"> <img alt="wd" title="wd"  class="img-responsive " src="frontend/img/wd.png"></div>
+    <div class="imAb"> <img alt="wd" title="wd" class="img-responsive " src="frontend/img/wd.png"></div>
     <div class="spAb">
         <h1 class="theboldfont">ABOUT US</h1>
         <div class="ain">
-          <h3 class="whit_color theboldfont margbotom">May the bachelor in you rest in peace . . .</h3>
-          <p class="bluecol Robotor">And this is precisely where we come into the picture - to organise <strong class="abinfo pregular bluecol">THE</strong> trip to bid adieu to your <strong class="abinfo pregular bluecol">bachelorhood!</strong> <br>An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..<br>Our Motto is to ensure that you have the best stag
-              or hens do, one that would be far greater than <strong class="abinfo pregular bluecol">The hangover</strong>. We understand you will only have one such trip in your lifetime and we strive to make it larger-than-life kinds; the ones with happy endings (wink wink!). <br>We
-              have it all; on a scale from Doug to Mr. Chow depending on how much you would prefer indulging.
-          </p>
+            <h3 class="whit_color theboldfont margbotom">May the bachelor in you rest in peace . . .</h3>
+            <p class="bluecol Robotor">And this is precisely where we come into the picture - to organise <strong class="abinfo pregular bluecol">THE</strong> trip to bid adieu to your <strong class="abinfo pregular bluecol">bachelorhood!</strong> <br>An event of a lifetime needs
+                a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..<br>Our Motto is to ensure that you have the best stag or hens do, one that would be far greater
+                than <strong class="abinfo pregular bluecol">The hangover</strong>. We understand you will only have one such trip in your lifetime and we strive to make it larger-than-life kinds; the ones with happy endings (wink wink!). <br>We have
+                it all; on a scale from Doug to Mr. Chow depending on how much you would prefer indulging.
+            </p>
             <!-- <h3 class="whit_color theboldfont margbotom">THERE ARE SOME EXPERIENCES THAT COME ONCE IN YOUR LIFETIME.</h3>
             <p class="bluecol Robotor">And your <strong class="abinfo pregular bluecol">Bachelor Trip</strong> is definitely one of them. We're the first Indian company that taken it upon itself to give you the best Bachelor Trip plan. Planning your trip with us gives you access
                 to parties across the <strong class="abinfo pregular bluecol">globe</strong>, crazy adrenaline pumping adventures you've been wanting to try out and some of naughty affairs you wouldn't mind indulging in. The best of experiences offered
@@ -174,7 +183,7 @@
         <li>
             <div class="item">
                 <figure class="mim-home ng-scope">
-                    <a ui-sref="whats-hot"><img alt="whats-hot" title="whats-hot"  class="img-responsive " ng-src="{{data.banner | serverimage}}"></a>
+                    <a ui-sref="whats-hot"><img alt="whats-hot" title="whats-hot" class="img-responsive " ng-src="{{data.banner | serverimage}}"></a>
                 </figure>
             </div>
         </li>

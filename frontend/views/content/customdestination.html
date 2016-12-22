@@ -1,7 +1,7 @@
 <!-- START BANNER  -->
 <div class="container">
     <figure class="m1">
-        <img alt="custom" title="custom"  class="img-responsive" ng-src="{{getDestination.banner | serverimage}}">
+        <img alt="custom" title="custom" class="img-responsive" ng-src="{{getDestination.banner | serverimage}}">
     </figure>
 </div>
 <!-- END BANNER  -->
@@ -23,12 +23,12 @@
     <div class="container ">
         <div class="col-md-12 ">
             <!---PACKAGES START ---->
-            <div class="{{classv}} whatsmarg4 displaynonpata"  ng-if="tabs=='bz'" >
-              <div class="row text-center pattmarg2">
-                <span><a ng-click="tabchanges('az',1)" class="patpack theboldfont ">ACTIVITIES </a></span>
+            <div class="{{classv}} whatsmarg4 displaynonpata" ng-if="tabs=='bz'">
+                <div class="row text-center pattmarg2">
+                    <span><a ng-click="tabchanges('az',1)" class="patpack theboldfont ">ACTIVITIES </a></span>
 
-                <span><a ng-click="tabchanges('bz',2)" class=" patpack2 whit_color theboldfont  ">PACKAGES</a></span>
-              </div>
+                    <span><a ng-click="tabchanges('bz',2)" class=" patpack2 whit_color theboldfont  ">PACKAGES</a></span>
+                </div>
 
                 <div class="whatsmain">
                     <div class="margincheck">
@@ -42,28 +42,38 @@
                 <div class="row pattmarg3">
                     <div class="col-md-3 col-sm-3 col-xs-12 pading0" ng-repeat="data in getPackage">
                         <div class="events">
-                            <img alt="{{data.title1}} {{data.title2}}" title="{{data.title1}} {{data.title2}}"  ng-src="{{data.image |serverimage:544:545}}" alt="" class="maxwidth img-responsive">
+                            <img alt="{{data.title1}} {{data.title2}}" title="{{data.title1}} {{data.title2}}" ng-src="{{data.image |serverimage:544:545}}" alt="" class="maxwidth img-responsive">
                             <div class="cart-sec">
                                 <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
                                   <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
                                   <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                               </button>
                             </div>
-                          <div class="shadow-down"></div>
+                            <div class="shadow-down"></div>
                             <div class="event-name">
                                 <span>{{data.title1}} {{data.title2}}</span>
                                 <br>
                                 <span>{{data.duration}}</span>
                             </div>
-                            <div class="over-layer text-center"  ui-sref="pakage({id:data._id})">
-                              <div class="cart-sec">
-                                  <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
+                            <div class="over-layer text-center" ui-sref="pakage({id:data._id})">
+                                <div class="cart-sec">
+                                    <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
                                     <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
                                     <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                 </button>
-                              </div>
+                                </div>
                                 <div class="button-holder">
                                     <button class="ext-detail" ui-sref="pakage({id:data._id})">KNOW MORE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 pading0">
+                        <div class="events">
+                            <img alt="customisation" title="customisation" ng-src="frontend/img/customis.gif" class="maxwidth img-responsive">
+                            <div class="over-layer text-center" ui-sref="">
+                                <div class="button-holder">
+                                    <button class="ext-detail" ui-sref="">KNOW MORE</button>
                                 </div>
                             </div>
                         </div>
@@ -81,10 +91,10 @@
 
             <!---ACTIVIES START---->
             <div class="{{classp}} whatsmarg4 displaynonpata" ng-if="tabs=='az'">
-              <div class="row text-center pattmarg2">
-                  <span><a ng-click="tabchanges('az',1)" class=" patpack2 whit_color theboldfont ">ACTIVITIES</a></span>
-                  <span><a ng-click="tabchanges('bz',2)" class=" patpack theboldfont ">PACKAGES </a></span>
-              </div>
+                <div class="row text-center pattmarg2">
+                    <span><a ng-click="tabchanges('az',1)" class=" patpack2 whit_color theboldfont ">ACTIVITIES</a></span>
+                    <span><a ng-click="tabchanges('bz',2)" class=" patpack theboldfont ">PACKAGES </a></span>
+                </div>
 
                 <div class="whatsmain">
                     <div class="margincheck">
@@ -97,10 +107,10 @@
                                 <div class="checkbox checkboxing">
                                     <input type="checkbox" ng-model="day.model" id="day" ng-click="searchDay()">
                                     <label for="day"><span></span>Day</label>
-                                    <img alt="Object1" title="Object1"  src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
+                                    <img alt="Object1" title="Object1" src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
                                     <input type="checkbox" ng-model="night.model" id="night" ng-click="searchNight()">
                                     <label for="night"><span></span> Night</label>
-                                    <img alt="Vector" title="Vector"  src="frontend/img/Vector.png" alt="" class="check_img vector">
+                                    <img alt="Vector" title="Vector" src="frontend/img/Vector.png" alt="" class="check_img vector">
                                 </div>
                             </div>
                             <!-- <div class="col-md-4 col-sm-6 col-xs-12  pading5 ">
@@ -125,9 +135,9 @@
                         <div class="flipDiv">
                             <figure>
                                 <div class="front">
-                                    <img alt="{{data.name}}" title="{{data.name}}"  ng-src="{{data.image1 |serverimage:544:545}}" alt="" class="maxwidth img-responsive" ng-click="addTocart(data)">
+                                    <img alt="{{data.name}}" title="{{data.name}}" ng-src="{{data.image1 |serverimage:544:545}}" alt="" class="maxwidth img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
-                                        <button class="cart uppercase"  ng-click="addTocartOnActivity(data._id,data.typeCart);">
+                                        <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
                                           <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
                                           <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                       </button>
@@ -138,13 +148,13 @@
                                     </div>
                                 </div>
                                 <figcaption>
-                                  <div class="cart-sec">
-                                      <button class="cart uppercase"  ng-click="addTocartOnActivity(data._id,data.typeCart);">
+                                    <div class="cart-sec">
+                                        <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
                                         <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
                                         <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
-                                  </div>
-                                    <div  class="descrip" ng-bind-html="data.description | shorten :250"></div>
+                                    </div>
+                                    <div class="descrip" ng-bind-html="data.description | shorten :250"></div>
                                     <!-- <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description | shorten :180"></div>
                                     <div ng-if="addedSuccessPattaya" class="descrip" ><p class="toppad">Your query has been added to the cart.</p></div> -->
 
@@ -171,9 +181,9 @@
     <div class="container">
         <div class="rotat">
             <div class="row hei">
-              <!-- <div class="show-div" ng-show="enquirybtn" ng-if="!submitEnq"> -->
+                <!-- <div class="show-div" ng-show="enquirybtn" ng-if="!submitEnq"> -->
                 <div class="show-div" ng-show="enquirybtn">
-                  <!-- <div class=""> -->
+                    <!-- <div class=""> -->
                     <div class="col-md-3 col-sm-3">
                         <div class="pattsocial2">
                             <ul class="list-group socialpatt yellow_back_lightcolor ">
@@ -181,7 +191,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform"  >
+                    <div class="col-md-9 col-sm-9 yellow_back_lightcolor pattform">
                         <form name="myForm" ng-submit="enquirySubmit(enquiryData,myForm)">
                             <div class="col-md-6  col-sm-6 padboth15">
                                 <input type="text" class="hideinput form-control Roboto" placeholder="Interested Cities" name="cities" ng-model="enquiryData.cities" required>
@@ -227,7 +237,7 @@
                                 <button ng-click="enquirybtn = !enquirybtn" ng-disabled="myForm.$invalid" ng-class="{ active: enquirybtn }" type="submit" class="btn btn-submit">Submit</button>
                             </div>
                         </form>
-                      </div>
+                    </div>
                     <!-- </div> -->
                 </div>
                 <!-- <div ng-if="submitEnq">
@@ -267,13 +277,13 @@
                         <div uib-accordion-group is-open="accordian[$index].isFirstOpen" class="panel-default panelacor" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}" ng-repeat="data in getTitle">
                             <uib-accordion-heading>
                                 <div class="fontpanel Pregular bluecol" ng-class="{'yellow_back_color': accordian[$index].isFirstOpen, '': !accordian[$index].isFirstOpen}">
-                                    <img alt="{{data.name}}" title="{{data.name}}"  ng-src="{{data.name | TbtIcon}}" class="image_title"> {{data.name}}
+                                    <img alt="{{data.name}}" title="{{data.name}}" ng-src="{{data.name | TbtIcon}}" class="image_title"> {{data.name}}
                                     <i class="pull-right fa " ng-class="{'fa fa-minus':  accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
                                 </div>
                             </uib-accordion-heading>
                             <!-- Please Remove the Below Comment -->
                             <div class=" padding30">
-                            <!-- <div class=" padding30" ng-repeat="x in DestinationTitle"> -->
+                                <!-- <div class=" padding30" ng-repeat="x in DestinationTitle"> -->
                                 <ul class="list-group socialpatt">
                                     <li class="Robotor bluecol" ng-if="{{data.name1}}">
                                         <strong class="padding15">{{data.name1}}</strong>
