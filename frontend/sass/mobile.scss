@@ -1,5 +1,8 @@
 @media only screen and (max-width: 1205px) {
-  .homecart{    top: 142px !important;}
+    .homecart {
+        top: 142px !important;
+    }
+
     .enqcart {
         padding: 78px 15px 74px 61px !important;
         margin-top: -14px !important;
@@ -61,7 +64,10 @@
     }
 }
 @media (max-width: 1000px) {
-  .homecart{    top: 196px !important;}
+    .homecart {
+        top: 196px !important;
+    }
+
     .stp {
         font-size: 16px;
     }
@@ -316,7 +322,7 @@
         background-size: 41%;
         background-position: 91% 95%;
         padding: 6%;
-          margin: -5% 6% 0% 6%;
+        margin: -5% 6% 0;
     }
 
     .activ-card {
@@ -324,13 +330,15 @@
     }
 }
 @media (max-width: 767px) {
-  .homecart {
-    top: 324px !important;
-    width: 100%;
-}
-  .hdp {
-      width: 248px;
-  }
+    .homecart {
+        top: 324px !important;
+        width: 100%;
+    }
+
+    .hdp {
+        width: 248px;
+    }
+
     .maxht {
         height: auto;
     }
@@ -854,6 +862,7 @@
     .imAb {
         margin: 0;
         width: 210px;
+        padding: 0;
     }
 
     .sado {
