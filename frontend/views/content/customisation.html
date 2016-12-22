@@ -29,7 +29,7 @@
                     <h1 class="theboldfont custtitle">1. CHOOSE ACCOMMODATION</h1>
                 </div>
                 <!-- END DROP DOWN -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" ng-repeat="data in customisationDest">
                         <figure>
                             <div class="front ">
@@ -43,6 +43,110 @@
                                 <div class="shadow-down"></div>
                                 <div class="event-name">
                                     <span>{{data.hotelName}}</span>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" >
+                        <figure>
+                            <div class="front ">
+                                <img alt="" title=""  ng-src="frontend/img/hotel/villa.jpg" class="mainwidht img-responsive">
+                                <div class="cart-sec2">
+                                  <div class="checkbox checkboxing">
+                                      <input value="cart" type="checkbox" ng-model="checkboxModel1" id="villa" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <label for="villa"><span></span></label>
+                                  </div>
+                                </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>Private Villa</span>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" >
+                        <figure>
+                            <div class="front ">
+                                <img alt="" title=""  ng-src="frontend/img/hotel/apartment.jpg" class="mainwidht img-responsive">
+                                <div class="cart-sec2">
+                                  <div class="checkbox checkboxing">
+                                      <input value="cart" type="checkbox" ng-model="checkboxModel1" id="apartment" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <label for="apartment"><span></span></label>
+                                  </div>
+                                </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>Apartment</span>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" >
+                        <figure>
+                            <div class="front ">
+                                <img alt="" title=""  ng-src="frontend/img/hotel/hostel.jpg" class="mainwidht img-responsive">
+                                <div class="cart-sec2">
+                                  <div class="checkbox checkboxing">
+                                      <input value="cart" type="checkbox" ng-model="checkboxModel1" id="hostel" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <label for="hostel"><span></span></label>
+                                  </div>
+                                </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>Hostel</span>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" >
+                        <figure>
+                            <div class="front ">
+                                <img alt="" title=""  ng-src="frontend/img/hotel/3star.jpg" class="mainwidht img-responsive">
+                                <div class="cart-sec2">
+                                  <div class="checkbox checkboxing">
+                                      <input value="cart" type="checkbox" ng-model="checkboxModel1" id="3star" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <label for="3star"><span></span></label>
+                                  </div>
+                                </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>3 star hotel</span>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" >
+                        <figure>
+                            <div class="front ">
+                                <img alt="" title=""  ng-src="frontend/img/hotel/4star.png" class="mainwidht img-responsive">
+                                <div class="cart-sec2">
+                                  <div class="checkbox checkboxing">
+                                      <input value="cart" type="checkbox" ng-model="checkboxModel1" id="4star" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <label for="4star"><span></span></label>
+                                  </div>
+                                </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>4 star hotel</span>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 pdt15" >
+                        <figure>
+                            <div class="front ">
+                                <img alt="" title=""  ng-src="frontend/img/hotel/5star.png" class="mainwidht img-responsive">
+                                <div class="cart-sec2">
+                                  <div class="checkbox checkboxing">
+                                      <input value="cart" type="checkbox" ng-model="checkboxModel1" id="5star" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <label for="5star"><span></span></label>
+                                  </div>
+                                </div>
+                                <div class="shadow-down"></div>
+                                <div class="event-name">
+                                    <span>5 star hotel</span>
                                 </div>
                             </div>
                         </figure>
