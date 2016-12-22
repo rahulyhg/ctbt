@@ -24,5 +24,6 @@ module.exports = {
   realHost: "http://wohlig.io",
   // port: 1339,
   // realHost: "http://bachlors.tingdom.in",
+
   //http://bachlors.tingdom.in
 };

@@ -55,7 +55,7 @@
                                 <br>
                                 <span>{{data.duration}}</span>
                             </div>
-                            <div class="over-layer text-center">
+                            <div class="over-layer text-center"  ui-sref="pakage({id:data._id})">
                               <div class="cart-sec">
                                   <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
                                     <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
@@ -144,7 +144,7 @@
                                         <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
                                   </div>
-                                    <div  class="descrip" ng-bind-html="data.description | shorten :180"></div>
+                                    <div  class="descrip" ng-bind-html="data.description | shorten :250"></div>
                                     <!-- <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description | shorten :180"></div>
                                     <div ng-if="addedSuccessPattaya" class="descrip" ><p class="toppad">Your query has been added to the cart.</p></div> -->
 
