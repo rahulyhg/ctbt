@@ -121,5 +121,35 @@ var controller = {
               }
           });
       },
+
+        getCart: function(req, res) {
+          if (req.body) {
+            if (req.session.user) {
+
+            } else {
+              if(req.session.cart){
+              req.body.activities =  _.cloneDeep(req.session.cart.activities);
+              // req.body.package =  _.cloneDeep(req.session.cart.package);
+              // req.body.whatshot =  _.cloneDeep(req.session.cart.whatshot);
+              req.body.accomodation =  _.cloneDeep(req.session.cart.accomodation);
+              Customisation.getCart(req.body, res.callback);
+              // res.json({
+              //   value: true,
+              //   data: req.session.cart
+              // });
+            }else{
+            res.json({
+              value: false,
+              data: "No Date In Cart"
+            });
+            }
+          }
+        } else {
+            res.json({
+              value: false,
+              data: "Invalid Request"
+            });
+          }
+        },
 };
 module.exports = _.assign(module.exports, controller);

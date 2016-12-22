@@ -37,7 +37,7 @@ schema.plugin(deepPopulate, {
     'myCart.activities.activities.destination': {
       select: '_id name'
     },
-    
+
     'myCart.whatshot.whatshot': {
       select: '_id  name image'
     }
@@ -49,6 +49,51 @@ module.exports = mongoose.model('Customisation', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "myCart.whatshot.whatshot myCart.activities.activities.destination myCart.activities.activities myCart.package myCart.package.package.destination myCart.activities myCart.whatshot", "myCart.whatshot.whatshot myCart.activities.activities.destination myCart.activities.activities myCart.package myCart.package.package.destination myCart.activities myCart.whatshot"));
 var model = {
+
+  getCart: function (data, callback) {
+
+    var newreturns = {};
+    //  newreturns.package = [];
+    //  newreturns.activities = [];
+    async.parallel([
+    
+      function (callback1) {
+        Activities.populate(data.activities, {
+          path: "activities",
+          select: "name destination image1",
+          options: {
+            lean: true
+          },
+          populate: {
+            path: 'destination',
+            select: 'name'
+          }
+        }, function (err, found2) {
+          if (err) {
+            callback1(err, null);
+          } else {
+            console.log("bbb", found2);
+            newreturns.activities = found2;
+            callback1(null, newreturns);
+          }
+        });
+      },
+
+      function (callback1) {
+        newreturns.accomodation = data.accomodation;
+        callback1(null, newreturns);
+      }
+
+
+    ], function (err, respo) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else {
+        callback(null, newreturns);
+      }
+    });
+  },
 
   // saveCart: function (data, callback) {
   //   var mycartdata = data;
@@ -73,7 +118,7 @@ var model = {
   //     }
   //   });
   // }
-  
+
 
   // saveCart: function (data, callback) {
   //   var mycartdata = data;

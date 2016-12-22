@@ -161,7 +161,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -229,7 +229,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-          $scope.currentDate = new Date();
+        $scope.currentDate = new Date();
         // $scope.enqSubmitPopup();
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
@@ -362,7 +362,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-  $scope.currentDate = new Date();
+        $scope.currentDate = new Date();
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
         // $scope.subscribeSubmit = function(subscribeData) {
@@ -492,7 +492,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Highrollers");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-  $scope.currentDate = new Date();
+        $scope.currentDate = new Date();
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
         // $scope.subscribeSubmit = function(subscribeData) {
@@ -530,7 +530,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -886,7 +886,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1089,7 +1089,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1140,11 +1140,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter) {
         globalfunction.subscribeFun = function() {
-            $scope.subscribeData = {};
-            $scope.subscribeComplete = false;
-            $scope.subscribeSubmit = function(subscribeData) {}
-        }
-      // $scope.currentDate = $filter('date')(new Date(), 'yyyy MM dd');
+                $scope.subscribeData = {};
+                $scope.subscribeComplete = false;
+                $scope.subscribeSubmit = function(subscribeData) {}
+            }
+            // $scope.currentDate = $filter('date')(new Date(), 'yyyy MM dd');
         $scope.currentDate = new Date();
         console.log($scope.currentDate);
         $scope.cartd = function() {
@@ -1620,7 +1620,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1643,7 +1643,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeComplete = false;
             $scope.subscribeSubmit = function(subscribeData) {}
         }
-          $scope.currentDate = new Date();
+        $scope.currentDate = new Date();
         $scope.template = TemplateService.changecontent("pakage");
         $scope.menutitle = NavigationService.makeactive("Pakage");
         TemplateService.title = $scope.menutitle;
@@ -1778,14 +1778,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }
             // =============== For Cart =================
-            $scope.cartSubmitPopup = function() {
-                $scope.onSubmitCart = $uibModal.open({
-                    animation: true,
-                    templateUrl: "frontend/views/modal/mycart.html",
-                    windowClass: "modal-dialog2",
-                    scope: $scope
-                });
-            };
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/mycart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.submitCart = false;
         $scope.cartData = {};
         $scope.cartSubmit = function(input, myForm) {
@@ -1797,7 +1797,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -1922,7 +1922,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -2064,7 +2064,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
@@ -2195,7 +2195,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Customisation");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-$scope.currentDate = new Date();
+        $scope.currentDate = new Date();
         NavigationService.cityDetails($stateParams.id, function(data) {
             console.log(data.data.getDestination.name);
             $scope.nameofCust = data.data.getDestination.name;
@@ -2207,6 +2207,24 @@ $scope.currentDate = new Date();
         NavigationService.HomeSlider(function(data) {
             $scope.dropDown = data.data.DestinationDropdown;
         });
+
+        $scope.yesISEmpty = true;
+        $scope.getCartOnAcc = function() {
+            NavigationService.getCustCart(function(data) {
+                $scope.getCustomisationDeta = data.data;
+                console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta);
+                console.log($scope.getCustomisationDeta.activities.length);
+                console.log($scope.getCustomisationDeta.accomodation.length);
+                if ($scope.getCustomisationDeta.activities.length==0 && $scope.getCustomisationDeta.accomodation.length==0) {
+                    $scope.yesISEmpty = true;
+                }else{
+                  $scope.yesISEmpty = false;
+                }
+            });
+            console.log('$scope.yesISEmpty', $scope.yesISEmpty);
+        }
+
+        $scope.getCartOnAcc();
         $scope.viewLess = false;
         $scope.viewMore = false;
 
@@ -2324,10 +2342,10 @@ $scope.currentDate = new Date();
                     console.log("data", data.value);
                     if (data.value === true) {
                         $scope.custDetailComplete = true;
-                        // NavigationService.deleteAllCartCustomisation(function(data) {
-                        //     console.log(data);
-                        // })
-                        // $scope.custDetail = {};
+                        NavigationService.deleteAllCartCustomisation(function(data) {
+                            console.log(data);
+                        })
+                        $scope.custDetail = {};
                         $timeout(function() {
                             $scope.custDetailComplete = false;
                             $scope.custDetail = {};
@@ -2370,19 +2388,24 @@ $scope.currentDate = new Date();
         }
 
         // ==========================cart integration Customization page After ===========
+        $scope.getData = {};
+
         $scope.addTocartOnAccomodation = function(type, dest, name, image, id, checkboxModel1) {
             console.log(type, dest, name, image, id, checkboxModel1);
             if (checkboxModel1 == true) {
                 NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
                     $scope.getData = data;
-                    console.log('$scope.getData', $scope.getData);
+                    console.log('$scope.getData', data.data);
                     //  $scope.getCartFunCustomisation();
                 });
+                $scope.getCartOnAcc();
+
             } else {
                 NavigationService.deleteCartAccomodation(type, name, function(data) {
                     console.log('deleted', data);
                     // $scope.getCartFunCustomisation();
                 });
+                $scope.getCartOnAcc();
             }
         }
 
@@ -2394,12 +2417,13 @@ $scope.currentDate = new Date();
                         console.log('$scope.getData', data.data);
                         // $scope.getCartFunCustomisation();
                     });
-
+                    $scope.getCartOnAcc();
                 } else {
                     NavigationService.deleteCartCustomisation(type, id, function(data) {
                         console.log('deleted', data);
                         //  $scope.getCartFunCustomisation();
                     });
+                    $scope.getCartOnAcc();
                 }
             }
             // console.log('$scope.getData0000', $scope.getData);
@@ -2740,7 +2764,7 @@ $scope.currentDate = new Date();
             NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
-                  $scope.cartSubmitPopup();
+                    $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })

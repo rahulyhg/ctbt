@@ -325,6 +325,13 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST'
             }).success(callback);
         },
+        getCustCart: function(callback) {
+            //console.log('Navigation form data: ', formData);
+            $http({
+                url: adminurl + 'customisation/getCart',
+                method: 'POST'
+            }).success(callback);
+        },
 
 
 
