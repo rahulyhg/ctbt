@@ -121,10 +121,12 @@
 
         <!-- START VIDEO SECTION -->
         <div class="col-md-12" ng-show="showVideo">
+          {{playVideo}}
             <div class="hompad8">
                 <div class="pad15pat embed-responsive embed-responsive-16by9">
                     <img alt="videoright" title="videoright" class="rightimg img-responsive" src="frontend/img/videoright.png">
-                    <iframe class="pad15 embed-responsive-item" src="https://www.youtube-nocookie.com/embed/dK73eBFycIo" frameborder="0"></iframe>
+                    <!-- <iframe class="pad15 embed-responsive-item" src="https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" frameborder="0"></iframe> -->
+                    <iframe class="pad15 embed-responsive-item" src="{{playVideo}}" frameborder="0"></iframe>
                     <img alt="videoleft" title="videoleft" class="leftimg img-responsive" src="frontend/img/videoleft.png">
                 </div>
             </div>

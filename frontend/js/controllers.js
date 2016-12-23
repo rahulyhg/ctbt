@@ -30,8 +30,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     })
         // }
           $scope.showVideo = false;
+          if(!$scope.showVideo){
+            $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo';
+
+          }else{
+            $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
+
+          }
 $scope.hideShow =function(){
   $scope.showVideo = true;
+  // $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
 }
 
         $scope.openModals = function() {

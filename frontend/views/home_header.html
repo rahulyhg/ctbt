@@ -7,6 +7,19 @@
                   <i class="fa fa-bars"></i>
                 </button>
                     <ul class="dropdown-menu" role="menu">
+                      <li class="pregular dropdown">
+                          <a class="bluecol" ui-sref="destination">DESTINATIONS</a>
+                          <div class="dropdown-menu widht">
+                              <div class="cont" ng-repeat="data in onlyDest">
+                                  <div class="des" ng-repeat="n in data">
+                                      <a ui-sref="customdestination({id:n._id})">{{n.name}}</a>
+                                  </div>
+                              </div>
+                              <div class="destin">
+                                  <a ui-sref="destination">More..</a>
+                              </div>
+                          </div>
+                      </li>
                         <li class="pregular"><a class="bluecol" ui-sref="activity">ACTIVITIES</a></li>
                         <li class="pregular"><a class="bluecol" ui-sref="whats-hot">WHAT'S HOT</a></li>
                         <li class="pregular"><a class="bluecol" ui-sref="accessories">ACCESSORIES</a></li>
