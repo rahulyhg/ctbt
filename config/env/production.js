@@ -27,7 +27,7 @@ module.exports = {
 
   port: 1339,
   // realHost: "http://bachlors.tingdom.in",
-   realHost: "http://thebachelortrip.tingdom.com",
+   realHost: "http://thebachelortrip.tingdom.in",
 //1339
 //http://bachlors.tingdom.in
 //
