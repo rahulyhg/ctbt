@@ -19,49 +19,49 @@ var navigationservice = angular.module('navigationservice', [])
     //         //     name: "View",
     //         //     classis: "active",
     //         //     icon: "user",
-    //         //     link: "#/page/viewConfigTwo//",
+    //         //     link: "#!/page/viewConfigTwo//",
     //         // },
     //
     //         {
     //             name: "About",
     //             classis: "active",
     //             icon: "document",
-    //             link: "#/page/staticPage//%7B%22_id%22:%22580cc65718015416d3a2ee46%22%7D",
+    //             link: "#!/page/staticPage//%7B%22_id%22:%22580cc65718015416d3a2ee46%22%7D",
     //         }, {
     //             name: "Privacy Policy",
     //             classis: "active",
     //             icon: "document",
-    //             link: "#/page/staticPage//%7B%22_id%22:%22580cc67b7f2ec11727460f1c%22%7D",
+    //             link: "#!/page/staticPage//%7B%22_id%22:%22580cc67b7f2ec11727460f1c%22%7D",
     //         }, {
     //             name: "Terms and Conditions",
     //             classis: "active",
     //             icon: "document",
-    //             link: "#/page/staticPage//%7B%22_id%22:%22580cc6877f2ec11727460f1f%22%7D",
+    //             link: "#!/page/staticPage//%7B%22_id%22:%22580cc6877f2ec11727460f1f%22%7D",
     //         }, {
     //             name: "Product Tour",
     //             classis: "active",
     //             icon: "presentation",
-    //             link: "#/page/staticVideo//%7B%22_id%22:%22580cc6c025bd19176f1fd147%22%7D",
+    //             link: "#!/page/staticVideo//%7B%22_id%22:%22580cc6c025bd19176f1fd147%22%7D",
     //         }, {
     //             name: "Coach Mentor Video",
     //             classis: "active",
     //             icon: "play",
-    //             link: "#/page/staticVideo//%7B%22_id%22:%22580cc6cb25bd19176f1fd149%22%7D",
+    //             link: "#!/page/staticVideo//%7B%22_id%22:%22580cc6cb25bd19176f1fd149%22%7D",
     //         }
     //     ]
     // },
     {
         name: "HomeSlider",
         classis: "active",
-        sref: "#/page/viewHomeSlider//"
+        sref: "#!/page/viewHomeSlider//"
     }, {
         name: "Activities",
         classis: "active",
-        sref: "#/page/viewActivities//"
+        sref: "#!/page/viewActivities//"
     }, {
         name: "Package",
         classis: "active",
-        sref: "#/page/viewPackage//"
+        sref: "#!/page/viewPackage//"
     },{
         name: "Destination",
         classis: "active",
@@ -71,61 +71,61 @@ var navigationservice = angular.module('navigationservice', [])
             {
                 name: "Destination Entry",
                 classis: "active",
-                link: "#/page/viewDestination//",
+                link: "#!/page/viewDestination//",
             },
             {
                 name: "DestinationTitle",
                 classis: "active",
-                link: "#/page/viewDestinationTitle//",
+                link: "#!/page/viewDestinationTitle//",
             },
             {
                 name: "DestinationContent",
                 classis: "active",
-                link: "#/page/viewDestinationContent//",
+                link: "#!/page/viewDestinationContent//",
             }
 
         ]
     },{
         name: "Common Banner",
         classis: "active",
-        sref: "#/page/viewBanner//"
+        sref: "#!/page/viewBanner//"
     }, {
         name: "What's Hot",
         classis: "active",
-        sref: "#/page/viewWhatsHot//"
+        sref: "#!/page/viewWhatsHot//"
     }, {
         name: "What's Hot Slider",
         classis: "active",
-        sref: "#/page/viewWhatsHotSlider//"
+        sref: "#!/page/viewWhatsHotSlider//"
     },{
         name: "Subscribe",
         classis: "active",
-        sref: "#/page/viewSubscribe//"
+        sref: "#!/page/viewSubscribe//"
     },
     // {
     //     name: "Media",
     //     classis: "active",
-    //     sref: "#/page/viewMedia//"
+    //     sref: "#!/page/viewMedia//"
     // },
     {
         name: "Cart",
         classis: "active",
-        sref: "#/page/viewCart//"
+        sref: "#!/page/viewCart//"
     },
     {
         name: "Enquire",
         classis: "active",
-        sref: "#/page/viewEnquire//"
+        sref: "#!/page/viewEnquire//"
     },
      {
         name: "Customization",
         classis: "active",
-        sref: "#/page/viewCustomisation//"
+        sref: "#!/page/viewCustomisation//"
     },
      {
         name: "MediaCorner",
         classis: "active",
-        sref: "#/page/viewMediaCorner//"
+        sref: "#!/page/viewMediaCorner//"
     }];
     var membershipLevel = [{
         name: "Student",
@@ -155,7 +155,8 @@ var navigationservice = angular.module('navigationservice', [])
             var data = {
                 accessToken: $.jStorage.get("accessToken")
             };
-            $http.post(adminurl + 'user/profile', data).success(function (data) {
+            $http.post(adminurl + 'user/profile', data).then(function (data) {
+                data=data.data;
                 if (data.value === true) {
                     $.jStorage.set("profile", data.data);
                     callback();
@@ -176,24 +177,33 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         search: function (url, formData, i, callback) {
-            $http.post(adminurl + url, formData).success(function (data) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                data=data.data;
                 callback(data, i);
             });
         },
         delete: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).success(function (data) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                 data=data.data;
                 callback(data);
             });
         },
         countrySave: function (formData, callback) {
-            $http.post(adminurl + 'country/save', formData).success(callback);
+            $http.post(adminurl + 'country/save', formData).then(function (data) {
+                 data=data.data;
+                callback(data);
+            });
         },
 
         apiCall: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).success(callback);
+            $http.post(adminurl + url, formData).then(function (data) {
+                 data=data.data;
+                callback(data);
+            });
         },
         searchCall: function (url, formData, i, callback) {
-            $http.post(adminurl + url, formData).success(function (data) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                data=data.data;
                 callback(data, i);
             });
         },
@@ -201,15 +211,19 @@ var navigationservice = angular.module('navigationservice', [])
         getOneCountry: function (id, callback) {
             $http.post(adminurl + 'country/getOne', {
                 _id: id
-            }).success(callback);
+            }).then(function (data) {
+                 data=data.data;
+                callback(data);
+            });
         },
         getLatLng: function (address, i, callback) {
             $http({
                 url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyC62zlixVsjaq4zDaL4cefNCubjCgxkte4",
                 method: 'GET',
                 withCredentials: false,
-            }).success(function (data) {
-                callback(data, i);
+            }).then(function (data) {
+                 data=data.data;
+                callback(data);
             });
         }
 
