@@ -29,7 +29,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         //     })
         // }
-
+          $scope.showVideo = false;
+$scope.hideShow =function(){
+  $scope.showVideo = true;
+}
 
         $scope.openModals = function() {
             $scope.modalInstanceABC = $uibModal.open({
