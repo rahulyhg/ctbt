@@ -1,4 +1,4 @@
-/**
+/*
  * Development environment settings
  *
  * This file can include shared settings for a development team,

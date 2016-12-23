@@ -21,7 +21,7 @@
     }
 
     .m1 {
-        margin-top: 83px;
+        margin-top: 82px;
     }
 
     .mycart2 li {
@@ -42,6 +42,10 @@
 
     .tp {
         padding-left: 0 !important;
+        margin-top: 24px;
+    }
+
+    .socialtop {
         margin-top: 24px;
     }
 
@@ -81,6 +85,10 @@
     // }
     .flipDiv figure p {
         font-size: 10px;
+    }
+
+    .socialtop {
+        margin-top: 9px;
     }
 
     .hbc .tp {
@@ -129,7 +137,44 @@
     }
 
     .m1 {
-        margin-top: 124px;
+        margin-top: 0;
+    }
+
+    .headerhide {
+        display: block;
+
+        .dropdown-menu > li > a:hover {
+            background-color: transparent !important;
+        }
+
+        .btn-group.open .dropdown-toggle {
+            box-shadow: none !important;
+        }
+
+        .dropdown-menu {
+            margin-top: 13px;
+            background-color: #fdd116 !important;
+        }
+
+        .btn-group {
+            float: left;
+            margin-top: 20px;
+            margin-right: 17px;
+        }
+
+        .btn-default,
+        .btn-default:active,
+        .btn-default:focus,
+        .btn-default:hover {
+            padding: 0;
+            color: #002b7f !important;
+            background-color: #fdd116 !important;
+            border: none !important;
+        }
+
+        i {
+            font-size: 25px;
+        }
     }
 }
 @media (max-width: 992px) {
@@ -175,6 +220,10 @@
     }
 }
 @media (max-width: 921px) {
+    .padimg {
+        padding: 9px;
+    }
+
     .hdp {
         width: 280px;
     }
@@ -330,6 +379,18 @@
     }
 }
 @media (max-width: 767px) {
+    .padimg {
+        padding: 4px;
+    }
+
+    .navbarleft {
+        padding: 8px 10px 0;
+    }
+
+    .headerhide {
+        display: none;
+    }
+
     .homecart {
         top: 324px !important;
         width: 100%;

@@ -1,7 +1,20 @@
 <header ng-controller="headerctrl">
-    <!-- <header> -->
     <nav class="navbar navbar-default navbar-fixed-top hbc">
         <div class="container">
+            <div class="headerhide">
+                <div class="btn-group" id="nav-menu">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bars"></i>
+                </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="pregular"><a class="bluecol" ui-sref="activity">ACTIVITIES</a></li>
+                        <li class="pregular"><a class="bluecol" ui-sref="whats-hot">WHAT'S HOT</a></li>
+                        <li class="pregular"><a class="bluecol" ui-sref="accessories">ACCESSORIES</a></li>
+                        <li class="pregular"><a class="bluecol" ui-sref="bachlerette">BACHELORETTE</a></li>
+                        <li class="pregular"><a class="bluecol" ui-sref="highrollers">HIGH ROLLERS</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="navbar-header hbc">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                   <span class="sr-only">Toggle navigation</span>
@@ -15,7 +28,7 @@
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse hbc p5 mt3 boxsado">
-                <ul class="nav navbar-nav tp">
+                <ul class="nav navbar-nav tp hidden-sm ">
                     <li class="dropdown headera">
                         <a class="colchange" ui-sref="destination">DESTINATIONS</a>
                         <div class="dropdown-menu widht">
@@ -35,78 +48,73 @@
                     <li class="headera"><a class="bluecol" ui-sref="bachlerette">BACHELORETTE</a></li>
                     <li class="headera"><a class="bordern bluecol" ui-sref="highrollers">HIGH ROLLERS</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right navbarleft">
+                <ul class="socialtop nav navbar-nav navbar-right navbarleft">
                     <div class="hdn  theboldfont"><a class="bluecol curs" href="tel:+919321779999">+91&nbsp; 9321&nbsp; 77&nbsp; 9999</a></div>
-                        <!-- <a href="https://www.facebook.com/thebachelortrip/" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="https://twitter.com/TheBachelorTrip" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a  href="https://www.youtube.com/channel/UC5fO2EEeSWFn0oaDdWKLojw" target="_blank"><i class="fa fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/thebachelortripin/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a> -->
-                        <!-- <div class="cartadd"> -->
-                        <div class="cartmarg hdn" ng-click="mycart = !mycart" ng-class="{ active: mycart }"><i class="fa fa-shopping-cart"></i> <span>MY CART</span></div>
-                        <div class="paddmain yellow_back_lightcolor homecart" ng-show="mycart">
-                            <div class="container ">
-                                <div class="col-md-12 patmargin3">
-                                    <div class="whatsmarg4">
-                                        <div class="mycart2">
-                                            <ul class="list-group socialpatt yellow_back_lightcolor ">
-                                                <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
-                                            </ul>
+                    <div class="cartmarg hdn" ng-click="mycart = !mycart" ng-class="{ active: mycart }"><i class="fa fa-shopping-cart"></i> <span>MY CART</span></div>
+                    <!-- START MY CART -->
+                    <div class="paddmain yellow_back_lightcolor homecart" ng-show="mycart">
+                        <div class="container ">
+                            <div class="col-md-12 patmargin3">
+                                <div class="whatsmarg4">
+                                    <div class="mycart2">
+                                        <ul class="list-group socialpatt yellow_back_lightcolor ">
+                                            <li ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="Roboto black fontsizep white_back_color active" style="">MY CART</li>
+                                        </ul>
+                                    </div>
+                                    <div class="row textalign" ng-hide="submitCart">
+                                        <div class="col-md-4 col-sm-5 col-xs-12 padd8 formlabels Roboto">
+                                            <form name="detailForm" ng-submit="cartSubmit(cartData,detailForm)">
+                                                <div class="form-group">
+                                                    <label class="labels bluecol">Name:</label>
+                                                    <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
+                                                    <p class="error" ng-show="detailForm.name.$invalid && detailForm.name.$touched">Name is required</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="labels bluecol">Email Id:</label>
+                                                    <input type="email" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
+                                                    <p class="error" ng-show="detailForm.email.$invalid && detailForm.email.$touched">Email is required</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="labels bluecol">Mob No:</label>
+                                                    <input type="number" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
+                                                    <p class="error" ng-show="detailForm.phone.$invalid && detailForm.phone.$touched">Mob No is required</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="labels bluecol">Group Size</label>
+                                                    <input type="number" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
+                                                    <p class="error" ng-show="detailForm.size.$invalid && detailForm.size.$touched">Group Size is required</p>
+                                                </div>
+                                                <div class="row text-center">
+                                                    <button ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="btn btn-submit" ng-disabled="detailForm.$invalid" type="submit">SUBMIT</button>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="row textalign" ng-hide="submitCart">
-                                            <div class="col-md-4 col-sm-5 col-xs-12 padd8 formlabels Roboto">
-                                                <form name="detailForm" ng-submit="cartSubmit(cartData,detailForm)">
-                                                    <div class="form-group">
-                                                        <label class="labels bluecol">Name:</label>
-                                                        <input type="text" class="form-control inputform" placeholder="Name" name="name" ng-model="cartData.name" required>
-                                                        <p class="error" ng-show="detailForm.name.$invalid && detailForm.name.$touched">Name is required</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="labels bluecol">Email Id:</label>
-                                                        <input type="email" class="form-control inputform" placeholder="Email" name="email" ng-model="cartData.email" required>
-                                                        <p class="error" ng-show="detailForm.email.$invalid && detailForm.email.$touched">Email is required</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="labels bluecol">Mob No:</label>
-                                                        <input type="number" class="form-control inputform" placeholder="Phone" name="phone" ng-model="cartData.mobile" required>
-                                                        <p class="error" ng-show="detailForm.phone.$invalid && detailForm.phone.$touched">Mob No is required</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="labels bluecol">Group Size</label>
-                                                        <input type="number" class="form-control inputform" placeholder="Group Size" name="size" ng-model="cartData.groupSize" required>
-                                                        <p class="error" ng-show="detailForm.size.$invalid && detailForm.size.$touched">Group Size is required</p>
-                                                    </div>
-                                                    <div class="row text-center">
-                                                        <button ng-click="headerCartOpenUp(); mycart = !mycart" ng-class="{ active: mycart }" class="btn btn-submit" ng-disabled="detailForm.$invalid" type="submit">SUBMIT</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="col-md-8 col-sm-7 col-xs-12 scrollmudiv">
-                                                <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
-                                                    <strong class="naming bluecol">{{key}}</strong>
-                                                    <div class="img1" ng-repeat="img in value">
-                                                        <div class="patevent" ng-if="img.package">
-                                                            <img alt="{{key}}" title="{{key}}" ng-src="{{img.package.image |serverimage:545:413}}" alt="" class="img-responsive">
-                                                            <div class="cart-section" ng-if="img.package.image">
-                                                                <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
-                                                            </div>
+                                        <div class="col-md-8 col-sm-7 col-xs-12 scrollmudiv">
+                                            <div class=" borderright marg13 padd8" ng-repeat="(key,value) in mergeActivityPackage">
+                                                <strong class="naming bluecol">{{key}}</strong>
+                                                <div class="img1" ng-repeat="img in value">
+                                                    <div class="patevent" ng-if="img.package">
+                                                        <img alt="{{key}}" title="{{key}}" ng-src="{{img.package.image |serverimage:545:413}}" alt="" class="img-responsive">
+                                                        <div class="cart-section" ng-if="img.package.image">
+                                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.package._id)"></i>
                                                         </div>
-                                                        <div class="patevent" ng-if="img.activities">
-                                                            <img alt="{{key}}" title="{{key}}" ng-src="{{img.activities.image1  |serverimage:545:413}}" alt="" class="img-responsive">
-                                                            <div class="cart-section" ng-if="img.activities.image1">
-                                                                <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
-                                                            </div>
+                                                    </div>
+                                                    <div class="patevent" ng-if="img.activities">
+                                                        <img alt="{{key}}" title="{{key}}" ng-src="{{img.activities.image1  |serverimage:545:413}}" alt="" class="img-responsive">
+                                                        <div class="cart-section" ng-if="img.activities.image1">
+                                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart(img.type,img.activities._id)"></i>
                                                         </div>
-                                                        <div class="patevent" ng-if="img.whatshot">
-                                                            <img alt="{{key}}" title="{{key}}" ng-src="{{img.whatshot.image  |serverimage:545:413}}" alt="" class="img-responsive">
-                                                            <div class="cart-section" ng-if="img.whatshot.image">
-                                                                <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
-                                                            </div>
+                                                    </div>
+                                                    <div class="patevent" ng-if="img.whatshot">
+                                                        <img alt="{{key}}" title="{{key}}" ng-src="{{img.whatshot.image  |serverimage:545:413}}" alt="" class="img-responsive">
+                                                        <div class="cart-section" ng-if="img.whatshot.image">
+                                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCart('WhatsHot',img.whatshot._id)"></i>
                                                         </div>
-                                                        <div class="patevent" ng-if="img.type == 'Accomodation'">
-                                                            <img alt="{{key}}" title="{{key}}" ng-src="{{img.image  |serverimage:545:413}}" alt="" class="img-responsive">
-                                                            <div class="cart-section" ng-if="img.image">
-                                                                <i class="fa fa-times" aria-hidden="true" ng-click="deleteCartAcco(img.type,img.name)"></i>
-                                                            </div>
+                                                    </div>
+                                                    <div class="patevent" ng-if="img.type == 'Accomodation'">
+                                                        <img alt="{{key}}" title="{{key}}" ng-src="{{img.image  |serverimage:545:413}}" alt="" class="img-responsive">
+                                                        <div class="cart-section" ng-if="img.image">
+                                                            <i class="fa fa-times" aria-hidden="true" ng-click="deleteCartAcco(img.type,img.name)"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -116,15 +124,12 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- </div> -->
-
-                        <!-- <a><i ng-click="mycart = !mycart" ng-class="{ active: mycart }" class="fa fa-shopping-cart"></i></a> -->
-                        <!-- <a href="home" target="_blank"><i class="fa fa-pinterest-p"></i></a> -->
-
+                    </div>
+                    <!-- END MY CART -->
                 </ul>
+
+
             </div>
         </div>
     </nav>
 </header>
-
-<!---MY CART START  ---->

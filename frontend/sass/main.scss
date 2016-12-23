@@ -3614,7 +3614,19 @@ input[type=number]::-webkit-outer-spin-button {
 .wdp {
     width: 100%;
 }
-.imghome{   cursor: pointer;padding: 15px;}
+
+.imghome {
+    cursor: pointer;
+    padding: 15px;
+}
+
+.headerhide {
+    display: none;
+}
+.padimg {
+  cursor: pointer;
+    padding: 13px;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";
