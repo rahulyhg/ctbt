@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "ace-builds": "https://github.com/ajaxorg/ace-builds.git#~1.2.2",
+    "angular":"1.5.8",
     "angular-aria": "~1.4.8",
     "angular-backtop": "*",
     "angular-bootstrap": "^2.1.3",
