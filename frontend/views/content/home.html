@@ -105,7 +105,8 @@
 <!-- START VIDEO SECTION-->
 <div class="whatsmain pad10">
     <div class="container ">
-        <div class="col-md-12">
+      <!-- START IMAGE SECTION -->
+        <div class="col-md-12" ng-hide="showVideo" ng-click="hideShow();">
             <div class="hompad8">
                 <figure>
                     <div class="front">
@@ -114,23 +115,21 @@
                         <img alt="videoleft" title="videoleft" class="leftimg img-responsive" src="frontend/img/videoleft.png">
                     </div>
                 </figure>
-                <!---START VIDEO FRAME ---->
-                <!-- <div class="pad15pat embed-responsive embed-responsive-16by9">
-                    <img alt="videoright" title="videoright" class="rightimg img-responsive" src="frontend/img/videoright.png">
-                    <img alt="videoleft" title="videoleft" class="imghome img-responsive" src="frontend/img/youtube_home.jpg">
-                    <img alt="videoleft" title="videoleft" class="leftimg img-responsive" src="frontend/img/videoleft.png">
-                </div> -->
             </div>
         </div>
-        <div class="col-md-12">
+        <!-- END IMAGE SECTION -->
+
+        <!-- START VIDEO SECTION -->
+        <div class="col-md-12" ng-show="showVideo">
             <div class="hompad8">
                 <div class="pad15pat embed-responsive embed-responsive-16by9">
                     <img alt="videoright" title="videoright" class="rightimg img-responsive" src="frontend/img/videoright.png">
-                    <iframe class="pad15 embed-responsive-item" src="https://www.youtube-nocookie.com/embed/dK73eBFycIo"></iframe>
+                    <iframe class="pad15 embed-responsive-item" src="https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" frameborder="0"></iframe>
                     <img alt="videoleft" title="videoleft" class="leftimg img-responsive" src="frontend/img/videoleft.png">
                 </div>
             </div>
         </div>
+        <!-- END VIDEO SECTION -->
     </div>
 </div>
 </div>
