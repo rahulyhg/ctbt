@@ -55,7 +55,7 @@
                                 <img alt="" title=""  ng-src="frontend/img/hotel/villa.jpg" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
-                                      <input value="villa" type="checkbox" ng-model="checkboxModel1" id="villa" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <input value="villa" type="checkbox" ng-model="villa" id="villa" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'villa','villa.jpg',villa)">
                                       <label for="villa"><span></span></label>
                                   </div>
                                 </div>
@@ -72,7 +72,7 @@
                                 <img alt="" title=""  ng-src="frontend/img/hotel/apartment.jpg" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
-                                      <input value="apartment" type="checkbox" ng-model="checkboxModel1" id="apartment" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <input value="apartment" type="checkbox" ng-model="apartment" id="apartment" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'apartment','apartment.jpg',apartment)">
                                       <label for="apartment"><span></span></label>
                                   </div>
                                 </div>
@@ -83,13 +83,14 @@
                             </div>
                         </figure>
                     </div>
+
                     <div class="col-md-4 col-sm-4 col-xs-12 pdt15" >
                         <figure>
                             <div class="front ">
                                 <img alt="" title=""  ng-src="frontend/img/hotel/hostel.jpg" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
-                                      <input value="hostel" type="checkbox" ng-model="checkboxModel1" id="hostel" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <input value="hostel" type="checkbox" ng-model="hostel" id="hostel" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'hostel','hostel.jpg',hostel)">
                                       <label for="hostel"><span></span></label>
                                   </div>
                                 </div>
@@ -106,8 +107,8 @@
                                 <img alt="" title=""  ng-src="frontend/img/hotel/3star.jpg" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
-                                      <input value="3star" type="checkbox" ng-model="checkboxModel1" id="3star" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
-                                      <label for="3star"><span></span></label>
+                                      <input value="threestar" type="checkbox" ng-model="threestar" id="threestar" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'threestar','3star.jpg',threestar)">
+                                      <label for="threestar"><span></span></label>
                                   </div>
                                 </div>
                                 <div class="shadow-down"></div>
@@ -123,8 +124,8 @@
                                 <img alt="" title=""  ng-src="frontend/img/hotel/4star.png" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
-                                      <input value="4star" type="checkbox" ng-model="checkboxModel1" id="4star" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
-                                      <label for="4star"><span></span></label>
+                                      <input value="fourstar" type="checkbox" ng-model="fourstar" id="fourstar" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'fourstar','4star.jpg',fourstar)">
+                                      <label for="fourstar"><span></span></label>
                                   </div>
                                 </div>
                                 <div class="shadow-down"></div>
@@ -140,7 +141,7 @@
                                 <img alt="" title=""  ng-src="frontend/img/hotel/5star.png" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
-                                      <input value="5star" type="checkbox" ng-model="checkboxModel1" id="5star" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,data.hotelName,data.image,data._id,checkboxModel1)">
+                                      <input value="5star" type="checkbox" ng-model="5star" id="5star" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'5star','5star.jpg',5star)">
                                       <label for="5star"><span></span></label>
                                   </div>
                                 </div>
@@ -216,7 +217,7 @@
                 <h1 class="theboldfont custtitle">3. DETAILS</h1>
             </div>
             <div class="row detailsfom">
-                <form name="myForm" ng-submit="custDetailSubmit(custDetail)" ng-if="!custDetailComplete">
+                <form name="myForm" ng-submit="custDetailSubmit(custDetail)" >
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
                             <input type="text" class="hideinput form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>

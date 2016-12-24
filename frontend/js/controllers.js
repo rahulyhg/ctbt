@@ -2403,8 +2403,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ==========================cart integration Customization page After ===========
         $scope.getData = {};
 
-        $scope.addTocartOnAccomodation = function(type, dest, name, image, id, checkboxModel1) {
-            console.log(type, dest, name, image, id, checkboxModel1);
+        $scope.addTocartOnAccomodation = function(type, dest, name, image, checkboxModel1) {
+            console.log(type, dest, name, image, checkboxModel1);
             if (checkboxModel1 == true) {
                 NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
                     $scope.getData = data;
