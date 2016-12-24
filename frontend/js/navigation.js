@@ -40,7 +40,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'GET',
                 withCredentials: true,
                 data: mydata
-            }).success(callback);
+            }).then(callback);
         },
 
         HomeSlider: function(callback) {
@@ -48,28 +48,28 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'RestApi/getHomeContent',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         deleteAllCart: function(callback) {
             $http({
                 url: adminurl + 'cart/deleteAllCart',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         deleteAllCartCustomisation: function(callback) {
             $http({
                 url: adminurl + 'customisation/deleteAllCart',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         DestinationTitle: function(callback) {
             $http({
                 url: adminurl + 'RestApi/DestinationTitle',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         getAllDest: function(callback) {
           // console.log(callback);
@@ -77,28 +77,28 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'RestApi/DestinationLand',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         whatsHot: function(callback) {
             $http({
                 url: adminurl + 'RestApi/WhatsHot',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         DestinationLand: function(callback) {
             $http({
                 url: adminurl + 'RestApi/DestinationLand',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         ActivityLand: function(callback) {
             $http({
                 url: adminurl + 'RestApi/ActivitiesLand',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(callback);
         },
         subscribe: function(formData, callback) {
 
@@ -108,7 +108,7 @@ var navigationservice = angular.module('navigationservice', [])
 
                 data: formData
 
-            }).success(callback);
+            }).then(callback);
         },
 
         cityDetails: function(id, callback) {
@@ -120,7 +120,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         deleteCart: function(type, id, callback) {
             var data = {
@@ -141,21 +141,21 @@ var navigationservice = angular.module('navigationservice', [])
                     method: 'POST',
                     withCredentials: true,
                     data: data
-                }).success(callback);
+                }).then(callback);
             } else if (type == 'Package') {
                 $http({
                     url: adminurl + 'cart/deleteCart',
                     method: 'POST',
                     withCredentials: true,
                     data: data1
-                }).success(callback);
+                }).then(callback);
             } else {
                 $http({
                     url: adminurl + 'cart/deleteCart',
                     method: 'POST',
                     withCredentials: true,
                     data: data2
-                }).success(callback);
+                }).then(callback);
             }
 
 
@@ -170,7 +170,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         ActivitiesImages: function(id, callback) {
             var data = {
@@ -181,7 +181,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         deleteCartAccomodation: function(type, name, callback) {
             var data = {
@@ -193,7 +193,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         // deleteCartAccomodation: function(type,name, callback) {
         //     var data = {
@@ -205,7 +205,7 @@ var navigationservice = angular.module('navigationservice', [])
         //         method: 'POST',
         //         withCredentials: true,
         //         data: data
-        //     }).success(callback);
+        //     }).then(callback);
         // },
         addCartPackage: function(id, type, callback) {
             var data = {
@@ -217,7 +217,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         addCartActivity: function(id, type, callback) {
             var data = {
@@ -229,7 +229,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         addCartAccomodation: function(type, dest, name, image, callback) {
             var data = {
@@ -243,7 +243,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         addCartActivityCustomisation: function(id, type, callback) {
             var data = {
@@ -255,7 +255,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         // addCartAccomodation: function(type,dest,name,image, callback) {
         //     var data = {
@@ -269,7 +269,7 @@ var navigationservice = angular.module('navigationservice', [])
         //         method: 'POST',
         //         withCredentials: true,
         //         data: data
-        //     }).success(callback);
+        //     }).then(callback);
         // },
         addCartWhatsHot: function(id, type, callback) {
             var data = {
@@ -281,7 +281,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         DestinationContent: function(id, callback) {
             var data = {
@@ -292,7 +292,7 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true,
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
         enquiryForm: function(formData, callback) {
             //console.log('Navigation form data: ', formData);
@@ -300,7 +300,7 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'Enquire/saveEnquire',
                 method: 'POST',
                 data: formData
-            }).success(callback);
+            }).then(callback);
         },
         cart: function(cartData, callback) {
             //console.log('Navigation form data: ', formData);
@@ -308,7 +308,7 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'cart/saveCart',
                 method: 'POST',
                 data: cartData
-            }).success(callback);
+            }).then(callback);
         },
         cartCustomisationSubmit: function(cartData, callback) {
             //console.log('Navigation form data: ', formData);
@@ -316,21 +316,21 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'customisation/saveCart',
                 method: 'POST',
                 data: cartData
-            }).success(callback);
+            }).then(callback);
         },
         getCart: function(callback) {
             //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'cart/getCart',
                 method: 'POST'
-            }).success(callback);
+            }).then(callback);
         },
         getCustCart: function(callback) {
             //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'customisation/getCart',
                 method: 'POST'
-            }).success(callback);
+            }).then(callback);
         },
 
 
@@ -346,7 +346,7 @@ var navigationservice = angular.module('navigationservice', [])
                 data: {
                     id: id
                 }
-            }).success(callback);
+            }).then(callback);
         },
         getChangeDestination: function(id, callback) {
             $http({
@@ -356,7 +356,7 @@ var navigationservice = angular.module('navigationservice', [])
                 data: {
                     destination: id
                 }
-            }).success(callback);
+            }).then(callback);
         },
         whatsHotMore: function(id, callback) {
             $http({
@@ -366,7 +366,7 @@ var navigationservice = angular.module('navigationservice', [])
                 data: {
                     id: id
                 }
-            }).success(callback);
+            }).then(callback);
         },
         getSearch: function(formData, callback) {
 
@@ -374,7 +374,7 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'RestApi/CategoryFilter',
                 method: 'POST',
                 data: formData
-            }).success(callback);
+            }).then(callback);
         },
         // addToCart: function(id, callback) {
         //     var data = {
@@ -386,7 +386,7 @@ var navigationservice = angular.module('navigationservice', [])
         //         method: 'POST',
         //         withCredentials: true,
         //         data: data
-        //     }).success(callback);
+        //     }).then(callback);
         // },
 
     };
