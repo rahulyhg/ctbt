@@ -1156,6 +1156,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.subscribeComplete = false;
                 $scope.subscribeSubmit = function(subscribeData) {}
             }
+            $scope.currentStateId = $stateParams.id;
             // $scope.currentDate = $filter('date')(new Date(), 'yyyy MM dd');
         $scope.currentDate = new Date();
         console.log($scope.currentDate);
