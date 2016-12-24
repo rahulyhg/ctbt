@@ -230,7 +230,7 @@ var model = {
            // console.log("data", data);
             // console.log("data DEST", data.myCart.activities[0].activities.destination.name);
             // console.log("data ACT", data.myCart.activities);
-            // console.log("data ACC", data.myCart.accomodation);
+            console.log("data ACC", data.myCart.accomodation);
             // console.log("data group", data.group);
             // console.log("data group", data.plan);
             // console.log("data comm", data.comment);
@@ -246,6 +246,7 @@ var model = {
             emailData.content = data;
             emailData.contentAct = data.myCart.activities;
             emailData.contentAcc = data.myCart.accomodation;
+
             emailData.contentFrom = fromDate;
             emailData.contentTo = toDate;
 
