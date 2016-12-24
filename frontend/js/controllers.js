@@ -28,6 +28,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //         }
         //
         //     })
+        //     })
         // }
           $scope.showVideo = false;
           if(!$scope.showVideo){
