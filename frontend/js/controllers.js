@@ -2,7 +2,7 @@ var globalfunction = {};
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.select', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
+  .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
@@ -38,10 +38,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
 
           }
-$scope.hideShow =function(){
-  $scope.showVideo = true;
-  // $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
-}
+          $scope.hideShow =function(){
+            $scope.showVideo = true;
+            // $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
+          }
 
         $scope.openModals = function() {
             $scope.modalInstanceABC = $uibModal.open({
@@ -81,15 +81,15 @@ $scope.hideShow =function(){
 
 
         NavigationService.HomeSlider(function(data) {
-            $scope.mySlidestop = data.data.HomeSlider;
+            $scope.mySlidestop = data.data.data.HomeSlider;
 
-            $scope.popularDestination = data.data.popularDestination;
+            $scope.popularDestination = data.data.data.popularDestination;
 
-            $scope.popularAttraction = data.data.popularAttraction;
-            $scope.dropDown = data.data.DestinationDropdown;
+            $scope.popularAttraction = data.data.data.popularAttraction;
+            $scope.dropDown = data.data.data.DestinationDropdown;
             console.log('$scope.dropDown', $scope.dropDown);
 
-            $scope.mySlidesss = data.data.whatsHotBanner;
+            $scope.mySlidesss = data.data.data.whatsHotBanner;
             console.log("$scope.mySlides", $scope.mySlidesss);
         });
         $scope.imDisable = false;
@@ -191,14 +191,14 @@ $scope.hideShow =function(){
         $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 // console.log('$scope.checkCartIsEmpty',$scope.checkCartIsEmpty);
@@ -330,17 +330,17 @@ $scope.hideShow =function(){
 
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivityPage = data.data.activities;
+                $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
-                // $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                // $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -432,17 +432,17 @@ $scope.hideShow =function(){
 
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivityPage = data.data.activities;
+                $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
-                // $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                // $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -561,17 +561,17 @@ $scope.hideShow =function(){
 
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivityPage = data.data.activities;
+                $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
-                // $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                // $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -669,8 +669,8 @@ $scope.hideShow =function(){
                 console.log(id);
                 $scope.saveDestId = id;
                 NavigationService.getChangeDestination(id, function(data) {
-                    $scope.changeDestData = data.data.Images;
-                    $scope.showBttn = data.data.Images;
+                    $scope.changeDestData = data.data.data.Images;
+                    $scope.showBttn = data.data.data.Images;
                     console.log('$scope.showBttn', $scope.showBttn.length);
                     var images = _.groupBy($scope.changeDestData, function(n) {
                         if (_.isEmpty(n.image1)) {
@@ -763,7 +763,7 @@ $scope.hideShow =function(){
         }
 
         NavigationService.ActivityLand(function(data) {
-            $scope.Banner = data.data.Banner;
+            $scope.Banner = data.data.data.Banner;
         });
         $scope.viewLess = false;
         $scope.viewMore = false;
@@ -777,10 +777,10 @@ $scope.hideShow =function(){
 
             NavigationService.ActivityLand(function(data) {
                 console.log(data);
-                $scope.myDropdown = data.data.DestinationDropdown;
-                $scope.showBttn = data.data.Images;
+                $scope.myDropdown = data.data.data.DestinationDropdown;
+                $scope.showBttn = data.data.data.Images;
                 console.log('$scope.showBttn', $scope.showBttn.length);
-                var images = _.groupBy(data.data.Images, function(n) {
+                var images = _.groupBy(data.data.data.Images, function(n) {
                     if (_.isEmpty(n.image1)) {
                         return "bigImage";
                     } else if (n.image1 && n.image2) {
@@ -916,17 +916,17 @@ $scope.hideShow =function(){
 
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivityPage = data.data.activities;
+                $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
-                // $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                // $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -1065,18 +1065,18 @@ $scope.hideShow =function(){
 
         NavigationService.DestinationLand(function(data) {
 
-            $scope.DestinationLand = data.data.popularDestination;
-            $scope.DestinationLand = _.chunk(data.data.popularDestination, 2);
+            $scope.DestinationLand = data.data.data.popularDestination;
+            $scope.DestinationLand = _.chunk(data.data.data.popularDestination, 2);
             console.log("$scope.DestinationLand", $scope.DestinationLand);
-            $scope.allDestination = _.take(data.data.allDestination, 6);
+            $scope.allDestination = _.take(data.data.data.allDestination, 6);
             console.log("$scope.DestinationLand", $scope.allDestination);
             $scope.viewMoreDest = function() {
                 $scope.show = true;
-                $scope.allDestination = data.data.allDestination;
+                $scope.allDestination = data.data.data.allDestination;
             };
             $scope.viewLessDest = function() {
                 $scope.show = false;
-                $scope.allDestination = _.take(data.data.allDestination, 6);
+                $scope.allDestination = _.take(data.data.data.allDestination, 6);
             }
         })
 
@@ -1119,14 +1119,14 @@ $scope.hideShow =function(){
         $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -1220,14 +1220,14 @@ $scope.hideShow =function(){
         }
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivityPattayaPage = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.getCartDataActivityPattayaPage = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 // console.log('accmoddddddddddd', $scope.getAccomodation10);
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
@@ -1324,25 +1324,25 @@ $scope.hideShow =function(){
             var myarr = [];
             NavigationService.cityDetails($stateParams.id, function(data) {
 
-                $scope.getTitle = data.data.getTitle;
+                $scope.getTitle = data.data.data.getTitle;
                 _.each($scope.getTitle, function(n) {
                     // console.log(n._id);
                     NavigationService.DestinationContent(n._id, function(data) {
                         // console.log('inside service');
-                        // console.log(data.data.getTitle);
-                        // console.log(data.data.getTitle[0]);
-                        n.description = data.data.getTitle[0].description;
-                        if (data.data.getTitle[0].name) {
-                            n.name1 = data.data.getTitle[0].name;
+                        // console.log(data.data.data.getTitle);
+                        // console.log(data.data.data.getTitle[0]);
+                        n.description = data.data.data.getTitle[0].description;
+                        if (data.data.data.getTitle[0].name) {
+                            n.name1 = data.data.data.getTitle[0].name;
                         }
                     });
                 })
-                $scope.getDestination = data.data.getDestination;
-                console.log('$scope.myvideoUrl', data.data.getDestination.video);
-                $scope.getUrl = data.data.getDestination.video;
-                $scope.getPackage = data.data.getPackage;
+                $scope.getDestination = data.data.data.getDestination;
+                console.log('$scope.myvideoUrl', data.data.data.getDestination.video);
+                $scope.getUrl = data.data.data.getDestination.video;
+                $scope.getPackage = data.data.data.getPackage;
                 console.log('$scope.getPackage', $scope.getPackage);
-                if (data.data.getPackage.length > 8) {
+                if (data.data.data.getPackage.length > 8) {
                     $scope.viewMore = true;
                 }
                 $scope.getPackageArr = _.cloneDeep($scope.getPackage);
@@ -1402,18 +1402,18 @@ $scope.hideShow =function(){
             }
             NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
-                if (data.data.Category.length > 8) {
+                if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
                 }
 
-                if (data.data.Category.length == 0) {
+                if (data.data.data.Category.length == 0) {
                     $scope.viewMoreActivity = false;
                     $scope.noResult = true;
                 } else {
 
                     $scope.noResult = false;
-                    $scope.getActivity = data.data.Category;
-                    console.log('data.data', $scope.getActivity.length);
+                    $scope.getActivity = data.data.data.Category;
+                    console.log('data.data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     console.log('  $scope.getActivityArr', $scope.getActivityArr);
                     $scope.getActivity = _.take($scope.getActivity, 8);
@@ -1431,18 +1431,18 @@ $scope.hideShow =function(){
             }
             NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
-                if (data.data.Category.length > 8) {
+                if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
                 }
 
-                if (data.data.Category.length == 0) {
+                if (data.data.data.Category.length == 0) {
                     $scope.viewMoreActivity = false;
                     $scope.noResult = true;
                 } else {
 
                     $scope.noResult = false;
-                    $scope.getActivity = data.data.Category;
-                    console.log('data.data', $scope.getActivity.length);
+                    $scope.getActivity = data.data.data.Category;
+                    console.log('data.data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     console.log('  $scope.getActivityArr', $scope.getActivityArr);
                     $scope.getActivity = _.take($scope.getActivity, 8);
@@ -1462,18 +1462,18 @@ $scope.hideShow =function(){
             }
             NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
-                if (data.data.Category.length > 8) {
+                if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
                 }
 
-                if (data.data.Category.length == 0) {
+                if (data.data.data.Category.length == 0) {
                     $scope.viewMoreActivity = false;
                     $scope.noResult = true;
                 } else {
 
                     $scope.noResult = false;
-                    $scope.getActivity = data.data.Category;
-                    console.log('data.data', $scope.getActivity.length);
+                    $scope.getActivity = data.data.data.Category;
+                    console.log('data.data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     console.log('  $scope.getActivityArr', $scope.getActivityArr);
                     $scope.getActivity = _.take($scope.getActivity, 8);
@@ -1590,7 +1590,7 @@ $scope.hideShow =function(){
         $scope.goToFunction = function(id) {
             $scope.DestinationTitle = '';
             NavigationService.DestinationContent(id, function(data) {
-                $scope.DestinationTitle = data.data.getTitle;
+                $scope.DestinationTitle = data.data.data.getTitle;
                 $scope.openMe = true;
                 console.log("$scope.DestinationTitle", $scope.DestinationTitle[0]);
             });
@@ -1738,8 +1738,8 @@ $scope.hideShow =function(){
 
         NavigationService.RestApiPattaya2($stateParams.id, function(data) {
             $scope.myIdPattaya2 = $stateParams.id;
-            console.log(data.data);
-            $scope.getPattaya2 = data.data.packageDetails;
+            console.log(data.data.data);
+            $scope.getPattaya2 = data.data.data.packageDetails;
             console.log("$scope.getPattaya2", $scope.getPattaya2);
         })
 
@@ -1826,15 +1826,15 @@ $scope.hideShow =function(){
         }
         $scope.getCartFunPattaya2 = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -1951,15 +1951,15 @@ $scope.hideShow =function(){
         }
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -1967,7 +1967,7 @@ $scope.hideShow =function(){
         }
         $scope.getCartFun();
         NavigationService.whatsHotMore($stateParams.id, function(data) {
-            $scope.getOneWhatsHot = data.data.Details[0];
+            $scope.getOneWhatsHot = data.data.data.Details[0];
             console.log($scope.getOneWhatsHot);
         });
         $scope.myid = $stateParams.id;
@@ -2036,12 +2036,12 @@ $scope.hideShow =function(){
         };
         // $scope.getCartFun = function() {
         //     NavigationService.getCart(function(data) {
-        //         $scope.getCartDataActivity10 = data.data.activities;
-        //         $scope.getCartDataPackage10 = data.data.package;
-        //         $scope.getCartDataWhatsHot = data.data.whatshot;
-        //         $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
+        //         $scope.getCartDataActivity10 = data.data.data.activities;
+        //         $scope.getCartDataPackage10 = data.data.data.package;
+        //         $scope.getCartDataWhatsHot = data.data.data.whatshot;
+        //         $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
         //         console.log('$scope.mergeActivity', $scope.getCartDataActivity);
-        //         $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
+        //         $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
         //         console.log('$scope.mergePackage', $scope.getCartDataPackage);
         //         $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage);
         //         console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -2049,10 +2049,10 @@ $scope.hideShow =function(){
         // }
         // $scope.getCartFun();
         NavigationService.HomeSlider(function(data) {
-            $scope.mySlidesss = data.data.whatsHotBanner;
+            $scope.mySlidesss = data.data.data.whatsHotBanner;
         });
         NavigationService.whatsHot(function(data) {
-            $scope.myEvents = data.data.Events;
+            $scope.myEvents = data.data.data.Events;
             console.log($scope.myEvents);
         });
 
@@ -2093,15 +2093,15 @@ $scope.hideShow =function(){
         }
         $scope.getCartFun = function() {
             NavigationService.getCart(function(data) {
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -2209,21 +2209,21 @@ $scope.hideShow =function(){
         $scope.navigation = NavigationService.getnav();
         $scope.currentDate = new Date();
         NavigationService.cityDetails($stateParams.id, function(data) {
-            console.log(data.data.getDestination.name);
-            $scope.nameofCust = data.data.getDestination.name;
-            $scope.customisationDestForName = data.data.getDestination.name;
+            console.log(data.data.data.getDestination.name);
+            $scope.nameofCust = data.data.data.getDestination.name;
+            $scope.customisationDestForName = data.data.data.getDestination.name;
             console.log('$scope.customisationDestForName', $scope.customisationDestForName);
-            $scope.customisationDest = data.data.getDestination.accomodation;
-            $scope.customisationActivity = data.data.getActivity;
+            $scope.customisationDest = data.data.data.getDestination.accomodation;
+            $scope.customisationActivity = data.data.data.getActivity;
         })
         NavigationService.HomeSlider(function(data) {
-            $scope.dropDown = data.data.DestinationDropdown;
+            $scope.dropDown = data.data.data.DestinationDropdown;
         });
 
         $scope.yesISEmpty = true;
         $scope.getCartOnAcc = function() {
             NavigationService.getCustCart(function(data) {
-                $scope.getCustomisationDeta = data.data;
+                $scope.getCustomisationDeta = data.data.data;
                 console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta);
                 console.log($scope.getCustomisationDeta.activities.length);
                 console.log($scope.getCustomisationDeta.accomodation.length);
@@ -2285,17 +2285,17 @@ $scope.hideShow =function(){
             NavigationService.getSearch(dataToSend, function(data) {
                 console.log(data);
                 // $scope.viewMore = true;
-                if (data.data.Category.length > 6) {
+                if (data.data.data.Category.length > 6) {
                     $scope.viewMore = true;
                 }
-                if (data.data.Category.length == 0) {
+                if (data.data.data.Category.length == 0) {
                     $scope.viewMore = false;
                     $scope.noResult = true;
                 } else {
 
                     $scope.noResult = false;
-                    $scope.getActivity = data.data.Category;
-                    console.log('data.data', $scope.getActivity.length);
+                    $scope.getActivity = data.data.data.Category;
+                    console.log('data.data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     $scope.getActivity = _.take($scope.getActivity, 6);
                 }
@@ -2407,7 +2407,7 @@ $scope.hideShow =function(){
             if (checkboxModel1 == true) {
                 NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
                     $scope.getData = data;
-                    console.log('$scope.getData', data.data);
+                    console.log('$scope.getData', data.data.data);
                     //  $scope.getCartFunCustomisation();
                 });
                 $scope.getCartOnAcc();
@@ -2426,7 +2426,7 @@ $scope.hideShow =function(){
                 if (checkboxModel == true) {
                     NavigationService.addCartActivityCustomisation(id, type, function(data) {
                         $scope.getData = data;
-                        console.log('$scope.getData', data.data);
+                        console.log('$scope.getData', data.data.data);
                         // $scope.getCartFunCustomisation();
                     });
                     $scope.getCartOnAcc();
@@ -2477,18 +2477,18 @@ $scope.hideShow =function(){
             }
             NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
-                if (data.data.Category.length > 8) {
+                if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
                 }
 
-                if (data.data.Category.length == 0) {
+                if (data.data.data.Category.length == 0) {
                     $scope.viewMoreActivity = false;
                     $scope.noResult = true;
                 } else {
 
                     $scope.noResult = false;
-                    $scope.getActivity = data.data.Category;
-                    console.log('data.data', $scope.getActivity.length);
+                    $scope.getActivity = data.data.data.Category;
+                    console.log('data.data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     console.log('  $scope.getActivityArr', $scope.getActivityArr);
                     $scope.getActivity = _.take($scope.getActivity, 8);
@@ -2506,18 +2506,18 @@ $scope.hideShow =function(){
             }
             NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
-                if (data.data.Category.length > 8) {
+                if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
                 }
 
-                if (data.data.Category.length == 0) {
+                if (data.data.data.Category.length == 0) {
                     $scope.viewMoreActivity = false;
                     $scope.noResult = true;
                 } else {
 
                     $scope.noResult = false;
-                    $scope.getActivity = data.data.Category;
-                    console.log('data.data', $scope.getActivity.length);
+                    $scope.getActivity = data.data.data.Category;
+                    console.log('data.data.data', $scope.getActivity.length);
                     $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                     $scope.getActivity = _.take($scope.getActivity, 6);
                 }
@@ -2536,18 +2536,18 @@ $scope.hideShow =function(){
                 }
                 NavigationService.getSearch(dataToSend, function(data) {
                     console.log('DTAA TO SEND', dataToSend);
-                    if (data.data.Category.length > 8) {
+                    if (data.data.data.Category.length > 8) {
                         $scope.viewMoreActivity = true;
                     }
 
-                    if (data.data.Category.length == 0) {
+                    if (data.data.data.Category.length == 0) {
                         $scope.viewMoreActivity = false;
                         $scope.noResult = true;
                     } else {
 
                         $scope.noResult = false;
-                        $scope.getActivity = data.data.Category;
-                        console.log('data.data', $scope.getActivity.length);
+                        $scope.getActivity = data.data.data.Category;
+                        console.log('data.data.data', $scope.getActivity.length);
                         $scope.getActivityArr = _.cloneDeep($scope.getActivity);
                         console.log('  $scope.getActivityArr', $scope.getActivityArr);
                         $scope.getActivity = _.take($scope.getActivity, 8);
@@ -2583,17 +2583,17 @@ $scope.hideShow =function(){
         // }
         // $scope.getCartFunCustomisation = function() {
         //     NavigationService.getCart(function(data) {
-        //         $scope.getCartDataActivityCust = data.data.activities;
-        //         $scope.getCartDataAccomodation = data.data.accomodation;
+        //         $scope.getCartDataActivityCust = data.data.data.activities;
+        //         $scope.getCartDataAccomodation = data.data.data.accomodation;
         //         console.log('$scope.getCartDataActivityCust', $scope.getCartDataActivityCust);
-        //         $scope.getCartDataActivity10 = data.data.activities;
-        //         $scope.getCartDataPackage10 = data.data.package;
-        //         $scope.getCartDataWhatsHot = data.data.whatshot;
-        //         $scope.getAccomodation = data.data.accomodation;
-        //         $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-        //         $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-        //         $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-        //         $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+        //         $scope.getCartDataActivity10 = data.data.data.activities;
+        //         $scope.getCartDataPackage10 = data.data.data.package;
+        //         $scope.getCartDataWhatsHot = data.data.data.whatshot;
+        //         $scope.getAccomodation = data.data.data.accomodation;
+        //         $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+        //         $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+        //         $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+        //         $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
         //         $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
         //         console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
         //     });
@@ -2713,30 +2713,30 @@ $scope.hideShow =function(){
         $scope.allEventsMore = false;
         $.fancybox.close(true);
         NavigationService.getAllDest(function(data) {
-            $scope.onlyDest = _.take(data.data.allDestination, 49);
+            $scope.onlyDest = _.take(data.data.data.allDestination, 49);
             $scope.onlyDest = _.chunk($scope.onlyDest, 10);
-            console.log('data.data.allDestination', $scope.onlyDest);
-            $scope.allDest = data.data.popularDestination;
-            if (data.data.popularDestination.length > 5) {
+            console.log('data.data.data.allDestination', $scope.onlyDest);
+            $scope.allDest = data.data.data.popularDestination;
+            if (data.data.data.popularDestination.length > 5) {
                 $scope.allDestMore = true;
             }
-            console.log(data.data.popularDestination.length);
-            $scope.allDest = _.take(data.data.popularDestination, 5);
+            console.log(data.data.data.popularDestination.length);
+            $scope.allDest = _.take(data.data.data.popularDestination, 5);
             console.log('$scope.allDest', $scope.allDest);
         })
         NavigationService.ActivityLand(function(data) {
-            $scope.allActivities = data.data.Images;
-            if (data.data.Images.length > 5) {
+            $scope.allActivities = data.data.data.Images;
+            if (data.data.data.Images.length > 5) {
                 $scope.allActivitiesMore = true;
             }
-            $scope.allActivities = _.take(data.data.Images, 5);
+            $scope.allActivities = _.take(data.data.data.Images, 5);
         });
         NavigationService.whatsHot(function(data) {
-            $scope.allEvents = data.data.Events;
-            if (data.data.Events.length > 5) {
+            $scope.allEvents = data.data.data.Events;
+            if (data.data.data.Events.length > 5) {
                 $scope.allEventsMore = true;
             }
-            $scope.allEvents = _.take(data.data.Events, 5);
+            $scope.allEvents = _.take(data.data.data.Events, 5);
             console.log($scope.allEvents);
         });
         $scope.formData = {};
@@ -2794,14 +2794,14 @@ $scope.hideShow =function(){
         $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
             NavigationService.getCart(function(data) {
-                $scope.getCartDataActivity10 = data.data.activities;
-                $scope.getCartDataPackage10 = data.data.package;
-                $scope.getCartDataWhatsHot = data.data.whatshot;
-                $scope.getAccomodation = data.data.accomodation;
-                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.whatshot, 'whatshot.name');
-                $scope.getCartDataActivity = _.groupBy(data.data.activities, 'activities.destination.name');
-                $scope.getCartDataPackage = _.groupBy(data.data.package, 'package.destination.name');
-                $scope.getAccomodation10 = _.groupBy(data.data.accomodation, 'destination');
+                $scope.getCartDataActivity10 = data.data.data.activities;
+                $scope.getCartDataPackage10 = data.data.data.package;
+                $scope.getCartDataWhatsHot = data.data.data.whatshot;
+                $scope.getAccomodation = data.data.data.accomodation;
+                $scope.getCartDataWhatsHot10 = _.groupBy(data.data.data.whatshot, 'whatshot.name');
+                $scope.getCartDataActivity = _.groupBy(data.data.data.activities, 'activities.destination.name');
+                $scope.getCartDataPackage = _.groupBy(data.data.data.package, 'package.destination.name');
+                $scope.getAccomodation10 = _.groupBy(data.data.data.accomodation, 'destination');
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
@@ -2827,7 +2827,7 @@ $scope.hideShow =function(){
             console.log("subscribeData", subscribeData);
             NavigationService.subscribe(subscribeData, function(data) {
                 console.log("data", data.value);
-                if (data.data) {
+                if (data.data.data) {
                     console.log('hhhhhhhhh');
                     $scope.subscribeComplete = true;
                     $timeout(function() {

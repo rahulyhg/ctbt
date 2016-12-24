@@ -404,7 +404,7 @@ DestinationLand: function (data, callback) {
           Destination.find({
             //   type:"None", All Destination
               status: "true"
-          }).sort({ 
+          }).sort({
                     name:1,
                     order: 1
                 }).exec(function (err, found) {
