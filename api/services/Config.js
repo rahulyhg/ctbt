@@ -267,7 +267,7 @@ var models = {
                                 sendgrid.send({
                                     to: data.email,
                                     cc: data.cc,
-                                    from: "info@wohlig.com",
+                                    from: "sales@thebachelortrip.com",
                                     subject: data.subject,
                                     html: body
                                 }, function (err, json) {
