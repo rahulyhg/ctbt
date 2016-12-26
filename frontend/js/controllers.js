@@ -2,7 +2,7 @@ var globalfunction = {};
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.select', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
 
-  .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
         // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
@@ -30,18 +30,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     })
         //     })
         // }
-          $scope.showVideo = false;
-          if(!$scope.showVideo){
+        $scope.showVideo = false;
+        if (!$scope.showVideo) {
             $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo';
 
-          }else{
+        } else {
             $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
 
-          }
-          $scope.hideShow =function(){
+        }
+        $scope.hideShow = function() {
             $scope.showVideo = true;
             $scope.playVideo = 'https://www.youtube-nocookie.com/embed/dK73eBFycIo?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
-          }
+        }
 
         $scope.openModals = function() {
             $scope.modalInstanceABC = $uibModal.open({
@@ -1152,12 +1152,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter) {
         globalfunction.subscribeFun = function() {
-                $scope.subscribeData = {};
-                $scope.subscribeComplete = false;
-                $scope.subscribeSubmit = function(subscribeData) {}
-            }
-            $scope.currentStateId = $stateParams.id;
-            // $scope.currentDate = $filter('date')(new Date(), 'yyyy MM dd');
+            $scope.subscribeData = {};
+            $scope.subscribeComplete = false;
+            $scope.subscribeSubmit = function(subscribeData) {}
+        }
+        $scope.currentStateId = $stateParams.id;
+        // $scope.currentDate = $filter('date')(new Date(), 'yyyy MM dd');
         $scope.currentDate = new Date();
         console.log($scope.currentDate);
         $scope.cartd = function() {
@@ -2202,7 +2202,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // ========== End Cart  =============
     })
-    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state) {
+    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state,$uibModal) {
 
         $scope.template = TemplateService.changecontent("customisation");
         $scope.menutitle = NavigationService.makeactive("Customisation");
@@ -2225,13 +2225,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartOnAcc = function() {
             NavigationService.getCustCart(function(data) {
                 $scope.getCustomisationDeta = data.data.data;
-                console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta);
-                console.log($scope.getCustomisationDeta.activities.length);
-                console.log($scope.getCustomisationDeta.accomodation.length);
-                if ($scope.getCustomisationDeta.activities.length==0 && $scope.getCustomisationDeta.accomodation.length==0) {
+                // console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta);
+                // console.log($scope.getCustomisationDeta.activities.length);
+                // console.log($scope.getCustomisationDeta.accomodation.length);
+                if ($scope.getCustomisationDeta.activities.length == 0 && $scope.getCustomisationDeta.accomodation.length == 0) {
                     $scope.yesISEmpty = true;
-                }else{
-                  $scope.yesISEmpty = false;
+                } else {
+                    $scope.yesISEmpty = false;
                 }
             });
             console.log('$scope.yesISEmpty', $scope.yesISEmpty);
@@ -2347,29 +2347,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
         // ==========================
         //==After changed=======
+        $scope.cartSubmitPopup = function() {
+            $scope.onSubmitCart = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/customisationCart.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         $scope.custDetailComplete = false;
         $scope.custDetail = {};
-        $scope.custDetailSubmit = function(input) {
+        $scope.custDetailSubmit = function(input, myForm) {
                 console.log('input', input);
+                myForm.email.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.plan.$touched = false;
+                myForm.budget.$touched = false;
                 NavigationService.cartCustomisationSubmit($scope.custDetail, function(data) {
-                    console.log("data", data.value);
-                    if (data.value === true) {
-                        $scope.custDetailComplete = true;
+                    console.log("data", data.data.value);
+                    if (data.data.value === true) {
+                        // $scope.custDetailComplete = true;
+                        $scope.cartSubmitPopup();
                         NavigationService.deleteAllCartCustomisation(function(data) {
                             console.log(data);
                         })
                         $scope.custDetail = {};
                         $timeout(function() {
-                            $scope.custDetailComplete = false;
+                            // $scope.custDetailComplete = false;
                             $scope.custDetail = {};
-
-                        }, 2000);
+                            $scope.onSubmitCart.close();
+                            $state.reload();
+                        }, 5000);
                     }
                     // $state.reload();
                 });
             }
             // =========================
-
+$scope.closeCart = function(){
+  $scope.onSubmitCart.close();
+$state.reload();
+}
         $scope.custEnqComplete = false;
         $scope.custEnq = {};
         $scope.custEnqSubmit = function(input) {

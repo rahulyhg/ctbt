@@ -124,7 +124,7 @@
                                 <img alt="" title=""  ng-src="frontend/img/hotel/4star.png" class="mainwidht img-responsive">
                                 <div class="cart-sec2">
                                   <div class="checkbox checkboxing">
-                                      <input value="fourstar" type="checkbox" ng-model="fourstar" id="fourstar" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'Fourstar','4star.jpg',fourstar)">
+                                      <input value="fourstar" type="checkbox" ng-model="fourstar" id="fourstar" ng-click="addTocartOnAccomodation('Accomodation',customisationDestForName,'Fourstar','4star.png',fourstar)">
                                       <label for="fourstar"><span></span></label>
                                   </div>
                                 </div>
@@ -217,7 +217,7 @@
                 <h1 class="theboldfont custtitle">3. DETAILS</h1>
             </div>
             <div class="row detailsfom">
-                <form name="myForm" ng-submit="custDetailSubmit(custDetail)" >
+                <form name="myForm" ng-submit="custDetailSubmit(custDetail,myForm)" >
                     <div class="col-md-6 col-sm-6 col-xs-12 padding-r ">
                         <div class="col-md-12 col-sm-12 col-xs-12 pdt10">
                             <input type="text" class="hideinput form-control Robotor" placeholder="Your name" name="name" ng-model="custDetail.name" required>
