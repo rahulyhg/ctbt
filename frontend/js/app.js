@@ -254,7 +254,11 @@ firstapp.filter('shorten', function() {
     };
 });
 
-
+firstapp.filter('trustAsResourceUrl', ['$sce', function($sce) {
+    return function(val) {
+        return $sce.trustAsResourceUrl(val);
+    };
+}]);
 firstapp.filter('TbtIcon', function() {
     return function(input) {
         console.log(input);
