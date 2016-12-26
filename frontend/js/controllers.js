@@ -171,8 +171,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
+                console.log("data", data.data.value);
+                if (data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
@@ -246,7 +246,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data", data.value);
+                console.log("data", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
                 myForm.size.$touched = false;
@@ -256,7 +256,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 myForm.name.$touched = false;
                 myForm.phone.$touched = false;
                 myForm.email.$touched = false;
-                if (data.value === true) {
+                if (data.data.value === true) {
                     $scope.enquiryData = {};
                     console.log('inside ifff');
                     // $scope.submitEnq = true;
@@ -309,8 +309,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.size.$touched = false;
 
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
+                console.log("data", data.data.value);
+                if (data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
@@ -411,8 +411,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.size.$touched = false;
 
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
+                console.log("data", data.data.value);
+                if (data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
@@ -470,7 +470,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // console.log('input', input);
             console.log('myForm', myForm);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data", data.value);
+                console.log("data", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
                 myForm.size.$touched = false;
@@ -480,7 +480,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 myForm.name.$touched = false;
                 myForm.phone.$touched = false;
                 myForm.email.$touched = false;
-                if (data.value === true) {
+                if (data.data.value === true) {
                     $scope.enquiryData = {};
                     console.log('inside ifff');
                     // $scope.submitEnq = true;
@@ -540,8 +540,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.size.$touched = false;
 
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
+                console.log("data", data.data.value);
+                if (data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
@@ -597,7 +597,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.enquirySubmit = function(input, myForm) {
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data.value", data.value);
+                console.log("data.value", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
                 myForm.size.$touched = false;
@@ -607,7 +607,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 myForm.name.$touched = false;
                 myForm.phone.$touched = false;
                 myForm.email.$touched = false;
-                if (data.value === true) {
+                if (data.data.value === true) {
                     $scope.enquiryData = {};
                     $scope.enqSubmitPopup();
                     $timeout(function() {
@@ -896,8 +896,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
+                console.log("data", data.data.data.value);
+                if (data.data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
@@ -947,7 +947,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
                 // $scope.addedSuccess = true;
                 NavigationService.addCartActivity(id, type, function(data) {
-                    if (data.value == true) {
+                    if (data.data.value == true) {
                         $scope.addedSuccess = true;
                         $timeout(function() {
                             $scope.addedSuccess = false;
@@ -1099,8 +1099,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
+                console.log("data", data.data.value);
+                if (data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
@@ -1290,7 +1290,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             } else {
                 NavigationService.addCartActivity(id, type, function(data) {
-                    if (data.value == true) {
+                    if (data.data.value == true) {
                         $scope.addedSuccessPattaya = true;
                         $timeout(function() {
                             $scope.addedSuccessPattaya = false;
@@ -1547,7 +1547,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
             NavigationService.enquiryForm($scope.enquiryData, function(data) {
-                console.log("data", data.value);
+                console.log("data", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
                 myForm.size.$touched = false;
@@ -1557,7 +1557,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 myForm.name.$touched = false;
                 myForm.phone.$touched = false;
                 myForm.email.$touched = false;
-                if (data.value === true) {
+                if (data.data.value === true) {
                     $scope.enquiryData = {};
                     console.log('inside ifff');
                     // $scope.submitEnq = true;
@@ -1631,8 +1631,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.value);
-                if (data.value === true) {
+                console.log("data", data.data.value);
+                if (data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
