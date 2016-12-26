@@ -2927,6 +2927,7 @@ input[type="time"].form-control {
     overflow: auto;
     white-space: nowrap;
     height: 160px;
+    text-align: left;
 }
 
 ::-webkit-scrollbar-button {
@@ -3623,11 +3624,15 @@ input[type=number]::-webkit-outer-spin-button {
 .headerhide {
     display: none;
 }
+
 .padimg {
-  cursor: pointer;
+    cursor: pointer;
     padding: 13px;
 }
-.marg0{margin: 0px !important;}
+
+.marg0 {
+    margin: 0 !important;
+}
 /* Start writing sass here */
 @import "fancybox-override";
 @import "staticmain";

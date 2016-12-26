@@ -69,7 +69,7 @@
 }
 @media (max-width: 1000px) {
     .homecart {
-        top: 196px !important;
+        top: 60px !important;
     }
 
     .stp {
@@ -127,6 +127,7 @@
 
     .himg2 .gobtn {
         padding-left: 1px;
+        width: 18%;
     }
 
     .hdn {
@@ -176,6 +177,11 @@
             font-size: 25px;
         }
     }
+
+    .hdn {
+        margin-top: 9px;
+        margin-right: 15px;
+    }
 }
 @media (max-width: 992px) {
     .pattmarg3 {
@@ -220,6 +226,18 @@
     }
 }
 @media (max-width: 921px) {
+    .event-name2 .eventh2 {
+        font-size: 19px;
+    }
+
+    .event-name {
+        line-height: 12px;
+
+        span {
+            font-size: 10px;
+        }
+    }
+
     .padimg {
         padding: 9px;
     }
@@ -379,9 +397,10 @@
     }
 }
 @media (max-width: 767px) {
-  .homecart {
-    top: 60px !important;
-}
+    .homecart {
+        top: 60px !important;
+    }
+
     .hompad8 {
         margin: 0;
     }
