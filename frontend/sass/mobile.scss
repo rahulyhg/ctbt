@@ -148,6 +148,10 @@
             background-color: transparent !important;
         }
 
+        .dropdown-menu > li > a {
+            padding: 3px 0px !important;
+        }
+
         .btn-group.open .dropdown-toggle {
             box-shadow: none !important;
         }
@@ -155,6 +159,11 @@
         .dropdown-menu {
             margin-top: 13px;
             background-color: #fdd116 !important;
+        }
+
+        .fixeddrop {
+            position: fixed !important;
+            top: 49px !important;
         }
 
         .btn-group {
