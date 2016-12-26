@@ -2202,8 +2202,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // ========== End Cart  =============
     })
-    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state,$uibModal) {
+    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state, $uibModal) {
+        // var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+        // var $checkboxes = $("#checkbox-container :checkbox");
+        //
+        // $checkboxes.on("change", function() {
+        //     $checkboxes.each(function() {
+        //         checkboxValues[this.id] = this.checked;
+        //     });
+        //     localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+        // });
+        // var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues'));
+        // if (checkboxValues === null) {
+        //     checkboxValues = {};
+        // }
+        // $.each(checkboxValues, function(key, value) {
+        //     $("#" + key).prop('checked', value);
+        // });
 
+
+        var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {},
+            $checkboxes = $("#checkbox-container :checkbox");
+
+        $checkboxes.on("change", function(){
+          $checkboxes.each(function(){
+            checkboxValues[this.id] = this.checked;
+          });
+
+          localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+        });
+
+        // On page load
+        $.each(checkboxValues, function(key, value) {
+          $("#" + key).prop('checked', value);
+        });
         $scope.template = TemplateService.changecontent("customisation");
         $scope.menutitle = NavigationService.makeactive("Customisation");
         TemplateService.title = $scope.menutitle;
@@ -2387,10 +2419,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             }
             // =========================
-$scope.closeCart = function(){
-  $scope.onSubmitCart.close();
-$state.reload();
-}
+        $scope.closeCart = function() {
+            $scope.onSubmitCart.close();
+            $state.reload();
+        }
         $scope.custEnqComplete = false;
         $scope.custEnq = {};
         $scope.custEnqSubmit = function(input) {
