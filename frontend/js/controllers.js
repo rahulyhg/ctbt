@@ -2035,6 +2035,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: "width80"
             });
         };
+        $scope.cartd = function() {
+            modal = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/cartdialog.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
+        $scope.cartr = function() {
+            modal = $uibModal.open({
+                animation: true,
+                templateUrl: "frontend/views/modal/cartdialogremove.html",
+                windowClass: "modal-dialog2",
+                scope: $scope
+            });
+        };
         // $scope.getCartFun = function() {
         //     NavigationService.getCart(function(data) {
         //         $scope.getCartDataActivity10 = data.data.data.activities;

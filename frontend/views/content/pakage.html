@@ -41,7 +41,7 @@
             <div class="categoryup2 yellow_back_lightcolor">
                 <div class="row">
                     <div masonry>
-                        <div class="masonry-brick padd15px col-md-4" ng-repeat="packdata in getPattaya2.pack">
+                        <div class="masonry-brick padd15px col-md-4 col-sm-6 col-xs-12" ng-repeat="packdata in getPattaya2.pack">
                             <div class="marginicon">
                                 <div class="pattayevents white_back_color">
                                     <img alt="The Bachelor Trip " title="The Bachelor Trip "  ng-src="{{ packdata.image|serverimage  }}" class="img-responsive img-box" >
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row text-center" >
-                  <a ui-sref="customdestination({id:getPattaya2.destination})"><button class="pbtn pregular yellow_color btn bluecol_back"type="button" name="button"><span class="pb">BACK TO</span><br><span class="pd">DESTINATION</span></button></a>
+                  <a ui-sref="customdestination({id:getPattaya2.destination})"><button class="pbtn pregular yellow_color btn"type="button" name="button"><span class="pb">BACK TO</span><br><span class="pd">DESTINATION</span></button></a>
                   </div>
             </div>
         </div>
