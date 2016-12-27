@@ -896,8 +896,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
             NavigationService.cart($scope.cartData, function(data) {
-                console.log("data", data.data.data.value);
-                if (data.data.data.value === true) {
+                console.log("data", data.data.value);
+                if (data.data.value === true) {
                     $scope.cartSubmitPopup();
                     NavigationService.deleteAllCart(function(data) {
                         console.log(data);
