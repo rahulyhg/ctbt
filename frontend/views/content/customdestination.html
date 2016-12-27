@@ -1,7 +1,7 @@
 <!-- START BANNER  -->
 <div class="container">
     <figure class="m1">
-        <img alt="custom" title="custom" class="img-responsive" ng-src="{{getDestination.banner | serverimage}}">
+        <img alt="The Bachelor Trip"  class="img-responsive" ng-src="{{getDestination.banner | serverimage}}">
     </figure>
 </div>
 <!-- END BANNER  -->
@@ -45,8 +45,8 @@
                             <img alt="{{data.title1}} {{data.title2}}" title="{{data.title1}} {{data.title2}}" ng-src="{{data.image |serverimage:544:545}}" alt="" class="maxwidth img-responsive">
                             <div class="cart-sec">
                                 <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                  <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                  <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                  <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                  <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                               </button>
                             </div>
                             <div class="shadow-down"></div>
@@ -58,8 +58,8 @@
                             <div class="over-layer text-center" ui-sref="pakage({id:data._id})">
                                 <div class="cart-sec">
                                     <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
-                                    <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                    <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                    <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                    <i  ng-if="isInWishlistPackage(data._id)" ng-click="cartr();"><img   src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                 </button>
                                 </div>
                                 <div class="button-holder">
@@ -107,10 +107,10 @@
                                 <div class="checkbox checkboxing">
                                     <input type="checkbox" ng-model="day.model" id="day" ng-click="searchDay()">
                                     <label for="day"><span></span>Day</label>
-                                    <img alt="Object1" title="Object1" src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
+                                    <img  src="frontend/img/Vector-Smart-Object1.png" alt="" class="check_img">
                                     <input type="checkbox" ng-model="night.model" id="night" ng-click="searchNight()">
                                     <label for="night"><span></span> Night</label>
-                                    <img alt="Vector" title="Vector" src="frontend/img/Vector.png" alt="" class="check_img vector">
+                                    <img src="frontend/img/Vector.png" alt="" class="check_img vector">
                                 </div>
                             </div>
                             <!-- <div class="col-md-4 col-sm-6 col-xs-12  pading5 ">
@@ -138,8 +138,8 @@
                                     <img alt="{{data.name}}" title="{{data.name}}" ng-src="{{data.image1 |serverimage:544:545}}" alt="" class="maxwidth img-responsive" ng-click="addTocart(data)">
                                     <div class="cart-sec">
                                         <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                          <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                          <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                          <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                          <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                       </button>
                                     </div>
                                     <div class="shadow-down"></div>
@@ -150,8 +150,8 @@
                                 <figcaption>
                                     <div class="cart-sec">
                                         <button class="cart uppercase" ng-click="addTocartOnActivity(data._id,data.typeCart);">
-                                        <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img alt="cartremove" title="cartremove"  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
-                                        <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img alt="cartadd" title="cartadd"  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
+                                        <i   ng-if="!isInWishlistActivity(data._id)"  ng-click="cartd();"><img  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
+                                        <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
                                     </div>
                                     <div class="descrip" ng-bind-html="data.description | shorten :250"></div>
