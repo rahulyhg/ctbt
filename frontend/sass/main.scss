@@ -79,10 +79,6 @@ button {
     outline: none !important;
 }
 
-.color-white {
-    color: #fff;
-}
-
 a:focus,
 a:hover {
     text-decoration: none !important;
@@ -122,7 +118,9 @@ a:hover {
 }
 //font color start
 
-.whit_color {
+.color-white,
+.whit_color,
+.whitecolor {
     color: $white !important;
 }
 
@@ -138,10 +136,6 @@ a:hover {
 .yellow_color:hover {
     color: #fdd116 !important;
     text-decoration: none;
-}
-
-.whitecolor {
-    color: #fff !important;
 }
 
 .yellow_back_color {
@@ -446,7 +440,7 @@ a {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        @include transform(translate(-50%, -50%));
 
         .button-holder {
             font-weight: 600;
@@ -459,14 +453,14 @@ a {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            @include transform(translate(-50%, -50%));
             width: 70%;
 
             .ext-detail {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                @include transform(translate(-50%, -50%));
                 background: none;
                 border: 0;
                 font-family: pregular;
@@ -637,7 +631,7 @@ option[value=""][disabled] {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    @include transform(translate(-50%, -50%));
 }
 
 .events:hover .over-layer2 {
@@ -653,7 +647,7 @@ option[value=""][disabled] {
     position: absolute;
     left: 50%;
     bottom: 10px;
-    transform: translate(-50%);
+    @include transform(translate(-50%));
     color: #fff;
     font-weight: 600;
     font-family: pregular;
@@ -893,8 +887,9 @@ option[value=""][disabled] {
 }
 
 .card:hover {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+    @include transform(rotateY(180deg));
+    // -webkit-transform: rotateY(180deg);
+    // transform: rotateY(180deg);
     border: none;
     outline: none;
 }
@@ -915,8 +910,9 @@ option[value=""][disabled] {
     background: #fdd116;
     color: #333333;
     text-align: center;
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+    @include transform(rotateY(180deg));
+    // -webkit-transform: rotateY(180deg);
+    // transform: rotateY(180deg);
 }
 
 .activi {
@@ -1253,6 +1249,7 @@ option {
 
 .imghover {
     letter-spacing: 1px;
+    padding: 39% 0 0;
 
     p {
         margin: 0;
@@ -1262,7 +1259,6 @@ option {
         width: 50%;
         margin-bottom: 22%;
     }
-    padding: 39% 0 0;
 
     p {
         font-weight: 600;
@@ -2008,6 +2004,8 @@ figure .links {
     background: #fdd116;
 
     .wtsec2 {
+        padding: 14% 14% 6%;
+
         .colora {
             color: #002b79;
         }
@@ -2015,7 +2013,6 @@ figure .links {
         .margin-15 {
             margin-left: -15px;
         }
-        padding: 14% 14% 6%;
 
         .font15 {
             font-size: 13px;
@@ -2076,9 +2073,10 @@ figure .links {
     height: 0;
 
     .socialimg {
-        transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
+      @include transform(rotate(90deg));
+        // transform: rotate(90deg);
+        // -ms-transform: rotate(90deg);
+        // -webkit-transform: rotate(90deg);
         display: inline-block;
         font-size: 18px;
     }
@@ -2092,9 +2090,10 @@ figure .links {
         font-size: 14px;
         background: #002b7f;
         padding: 10px 0;
-        transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -webkit-transform: rotate(-90deg);
+          @include transform(rotate(-90deg));
+        // transform: rotate(-90deg);
+        // -ms-transform: rotate(-90deg);
+        // -webkit-transform: rotate(-90deg);
     }
 
     .ulsocial2 {
@@ -2303,7 +2302,8 @@ figure .links {
         text-align: center;
         cursor: pointer;
         padding: 6px;
-        -webkit-transform: rotate(-90deg);
+          @include transform(rotate(-90deg));
+        // -webkit-transform: rotate(-90deg);
 
         .fontsizep {
             padding: 3px 10px;
@@ -2319,7 +2319,8 @@ figure .links {
 }
 
 .pattsocial2 {
-    -webkit-transform: rotate(-90deg);
+    @include transform(rotate(-90deg));
+    // -webkit-transform: rotate(-90deg);
     position: absolute;
     right: -72px;
     top: 51px;
@@ -2605,8 +2606,9 @@ figure .links {
     }
 
     0% {
-        -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
-        transform: translate3d(100%, 0, 0) skewX(30deg);
+      @include transform(translate3d(100%, 0, 0) skewX(30deg));
+        // -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+        // transform: translate3d(100%, 0, 0) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2616,8 +2618,9 @@ figure .links {
     }
 
     0% {
-        -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
-        transform: translate3d(100%, 0, 0) skewX(30deg);
+        @include transform(translate3d(100%, 0, 0) skewX(30deg));
+        // -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+        // transform: translate3d(100%, 0, 0) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2628,8 +2631,9 @@ figure .links {
     }
 
     100% {
-        -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
-        transform: translate3d(100%, 0, 0) skewX(30deg);
+        @include transform(translate3d(100%, 0, 0) skewX(30deg));
+        // -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+        // transform: translate3d(100%, 0, 0) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2639,9 +2643,10 @@ figure .links {
     }
 
     100% {
-        -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
-        -ms-transform: translate3d(100%, 0, 0) skewX(30deg);
-        transform: translate3d(100%, 0, 0) skewX(30deg);
+        @include transform(translate3d(100%, 0, 0) skewX(30deg));
+        // -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+        // -ms-transform: translate3d(100%, 0, 0) skewX(30deg);
+        // transform: translate3d(100%, 0, 0) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2664,8 +2669,9 @@ figure .links {
     }
 
     0% {
-        -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
-        transform: translate3d(0, 0, 100%) skewX(30deg);
+        @include transform(translate3d(0, 0, 100%) skewX(30deg));
+        // -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
+        // transform: translate3d(0, 0, 100%) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2675,8 +2681,9 @@ figure .links {
     }
 
     0% {
-        -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
-        transform: translate3d(0, 0, 100%) skewX(30deg);
+        @include transform(translate3d(0, 0, 100%) skewX(30deg));
+        // -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
+        // transform: translate3d(0, 0, 100%) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2687,8 +2694,9 @@ figure .links {
     }
 
     100% {
-        -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
-        transform: translate3d(0, 0, 100%) skewX(30deg);
+        @include transform(translate3d(0, 0, 100%) skewX(30deg));
+        // -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
+        // transform: translate3d(0, 0, 100%) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2698,9 +2706,10 @@ figure .links {
     }
 
     100% {
-        -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
-        -ms-transform: translate3d(0, 0, 100%) skewX(30deg);
-        transform: translate3d(0, 0, 100%) skewX(30deg);
+        @include transform(translate3d(0, 0, 100%) skewX(30deg));
+        // -webkit-transform: translate3d(0, 0, 100%) skewX(30deg);
+        // -ms-transform: translate3d(0, 0, 100%) skewX(30deg);
+        // transform: translate3d(0, 0, 100%) skewX(30deg);
         opacity: 0;
     }
 }
@@ -2760,9 +2769,10 @@ figure .links {
     height: 100%;
     text-align: center;
     backface-visibility: hidden;
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
+    @include transform(rotateY(-180deg));
+    // -webkit-transform: rotateY(-180deg);
+    // -moz-transform: rotateY(-180deg);
+    // transform: rotateY(-180deg);
     @include transition(all 0.5s);
     // -webkit-transition: all 0.5s;
     // -moz-transition: all 0.5s;
@@ -2798,9 +2808,10 @@ figure.hover .front {
     // -moz-transition: all 0.5s;
     // transition: all 0.5s;
     // @include transform(rotateY(180deg));
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+      @include transform(rotateY(180deg));
+    // -webkit-transform: rotateY(180deg);
+    // -moz-transform: rotateY(180deg);
+    // transform: rotateY(180deg);
     z-index: 0;
 }
 
@@ -2980,7 +2991,8 @@ input[type="time"].form-control {
         button {
             box-shadow: rgb(0, 43, 127) 0 0 2px 0;
             border-bottom: 0;
-            -webkit-transform: rotate(-90deg);
+            @include transform(rotate(-90deg));
+            // -webkit-transform: rotate(-90deg);
         }
     }
 }
@@ -3020,7 +3032,8 @@ input[type="time"].form-control {
 
 .mycart2 {
     box-shadow: #002b7f 0 -1px 1px -1px;
-    -webkit-transform: rotate(-90deg);
+      @include transform(rotate(-90deg));
+    // -webkit-transform: rotate(-90deg);
     position: absolute;
     left: -89px;
     top: 51px;
@@ -3073,7 +3086,8 @@ input[type="time"].form-control {
 }
 
 .datename {
-    transform: skew(-41deg);
+    @include transform(skew(-41deg));
+    // transform: skew(-41deg);
     position: absolute;
     bottom: 0;
     color: #fff;
@@ -3084,7 +3098,8 @@ input[type="time"].form-control {
         font-size: 14px;
         padding: 4px 33px 4px 11px;
         margin: 0;
-        transform: skew(41deg);
+        @include transform(skew(41deg));
+        // transform: skew(41deg);
         text-transform: capitalize;
     }
 }
@@ -3600,7 +3615,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .pbtn {
     font-weight: 900;
-
     background-image: url("../img/btn-bg.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
