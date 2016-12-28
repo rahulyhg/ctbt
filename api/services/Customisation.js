@@ -56,7 +56,7 @@ var model = {
     //  newreturns.package = [];
     //  newreturns.activities = [];
     async.parallel([
-    
+
       function (callback1) {
         Activities.populate(data.activities, {
           path: "activities",
@@ -242,7 +242,7 @@ var model = {
 
             var emailData = {};
             emailData.email = data.email;
-            emailData.cc = "pratik.gawand@wohlig.com";
+            emailData.cc = "sales@thebachelortrip.com";
             emailData.content = data;
             emailData.contentAct = data.myCart.activities;
             emailData.contentAcc = data.myCart.accomodation;

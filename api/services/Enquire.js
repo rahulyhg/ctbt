@@ -53,7 +53,7 @@ var model = {
         console.log(toDate);
         var emailData = {};
         emailData.email = data.email;
-        emailData.cc = "pratik.gawand@wohlig.com";
+        emailData.cc = "sales@thebachelortrip.com";
         emailData.content = data;
         emailData.contentFrom = fromDate;
         emailData.contentTo = toDate;

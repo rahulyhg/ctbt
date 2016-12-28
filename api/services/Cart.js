@@ -128,7 +128,7 @@ var model = {
             console.log("data WHTH", data.myCart.whatshot);
             var emailData = {};
             emailData.email = data.email;
-            emailData.cc = "pratik.gawand@wohlig.com";
+            emailData.cc = "sales@thebachelortrip.com";
             emailData.content = data;
             emailData.contentAct = data.myCart.activities;
             emailData.contentPack = data.myCart.package;
