@@ -10,6 +10,7 @@ var controller = {
                         req.session.cart.activities.push(req.body);
                     }
                     if (req.body.type === "Accomodation") {
+                      // console.log('sssssssssssss',req.body);
                         req.session.cart.accomodation.push(req.body);
                     }
                 } else {
@@ -129,9 +130,11 @@ var controller = {
             } else {
               if(req.session.cart){
               req.body.activities =  _.cloneDeep(req.session.cart.activities);
+              req.body.activities =   _.uniqWith(req.body.activities, _.isEqual);
               // req.body.package =  _.cloneDeep(req.session.cart.package);
               // req.body.whatshot =  _.cloneDeep(req.session.cart.whatshot);
               req.body.accomodation =  _.cloneDeep(req.session.cart.accomodation);
+            req.body.accomodation =   _.uniqWith(req.body.accomodation, _.isEqual);
               Customisation.getCart(req.body, res.callback);
               // res.json({
               //   value: true,
