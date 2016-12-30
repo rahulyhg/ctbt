@@ -2264,7 +2264,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log('$scope.customisationDestForName', $scope.customisationDestForName);
             $scope.customisationDest = data.data.data.getDestination.accomodation;
             $scope.customisationActivity = data.data.data.getActivity;
-        })
+        });
+
+
+
         NavigationService.HomeSlider(function(data) {
             $scope.dropDown = data.data.data.DestinationDropdown;
         });
@@ -2273,7 +2276,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartOnAcc = function() {
             NavigationService.getCustCart(function(data) {
                 $scope.getCustomisationDeta = data.data.data;
-                // console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta);
+                console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta.accomodation);
+                $scope.getCartActi = $scope.getCustomisationDeta.activities;
+                $scope.getCartAcco= $scope.getCustomisationDeta.accomodation;
                 // console.log($scope.getCustomisationDeta.activities.length);
                 // console.log($scope.getCustomisationDeta.accomodation.length);
                 if ($scope.getCustomisationDeta.activities.length == 0 && $scope.getCustomisationDeta.accomodation.length == 0) {
@@ -2286,6 +2291,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.getCartOnAcc();
+
+
+        $scope.checkCart = function(id){
+          // console.log("aaa", id, $scope.getCartActi);
+          var indexF = _.findIndex($scope.getCartActi, function (key) {
+                        return key.activities._id == id;
+                    });
+                    // console.log("indexF", indexF);
+                    if (indexF !== -1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+
+        }
+        $scope.checkCartAcco = function(name){
+          console.log("aaa", $scope.getCartAcco);
+          var indexF = _.findIndex($scope.getCartAcco, function (key) {
+                        return key.name == name;
+                    });
+                    // console.log("indexF", indexF);
+                    if (indexF !== -1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+
+        }
+
+        // $scope.checkCart();
+        $scope.checkCartAcco();
         $scope.viewLess = false;
         $scope.viewMore = false;
 
