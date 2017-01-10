@@ -154,7 +154,18 @@
                                         <i  ng-if="isInWishlistActivity(data._id)" ng-click="cartr();"><img  src="frontend/img/cartadd.png" class="cartsi img-responsive"></i>
                                     </button>
                                     </div>
-                                    <div class="descrip" ng-bind-html="data.description | shorten :250"></div>
+
+
+
+
+                                    <div class="descrip" ng-if="data.description">
+                                      <p ng-bind-html="data.description | htmlToPlaintext | letterLimit : 250">
+                                      </p>
+
+                                    </div>
+
+
+                                  
                                     <!-- <div ng-if="!addedSuccessPattaya" class="descrip" ng-bind-html="data.description | shorten :180"></div>
                                     <div ng-if="addedSuccessPattaya" class="descrip" ><p class="toppad">Your query has been added to the cart.</p></div> -->
 

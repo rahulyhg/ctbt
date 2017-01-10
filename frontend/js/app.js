@@ -237,23 +237,31 @@ firstapp.filter('rawHtml', ['$sce',
         };
     }
 ]);
-firstapp.filter('trusted', ['$sce', function($sce) {
-    return function(url) {
-        return $sce.trustAsResourceUrl(url);
-    };
-}]);
-firstapp.filter('shorten', function() {
-    return function(value, limit) {
-        if (value)
-            if (value.length < limit) {
-                return value;
-            } else {
-                return value.slice(0, limit - 2) + "..";
 
-            }
-
+firstapp.filter('htmlToPlaintext', function() {
+    return function(text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
     };
 });
+firstapp.filter('letterLimit', function() {
+    return function(value, limit) {
+        if(value){
+          if (value.length < limit) {
+              return value;
+          } else {
+              return value.slice(0, limit - 2) + "..";
+          }
+        }else{
+          return "";
+        }
+    };
+});
+
+firstapp.filter('trusted', function($sce){
+        return function(html){
+            return $sce.trustAsHtml(html)
+        }
+     })
 
 firstapp.filter('trustAsResourceUrl', ['$sce', function($sce) {
     return function(val) {

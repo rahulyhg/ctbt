@@ -1164,7 +1164,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // ======== End Cart =========
     })
-    .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter) {
+    .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $sce) {
         globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
@@ -1208,6 +1208,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: false,
             isFirstDisabled: false
         });
+
+ // $scope.item = {
+ //   get: function(data) {
+ //       return data;
+ //   }
+ // };
+
+
+ $scope.trustAsHtml = function(string) {
+     return $sce.trustAsHtml(string);
+ };
         $scope.headerCartOpen = function() {
             console.log('ddddddddddddddd');
             $scope.mycart10 = false;
