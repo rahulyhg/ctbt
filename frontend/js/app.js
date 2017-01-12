@@ -238,20 +238,22 @@ firstapp.filter('rawHtml', ['$sce',
     }
 ]);
 
-firstapp.filter('htmlToPlaintext', function() {
-    return function(text) {
-        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+firstapp.filter('htmlDecode', function() {
+    return function(value) {
+        return $("<div/>").html(value).text();
     };
 });
+
+
 firstapp.filter('letterLimit', function() {
     return function(value, limit) {
         if(value){
-          console.log("value",value ,"limit",limit);
+          console.log(value);
           console.log("valu length",value.length);
           if (value.length < limit) {
               return value;
           } else {
-              return value.slice(0, limit - 2) + "..";
+              return value.slice(0, limit) + "..";
           }
         }else{
           return "";

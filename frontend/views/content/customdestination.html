@@ -158,13 +158,10 @@
 
 
 
-                                    <!-- <div class="descrip" ng-if="data.description">
-                                      <p ng-bind-html="data.description | htmlToPlaintext |  limitFromTo : 0 : 250">
-                                      </p>
 
-                                    </div> -->
+                                  
                                     <div class="descrip" ng-if="data.description">
-                                      <p ng-bind-html="data.description | htmlToPlaintext | letterLimit : 255">
+                                      <p ng-bind-html="data.description | htmlDecode | letterLimit: 255">
                                       </p>
 
                                     </div>
