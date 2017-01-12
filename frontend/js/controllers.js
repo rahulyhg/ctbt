@@ -61,7 +61,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.openModals();
             }
         });
-
+    
         // console.log("Testing Consoles");
         //
         // $timeout(function(){
