@@ -246,6 +246,8 @@ firstapp.filter('htmlToPlaintext', function() {
 firstapp.filter('letterLimit', function() {
     return function(value, limit) {
         if(value){
+          console.log("value",value ,"limit",limit);
+          console.log("valu length",value.length);
           if (value.length < limit) {
               return value;
           } else {
