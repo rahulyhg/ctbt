@@ -253,7 +253,7 @@ firstapp.filter('letterLimit', function() {
           if (value.length < limit) {
               return value;
           } else {
-              return value.slice(0, limit) + "..";
+              return value.slice(0, limit) + "...";
           }
         }else{
           return "";
