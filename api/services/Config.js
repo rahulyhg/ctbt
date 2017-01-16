@@ -79,6 +79,7 @@ var models = {
         });
     },
     manageArrayObject: function (Model, id, data, key, action, callback) {
+      console.log("modellllllllll$$$$$$$$$$$", Model);
         Model.findOne({
             "_id": id
         }, function (err, data2) {
@@ -430,6 +431,28 @@ var models = {
             readstream.pipe(res);
         }
         //error handling, e.g. file does not exist
-    }
+    },
+
+
+    saveXmlData: function(url, callback) {
+        var baseUrl = "http://thebachelortrip.com/";
+        var obj = "\n <url> \n" + "<loc> \n" + baseUrl + url + " \n" + "</loc> \n" + "<changefreq>" + "monthly" + "</changefreq> \n" + "<priority>" + "1.0" + "</priority> \n" + "</url> \n" + "</urlset>";
+        var body = fs.readFileSync('frontend/sitemap.xml').toString();
+        var abc = body.toString();
+        body = abc.substring(0, (abc.length - 10));
+        fs.writeFileSync("frontend/sitemap.xml", body);
+        fs.appendFile(
+            "frontend/sitemap.xml",
+            obj,
+            function(error) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    callback(null, "File Updated");
+                }
+            }
+        );
+  },
+
 };
 module.exports = _.assign(module.exports, models);

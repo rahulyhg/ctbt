@@ -55,35 +55,34 @@ module.exports.http = {
          *                                                                           *
          ****************************************************************************/
 
-        myRequestLogger: function (req, res, next) {
-            req.models = req.path.split("/");
-            // console.log(req.models);
-            req.model = mongoose.models[_.upperFirst(req.models[2])];
+         myRequestLogger: function (req, res, next) {
+             req.models = req.path.split("/");
+             // console.log(req.models);
+             req.model = mongoose.models[_.upperFirst(req.models[2])];
+             req.modelName = _.upperFirst(req.models[2]);
 
-            // if (req.body && req.body.accessToken) {
-            //     User.profile(req.body, function (err, data) {
-            //         if (err) {
-            //             res.json({
-            //                 error: err,
-            //                 value: false
-            //             });
-            //         } else if (data) {
-            //             req.user = data;
-            //             next();
-            //         } else {
-            //             res.json({
-            //                 error: "Invalid AccessToken",
-            //                 value: false
-            //             });
-            //         }
-            //     }, "Get Google");
-            // } else {
-            //     next();
-            // }
-
-            next();
-        }
-
+console.log("modelName", req.modelName);
+             if (req.body && req.body._accessToken) {
+                 User.profile(req.body, function (err, data) {
+                     if (err) {
+                         res.json({
+                             error: err,
+                             value: false
+                         });
+                     } else if (data) {
+                         req.user = data;
+                         next();
+                     } else {
+                         res.json({
+                             error: "Invalid AccessToken",
+                             value: false
+                         });
+                     }
+                 }, "Get Google");
+             } else {
+                 next();
+             }
+         }
 
         /***************************************************************************
          *                                                                          *
