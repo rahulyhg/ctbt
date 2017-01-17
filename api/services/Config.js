@@ -439,6 +439,7 @@ var models = {
         var obj = "\n <url> \n" + "<loc> \n" + baseUrl + url + " \n" + "</loc> \n" + "<changefreq>" + "monthly" + "</changefreq> \n" + "<priority>" + "1.0" + "</priority> \n" + "</url> \n" + "</urlset>";
         var body = fs.readFileSync('frontend/sitemap.xml').toString();
         var abc = body.toString();
+        console.log('abbbbbbc',abc);
         body = abc.substring(0, (abc.length - 10));
         fs.writeFileSync("frontend/sitemap.xml", body);
         fs.appendFile(
