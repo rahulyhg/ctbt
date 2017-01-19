@@ -61,7 +61,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.openModals();
             }
         });
-    
+
         // console.log("Testing Consoles");
         //
         // $timeout(function(){
@@ -643,6 +643,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("aboutus");
         $scope.menutitle = NavigationService.makeactive("AboutUs");
         TemplateService.title = $scope.menutitle;
+        TemplateService.canonical = "aboutus";
         $scope.navigation = NavigationService.getnav();
 
     })

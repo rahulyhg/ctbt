@@ -1,6 +1,7 @@
 var templateservicemod = angular.module('templateservicemod', []);
 templateservicemod.service('TemplateService', function() {
   this.title = "Home";
+  this.canonical = "";
   this.meta = "Google";
   this.metadesc = "Home";
   this.isLoader = false;
