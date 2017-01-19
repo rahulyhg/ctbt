@@ -39,7 +39,7 @@ var schema = new Schema({
     tableImage:{
       type: String,
       default: ""
-    }, 
+    },
     order: {
             type: Number,
             default: 0
@@ -84,7 +84,7 @@ var schema = new Schema({
         type: String,
         default: ""
     }
-  
+
   });
 
 schema.plugin(deepPopulate, {});
@@ -117,6 +117,42 @@ var model = {
 
         })
     },
+    getAll: function(data, callback) {
+        this.find({}).exec(function(err, found) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else {
+                var counter = 0;
+                _.each(found, function(n) {
+                // console.log('fouuuuund', n._id);
+                var sendXMLUrl = "customisation/" + n._id;
+                counter++;
+                if(counter<=found.length-1){
+                  console.log('inside iffff',counter);
+                  Config.saveXmlDataWrite(sendXMLUrl, function(err, XMLupdated) {
+                      if (err) {
+                          callback(err, null);
+                      } else {
+                          // callback(null, "done");
+                      }
+                  });
+                }else{
+                  console.log('inside ielssssssssse',counter);
+                  Config.saveXmlDataWriteLast(sendXMLUrl, function(err, XMLupdated) {
+                      if (err) {
+                          callback(err, null);
+                      } else {
+                          // callback(null, "done");
+                      }
+                  });
+                }
+                })
+                callback(null, "done");
+            }
+        });
+    },
+
     getVideos: function (data, callback) {
         WhatsHot.findOne({
             _id: data._id

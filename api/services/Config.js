@@ -37,9 +37,9 @@ module.exports = mongoose.model('Config', schema);
 
 var models = {
     maxRow: 10,
-    getForeignKeys: function (schema) {
+    getForeignKeys: function(schema) {
         var arr = [];
-        _.each(schema.tree, function (n, name) {
+        _.each(schema.tree, function(n, name) {
             if (n.key) {
                 arr.push({
                     name: name,
@@ -50,12 +50,12 @@ var models = {
         });
         return arr;
     },
-    checkRestrictedDelete: function (Model, schema, data, callback) {
+    checkRestrictedDelete: function(Model, schema, data, callback) {
 
         var values = schema.tree;
         var arr = [];
         var ret = true;
-        _.each(values, function (n, key) {
+        _.each(values, function(n, key) {
             if (n.restrictedDelete) {
                 arr.push(key);
             }
@@ -63,11 +63,11 @@ var models = {
 
         Model.findOne({
             "_id": data._id
-        }, function (err, data2) {
+        }, function(err, data2) {
             if (err) {
                 callback(err, null);
             } else if (data2) {
-                _.each(arr, function (n) {
+                _.each(arr, function(n) {
                     if (data2[n].length !== 0) {
                         ret = false;
                     }
@@ -78,11 +78,11 @@ var models = {
             }
         });
     },
-    manageArrayObject: function (Model, id, data, key, action, callback) {
-      console.log("modellllllllll$$$$$$$$$$$", Model);
+    manageArrayObject: function(Model, id, data, key, action, callback) {
+        console.log("modellllllllll$$$$$$$$$$$", Model);
         Model.findOne({
             "_id": id
-        }, function (err, data2) {
+        }, function(err, data2) {
             if (err) {
                 callback(err, null);
             } else if (data2) {
@@ -99,7 +99,7 @@ var models = {
                         break;
                     case "delete":
                         {
-                            _.remove(data2[key], function (n) {
+                            _.remove(data2[key], function(n) {
                                 return (n + "") == (data + "");
                             });
                             data2.update(data2, {
@@ -116,7 +116,7 @@ var models = {
 
     },
 
-    uploadFile: function (filename, callback) {
+    uploadFile: function(filename, callback) {
         var id = mongoose.Types.ObjectId();
         var extension = filename.split(".").pop();
         extension = extension.toLowerCase();
@@ -135,7 +135,7 @@ var models = {
                 filename: newFilename,
                 metadata: metaValue
             });
-            writestream2.on('finish', function () {
+            writestream2.on('finish', function() {
                 callback(null, {
                     name: newFilename
                 });
@@ -145,7 +145,7 @@ var models = {
         }
 
         if (extension == "png" || extension == "jpg" || extension == "gif") {
-            lwip.open(filename, extension, function (err, image) {
+            lwip.open(filename, extension, function(err, image) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -158,7 +158,7 @@ var models = {
 
                     if (upImage.width > upImage.height) {
                         if (upImage.width > MaxImageSize) {
-                            image.resize(MaxImageSize, MaxImageSize / (upImage.width / upImage.height), function (err, image2) {
+                            image.resize(MaxImageSize, MaxImageSize / (upImage.width / upImage.height), function(err, image2) {
                                 if (err) {
                                     console.log(err);
                                     callback(err, null);
@@ -168,7 +168,7 @@ var models = {
                                         height: image2.height(),
                                         ratio: image2.width() / image2.height()
                                     };
-                                    image2.writeFile(filename, function (err) {
+                                    image2.writeFile(filename, function(err) {
                                         writer2(upImage);
                                     });
                                 }
@@ -178,7 +178,7 @@ var models = {
                         }
                     } else {
                         if (upImage.height > MaxImageSize) {
-                            image.resize((upImage.width / upImage.height) * MaxImageSize, MaxImageSize, function (err, image2) {
+                            image.resize((upImage.width / upImage.height) * MaxImageSize, MaxImageSize, function(err, image2) {
                                 if (err) {
                                     console.log(err);
                                     callback(err, null);
@@ -188,7 +188,7 @@ var models = {
                                         height: image2.height(),
                                         ratio: image2.width() / image2.height()
                                     };
-                                    image2.writeFile(filename, function (err) {
+                                    image2.writeFile(filename, function(err) {
                                         writer2(upImage);
                                     });
                                 }
@@ -203,19 +203,19 @@ var models = {
             imageStream.pipe(writestream);
         }
 
-        writestream.on('finish', function () {
+        writestream.on('finish', function() {
             callback(null, {
                 name: newFilename
             });
             fs.unlink(filename);
         });
     },
-    generateExcel: function (name, found, res) {
+    generateExcel: function(name, found, res) {
         name = _.kebabCase(name);
         var excelData = [];
-        _.each(found, function (singleData) {
+        _.each(found, function(singleData) {
             var singleExcel = {};
-            _.each(singleData, function (n, key) {
+            _.each(singleData, function(n, key) {
                 if (key != "__v" && key != "createdAt" && key != "updatedAt") {
                     singleExcel[_.capitalize(key)] = n;
                 }
@@ -226,11 +226,11 @@ var models = {
         var folder = "./.tmp/";
         var path = name + "-" + moment().format("MMM-DD-YYYY-hh-mm-ss-a") + ".xlsx";
         var finalPath = folder + path;
-        sails.fs.writeFile(finalPath, xls, 'binary', function (err) {
+        sails.fs.writeFile(finalPath, xls, 'binary', function(err) {
             if (err) {
                 res.callback(err, null);
             } else {
-                fs.readFile(finalPath, function (err, excel) {
+                fs.readFile(finalPath, function(err, excel) {
                     if (err) {
                         res.callback(err, null);
                     } else {
@@ -244,9 +244,9 @@ var models = {
         });
 
     },
-    email: function (data, callback) {
+    email: function(data, callback) {
         // console.log(data);
-        Password.find().exec(function (err, userdata) {
+        Password.find().exec(function(err, userdata) {
             if (err) {
                 //     console.log(err);
                 callback(err, null);
@@ -255,7 +255,7 @@ var models = {
                     request.post({
                         url: requrl + "config/emailReader/",
                         json: data
-                    }, function (err, http, body) {
+                    }, function(err, http, body) {
                         //console.log(err,http,body);
                         if (err) {
                             console.log(err);
@@ -271,7 +271,7 @@ var models = {
                                     from: "sales@thebachelortrip.com",
                                     subject: data.subject,
                                     html: body
-                                }, function (err, json) {
+                                }, function(err, json) {
                                     if (err) {
                                         console.log('in email error');
                                         callback(err, null);
@@ -306,11 +306,11 @@ var models = {
             }
         });
     },
-    readUploaded: function (filename, width, height, style, res) {
+    readUploaded: function(filename, width, height, style, res) {
         var readstream = gfs.createReadStream({
             filename: filename
         });
-        readstream.on('error', function (err) {
+        readstream.on('error', function(err) {
             res.json({
                 value: false,
                 error: err
@@ -322,7 +322,7 @@ var models = {
                 filename: gridFSFilename,
                 metadata: metaValue
             });
-            writestream2.on('finish', function () {
+            writestream2.on('finish', function() {
                 fs.unlink(filename);
             });
             fs.createReadStream(filename).pipe(res);
@@ -333,7 +333,7 @@ var models = {
             var readstream2 = gfs.createReadStream({
                 filename: filename2
             });
-            readstream2.on('error', function (err) {
+            readstream2.on('error', function(err) {
                 res.json({
                     value: false,
                     error: err
@@ -364,7 +364,7 @@ var models = {
             var newNameExtire = newName + "." + extension;
             gfs.exist({
                 filename: newNameExtire
-            }, function (err, found) {
+            }, function(err, found) {
                 if (err) {
                     res.json({
                         value: false,
@@ -376,8 +376,8 @@ var models = {
                 } else {
                     var imageStream = fs.createWriteStream('./.tmp/uploads/' + filename);
                     readstream.pipe(imageStream);
-                    imageStream.on("finish", function () {
-                        lwip.open('./.tmp/uploads/' + filename, function (err, image) {
+                    imageStream.on("finish", function() {
+                        lwip.open('./.tmp/uploads/' + filename, function(err, image) {
                             ImageWidth = image.width();
                             ImageHeight = image.height();
                             var newWidth = 0;
@@ -414,8 +414,8 @@ var models = {
                                 newWidth = height * (ImageWidth / ImageHeight);
                                 newHeight = height;
                             }
-                            image.resize(parseInt(newWidth), parseInt(newHeight), function (err, image2) {
-                                image2.writeFile('./.tmp/uploads/' + filename, function (err) {
+                            image.resize(parseInt(newWidth), parseInt(newHeight), function(err, image2) {
+                                image2.writeFile('./.tmp/uploads/' + filename, function(err) {
                                     writer2('./.tmp/uploads/' + filename, newNameExtire, {
                                         width: newWidth,
                                         height: newHeight
@@ -437,9 +437,10 @@ var models = {
     saveXmlData: function(url, callback) {
         var baseUrl = "http://thebachelortrip.com/";
         var obj = "\n <url> \n" + "<loc> \n" + baseUrl + url + " \n" + "</loc> \n" + "<changefreq>" + "monthly" + "</changefreq> \n" + "<priority>" + "1.0" + "</priority> \n" + "</url> \n" + "</urlset>";
+        // var obj = "\n <url> \n" + "<loc> \n" + baseUrl + "</loc> \n" + "<priority>" + "1.0" + "</priority> \n" + "</url> \n" + "</urlset>";
         var body = fs.readFileSync('frontend/sitemap.xml').toString();
         var abc = body.toString();
-        console.log('abbbbbbc',abc);
+        console.log('abbbbbbc', abc);
         body = abc.substring(0, (abc.length - 10));
         fs.writeFileSync("frontend/sitemap.xml", body);
         fs.appendFile(
@@ -453,7 +454,43 @@ var models = {
                 }
             }
         );
-  },
+    },
 
+    saveXmlDataWrite: function(url, callback) {
+        var baseUrl = "http://thebachelortrip.com/";
+        var obj = "\n <url> \n" + "<loc> \n" + baseUrl + url + " \n" + "</loc> \n" + "<changefreq>" + "monthly" + "</changefreq> \n" + "<priority>" + "1.0" + "</priority> \n" + "</url>";
+        var body = fs.readFileSync('frontend/sitemap.xml').toString();
+        var abc = body.toString();
+        fs.writeFileSync("frontend/sitemap.xml", body);
+        fs.appendFile(
+            "frontend/sitemap.xml",
+            obj,
+            function(error) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    callback(null, "File Updated");
+                }
+            }
+        );
+    },
+    saveXmlDataWriteLast: function(url, callback) {
+        var baseUrl = "http://thebachelortrip.com/";
+        var obj = "\n <url> \n" + "<loc> \n" + baseUrl + url + " \n" + "</loc> \n" + "<changefreq>" + "monthly" + "</changefreq> \n" + "<priority>" + "1.0" + "</priority> \n" + "</url> \n" + "</urlset>";
+        var body = fs.readFileSync('frontend/sitemap.xml').toString();
+        var abc = body.toString();
+        fs.writeFileSync("frontend/sitemap.xml", body);
+        fs.appendFile(
+            "frontend/sitemap.xml",
+            obj,
+            function(error) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    callback(null, "File Updated");
+                }
+            }
+        );
+    },
 };
 module.exports = _.assign(module.exports, models);
