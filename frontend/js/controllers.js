@@ -1231,6 +1231,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
  // };
 
 
+if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
+
+}
+
+
  $scope.trustAsHtml = function(string) {
      return $sce.trustAsHtml(string);
  };

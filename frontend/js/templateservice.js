@@ -1,9 +1,11 @@
 var templateservicemod = angular.module('templateservicemod', []);
 templateservicemod.service('TemplateService', function() {
   this.title = "Home";
-  this.canonical = "";
   this.meta = "Google";
   this.metadesc = "Home";
+  this.description = "";
+  this.canonical = "";
+  this.keywords = "";
   this.isLoader = false;
   this.removeLoaderNum = 0;
   this.removeLoaderTemp = 0;
