@@ -225,6 +225,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         // =============== End Cart =================
+
+
+
+        //----seo-----//
+
+      
+
+        //----seo----//
     })
     .controller('BachleretteCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
@@ -1071,9 +1079,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeSubmit = function(subscribeData) {}
         }
         $scope.template = TemplateService.changecontent("destination");
-        $scope.menutitle = NavigationService.makeactive("Destination");
+        $scope.menutitle = NavigationService.makeactive("The Best Bachelor Party Destinations | The Bachelor Trip ");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+
+        //---seo---//
+        //   TemplateService.canonical = "about-us";
+        TemplateService.description = "The best party destinations are now at your disposal for a crazy trip for you to truly let go. Let TBT plan the getaway you deserve, in the way you need. ";
+        TemplateService.keywords = "bachelor party destinations, best party destinations, bachelor trip destinations, party destinations, best bachelor party destinations";
+      //---seo---//
 
         $scope.show = {};
         $scope.show = false;
