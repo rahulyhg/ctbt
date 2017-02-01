@@ -72,6 +72,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Home");
         TemplateService.header = "frontend/views/home_header.html";
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
         $scope.formdata = {};
@@ -92,7 +95,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.mySlidesss = data.data.data.whatsHotBanner;
             console.log("$scope.mySlides", $scope.mySlidesss);
-              TemplateService.removeLoader();
+            TemplateService.removeLoader();
         });
         $scope.imDisable = false;
         $scope.forSearch = function(id) {
@@ -230,7 +233,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //----seo-----//
 
-      
+
 
         //----seo----//
     })
@@ -240,8 +243,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("bachlerette");
         $scope.menutitle = NavigationService.makeactive("Bachlerette");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
-          TemplateService.removeLoaderOn(1);
+        TemplateService.removeLoaderOn(1);
         $scope.formComplete = false;
         $scope.enquiryData = {};
         $scope.submitEnq = false;
@@ -377,6 +383,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("mediacorner");
         $scope.menutitle = NavigationService.makeactive("MediaCorner");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
 
     })
@@ -385,6 +394,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("accessories");
         $scope.menutitle = NavigationService.makeactive("Accessories");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
         $scope.currentDate = new Date();
@@ -517,6 +529,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("highrollers");
         $scope.menutitle = NavigationService.makeactive("Highrollers");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
         $scope.currentDate = new Date();
@@ -642,6 +657,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("contactus");
         $scope.menutitle = NavigationService.makeactive("ContactUs");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
 
     })
@@ -651,6 +669,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("aboutus");
         $scope.menutitle = NavigationService.makeactive("AboutUs");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         TemplateService.canonical = "aboutus";
         $scope.navigation = NavigationService.getnav();
 
@@ -681,6 +702,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("activity");
         $scope.menutitle = NavigationService.makeactive("Activity");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
 
@@ -771,7 +795,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             console.log('else $scope.activityLoop', $scope.activityLoop);
                         }
                     }
-                      // TemplateService.removeLoader;
+                    // TemplateService.removeLoader;
                 });
 
             } else {
@@ -785,7 +809,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         NavigationService.ActivityLand(function(data) {
             $scope.Banner = data.data.data.Banner;
-              TemplateService.removeLoader();
+            TemplateService.removeLoader();
         });
         $scope.viewLess = false;
         $scope.viewMore = false;
@@ -878,7 +902,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         console.log('else $scope.activityLoop', $scope.activityLoop);
                     }
                 }
-    TemplateService.removeLoader();
+                TemplateService.removeLoader();
             });
             // }
         }
@@ -1023,6 +1047,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("tbtstatic");
         $scope.menutitle = NavigationService.makeactive("The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.header = "views/static_header.html";
         TemplateService.footermenu = "views/static_footermenu.html";
@@ -1081,13 +1108,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("destination");
         $scope.menutitle = NavigationService.makeactive("The Best Bachelor Party Destinations | The Bachelor Trip ");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
 
         //---seo---//
         //   TemplateService.canonical = "about-us";
-        TemplateService.description = "The best party destinations are now at your disposal for a crazy trip for you to truly let go. Let TBT plan the getaway you deserve, in the way you need. ";
-        TemplateService.keywords = "bachelor party destinations, best party destinations, bachelor trip destinations, party destinations, best bachelor party destinations";
-      //---seo---//
+        // TemplateService.description = "The best party destinations are now at your disposal for a crazy trip for you to truly let go. Let TBT plan the getaway you deserve, in the way you need. ";
+        // TemplateService.keywords = "bachelor party destinations, best party destinations, bachelor trip destinations, party destinations, best bachelor party destinations";
+        //---seo---//
 
         $scope.show = {};
         $scope.show = false;
@@ -1208,6 +1238,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("customdestination");
         $scope.menutitle = NavigationService.makeactive("customdestination");
         TemplateService.title = $scope.menutitle;
+
+        // ------------switch case for desc and keyword ----------
+
+        switch ($stateParams.id) {
+            case '5820e0666f31bf5a0b18dc42':
+                TemplateService.description = "The best party destinations are now at your disposal for a crazy trip for you to truly let go. Let TBT plan the getaway you deserve, in the way you need. ";
+                TemplateService.keywords = "bachelor party destinations, best party destinations, bachelor trip destinations, party destinations, best bachelor party destinations";
+                break;
+            case '5820d76b6f31bf5a0b18dbc8':
+                TemplateService.description = "disposal for a crazy trip for you to truly let go. Let TBT plan the getaway you deserve, in the way you need. ";
+                TemplateService.keywords = "est party destinations, bachelor trip destinations, party destinations, best bachelor party destinations";
+                break;
+            default:
+                TemplateService.description = "inside default";
+                TemplateService.keywords = "defffault";
+        }
+
+        // ---------end of suitch case---------
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
         $scope.tabs = 'az';
@@ -1224,21 +1273,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstDisabled: false
         });
 
- // $scope.item = {
- //   get: function(data) {
- //       return data;
- //   }
- // };
+        // $scope.item = {
+        //   get: function(data) {
+        //       return data;
+        //   }
+        // };
 
 
-if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
+        if ($stateParams.id == '5820d76b6f31bf5a0b18dbc8') {
 
-}
+        }
 
 
- $scope.trustAsHtml = function(string) {
-     return $sce.trustAsHtml(string);
- };
+        $scope.trustAsHtml = function(string) {
+            return $sce.trustAsHtml(string);
+        };
         $scope.headerCartOpen = function() {
             console.log('ddddddddddddddd');
             $scope.mycart10 = false;
@@ -1279,7 +1328,7 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
                 $scope.mergeActivityPackage = _.merge($scope.getCartDataActivity, $scope.getCartDataPackage, $scope.getCartDataWhatsHot10, $scope.getAccomodation10);
                 $scope.checkCartIsEmpty = _.isEmpty($scope.mergeActivityPackage);
                 // console.log('$scope.mergeActivityPackage', $scope.mergeActivityPackage);
-                  TemplateService.removeLoader();
+                TemplateService.removeLoader();
             });
 
         }
@@ -1708,6 +1757,9 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
         $scope.template = TemplateService.changecontent("pakage");
         $scope.menutitle = NavigationService.makeactive("Pakage");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         $scope.headerCartOpen = function() {
             console.log('ddddddddddddddd');
@@ -1941,6 +1993,9 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
         $scope.template = TemplateService.changecontent("whats-hot-more");
         $scope.menutitle = NavigationService.makeactive("Whats-hot-more");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
 
         $scope.tabs = 'az';
@@ -2072,6 +2127,9 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
         $scope.template = TemplateService.changecontent("whats-hot");
         $scope.menutitle = NavigationService.makeactive("Whats Hot");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
         $scope.flags = {};
@@ -2116,17 +2174,18 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
         // $scope.getCartFun();
         NavigationService.HomeSlider(function(data) {
             $scope.mySlidesss = data.data.data.whatsHotBanner;
-            $timeout(function () {
-              TemplateService.removeLoader();
+            $timeout(function() {
+                TemplateService.removeLoader();
             }, 5000);
 
         });
         NavigationService.whatsHot(function(data) {
             $scope.myEvents = data.data.data.Events;
             console.log($scope.myEvents);
-            $timeout(function () {
-              TemplateService.removeLoader();
-            }, 5000);        });
+            $timeout(function() {
+                TemplateService.removeLoader();
+            }, 5000);
+        });
 
         // =============== For Cart =================
         $scope.cartSubmitPopup = function() {
@@ -2295,21 +2354,24 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
         var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {},
             $checkboxes = $("#checkbox-container :checkbox");
 
-        $checkboxes.on("change", function(){
-          $checkboxes.each(function(){
-            checkboxValues[this.id] = this.checked;
-          });
+        $checkboxes.on("change", function() {
+            $checkboxes.each(function() {
+                checkboxValues[this.id] = this.checked;
+            });
 
-          localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+            localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
         });
 
         // On page load
         $.each(checkboxValues, function(key, value) {
-          $("#" + key).prop('checked', value);
+            $("#" + key).prop('checked', value);
         });
         $scope.template = TemplateService.changecontent("customisation");
         $scope.menutitle = NavigationService.makeactive("Customisation");
         TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
         $scope.currentDate = new Date();
@@ -2336,7 +2398,7 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
                 $scope.getCustomisationDeta = data.data.data;
                 console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta.accomodation);
                 $scope.getCartActi = $scope.getCustomisationDeta.activities;
-                $scope.getCartAcco= $scope.getCustomisationDeta.accomodation;
+                $scope.getCartAcco = $scope.getCustomisationDeta.accomodation;
                 // console.log($scope.getCustomisationDeta.activities.length);
                 // console.log($scope.getCustomisationDeta.accomodation.length);
                 if ($scope.getCustomisationDeta.activities.length == 0 && $scope.getCustomisationDeta.accomodation.length == 0) {
@@ -2352,30 +2414,30 @@ if($stateParams.id=='5820d76b6f31bf5a0b18dbc8'){
         $scope.getCartOnAcc();
 
 
-        $scope.checkCart = function(id){
-          // console.log("aaa", id, $scope.getCartActi);
-          var indexF = _.findIndex($scope.getCartActi, function (key) {
-                        return key.activities._id == id;
-                    });
-                    // console.log("indexF", indexF);
-                    if (indexF !== -1) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+        $scope.checkCart = function(id) {
+            // console.log("aaa", id, $scope.getCartActi);
+            var indexF = _.findIndex($scope.getCartActi, function(key) {
+                return key.activities._id == id;
+            });
+            // console.log("indexF", indexF);
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
 
         }
-        $scope.checkCartAcco = function(name){
-          console.log("aaa", $scope.getCartAcco);
-          var indexF = _.findIndex($scope.getCartAcco, function (key) {
-                        return key.name == name;
-                    });
-                    // console.log("indexF", indexF);
-                    if (indexF !== -1) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+        $scope.checkCartAcco = function(name) {
+            console.log("aaa", $scope.getCartAcco);
+            var indexF = _.findIndex($scope.getCartAcco, function(key) {
+                return key.name == name;
+            });
+            // console.log("indexF", indexF);
+            if (indexF !== -1) {
+                return true;
+            } else {
+                return false;
+            }
 
         }
 
