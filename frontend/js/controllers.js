@@ -241,10 +241,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.template = TemplateService.changecontent("bachlerette");
-        $scope.menutitle = NavigationService.makeactive("Bachlerette");
+        $scope.menutitle = NavigationService.makeactive("Why Should Boys Have All the Fun | The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "Life is harder after marriage for the girls. So ladies, special offers and packages are coming your way soon so celebrate your bachelorette party with us!";
+        TemplateService.keywords = "bachelor trip, bachelorette party, bachelorette party ideas,bachelorette party accessories";
 
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
@@ -392,10 +392,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('AccessoriesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
         $scope.template = TemplateService.changecontent("accessories");
-        $scope.menutitle = NavigationService.makeactive("Accessories");
+        $scope.menutitle = NavigationService.makeactive("Dress and Undress for the Best Trip | The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "We know you’re going to love your thrill filled vacation with your friends, but why not give them more to celebrate with your own bachelor party accessories?";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
 
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
@@ -527,10 +527,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('HighrollersCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
         $scope.template = TemplateService.changecontent("highrollers");
-        $scope.menutitle = NavigationService.makeactive("Highrollers");
+        $scope.menutitle = NavigationService.makeactive("Only the Best for the High Rollers | The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "Whether you’re looking for luxurious parties, hotels and stylish rides, we’ve got the ultimate package for you if your bachelor party theme is extravagant! ";
+        TemplateService.keywords = "Bachelor trip, bachelor party theme ";
 
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
@@ -655,10 +655,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.template = TemplateService.changecontent("contactus");
-        $scope.menutitle = NavigationService.makeactive("ContactUs");
+        $scope.menutitle = NavigationService.makeactive("The Bachelor Trip | Contact Us");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "Along with thrilling and chilling bachelor party packages and only high quality services, we provide you with help at every turn and point. So contact us!";
+        TemplateService.keywords = "Bachelor trip, Contact Us";
 
         $scope.navigation = NavigationService.getnav();
 
@@ -667,10 +667,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.template = TemplateService.changecontent("aboutus");
-        $scope.menutitle = NavigationService.makeactive("AboutUs");
+        $scope.menutitle = NavigationService.makeactive("The Bachelor Trip | About Us ");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "Everyone knows what marriage means or implies and the fears you have. We’re here to let you vent in the form of the most epic bachelor parties of all time! ";
+        TemplateService.keywords = "Bachelor trip, About Us";
 
         TemplateService.canonical = "aboutus";
         $scope.navigation = NavigationService.getnav();
@@ -700,10 +700,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.template = TemplateService.changecontent("activity");
-        $scope.menutitle = NavigationService.makeactive("Activity");
+        $scope.menutitle = NavigationService.makeactive("A Wise Variety of Activities only with The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "Can’t decide where you want to go for your ultimate bachelor party? We have a list of activities for you to choose from like cruises, spas or scuba diving. ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
 
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
@@ -1242,17 +1242,310 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ------------switch case for desc and keyword ----------
 
         switch ($stateParams.id) {
-            case '5820e0666f31bf5a0b18dc42':
-                TemplateService.description = "The best party destinations are now at your disposal for a crazy trip for you to truly let go. Let TBT plan the getaway you deserve, in the way you need. ";
-                TemplateService.keywords = "bachelor party destinations, best party destinations, bachelor trip destinations, party destinations, best bachelor party destinations";
-                break;
+            //3//
             case '5820d76b6f31bf5a0b18dbc8':
-                TemplateService.description = "disposal for a crazy trip for you to truly let go. Let TBT plan the getaway you deserve, in the way you need. ";
-                TemplateService.keywords = "est party destinations, bachelor trip destinations, party destinations, best bachelor party destinations";
+                $scope.menutitle = NavigationService.makeactive("Ideas for a Crazy Bachelor Night | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "With dungeons, sports and nightlife like no other, Amsterdam offers you what most cities cannot. Take a walk to the wild side this bachelor party with TBT. ";
+                TemplateService.keywords = "bachelor night, bachelor party, bachelor trip, bachelor party themes, bachelor party games, bachelor party planning , bachelor party destinations in Amsterdam, bachelor party destinations Amsterdam";
+                break;
+                //4//
+            case '5820e0666f31bf5a0b18dc42':
+                $scope.menutitle = NavigationService.makeactive("Wild is the Bachelor Party Theme Here | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Your very own version of The Hangover is now ready to be experienced! Indulge in the streets of Bangkok as TBT takes care of your bachelor party planning. ";
+                TemplateService.keywords = "bachelor night, bachelor party, bachelor trip, bachelor party themes, bachelor party games, bachelor party planning , bachelor party destinations in Bangkok, bachelor party destinations bangkok";
+                break;
+                //5//
+            case '5820e05d6f31bf5a0b18dc40':
+                $scope.menutitle = NavigationService.makeactive("Exotic Party Destinations for Bachelors | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Tired of the same old bachelor party ideas? Get a mix of cultures and adventures with a hint of sensuality in the city of Antalya in Turkey, only with TBT. ";
+                TemplateService.keywords = "party destinations, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party bachelor party destinations in Turkey, bachelor party destinations Turkey";
+                break;
+                //6//
+            case '5820e1e26f31bf5a0b18dcaa':
+                $scope.menutitle = NavigationService.makeactive("Barcelona, The Ultimate Party Destination | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Need to unwind on a cruise or enjoy a fabulous spa day? At Barcelona, do this and much more with wines along the seas of Spain during your bachelor nights.";
+                TemplateService.keywords = "party destinations, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations spain, bachelor party destinations in spain";
+                break;
+                //7//
+                 case '5820e06e6f31bf5a0b18dc44':
+                $scope.menutitle = NavigationService.makeactive("A Bachelor Party in Germany Style | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Leave behind the feminine and delicate on this bachelor party package in the heart of Germany. Smash some cars, party in a bus and drown in beer in Berlin. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Germany, bachelor party destinations in Germany";
+                break;
+                   //8//
+                 case '58635ec12550a629e7eecbd2':
+                $scope.menutitle = NavigationService.makeactive("Push the Limits this Bachelor Party | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Go off the road and ride with style as you explore the excitement of Bratislava with your friends. Take a shot and dance till you drop on your bachelor party. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Bratislava, bachelor party destinations in Bratislava";
+                break;
+                   //9//
+                 case '5820e1d46f31bf5a0b18dca8':
+                $scope.menutitle = NavigationService.makeactive("Adrenaline Filled Party Destinations | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Days and nights filled with laser tag, shooting ranges and exquisite shows just for you, that’s what a bachelor trip to Romania promises you with TBT! ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Romania, bachelor party destinations in Romania";
+                break;
+                  //10//
+                 case '5820e1e76f31bf5a0b18dcac':
+                $scope.menutitle = NavigationService.makeactive("Budapest Bachelor Party Packages | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Sink into the folds of excitement in the city of Budapest. Dance in nightclubs and enjoy the thrill of battle fields with TBT’s bachelor party themes. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Budapest, bachelor party destinations in Budapest";
+                break;
+                  //11//
+                 case '5820e08f6f31bf5a0b18dc4a':
+                $scope.menutitle = NavigationService.makeactive("Hola to the Best Party Destination | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Dive into the deep seas and witness underwater life with scuba diving at Mexico! Pristine beaches and cabaret shows will add to your bachelor nights. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor nights, bachelor party destinations Mexico, bachelor party destinations in Mexico";
+                break;
+                   //12//
+                 case '5811d6b1b0e6dc59847be39a':
+                $scope.menutitle = NavigationService.makeactive("The Bachelor Party Theme is Luxury | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Want to feel pampered before the big day? It doesn’t get better than Dubai, the best bachelor trip destination, with limos, hot air balloons and yacht parties. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Dubai, bachelor party destinations in Dubai";
+                break;
+                   //13//
+                 case '5820e1486f31bf5a0b18dc80':
+                $scope.menutitle = NavigationService.makeactive("The Beach Bachelor Party Packages | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Casinos and clear blue beaches adorned with beautiful women. If that is the ideal bachelor party for you, Dubrovnik is the destination for you to let go. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party Bachelor party packages, bachlor party , bachlor party package, bachelor party destinations Dubrovnik, bachelor party destinations in Dubrovnik";
+                break;
+                  //14//
+                 case '5820d8e66f31bf5a0b18dbed':
+                $scope.menutitle = NavigationService.makeactive("Go Hard or Go Home in the Port of Poland | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Break out of your shell and embrace the raw energetic side of you with bachelor party games like no other. Gdansk gives you jet skis, shooting and more. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party Bachelor party packages ,Bachelor trip, bachelor party games, bachelor party destinations Poland, bachelor party destinations in Poland";
+                break;
+                  //15//
+                 case '5820e0a96f31bf5a0b18dc56':
+                $scope.menutitle = NavigationService.makeactive("The Ultimate Stag Weekend | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Need the best of stag weekends with your boys to get away from life? Hamburg is the best party destination for you! Cruise through with the ladies this trip. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party  ,Bachelor trip, best party destination , bachelor party destinations Hamburg, bachelor party destinations in Hamburg";
+                break;
+                  //16//
+                 case '5820e0b36f31bf5a0b18dc58':
+                $scope.menutitle = NavigationService.makeactive("Come and Live it Up at Ibiza with Style | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Gorgeous beaches, stunning women and a unwavering appetite for fun and partying, Ibiza is an extremely loved and popular party destination for stag trips. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party  Bachelor trip, party destination , bachelor party destinations Ibiza, bachelor party destinations in Ibiza";
+                break;
+                   //17//
+                 case '5820e1fe6f31bf5a0b18dcb8':
+                $scope.menutitle = NavigationService.makeactive("Party with the Boys in Istanbul| The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Nightclubs and discos, parties and parasailing, Istanbul gives you this and more. The heart of Turkey, the city is perfect for your fun bachelor party theme. ";
+                TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, Bachelor trip, bachelor party theme , bachelor party destinations Istanbul, bachelor party destinations in Istanbul";
+                break;
+                   //18//
+                 case '5820d6aa6f31bf5a0b18dba2':
+                $scope.menutitle = NavigationService.makeactive("Unwind in the Depths of Jordan, Africa| The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Heal at the Dead Sea or lose yourself in a camp in the desert in Jordan on your bachelor party. Take a new route on a trip before you start your new chapter. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Jordan, bachelor party destinations in Jordan";
+                break;
+                   //19//
+                 case '5820e0cc6f31bf5a0b18dc5b':
+                $scope.menutitle = NavigationService.makeactive("Party King Size this Trip at Kiev| The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Does your ideal bachelor party package include partying after midnight, swanky bars and sexy boat parties? Then Kiev, Ukraine is the place for your boys!  ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Kiev ,bachelor party destinations in Kiev";
+                break;
+                   //20//
+                 case '5820e1696f31bf5a0b18dc8c':
+                $scope.menutitle = NavigationService.makeactive("Lose your Senses on the Island | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "One of the best bachelor party destinations in the world, Koi Samui is a stunning island. Brilliant beaches and sensual nightlife make it worth the visit.";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Koi Samui ,bachelor party destinations in Koi Samui";
+                break;
+                   //21//
+                 case '5820d9736f31bf5a0b18dc0a ':
+                $scope.menutitle = NavigationService.makeactive("Fun Stag Weekends with the Polish | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "If you’re in need for a bachelor party destination that caters to everyone’s needs, Karkow is the ideal trip. With something to offer everyone, enjoy Poland. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Poland, bachelor party destinations in Poland";
+                break;
+
+                  //22//
+                 case '5820e17a6f31bf5a0b18dc8f':
+                $scope.menutitle = NavigationService.makeactive("Nothing like Anything in Vegas | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Everyone knows that what happens in Vegas, stays in Vegas. Because the things you can do here on a bachelor night, will never be forgotten by anyone. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Vegas,, bachelor party destinations Vegas";
+                break;
+                  //23//
+                 case '5820e1a86f31bf5a0b18dca0':
+                $scope.menutitle = NavigationService.makeactive("Beautiful Nights Under the Lisbon Skies | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Even though it’s most visited on family vacations, do not underestimate the excitement Lisbon has to offer you. A great party destination, try it out!";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Lisbon bachelor party destinations Lisbon";
+                break;
+                  //24//
+                 case '5820d6ed6f31bf5a0b18dbb5':
+                $scope.menutitle = NavigationService.makeactive("Make it the Best Trip with Macau| The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "A trip down the adrenaline filled joyride that is Macau for the best bachelor party! Enjoy water sports and the airsoft war games or unwind at a luxurious spa. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party,  bachelor party destinations in Macau bachelor party destinations Macau";
+                break;
+                  //25//
+                 case '5820e2136f31bf5a0b18dcc6':
+                $scope.menutitle = NavigationService.makeactive("See the Madness in the City of Madrid | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "A bachelor party destination like no other, Madrid promises you the most sinful experience of all. Music, wrestling and beautiful women, need any more reasons?";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Madrid bachelor party destinations Madrid";
+                break;
+                  //26//
+                 case '5820e1b06f31bf5a0b18dca2':
+                $scope.menutitle = NavigationService.makeactive("Come, Party it up in the Philippines| The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "A city filled with youth, a zest for life and a zeal for adventure, the Philippines is the perfect bachelor party destination for a memorable vacation. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Philippines bachelor party destinations Philippines";
+                break;
+                  //27//
+                 case '5820e1bf6f31bf5a0b18dca4':
+                $scope.menutitle = NavigationService.makeactive("Lose Your Marbles in Spain | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Go off the road this one last time on your bachlor night! Exciting packages with caving, jet lev and great poker nights, doesn’t it sound fantastic in Spain?";
+                TemplateService.keywords = "Bachelor trip, bachlor night, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Spain , bachelor party destinations Spain,";
+                break;
+                  //28//
+                 case '5820e2196f31bf5a0b18dcc8':
+                $scope.menutitle = NavigationService.makeactive("Magic in the City of Easy Miami | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "A heaven for every stag getaway, you can leave every worry and problem behind because that’s what Miami will do to you on your exciting bachelor party. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Miami, bachelor party destinations Miami";
+                break;
+                 //29//
+                 case '5820e1c66f31bf5a0b18dca6':
+                $scope.menutitle = NavigationService.makeactive("Madness in the Midst of Montreal | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Who ever said the Canadians do not know how to party till dawn? Montreal is filled with sensual sushi and thrilling activities perfect for you bachelor night!";
+                TemplateService.keywords = "bachelor night , Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party ,bachelor party destinations in Montreal , bachelor party destinations Montreal";
+                break;
+                 //30//
+                 case '5820e2216f31bf5a0b18dcca':
+                $scope.menutitle = NavigationService.makeactive("Crazy Nights were made for Morocco | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Exotic and exciting events which will give you the adrenaline rush of a lifetime await you in one of the best party destinations in the world, Morocco!";
+                TemplateService.keywords = "best party destination in the world , Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Morocco ,bachelor party destinations Morocco";
+                break;
+                //31//
+                 case '5820e0d56f31bf5a0b18dc5d':
+                $scope.menutitle = NavigationService.makeactive("Make the most of your Nights in Moscow | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "If you’re in search for the best party destination and a wicked joyride for you and your friends, plan a great night in Moscow for the ultimate Russian beauty. ";
+                TemplateService.keywords = "best party destination , Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Moscow, bachelor party destinations Moscow";
+                break;
+                //32//
+                 case '5820e1516f31bf5a0b18dc82':
+                $scope.menutitle = NavigationService.makeactive("Celebrate with the Germany Girls | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Do you and your lads love luxury and cheap thrills at the same time? Limousines and beautiful women all around that’s the ideal bachelor party in Munich!";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Germany, bachelor party destinations Germany";
+                break;
+                //33//
+                 case '5820e2466f31bf5a0b18dcd2':
+                 $scope.menutitle = NavigationService.makeactive("Gear up for your Greek Adventure| The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Why watch yourself on your trip of a lifetime that will only come once? A great party destination, Mykonos offers helicopter rides and wind surfing as well!";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Greece, bachelor party destinations Greece";
+                break;
+                //34//
+                 case '5820e22b6f31bf5a0b18dccc':
+                $scope.menutitle = NavigationService.makeactive("Now Paint the Town Red in Pattaya | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Known as the eternal land of sins for stags, Pattaya is definitely for the faint hearted. Filled with exotic activities, it’s a bachelor night to remember. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Pattaya ,bachelor party destinations Pattaya";
+                break;
+                //35//
+                 case '5820e2316f31bf5a0b18dcce':
+                $scope.menutitle = NavigationService.makeactive("Beer, beaches and babes in Phuket | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Whether you want the thrills or to just chill, the land of Phuket has so much to offer you for you bachelor party package along with a wicked nightlife. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Phuket, bachelor party destinations Phuket";
+                break;
+                  //36//
+                 case '5820e0dd6f31bf5a0b18dc5f':
+                 $scope.menutitle = NavigationService.makeactive("Experience the Beauty of Prague | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "When you fly down to the beautiful city of Prague for a great bachelor party, be ready for intense poker nights, vintage cars, lavish casinos and beer spas! ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party  , bachelor party destinations in Prague, bachelor party destinations Prague";
+                break;
+                  //37//
+                 case '5820e1846f31bf5a0b18dc91':
+                  $scope.menutitle = NavigationService.makeactive("Explore the Wild Side of Latvia Riga | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Dive into the deep with the luscious nightlife of Latvia Riga with your friends and indulge in bachelor party games like no other with great beers and meals. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Latvia Riga, bachelor party destinations Latvia Riga";
+                break;
+                  //38//
+                 case '5820e2386f31bf5a0b18dcd0':
+                  $scope.menutitle = NavigationService.makeactive("Save the Energy and Fun for Singapore| The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Indoor sky-diving, formula one adventures, night safaris, do these activities sound interesting? If yes, your bachelor party theme should be Singapore!";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Singapore, bachelor party destinations Singapore";
+                break;
+                  //39//
+                 case '5820e0e56f31bf5a0b18dc61':
+                  $scope.menutitle = NavigationService.makeactive("The Sofia Stag Weekend Getaway | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Sofia brings you an enthralling experience and thrills which will be etched in your memory forever as one of the best vacations and bachelor nights ever. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party ";
+                break;
+                  //40//
+                 case '5820e0fc6f31bf5a0b18dc63':
+                   $scope.menutitle = NavigationService.makeactive("Savour the Beauty of Pure St. Petersburg | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "The old city of Russia, St. Petersburg, treats every bachelor party with care, love and excitement. A world class destination, enjoy this gorgeous trip now. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Russia, bachelor party destinations Russia";
+                break;
+                  //41//
+                 case '5820e13f6f31bf5a0b18dc7e':
+                   $scope.menutitle = NavigationService.makeactive("Beautiful Scenic Views in Bulgaria | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Dying to get out of the mundane and stretch out on sandy beaches and chill next to serene waters? Go to Bulgaria for a relaxed bachlor party with the lads. ";
+                TemplateService.keywords = "bachlor party ,Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party ,bachelor party destinations in Bulgaria, bachelor party destinations Bulgaria";
+                break;
+                  //42//
+                 case '5820e1066f31bf5a0b18dc65':
+                  $scope.menutitle = NavigationService.makeactive("The Wonders of the Small Town Estonia | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Don’t judge a town by its size boys. In this tiny area in Estonia lies a paradise with more women and fun then you can handle for your bachelor night. ";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Estonia, bachelor party destinations Estonia";
+                break;
+                  //43//
+                 case '5820e10e6f31bf5a0b18dc67':
+                   $scope.menutitle = NavigationService.makeactive("Take your Friends Today to Tokyo | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Whether you’re into sumo wrestling, mind-blowing sushi or the highest bungee jumping point in the world, Tokya has so much to offer as a party destination!";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Tokyo, bachelor party destinations Tokyo";
+                break;
+                  //44//
+                 case '5820d9c56f31bf5a0b18dc1d':
+                $scope.menutitle = NavigationService.makeactive("Pay a Visit to Warsaw, Poland Today | The Bachelor Trip");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.description = "Pamper yourself and your friends in the city of Warsaw with its amazing nightlife, high octane clubs and classy dance floors at this bachelor party destination.";
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Poland, bachelor party destinations Poland";
+                break;
+                  //45//
+                 case '5820e12a6f31bf5a0b18dc79':
+                $scope.menutitle = NavigationService.makeactive("  You can Carry on Partying in Croatia | The Bachelor Trip ");
+                TemplateService.title = $scope.menutitle;
+                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , , bachelor party destinations in Croatia, bachelor party destinations Croatia";
                 break;
             default:
-                TemplateService.description = "inside default";
-                TemplateService.keywords = "defffault";
+                TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+                TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
         }
 
         // ---------end of suitch case---------
@@ -1989,13 +2282,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // ============== End Cart ==============
     })
     .controller('Whats-hot-moreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
-
-        $scope.template = TemplateService.changecontent("whats-hot-more");
-        $scope.menutitle = NavigationService.makeactive("Whats-hot-more");
+       $scope.template = TemplateService.changecontent("whats-hot-more");
+        $scope.menutitle = NavigationService.makeactive("Know What’s Hot in the Year of 2017 | The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-
+        TemplateService.description = "For the best party destinations, you should know the where the best upcoming parties are at and when. Check out Tomorrowland, the Grand Prix or luxury cruises.";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
         $scope.navigation = NavigationService.getnav();
 
         $scope.tabs = 'az';
@@ -2017,6 +2308,60 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classv = "active-tab";
             }
         };
+
+
+        //=======switch======//
+        switch($stateParams.id){
+            //53//
+        case'5839349fc4c7854ddcbdfa6a':
+        $scope.menutitle = NavigationService.makeactive("Go Mad at the Hat Rin Full Moon Party | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Beautiful white sand beaches and warm nights with the full moon, can it get better? Add neon lights and techno music and you’ve got your bachelor night! ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        //54//
+        case'58394126c4c7854ddcbdfca6':
+        $scope.menutitle = NavigationService.makeactive("Every Guy’s Dream is the Grand Prix | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "If you and your buddies are hard-core Formula One fans and have been dying to see a Grand Prix, this is the best bachelor party package for you in Budapest! ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+         //55//
+        case'5839433cc4c7854ddcbdfd14':
+        $scope.menutitle = NavigationService.makeactive("Let’s Start the New Year with a Bang | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "A new year means new experiences with your best friends that no one will ever forget. Get that and more with a party in Macau on your bachelor night. ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        
+         //56//
+        case'58394561c4c7854ddcbdfd38':
+        $scope.menutitle = NavigationService.makeactive("Sail and Cruise on this Vacation | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Dive into the deep water of the Mediterranean Sea or just float on them with this exotic cruise. Get a carnival on the sea with this bachelor party package. ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        
+         //57//
+         case'583946e4c4c7854ddcbdfdb7':
+        $scope.menutitle = NavigationService.makeactive("Nothing Says Party like Tomorrowland | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "The world’s largest and most popular music festival, Tomorrowland automatically becomes the best party destination of the year! Celebrate in the city of Boom.";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        
+         //58//
+        case'58395294c4c7854ddcbdfe19':
+        $scope.menutitle = NavigationService.makeactive("Know What’s Hot in the Year of 2017 | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Amp it up in the Nights of Amsterdam | The Bachelor Trip";
+        TemplateService.keywords = "Everyone loves Amsterdam for its flexible laws and nightlife but have you been part of its Light Art Festival? Enjoy the LED revolution on your bachelor night. ";
+        break;
+        default:
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+ }
+        //=======switch=====//
 
         // =============== For Cart =================
         $scope.cartSubmitPopup = function() {
