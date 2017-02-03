@@ -69,7 +69,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //  }, 3000);
 
         $scope.template = TemplateService.changecontent("home");
-        $scope.menutitle = NavigationService.makeactive("Home");
+        $scope.menutitle = NavigationService.makeactive("TBT-The Bachelor Trip | Home");
         TemplateService.header = "frontend/views/home_header.html";
         TemplateService.title = $scope.menutitle;
         TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
