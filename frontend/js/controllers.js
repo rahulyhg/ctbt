@@ -2,10 +2,8 @@ var globalfunction = {};
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.select', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'ksSwiper', 'wu.masonry'])
 
-    .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
-        TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-        // $scope.subscribeData = {};
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
+           // $scope.subscribeData = {};
         // $scope.subscribeComplete = false;
         // $scope.alreadySubscribed = false;
         // $scope.subscribeSubmit = function(subscribeData) {
@@ -39,12 +37,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.playVideo = 'https://www.youtube-nocookie.com/embed/kjiiPkug0Qw?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
 
         }
-        $scope.hideShow = function () {
+        $scope.hideShow = function() {
             $scope.showVideo = true;
             $scope.playVideo = 'https://www.youtube-nocookie.com/embed/kjiiPkug0Qw?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1';
         }
 
-        $scope.openModals = function () {
+        $scope.openModals = function() {
             $scope.modalInstanceABC = $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'frontend/views/modal/videoplay.html',
@@ -54,7 +52,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
 
-        $scope.$on('$viewContentLoaded', function () {
+        $scope.$on('$viewContentLoaded', function() {
             if (!$.jStorage.get('FirstTime')) {
                 $.jStorage.set('FirstTime', {
                     value: true
@@ -73,19 +71,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("TBT-The Bachelor Trip | Home");
         TemplateService.header = "frontend/views/home_header.html";
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "Looking for the perfect break before the big day? Celebrate the trip of a lifetime at the best bachelor party destinations with your friends only with TBT. ";
+        TemplateService.keywords = "bachelor trip, bachelor party destinations , bachelor party, bachelor party planning, bachelor party themes";
 
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
         $scope.formdata = {};
-        $scope.selectDesti = function (id) {
+        $scope.selectDesti = function(id) {
             // state.go(pattaya{id:formdata})
             console.log("id", id);
         }
 
 
-        NavigationService.HomeSlider(function (data) {
+        NavigationService.HomeSlider(function(data) {
             $scope.mySlidestop = data.data.data.HomeSlider;
 
             $scope.popularDestination = data.data.data.popularDestination;
@@ -99,11 +97,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             TemplateService.removeLoader();
         });
         $scope.imDisable = false;
-        $scope.forSearch = function (id) {
+        $scope.forSearch = function(id) {
             console.log('forSearchID', id);
             $scope.thisId = id;
         }
-        $scope.goOn = function (id) {
+        $scope.goOn = function(id) {
             console.log('idd', id);
             if (id == undefined) {
                 $scope.imDisable = true;
@@ -159,7 +157,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ];
         // =============== For Cart =================
 
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -170,17 +168,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.data.value);
                 if (data.data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -189,15 +187,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.cartData = {};
                 // TemplateService.removeLoader();
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 // $scope.submitCart = false;
                 $scope.onSubmitCart.close();
             }, 5000);
         }
-        $scope.getCartFunHeader = function () {
+        $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
-            NavigationService.getCart(function (data) {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivity10 = data.data.data.activities;
                 $scope.getCartDataPackage10 = data.data.data.package;
                 $scope.getCartDataWhatsHot = data.data.data.whatshot;
@@ -213,16 +211,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
         $scope.getCartFunHeader();
-        $scope.deleteCart = function (type, id) {
+        $scope.deleteCart = function(type, id) {
             console.log(type, id);
-            NavigationService.deleteCart(type, id, function (data) {
+            NavigationService.deleteCart(type, id, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFunHeader();
             });
         }
-        $scope.deleteCartAcco = function (type, name) {
+        $scope.deleteCartAcco = function(type, name) {
             console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFunHeader();
             });
@@ -238,9 +236,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //----seo----//
     })
-    .controller('BachleretteCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
-     TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+    .controller('BachleretteCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
+
 
         $scope.template = TemplateService.changecontent("bachlerette");
         $scope.menutitle = NavigationService.makeactive("Why Should Boys Have All the Fun | The Bachelor Trip");
@@ -253,7 +250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.formComplete = false;
         $scope.enquiryData = {};
         $scope.submitEnq = false;
-        $scope.enqSubmitPopup = function () {
+        $scope.enqSubmitPopup = function() {
             $scope.onSubmitEnq = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/enq.html",
@@ -263,9 +260,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.currentDate = new Date();
         // $scope.enqSubmitPopup();
-        $scope.enquirySubmit = function (input, myForm) {
+        $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
-            NavigationService.enquiryForm($scope.enquiryData, function (data) {
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
@@ -281,7 +278,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log('inside ifff');
                     // $scope.submitEnq = true;
                     $scope.enqSubmitPopup();
-                    $timeout(function () {
+                    $timeout(function() {
                         console.log('inside timeout');
                         $scope.onSubmitEnq.close();
                         // $scope.enquiryData = {};
@@ -311,7 +308,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         $scope.submitCart = false;
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -321,18 +318,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', myForm);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
 
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.data.value);
                 if (data.data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -340,7 +337,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFun();
 
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 // $scope.submitCart = false;
                 $scope.onSubmitCart.close();
@@ -348,8 +345,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, 5000);
         }
 
-        $scope.getCartFun = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
@@ -379,10 +376,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
     })
 
-    .controller('MediaCornerCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('MediaCornerCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
-     TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.template = TemplateService.changecontent("mediacorner");
         $scope.menutitle = NavigationService.makeactive("MediaCorner");
         TemplateService.title = $scope.menutitle;
@@ -392,7 +388,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AccessoriesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
+    .controller('AccessoriesCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
 
         $scope.template = TemplateService.changecontent("accessories");
         $scope.menutitle = NavigationService.makeactive("Dress and Undress for the Best Trip | The Bachelor Trip");
@@ -422,7 +418,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -431,18 +427,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
 
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', myForm);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
 
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.data.value);
                 if (data.data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -450,7 +446,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFun();
 
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
@@ -458,8 +454,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, 5000);
         }
 
-        $scope.getCartFun = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
@@ -480,7 +476,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartFun();
         $scope.formComplete = false;
         $scope.enquiryData = {};
-        $scope.enqSubmitPopup = function () {
+        $scope.enqSubmitPopup = function() {
             $scope.onSubmitEnq = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/enq.html",
@@ -495,10 +491,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //         if (data.value === true) {}
         //     });
         // }
-        $scope.enquirySubmit = function (input, myForm) {
+        $scope.enquirySubmit = function(input, myForm) {
             // console.log('input', input);
             console.log('myForm', myForm);
-            NavigationService.enquiryForm($scope.enquiryData, function (data) {
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
@@ -514,7 +510,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log('inside ifff');
                     // $scope.submitEnq = true;
                     $scope.enqSubmitPopup();
-                    $timeout(function () {
+                    $timeout(function() {
                         console.log('inside timeout');
                         $scope.onSubmitEnq.close();
                         // $scope.enquiryData = {};
@@ -528,10 +524,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    .controller('HighrollersCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
-            TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-       
+    .controller('HighrollersCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
         $scope.template = TemplateService.changecontent("highrollers");
         $scope.menutitle = NavigationService.makeactive("Only the Best for the High Rollers | The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
@@ -559,7 +552,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         $scope.submitCart = false;
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -568,18 +561,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', myForm);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
 
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.data.value);
                 if (data.data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -587,7 +580,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFun();
 
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.cartData = {};
@@ -595,8 +588,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, 5000);
         }
 
-        $scope.getCartFun = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
@@ -624,7 +617,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //         if (data.value === true) {}
         //     });
         // }
-        $scope.enqSubmitPopup = function () {
+        $scope.enqSubmitPopup = function() {
             $scope.onSubmitEnq = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/enq.html",
@@ -632,8 +625,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-        $scope.enquirySubmit = function (input, myForm) {
-            NavigationService.enquiryForm($scope.enquiryData, function (data) {
+        $scope.enquirySubmit = function(input, myForm) {
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data.value", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
@@ -647,7 +640,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (data.data.value === true) {
                     $scope.enquiryData = {};
                     $scope.enqSubmitPopup();
-                    $timeout(function () {
+                    $timeout(function() {
                         console.log('inside timeout');
                         $scope.onSubmitEnq.close();
                     }, 5000);
@@ -657,10 +650,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('ContactCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
-     TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
         $scope.template = TemplateService.changecontent("contactus");
         $scope.menutitle = NavigationService.makeactive("The Bachelor Trip | Contact Us");
         TemplateService.title = $scope.menutitle;
@@ -670,9 +662,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AboutCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
-     TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+    .controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+
 
         $scope.template = TemplateService.changecontent("aboutus");
         $scope.menutitle = NavigationService.makeactive("The Bachelor Trip | About Us ");
@@ -684,15 +675,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('ActivityCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-     TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-        globalfunction.subscribeFun = function () {
+    .controller('ActivityCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+
+        globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
-            $scope.subscribeSubmit = function (subscribeData) {}
+            $scope.subscribeSubmit = function(subscribeData) {}
         }
-        $scope.cartd = function () {
+        $scope.cartd = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialog.html",
@@ -700,7 +690,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-        $scope.cartr = function () {
+        $scope.cartr = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialogremove.html",
@@ -717,15 +707,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
 
-        $scope.changeDestination = function (id) {
+        $scope.changeDestination = function(id) {
             if (id) {
                 console.log(id);
                 $scope.saveDestId = id;
-                NavigationService.getChangeDestination(id, function (data) {
+                NavigationService.getChangeDestination(id, function(data) {
                     $scope.changeDestData = data.data.data.Images;
                     $scope.showBttn = data.data.data.Images;
                     console.log('$scope.showBttn', $scope.showBttn.length);
-                    var images = _.groupBy($scope.changeDestData, function (n) {
+                    var images = _.groupBy($scope.changeDestData, function(n) {
                         if (_.isEmpty(n.image1)) {
                             return "bigImage";
                         } else if (n.image1 && n.image2) {
@@ -816,13 +806,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
 
-        NavigationService.ActivityLand(function (data) {
+        NavigationService.ActivityLand(function(data) {
             $scope.Banner = data.data.data.Banner;
             TemplateService.removeLoader();
         });
         $scope.viewLess = false;
         $scope.viewMore = false;
-        $scope.loadLessActivities = function () {
+        $scope.loadLessActivities = function() {
             console.log('$scope.saveDestId', $scope.saveDestId);
             $scope.saveDestId = undefined;
             // if($scope.saveDestId !=undefined){
@@ -830,12 +820,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //       $scope.changeDestination($scope.saveDestId);
             // }else{
 
-            NavigationService.ActivityLand(function (data) {
+            NavigationService.ActivityLand(function(data) {
                 console.log(data);
                 $scope.myDropdown = data.data.data.DestinationDropdown;
                 $scope.showBttn = data.data.data.Images;
                 console.log('$scope.showBttn', $scope.showBttn.length);
-                var images = _.groupBy(data.data.data.Images, function (n) {
+                var images = _.groupBy(data.data.data.Images, function(n) {
                     if (_.isEmpty(n.image1)) {
                         return "bigImage";
                     } else if (n.image1 && n.image2) {
@@ -916,7 +906,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // }
         }
         $scope.loadLessActivities();
-        $scope.loadMoreActivities = function () {
+        $scope.loadMoreActivities = function() {
             $scope.viewMore = false;
             $scope.viewLess = true;
             var images = [];
@@ -936,7 +926,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // =============== For Cart =================
 
         $scope.submitCart = false;
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -945,17 +935,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.data.value);
                 if (data.data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -963,15 +953,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFun();
                 $scope.cartData = {};
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
             }, 5000);
         }
 
-        $scope.getCartFun = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivityPage = data.data.data.activities;
                 console.log('$scope.getCartDataActivityPage', $scope.getCartDataActivityPage);
 
@@ -990,22 +980,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.addedSuccess = false;
         $scope.getCartFun();
-        $scope.addTocartOnActivityPage = function (id, type) {
+        $scope.addTocartOnActivityPage = function(id, type) {
             console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivityPage, function (key) {
+            var indexF = _.findIndex($scope.getCartDataActivityPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function (data) {
+                NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFun();
                 });
             } else {
                 // $scope.addedSuccess = true;
-                NavigationService.addCartActivity(id, type, function (data) {
+                NavigationService.addCartActivity(id, type, function(data) {
                     if (data.data.value == true) {
                         $scope.addedSuccess = true;
-                        $timeout(function () {
+                        $timeout(function() {
                             $scope.addedSuccess = false;
                         }, 2000);
                     }
@@ -1018,9 +1008,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
 
-        $scope.isInWishlistActivityPage = function (id) {
+        $scope.isInWishlistActivityPage = function(id) {
             // console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivityPage, function (key) {
+            var indexF = _.findIndex($scope.getCartDataActivityPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
@@ -1030,16 +1020,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-        $scope.deleteCart = function (type, id) {
+        $scope.deleteCart = function(type, id) {
             console.log(type, id);
-            NavigationService.deleteCart(type, id, function (data) {
+            NavigationService.deleteCart(type, id, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });
         }
-        $scope.deleteCartAcco = function (type, name) {
+        $scope.deleteCartAcco = function(type, name) {
             console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });
@@ -1047,13 +1037,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // ========= End Cart =============
     })
-    .controller('StaticCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-             TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-        globalfunction.subscribeFun = function () {
+    .controller('StaticCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+        globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
-            $scope.subscribeSubmit = function (subscribeData) {}
+            $scope.subscribeSubmit = function(subscribeData) {}
         }
         $scope.template = TemplateService.changecontent("tbtstatic");
         $scope.menutitle = NavigationService.makeactive("The Bachelor Trip");
@@ -1067,7 +1055,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.footer = "views/static_footer.html";
         $scope.flags = {};
         $scope.flags.thankyou = false;
-        $scope.details = function () {
+        $scope.details = function() {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/details.html",
@@ -1076,10 +1064,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.formData = {};
-        $scope.submitForm = function () {
+        $scope.submitForm = function() {
             $scope.flags.thankyou = false;
             console.log("ffff", $scope.formData);
-            NavigationService.submitForm($scope.formData, function (res) {
+            NavigationService.submitForm($scope.formData, function(res) {
                 if (res.value) {
                     $scope.flags.thankyou = true;
                     $scope.flags.mailform = true;
@@ -1110,14 +1098,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
     })
 
-    .controller('DestinationCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-          TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-     
-        globalfunction.subscribeFun = function () {
+.controller('DestinationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
-            $scope.subscribeSubmit = function (subscribeData) {}
+            $scope.subscribeSubmit = function(subscribeData) {}
         }
         $scope.template = TemplateService.changecontent("destination");
         $scope.menutitle = NavigationService.makeactive("The Best Bachelor Party Destinations | The Bachelor Trip ");
@@ -1136,18 +1121,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.show = {};
         $scope.show = false;
 
-        NavigationService.DestinationLand(function (data) {
+        NavigationService.DestinationLand(function(data) {
 
             $scope.DestinationLand = data.data.data.popularDestination;
             $scope.DestinationLand = _.chunk(data.data.data.popularDestination, 2);
             console.log("$scope.DestinationLand", $scope.DestinationLand);
             $scope.allDestination = _.take(data.data.data.allDestination, 6);
             console.log("$scope.DestinationLand", $scope.allDestination);
-            $scope.viewMoreDest = function () {
+            $scope.viewMoreDest = function() {
                 $scope.show = true;
                 $scope.allDestination = data.data.data.allDestination;
             };
-            $scope.viewLessDest = function () {
+            $scope.viewLessDest = function() {
                 $scope.show = false;
                 $scope.allDestination = _.take(data.data.data.allDestination, 6);
             }
@@ -1155,7 +1140,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         // =============== For Cart =================
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -1165,17 +1150,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.data.value);
                 if (data.data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -1183,15 +1168,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFunHeader();
                 $scope.cartData = {};
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
             }, 5000);
         }
-        $scope.getCartFunHeader = function () {
+        $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
-            NavigationService.getCart(function (data) {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivity10 = data.data.data.activities;
                 $scope.getCartDataPackage10 = data.data.data.package;
                 $scope.getCartDataWhatsHot = data.data.data.whatshot;
@@ -1206,16 +1191,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
         $scope.getCartFunHeader();
-        $scope.deleteCart = function (type, id) {
+        $scope.deleteCart = function(type, id) {
             console.log(type, id);
-            NavigationService.deleteCart(type, id, function (data) {
+            NavigationService.deleteCart(type, id, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFunHeader();
             });
         }
-        $scope.deleteCartAcco = function (type, name) {
+        $scope.deleteCartAcco = function(type, name) {
             console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFunHeader();
             });
@@ -1223,17 +1208,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // ======== End Cart =========
     })
-    .controller('PattayaCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $sce) {
-        globalfunction.subscribeFun = function () {
+    .controller('PattayaCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $filter, $sce) {
+        globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
-            $scope.subscribeSubmit = function (subscribeData) {}
+            $scope.subscribeSubmit = function(subscribeData) {}
         }
         $scope.currentStateId = $stateParams.id;
         // $scope.currentDate = $filter('date')(new Date(), 'yyyy MM dd');
         $scope.currentDate = new Date();
         console.log($scope.currentDate);
-        $scope.cartd = function () {
+        $scope.cartd = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialog.html",
@@ -1241,7 +1226,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-        $scope.cartr = function () {
+        $scope.cartr = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialogremove.html",
@@ -1285,274 +1270,274 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 TemplateService.keywords = "party destinations, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations spain, bachelor party destinations in spain";
                 break;
                 //7//
-            case '5820e06e6f31bf5a0b18dc44':
+                 case '5820e06e6f31bf5a0b18dc44':
                 $scope.menutitle = NavigationService.makeactive("A Bachelor Party in Germany Style | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Leave behind the feminine and delicate on this bachelor party package in the heart of Germany. Smash some cars, party in a bus and drown in beer in Berlin. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Germany, bachelor party destinations in Germany";
                 break;
-                //8//
-            case '58635ec12550a629e7eecbd2':
+                   //8//
+                 case '58635ec12550a629e7eecbd2':
                 $scope.menutitle = NavigationService.makeactive("Push the Limits this Bachelor Party | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Go off the road and ride with style as you explore the excitement of Bratislava with your friends. Take a shot and dance till you drop on your bachelor party. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Bratislava, bachelor party destinations in Bratislava";
                 break;
-                //9//
-            case '5820e1d46f31bf5a0b18dca8':
+                   //9//
+                 case '5820e1d46f31bf5a0b18dca8':
                 $scope.menutitle = NavigationService.makeactive("Adrenaline Filled Party Destinations | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Days and nights filled with laser tag, shooting ranges and exquisite shows just for you, that’s what a bachelor trip to Romania promises you with TBT! ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Romania, bachelor party destinations in Romania";
                 break;
-                //10//
-            case '5820e1e76f31bf5a0b18dcac':
+                  //10//
+                 case '5820e1e76f31bf5a0b18dcac':
                 $scope.menutitle = NavigationService.makeactive("Budapest Bachelor Party Packages | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Sink into the folds of excitement in the city of Budapest. Dance in nightclubs and enjoy the thrill of battle fields with TBT’s bachelor party themes. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Budapest, bachelor party destinations in Budapest";
                 break;
-                //11//
-            case '5820e08f6f31bf5a0b18dc4a':
+                  //11//
+                 case '5820e08f6f31bf5a0b18dc4a':
                 $scope.menutitle = NavigationService.makeactive("Hola to the Best Party Destination | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Dive into the deep seas and witness underwater life with scuba diving at Mexico! Pristine beaches and cabaret shows will add to your bachelor nights. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor nights, bachelor party destinations Mexico, bachelor party destinations in Mexico";
                 break;
-                //12//
-            case '5811d6b1b0e6dc59847be39a':
+                   //12//
+                 case '5811d6b1b0e6dc59847be39a':
                 $scope.menutitle = NavigationService.makeactive("The Bachelor Party Theme is Luxury | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Want to feel pampered before the big day? It doesn’t get better than Dubai, the best bachelor trip destination, with limos, hot air balloons and yacht parties. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations Dubai, bachelor party destinations in Dubai";
                 break;
-                //13//
-            case '5820e1486f31bf5a0b18dc80':
+                   //13//
+                 case '5820e1486f31bf5a0b18dc80':
                 $scope.menutitle = NavigationService.makeactive("The Beach Bachelor Party Packages | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Casinos and clear blue beaches adorned with beautiful women. If that is the ideal bachelor party for you, Dubrovnik is the destination for you to let go. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party Bachelor party packages, bachlor party , bachlor party package, bachelor party destinations Dubrovnik, bachelor party destinations in Dubrovnik";
                 break;
-                //14//
-            case '5820d8e66f31bf5a0b18dbed':
+                  //14//
+                 case '5820d8e66f31bf5a0b18dbed':
                 $scope.menutitle = NavigationService.makeactive("Go Hard or Go Home in the Port of Poland | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Break out of your shell and embrace the raw energetic side of you with bachelor party games like no other. Gdansk gives you jet skis, shooting and more. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party Bachelor party packages ,Bachelor trip, bachelor party games, bachelor party destinations Poland, bachelor party destinations in Poland";
                 break;
-                //15//
-            case '5820e0a96f31bf5a0b18dc56':
+                  //15//
+                 case '5820e0a96f31bf5a0b18dc56':
                 $scope.menutitle = NavigationService.makeactive("The Ultimate Stag Weekend | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Need the best of stag weekends with your boys to get away from life? Hamburg is the best party destination for you! Cruise through with the ladies this trip. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party  ,Bachelor trip, best party destination , bachelor party destinations Hamburg, bachelor party destinations in Hamburg";
                 break;
-                //16//
-            case '5820e0b36f31bf5a0b18dc58':
+                  //16//
+                 case '5820e0b36f31bf5a0b18dc58':
                 $scope.menutitle = NavigationService.makeactive("Come and Live it Up at Ibiza with Style | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Gorgeous beaches, stunning women and a unwavering appetite for fun and partying, Ibiza is an extremely loved and popular party destination for stag trips. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party  Bachelor trip, party destination , bachelor party destinations Ibiza, bachelor party destinations in Ibiza";
                 break;
-                //17//
-            case '5820e1fe6f31bf5a0b18dcb8':
+                   //17//
+                 case '5820e1fe6f31bf5a0b18dcb8':
                 $scope.menutitle = NavigationService.makeactive("Party with the Boys in Istanbul| The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Nightclubs and discos, parties and parasailing, Istanbul gives you this and more. The heart of Turkey, the city is perfect for your fun bachelor party theme. ";
                 TemplateService.keywords = "bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, Bachelor trip, bachelor party theme , bachelor party destinations Istanbul, bachelor party destinations in Istanbul";
                 break;
-                //18//
-            case '5820d6aa6f31bf5a0b18dba2':
+                   //18//
+                 case '5820d6aa6f31bf5a0b18dba2':
                 $scope.menutitle = NavigationService.makeactive("Unwind in the Depths of Jordan, Africa| The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Heal at the Dead Sea or lose yourself in a camp in the desert in Jordan on your bachelor party. Take a new route on a trip before you start your new chapter. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Jordan, bachelor party destinations in Jordan";
                 break;
-                //19//
-            case '5820e0cc6f31bf5a0b18dc5b':
+                   //19//
+                 case '5820e0cc6f31bf5a0b18dc5b':
                 $scope.menutitle = NavigationService.makeactive("Party King Size this Trip at Kiev| The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Does your ideal bachelor party package include partying after midnight, swanky bars and sexy boat parties? Then Kiev, Ukraine is the place for your boys!  ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Kiev ,bachelor party destinations in Kiev";
                 break;
-                //20//
-            case '5820e1696f31bf5a0b18dc8c':
+                   //20//
+                 case '5820e1696f31bf5a0b18dc8c':
                 $scope.menutitle = NavigationService.makeactive("Lose your Senses on the Island | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "One of the best bachelor party destinations in the world, Koi Samui is a stunning island. Brilliant beaches and sensual nightlife make it worth the visit.";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Koi Samui ,bachelor party destinations in Koi Samui";
                 break;
-                //21//
-            case '5820d9736f31bf5a0b18dc0a ':
+                   //21//
+                 case '5820d9736f31bf5a0b18dc0a ':
                 $scope.menutitle = NavigationService.makeactive("Fun Stag Weekends with the Polish | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "If you’re in need for a bachelor party destination that caters to everyone’s needs, Karkow is the ideal trip. With something to offer everyone, enjoy Poland. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations Poland, bachelor party destinations in Poland";
                 break;
 
-                //22//
-            case '5820e17a6f31bf5a0b18dc8f':
+                  //22//
+                 case '5820e17a6f31bf5a0b18dc8f':
                 $scope.menutitle = NavigationService.makeactive("Nothing like Anything in Vegas | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Everyone knows that what happens in Vegas, stays in Vegas. Because the things you can do here on a bachelor night, will never be forgotten by anyone. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Vegas,, bachelor party destinations Vegas";
                 break;
-                //23//
-            case '5820e1a86f31bf5a0b18dca0':
+                  //23//
+                 case '5820e1a86f31bf5a0b18dca0':
                 $scope.menutitle = NavigationService.makeactive("Beautiful Nights Under the Lisbon Skies | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Even though it’s most visited on family vacations, do not underestimate the excitement Lisbon has to offer you. A great party destination, try it out!";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Lisbon bachelor party destinations Lisbon";
                 break;
-                //24//
-            case '5820d6ed6f31bf5a0b18dbb5':
+                  //24//
+                 case '5820d6ed6f31bf5a0b18dbb5':
                 $scope.menutitle = NavigationService.makeactive("Make it the Best Trip with Macau| The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "A trip down the adrenaline filled joyride that is Macau for the best bachelor party! Enjoy water sports and the airsoft war games or unwind at a luxurious spa. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party,  bachelor party destinations in Macau bachelor party destinations Macau";
                 break;
-                //25//
-            case '5820e2136f31bf5a0b18dcc6':
+                  //25//
+                 case '5820e2136f31bf5a0b18dcc6':
                 $scope.menutitle = NavigationService.makeactive("See the Madness in the City of Madrid | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "A bachelor party destination like no other, Madrid promises you the most sinful experience of all. Music, wrestling and beautiful women, need any more reasons?";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Madrid bachelor party destinations Madrid";
                 break;
-                //26//
-            case '5820e1b06f31bf5a0b18dca2':
+                  //26//
+                 case '5820e1b06f31bf5a0b18dca2':
                 $scope.menutitle = NavigationService.makeactive("Come, Party it up in the Philippines| The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "A city filled with youth, a zest for life and a zeal for adventure, the Philippines is the perfect bachelor party destination for a memorable vacation. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Philippines bachelor party destinations Philippines";
                 break;
-                //27//
-            case '5820e1bf6f31bf5a0b18dca4':
+                  //27//
+                 case '5820e1bf6f31bf5a0b18dca4':
                 $scope.menutitle = NavigationService.makeactive("Lose Your Marbles in Spain | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Go off the road this one last time on your bachlor night! Exciting packages with caving, jet lev and great poker nights, doesn’t it sound fantastic in Spain?";
                 TemplateService.keywords = "Bachelor trip, bachlor night, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Spain , bachelor party destinations Spain,";
                 break;
-                //28//
-            case '5820e2196f31bf5a0b18dcc8':
+                  //28//
+                 case '5820e2196f31bf5a0b18dcc8':
                 $scope.menutitle = NavigationService.makeactive("Magic in the City of Easy Miami | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "A heaven for every stag getaway, you can leave every worry and problem behind because that’s what Miami will do to you on your exciting bachelor party. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Miami, bachelor party destinations Miami";
                 break;
-                //29//
-            case '5820e1c66f31bf5a0b18dca6':
+                 //29//
+                 case '5820e1c66f31bf5a0b18dca6':
                 $scope.menutitle = NavigationService.makeactive("Madness in the Midst of Montreal | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Who ever said the Canadians do not know how to party till dawn? Montreal is filled with sensual sushi and thrilling activities perfect for you bachelor night!";
                 TemplateService.keywords = "bachelor night , Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party ,bachelor party destinations in Montreal , bachelor party destinations Montreal";
                 break;
-                //30//
-            case '5820e2216f31bf5a0b18dcca':
+                 //30//
+                 case '5820e2216f31bf5a0b18dcca':
                 $scope.menutitle = NavigationService.makeactive("Crazy Nights were made for Morocco | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Exotic and exciting events which will give you the adrenaline rush of a lifetime await you in one of the best party destinations in the world, Morocco!";
                 TemplateService.keywords = "best party destination in the world , Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Morocco ,bachelor party destinations Morocco";
                 break;
                 //31//
-            case '5820e0d56f31bf5a0b18dc5d':
+                 case '5820e0d56f31bf5a0b18dc5d':
                 $scope.menutitle = NavigationService.makeactive("Make the most of your Nights in Moscow | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "If you’re in search for the best party destination and a wicked joyride for you and your friends, plan a great night in Moscow for the ultimate Russian beauty. ";
                 TemplateService.keywords = "best party destination , Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Moscow, bachelor party destinations Moscow";
                 break;
                 //32//
-            case '5820e1516f31bf5a0b18dc82':
+                 case '5820e1516f31bf5a0b18dc82':
                 $scope.menutitle = NavigationService.makeactive("Celebrate with the Germany Girls | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Do you and your lads love luxury and cheap thrills at the same time? Limousines and beautiful women all around that’s the ideal bachelor party in Munich!";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Germany, bachelor party destinations Germany";
                 break;
                 //33//
-            case '5820e2466f31bf5a0b18dcd2':
-                $scope.menutitle = NavigationService.makeactive("Gear up for your Greek Adventure| The Bachelor Trip");
+                 case '5820e2466f31bf5a0b18dcd2':
+                 $scope.menutitle = NavigationService.makeactive("Gear up for your Greek Adventure| The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Why watch yourself on your trip of a lifetime that will only come once? A great party destination, Mykonos offers helicopter rides and wind surfing as well!";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Greece, bachelor party destinations Greece";
                 break;
                 //34//
-            case '5820e22b6f31bf5a0b18dccc':
+                 case '5820e22b6f31bf5a0b18dccc':
                 $scope.menutitle = NavigationService.makeactive("Now Paint the Town Red in Pattaya | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Known as the eternal land of sins for stags, Pattaya is definitely for the faint hearted. Filled with exotic activities, it’s a bachelor night to remember. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Pattaya ,bachelor party destinations Pattaya";
                 break;
                 //35//
-            case '5820e2316f31bf5a0b18dcce':
+                 case '5820e2316f31bf5a0b18dcce':
                 $scope.menutitle = NavigationService.makeactive("Beer, beaches and babes in Phuket | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Whether you want the thrills or to just chill, the land of Phuket has so much to offer you for you bachelor party package along with a wicked nightlife. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Phuket, bachelor party destinations Phuket";
                 break;
-                //36//
-            case '5820e0dd6f31bf5a0b18dc5f':
-                $scope.menutitle = NavigationService.makeactive("Experience the Beauty of Prague | The Bachelor Trip");
+                  //36//
+                 case '5820e0dd6f31bf5a0b18dc5f':
+                 $scope.menutitle = NavigationService.makeactive("Experience the Beauty of Prague | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "When you fly down to the beautiful city of Prague for a great bachelor party, be ready for intense poker nights, vintage cars, lavish casinos and beer spas! ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party  , bachelor party destinations in Prague, bachelor party destinations Prague";
                 break;
-                //37//
-            case '5820e1846f31bf5a0b18dc91':
-                $scope.menutitle = NavigationService.makeactive("Explore the Wild Side of Latvia Riga | The Bachelor Trip ");
+                  //37//
+                 case '5820e1846f31bf5a0b18dc91':
+                  $scope.menutitle = NavigationService.makeactive("Explore the Wild Side of Latvia Riga | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Dive into the deep with the luscious nightlife of Latvia Riga with your friends and indulge in bachelor party games like no other with great beers and meals. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Latvia Riga, bachelor party destinations Latvia Riga";
                 break;
-                //38//
-            case '5820e2386f31bf5a0b18dcd0':
-                $scope.menutitle = NavigationService.makeactive("Save the Energy and Fun for Singapore| The Bachelor Trip");
+                  //38//
+                 case '5820e2386f31bf5a0b18dcd0':
+                  $scope.menutitle = NavigationService.makeactive("Save the Energy and Fun for Singapore| The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Indoor sky-diving, formula one adventures, night safaris, do these activities sound interesting? If yes, your bachelor party theme should be Singapore!";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Singapore, bachelor party destinations Singapore";
                 break;
-                //39//
-            case '5820e0e56f31bf5a0b18dc61':
-                $scope.menutitle = NavigationService.makeactive("The Sofia Stag Weekend Getaway | The Bachelor Trip");
+                  //39//
+                 case '5820e0e56f31bf5a0b18dc61':
+                  $scope.menutitle = NavigationService.makeactive("The Sofia Stag Weekend Getaway | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Sofia brings you an enthralling experience and thrills which will be etched in your memory forever as one of the best vacations and bachelor nights ever. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party ";
                 break;
-                //40//
-            case '5820e0fc6f31bf5a0b18dc63':
-                $scope.menutitle = NavigationService.makeactive("Savour the Beauty of Pure St. Petersburg | The Bachelor Trip");
+                  //40//
+                 case '5820e0fc6f31bf5a0b18dc63':
+                   $scope.menutitle = NavigationService.makeactive("Savour the Beauty of Pure St. Petersburg | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "The old city of Russia, St. Petersburg, treats every bachelor party with care, love and excitement. A world class destination, enjoy this gorgeous trip now. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Russia, bachelor party destinations Russia";
                 break;
-                //41//
-            case '5820e13f6f31bf5a0b18dc7e':
-                $scope.menutitle = NavigationService.makeactive("Beautiful Scenic Views in Bulgaria | The Bachelor Trip ");
+                  //41//
+                 case '5820e13f6f31bf5a0b18dc7e':
+                   $scope.menutitle = NavigationService.makeactive("Beautiful Scenic Views in Bulgaria | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Dying to get out of the mundane and stretch out on sandy beaches and chill next to serene waters? Go to Bulgaria for a relaxed bachlor party with the lads. ";
                 TemplateService.keywords = "bachlor party ,Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party ,bachelor party destinations in Bulgaria, bachelor party destinations Bulgaria";
                 break;
-                //42//
-            case '5820e1066f31bf5a0b18dc65':
-                $scope.menutitle = NavigationService.makeactive("The Wonders of the Small Town Estonia | The Bachelor Trip");
+                  //42//
+                 case '5820e1066f31bf5a0b18dc65':
+                  $scope.menutitle = NavigationService.makeactive("The Wonders of the Small Town Estonia | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Don’t judge a town by its size boys. In this tiny area in Estonia lies a paradise with more women and fun then you can handle for your bachelor night. ";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party, bachelor party destinations in Estonia, bachelor party destinations Estonia";
                 break;
-                //43//
-            case '5820e10e6f31bf5a0b18dc67':
-                $scope.menutitle = NavigationService.makeactive("Take your Friends Today to Tokyo | The Bachelor Trip ");
+                  //43//
+                 case '5820e10e6f31bf5a0b18dc67':
+                   $scope.menutitle = NavigationService.makeactive("Take your Friends Today to Tokyo | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Whether you’re into sumo wrestling, mind-blowing sushi or the highest bungee jumping point in the world, Tokya has so much to offer as a party destination!";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Tokyo, bachelor party destinations Tokyo";
                 break;
-                //44//
-            case '5820d9c56f31bf5a0b18dc1d':
+                  //44//
+                 case '5820d9c56f31bf5a0b18dc1d':
                 $scope.menutitle = NavigationService.makeactive("Pay a Visit to Warsaw, Poland Today | The Bachelor Trip");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "Pamper yourself and your friends in the city of Warsaw with its amazing nightlife, high octane clubs and classy dance floors at this bachelor party destination.";
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , bachelor party destinations in Poland, bachelor party destinations Poland";
                 break;
-                //45//
-            case '5820e12a6f31bf5a0b18dc79':
+                  //45//
+                 case '5820e12a6f31bf5a0b18dc79':
                 $scope.menutitle = NavigationService.makeactive("  You can Carry on Partying in Croatia | The Bachelor Trip ");
                 TemplateService.title = $scope.menutitle;
                 TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party , , bachelor party destinations in Croatia, bachelor party destinations Croatia";
@@ -1592,37 +1577,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
 
-        $scope.trustAsHtml = function (string) {
+        $scope.trustAsHtml = function(string) {
             return $sce.trustAsHtml(string);
         };
-        $scope.headerCartOpen = function () {
+        $scope.headerCartOpen = function() {
             console.log('ddddddddddddddd');
             $scope.mycart10 = false;
             $scope.enquirybtn10 = true;
         }
-        globalfunction.headerCartOpen = function () {
+        globalfunction.headerCartOpen = function() {
 
             $scope.headerCartOpen();
         }
-        $scope.headerCartOpenUp = function () {
+        $scope.headerCartOpenUp = function() {
             $scope.mycart10 = false;
             $scope.enquirybtn10 = false;
         }
-        globalfunction.headerCartOpenUp = function () {
+        globalfunction.headerCartOpenUp = function() {
 
             $scope.headerCartOpenUp();
         }
-        $scope.headerCartOpenCtrl = function () {
+        $scope.headerCartOpenCtrl = function() {
             console.log('yes hereeeeee');
             $scope.mycart10 = true;
             $scope.enquirybtn10 = false;
         }
-        globalfunction.headerCartOpenCtrl = function () {
+        globalfunction.headerCartOpenCtrl = function() {
 
             $scope.headerCartOpenCtrl();
         }
-        $scope.getCartFun = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivityPattayaPage = data.data.data.activities;
                 $scope.getCartDataPackage10 = data.data.data.package;
                 $scope.getCartDataWhatsHot = data.data.data.whatshot;
@@ -1642,18 +1627,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartFun();
         $scope.totalCount = 0;
 
-        $scope.addTocartOnPackage = function (id, type) {
+        $scope.addTocartOnPackage = function(id, type) {
             console.log(id);
-            var indexF = _.findIndex($scope.getCartDataPackage10, function (key) {
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
                 return key.package._id == id;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function (data) {
+                NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFun();
                 });
             } else {
-                NavigationService.addCartPackage(id, type, function (data) {
+                NavigationService.addCartPackage(id, type, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFun();
@@ -1661,8 +1646,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-        $scope.isInWishlistActivity = function (id) {
-            var indexF = _.findIndex($scope.getCartDataActivityPattayaPage, function (key) {
+        $scope.isInWishlistActivity = function(id) {
+            var indexF = _.findIndex($scope.getCartDataActivityPattayaPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
@@ -1671,8 +1656,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return false;
             }
         }
-        $scope.isInWishlistPackage = function (id) {
-            var indexF = _.findIndex($scope.getCartDataPackage10, function (key) {
+        $scope.isInWishlistPackage = function(id) {
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
                 return key.package._id == id;
             })
             if (indexF !== -1) {
@@ -1682,21 +1667,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         $scope.addedSuccessPattaya = false;
-        $scope.addTocartOnActivity = function (id, type) {
+        $scope.addTocartOnActivity = function(id, type) {
             console.log(id);
-            var indexF = _.findIndex($scope.getCartDataActivityPattayaPage, function (key) {
+            var indexF = _.findIndex($scope.getCartDataActivityPattayaPage, function(key) {
                 return key.activities._id == id;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function (data) {
+                NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFun();
                 });
             } else {
-                NavigationService.addCartActivity(id, type, function (data) {
+                NavigationService.addCartActivity(id, type, function(data) {
                     if (data.data.value == true) {
                         $scope.addedSuccessPattaya = true;
-                        $timeout(function () {
+                        $timeout(function() {
                             $scope.addedSuccessPattaya = false;
                         }, 2000);
                     }
@@ -1711,28 +1696,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.viewMore = false;
         $scope.more = false;
         $scope.checkIt = {};
-        $scope.deleteCart = function (type, id) {
+        $scope.deleteCart = function(type, id) {
             console.log(type, id);
-            NavigationService.deleteCart(type, id, function (data) {
+            NavigationService.deleteCart(type, id, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });
         }
-        $scope.deleteCartAcco = function (type, name) {
+        $scope.deleteCartAcco = function(type, name) {
             console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });
         }
-        $scope.loadLessPackage = function () {
+        $scope.loadLessPackage = function() {
             var myarr = [];
-            NavigationService.cityDetails($stateParams.id, function (data) {
+            NavigationService.cityDetails($stateParams.id, function(data) {
 
                 $scope.getTitle = data.data.data.getTitle;
-                _.each($scope.getTitle, function (n) {
+                _.each($scope.getTitle, function(n) {
                     // console.log(n._id);
-                    NavigationService.DestinationContent(n._id, function (data) {
+                    NavigationService.DestinationContent(n._id, function(data) {
                         // console.log('inside service');
                         // console.log(data.data.data.getTitle);
                         // console.log(data.data.data.getTitle[0]);
@@ -1762,7 +1747,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.selectedAll = {};
         $scope.selectedAll.location = true;
-        $scope.checkAllLocation = function () {
+        $scope.checkAllLocation = function() {
             // var toggleStatusLocation = $scope.selectedAll.location;
             // _.forEach($scope.locationArr, function(location) {
             //     location.model = toggleStatusLocation;
@@ -1788,7 +1773,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.night = {};
         $scope.day.model = false;
         $scope.night.model = false;
-        $scope.searchAllFilter = function () {
+        $scope.searchAllFilter = function() {
 
             if ($scope.selectedAll.location == true) {
                 $scope.day.model = false;
@@ -1805,7 +1790,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     type: []
                 }
             }
-            NavigationService.getSearch(dataToSend, function (data) {
+            NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
                 if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
@@ -1825,7 +1810,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         };
-        $scope.searchDay = function () {
+        $scope.searchDay = function() {
             console.log('dayclick');
             $scope.night.model = false;
             $scope.day.model = true;
@@ -1834,7 +1819,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 destination: $stateParams.id,
                 type: ["day"]
             }
-            NavigationService.getSearch(dataToSend, function (data) {
+            NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
                 if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
@@ -1854,7 +1839,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         }
-        $scope.searchNight = function () {
+        $scope.searchNight = function() {
             console.log('nightclick');
             $scope.day.model = false;
             console.log('$scope.day.model', $scope.day.model);
@@ -1865,7 +1850,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 destination: $stateParams.id,
                 type: ["night"]
             }
-            NavigationService.getSearch(dataToSend, function (data) {
+            NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
                 if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
@@ -1887,7 +1872,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.searchAllFilter();
-        $scope.loadMorePackage = function () {
+        $scope.loadMorePackage = function() {
             console.log('inside loadmore fun');
             $scope.viewMore = false;
             $scope.viewLess = true;
@@ -1897,7 +1882,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.getPackage = $scope.getPackageArr;
             $scope.getActivity = $scope.getActivityArr;
         };
-        $scope.open4 = function () {
+        $scope.open4 = function() {
             $scope.modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/thankYou.html",
@@ -1914,7 +1899,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.formComplete = false;
         $scope.enquiryData = {};
         $scope.submitEnq = false;
-        $scope.enqSubmitPopup = function () {
+        $scope.enqSubmitPopup = function() {
             $scope.onSubmitEnq = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/enq.html",
@@ -1948,9 +1933,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         //     }, 5000);
         // }
-        $scope.enquirySubmit = function (input, myForm) {
+        $scope.enquirySubmit = function(input, myForm) {
             console.log('input', input);
-            NavigationService.enquiryForm($scope.enquiryData, function (data) {
+            NavigationService.enquiryForm($scope.enquiryData, function(data) {
                 console.log("data", data.data.value);
                 myForm.cities.$touched = false;
                 myForm.activitie.$touched = false;
@@ -1966,7 +1951,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log('inside ifff');
                     // $scope.submitEnq = true;
                     $scope.enqSubmitPopup();
-                    $timeout(function () {
+                    $timeout(function() {
                         console.log('inside timeout');
                         $scope.onSubmitEnq.close();
                         // $scope.enquiryData = {};
@@ -1980,7 +1965,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
-        $scope.addItem = function () {
+        $scope.addItem = function() {
             var newItemNo = $scope.items.length + 1;
             $scope.items.push('Item ' + newItemNo);
         };
@@ -1992,16 +1977,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.DestinationTitle = '';
         $scope.openMe = false;
-        $scope.goToFunction = function (id) {
+        $scope.goToFunction = function(id) {
             $scope.DestinationTitle = '';
-            NavigationService.DestinationContent(id, function (data) {
+            NavigationService.DestinationContent(id, function(data) {
                 $scope.DestinationTitle = data.data.data.getTitle;
                 $scope.openMe = true;
                 console.log("$scope.DestinationTitle", $scope.DestinationTitle[0]);
             });
         };
         $scope.cart = false;
-        $scope.tabchanges = function (tabs, a) {
+        $scope.tabchanges = function(tabs, a) {
             $scope.tabs = tabs;
             if (a == 1) {
                 $scope.classp = "active-tab";
@@ -2012,12 +1997,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        $scope.addTocart = function (data) {
+        $scope.addTocart = function(data) {
             console.log("data", data);
 
         }
 
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -2028,17 +2013,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.data.value);
                 if (data.data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -2046,7 +2031,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFun();
                 $scope.cartData = {};
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
@@ -2054,11 +2039,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     })
-    .controller('Pattaya2Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
-        globalfunction.subscribeFun = function () {
+    .controller('Pattaya2Ctrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+        globalfunction.subscribeFun = function() {
             $scope.subscribeData = {};
             $scope.subscribeComplete = false;
-            $scope.subscribeSubmit = function (subscribeData) {}
+            $scope.subscribeSubmit = function(subscribeData) {}
         }
         $scope.currentDate = new Date();
         $scope.template = TemplateService.changecontent("pakage");
@@ -2068,29 +2053,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
 
         $scope.navigation = NavigationService.getnav();
-        $scope.headerCartOpen = function () {
+        $scope.headerCartOpen = function() {
             console.log('ddddddddddddddd');
             $scope.mycart10 = false;
             $scope.enquirybtn10 = true;
         }
-        globalfunction.headerCartOpen = function () {
+        globalfunction.headerCartOpen = function() {
 
             $scope.headerCartOpen();
         }
-        $scope.headerCartOpenUp = function () {
+        $scope.headerCartOpenUp = function() {
             $scope.mycart10 = false;
             $scope.enquirybtn10 = false;
         }
-        globalfunction.headerCartOpenUp = function () {
+        globalfunction.headerCartOpenUp = function() {
 
             $scope.headerCartOpenUp();
         }
-        $scope.headerCartOpenCtrl = function () {
+        $scope.headerCartOpenCtrl = function() {
             console.log('yes hereeeeee');
             $scope.mycart10 = true;
             $scope.enquirybtn10 = false;
         }
-        globalfunction.headerCartOpenCtrl = function () {
+        globalfunction.headerCartOpenCtrl = function() {
 
             $scope.headerCartOpenCtrl();
         }
@@ -2144,7 +2129,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }]
 
-        NavigationService.RestApiPattaya2($stateParams.id, function (data) {
+        NavigationService.RestApiPattaya2($stateParams.id, function(data) {
             $scope.myIdPattaya2 = $stateParams.id;
             console.log(data.data.data);
             $scope.getPattaya2 = data.data.data.packageDetails;
@@ -2153,7 +2138,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.formComplete = false;
         $scope.enquiryData = {};
-        $scope.enqSubmitPopup = function () {
+        $scope.enqSubmitPopup = function() {
             $scope.onSubmitEnq = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/enq.html",
@@ -2168,37 +2153,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //             if (data.value === true) {}
         //         });
         //     }
-        $scope.enquirySubmit = function (input, myForm) {
-            console.log('input', input);
-            NavigationService.enquiryForm($scope.enquiryData, function (data) {
-                console.log("data", data.value);
-                myForm.cities.$touched = false;
-                myForm.activitie.$touched = false;
-                myForm.size.$touched = false;
-                myForm.from.$touched = false;
-                myForm.to.$touched = false;
-                myForm.comments.$touched = false;
-                myForm.name.$touched = false;
-                myForm.phone.$touched = false;
-                myForm.email.$touched = false;
-                if (data.value === true) {
-                    $scope.enquiryData = {};
-                    console.log('inside ifff');
-                    // $scope.submitEnq = true;
-                    $scope.enqSubmitPopup();
-                    $timeout(function () {
-                        console.log('inside timeout');
-                        $scope.onSubmitEnq.close();
-                        // $scope.enquiryData = {};
+        $scope.enquirySubmit = function(input, myForm) {
+                console.log('input', input);
+                NavigationService.enquiryForm($scope.enquiryData, function(data) {
+                    console.log("data", data.value);
+                    myForm.cities.$touched = false;
+                    myForm.activitie.$touched = false;
+                    myForm.size.$touched = false;
+                    myForm.from.$touched = false;
+                    myForm.to.$touched = false;
+                    myForm.comments.$touched = false;
+                    myForm.name.$touched = false;
+                    myForm.phone.$touched = false;
+                    myForm.email.$touched = false;
+                    if (data.value === true) {
+                        $scope.enquiryData = {};
+                        console.log('inside ifff');
+                        // $scope.submitEnq = true;
+                        $scope.enqSubmitPopup();
+                        $timeout(function() {
+                            console.log('inside timeout');
+                            $scope.onSubmitEnq.close();
+                            // $scope.enquiryData = {};
 
-                    }, 5000);
-                }
+                        }, 5000);
+                    }
 
-            });
+                });
 
-        }
-        // =============== For Cart =================
-        $scope.cartSubmitPopup = function () {
+            }
+            // =============== For Cart =================
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -2208,17 +2193,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -2226,14 +2211,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFunPattaya2();
                 $scope.cartData = {};
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
             }, 5000);
         }
-        $scope.getCartFunPattaya2 = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFunPattaya2 = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataPackage10 = data.data.data.package;
                 $scope.getCartDataActivity10 = data.data.data.activities;
                 $scope.getCartDataPackage10 = data.data.data.package;
@@ -2251,26 +2236,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartFunPattaya2();
 
 
-        $scope.addTocartOnPackagePattaya2 = function (id, type) {
+        $scope.addTocartOnPackagePattaya2 = function(id, type) {
             console.log(id);
-            var indexF = _.findIndex($scope.getCartDataPackage10, function (key) {
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
                 return key.package._id == id;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function (data) {
+                NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFunPattaya2();
                 });
             } else {
-                NavigationService.addCartPackage(id, type, function (data) {
+                NavigationService.addCartPackage(id, type, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFunPattaya2();
                 });
             }
         }
-        $scope.isInWishlistPackagePattaya2 = function (id) {
-            var indexF = _.findIndex($scope.getCartDataPackage10, function (key) {
+        $scope.isInWishlistPackagePattaya2 = function(id) {
+            var indexF = _.findIndex($scope.getCartDataPackage10, function(key) {
                 return key.package._id == id;
             })
             if (indexF !== -1) {
@@ -2279,24 +2264,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return false;
             }
         }
-        $scope.deleteCart = function (type, id) {
+        $scope.deleteCart = function(type, id) {
             console.log(type, id);
-            NavigationService.deleteCart(type, id, function (data) {
+            NavigationService.deleteCart(type, id, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFunPattaya2();
             });
         }
-        $scope.deleteCartAcco = function (type, name) {
-            console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
-                console.log('deleted', data);
-                $scope.getCartFunPattaya2();
-            });
-        }
-        // ============== End Cart ==============
+        $scope.deleteCartAcco = function(type, name) {
+                console.log(type, name);
+                NavigationService.deleteCartAccomodation(type, name, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFunPattaya2();
+                });
+            }
+            // ============== End Cart ==============
     })
-    .controller('Whats-hot-moreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
-        $scope.template = TemplateService.changecontent("whats-hot-more");
+    .controller('Whats-hot-moreCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+       $scope.template = TemplateService.changecontent("whats-hot-more");
         $scope.menutitle = NavigationService.makeactive("Know What’s Hot in the Year of 2017 | The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
         TemplateService.description = "For the best party destinations, you should know the where the best upcoming parties are at and when. Check out Tomorrowland, the Grand Prix or luxury cruises.";
@@ -2308,7 +2293,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classv = '';
 
         $scope.oneAtATime = true;
-        $scope.tabchanges = function (tabs, a) {
+        $scope.tabchanges = function(tabs, a) {
 
             $scope.tabs = tabs;
             if (a == 1) {
@@ -2325,60 +2310,60 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         //=======switch======//
-        switch ($stateParams.id) {
+        switch($stateParams.id){
             //53//
-            case '5839349fc4c7854ddcbdfa6a':
-                $scope.menutitle = NavigationService.makeactive("Go Mad at the Hat Rin Full Moon Party | The Bachelor Trip");
-                TemplateService.title = $scope.menutitle;
-                TemplateService.description = "Beautiful white sand beaches and warm nights with the full moon, can it get better? Add neon lights and techno music and you’ve got your bachelor night! ";
-                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
-                break;
-                //54//
-            case '58394126c4c7854ddcbdfca6':
-                $scope.menutitle = NavigationService.makeactive("Every Guy’s Dream is the Grand Prix | The Bachelor Trip");
-                TemplateService.title = $scope.menutitle;
-                TemplateService.description = "If you and your buddies are hard-core Formula One fans and have been dying to see a Grand Prix, this is the best bachelor party package for you in Budapest! ";
-                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
-                break;
-                //55//
-            case '5839433cc4c7854ddcbdfd14':
-                $scope.menutitle = NavigationService.makeactive("Let’s Start the New Year with a Bang | The Bachelor Trip");
-                TemplateService.title = $scope.menutitle;
-                TemplateService.description = "A new year means new experiences with your best friends that no one will ever forget. Get that and more with a party in Macau on your bachelor night. ";
-                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
-                break;
-
-                //56//
-            case '58394561c4c7854ddcbdfd38':
-                $scope.menutitle = NavigationService.makeactive("Sail and Cruise on this Vacation | The Bachelor Trip");
-                TemplateService.title = $scope.menutitle;
-                TemplateService.description = "Dive into the deep water of the Mediterranean Sea or just float on them with this exotic cruise. Get a carnival on the sea with this bachelor party package. ";
-                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
-                break;
-
-                //57//
-            case '583946e4c4c7854ddcbdfdb7':
-                $scope.menutitle = NavigationService.makeactive("Nothing Says Party like Tomorrowland | The Bachelor Trip");
-                TemplateService.title = $scope.menutitle;
-                TemplateService.description = "The world’s largest and most popular music festival, Tomorrowland automatically becomes the best party destination of the year! Celebrate in the city of Boom.";
-                TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
-                break;
-
-                //58//
-            case '58395294c4c7854ddcbdfe19':
-                $scope.menutitle = NavigationService.makeactive("Know What’s Hot in the Year of 2017 | The Bachelor Trip");
-                TemplateService.title = $scope.menutitle;
-                TemplateService.description = "Amp it up in the Nights of Amsterdam | The Bachelor Trip";
-                TemplateService.keywords = "Everyone loves Amsterdam for its flexible laws and nightlife but have you been part of its Light Art Festival? Enjoy the LED revolution on your bachelor night. ";
-                break;
-            default:
-                TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-                TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-        }
+        case'5839349fc4c7854ddcbdfa6a':
+        $scope.menutitle = NavigationService.makeactive("Go Mad at the Hat Rin Full Moon Party | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Beautiful white sand beaches and warm nights with the full moon, can it get better? Add neon lights and techno music and you’ve got your bachelor night! ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        //54//
+        case'58394126c4c7854ddcbdfca6':
+        $scope.menutitle = NavigationService.makeactive("Every Guy’s Dream is the Grand Prix | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "If you and your buddies are hard-core Formula One fans and have been dying to see a Grand Prix, this is the best bachelor party package for you in Budapest! ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+         //55//
+        case'5839433cc4c7854ddcbdfd14':
+        $scope.menutitle = NavigationService.makeactive("Let’s Start the New Year with a Bang | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "A new year means new experiences with your best friends that no one will ever forget. Get that and more with a party in Macau on your bachelor night. ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        
+         //56//
+        case'58394561c4c7854ddcbdfd38':
+        $scope.menutitle = NavigationService.makeactive("Sail and Cruise on this Vacation | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Dive into the deep water of the Mediterranean Sea or just float on them with this exotic cruise. Get a carnival on the sea with this bachelor party package. ";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        
+         //57//
+         case'583946e4c4c7854ddcbdfdb7':
+        $scope.menutitle = NavigationService.makeactive("Nothing Says Party like Tomorrowland | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "The world’s largest and most popular music festival, Tomorrowland automatically becomes the best party destination of the year! Celebrate in the city of Boom.";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
+        break;
+        
+         //58//
+        case'58395294c4c7854ddcbdfe19':
+        $scope.menutitle = NavigationService.makeactive("Know What’s Hot in the Year of 2017 | The Bachelor Trip");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.description = "Amp it up in the Nights of Amsterdam | The Bachelor Trip";
+        TemplateService.keywords = "Everyone loves Amsterdam for its flexible laws and nightlife but have you been part of its Light Art Festival? Enjoy the LED revolution on your bachelor night. ";
+        break;
+        default:
+        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
+        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+ }
         //=======switch=====//
 
         // =============== For Cart =================
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -2388,17 +2373,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -2406,14 +2391,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFun();
                 $scope.cartData = {};
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
             }, 5000);
         }
-        $scope.getCartFun = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataWhatsHot = data.data.data.whatshot;
                 $scope.getCartDataActivity10 = data.data.data.activities;
                 $scope.getCartDataPackage10 = data.data.data.package;
@@ -2429,14 +2414,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
         $scope.getCartFun();
-        NavigationService.whatsHotMore($stateParams.id, function (data) {
+        NavigationService.whatsHotMore($stateParams.id, function(data) {
             $scope.getOneWhatsHot = data.data.data.Details[0];
             console.log($scope.getOneWhatsHot);
         });
         $scope.myid = $stateParams.id;
-        $scope.isInWishlistWhatsHotMore = function (id) {
+        $scope.isInWishlistWhatsHotMore = function(id) {
             console.log('id', id);
-            var indexF = _.findIndex($scope.getCartDataWhatsHot, function (key) {
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
                 return key.whatshot._id == id;
             })
             if (indexF !== -1) {
@@ -2445,55 +2430,55 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return false;
             }
         }
-        $scope.addTocartOnWhatsHot = function (id, type) {
+        $scope.addTocartOnWhatsHot = function(id, type) {
             console.log(id, type);
-            var indexF = _.findIndex($scope.getCartDataWhatsHot, function (key) {
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
                 console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
                 console.log(key.whatshot._id);
                 return key.whatshot._id == id;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function (data) {
+                NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFun();
                 });
             } else {
-                NavigationService.addCartWhatsHot(id, type, function (data) {
+                NavigationService.addCartWhatsHot(id, type, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFun();
                 });
             }
         }
-        $scope.deleteCart = function (type, id) {
+        $scope.deleteCart = function(type, id) {
             console.log(type, id);
-            NavigationService.deleteCart(type, id, function (data) {
+            NavigationService.deleteCart(type, id, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });
         }
-        $scope.deleteCartAcco = function (type, name) {
-            console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
-                console.log('deleted', data);
-                $scope.getCartFun();
-            });
-        }
-        // ===== End Cart ===========
+        $scope.deleteCartAcco = function(type, name) {
+                console.log(type, name);
+                NavigationService.deleteCartAccomodation(type, name, function(data) {
+                    console.log('deleted', data);
+                    $scope.getCartFun();
+                });
+            }
+            // ===== End Cart ===========
     })
-    .controller('WhatsHotCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+    .controller('WhatsHotCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
 
         $scope.template = TemplateService.changecontent("whats-hot");
         $scope.menutitle = NavigationService.makeactive("Whats Hot");
         TemplateService.title = $scope.menutitle;
-        TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+        TemplateService.description = "For the best party destinations, you should know the where the best upcoming parties are at and when. Check out Tomorrowland, the Grand Prix or luxury cruises.";
+        TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
 
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
         $scope.flags = {};
         $scope.flags.thankyou = false;
-        $scope.details2 = function () {
+        $scope.details2 = function() {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/slider.html",
@@ -2501,7 +2486,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: "width80"
             });
         };
-        $scope.cartd = function () {
+        $scope.cartd = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialog.html",
@@ -2509,7 +2494,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-        $scope.cartr = function () {
+        $scope.cartr = function() {
             modal = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/cartdialogremove.html",
@@ -2531,23 +2516,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     });
         // }
         // $scope.getCartFun();
-        NavigationService.HomeSlider(function (data) {
+        NavigationService.HomeSlider(function(data) {
             $scope.mySlidesss = data.data.data.whatsHotBanner;
-            $timeout(function () {
+            $timeout(function() {
                 TemplateService.removeLoader();
             }, 5000);
 
         });
-        NavigationService.whatsHot(function (data) {
+        NavigationService.whatsHot(function(data) {
             $scope.myEvents = data.data.data.Events;
             console.log($scope.myEvents);
-            $timeout(function () {
+            $timeout(function() {
                 TemplateService.removeLoader();
             }, 5000);
         });
 
         // =============== For Cart =================
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -2557,17 +2542,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -2575,14 +2560,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFun();
                 $scope.cartData = {};
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
             }, 5000);
         }
-        $scope.getCartFun = function () {
-            NavigationService.getCart(function (data) {
+        $scope.getCartFun = function() {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataWhatsHot = data.data.data.whatshot;
                 $scope.getCartDataActivity10 = data.data.data.activities;
                 $scope.getCartDataPackage10 = data.data.data.package;
@@ -2598,9 +2583,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
         $scope.getCartFun();
-        $scope.isInWishlistWhatsHot = function (id) {
+        $scope.isInWishlistWhatsHot = function(id) {
             // console.log('id', id);
-            var indexF = _.findIndex($scope.getCartDataWhatsHot, function (key) {
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
                 return key.whatshot._id == id;
             })
             if (indexF !== -1) {
@@ -2610,20 +2595,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-        $scope.addTocartOnWhatsHot10 = function (id, type) {
+        $scope.addTocartOnWhatsHot10 = function(id, type) {
             console.log(id, type);
-            var indexF = _.findIndex($scope.getCartDataWhatsHot, function (key) {
+            var indexF = _.findIndex($scope.getCartDataWhatsHot, function(key) {
                 console.log('dfghjmkdfgvhbjncfvgbhhhhhhhhhhhhhhhhhhhh');
                 console.log(key.whatshot._id);
                 return key.whatshot._id == id;
             })
             if (indexF !== -1) {
-                NavigationService.deleteCart(type, id, function (data) {
+                NavigationService.deleteCart(type, id, function(data) {
                     console.log('deleted', data);
                     $scope.getCartFun();
                 });
             } else {
-                NavigationService.addCartWhatsHot(id, type, function (data) {
+                NavigationService.addCartWhatsHot(id, type, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', $scope.getData);
                     $scope.getCartFun();
@@ -2674,16 +2659,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         //
         // }];
-        $scope.deleteCart = function (type, id) {
+        $scope.deleteCart = function(type, id) {
             console.log(type, id);
-            NavigationService.deleteCart(type, id, function (data) {
+            NavigationService.deleteCart(type, id, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });
         }
-        $scope.deleteCartAcco = function (type, name) {
+        $scope.deleteCartAcco = function(type, name) {
             console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFun();
             });
@@ -2691,7 +2676,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // ========== End Cart  =============
     })
-    .controller('CustomisationCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state, $uibModal) {
+    .controller('CustomisationCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $timeout, $state, $uibModal) {
         // var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
         // var $checkboxes = $("#checkbox-container :checkbox");
         //
@@ -2708,14 +2693,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $.each(checkboxValues, function(key, value) {
         //     $("#" + key).prop('checked', value);
         // });
-     TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+
 
         var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {},
             $checkboxes = $("#checkbox-container :checkbox");
 
-        $checkboxes.on("change", function () {
-            $checkboxes.each(function () {
+        $checkboxes.on("change", function() {
+            $checkboxes.each(function() {
                 checkboxValues[this.id] = this.checked;
             });
 
@@ -2723,7 +2707,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
         // On page load
-        $.each(checkboxValues, function (key, value) {
+        $.each(checkboxValues, function(key, value) {
             $("#" + key).prop('checked', value);
         });
         $scope.template = TemplateService.changecontent("customisation");
@@ -2735,7 +2719,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
         $scope.currentDate = new Date();
-        NavigationService.cityDetails($stateParams.id, function (data) {
+        NavigationService.cityDetails($stateParams.id, function(data) {
             console.log(data.data.data.getDestination.name);
             $scope.nameofCust = data.data.data.getDestination.name;
             $scope.customisationDestForName = data.data.data.getDestination.name;
@@ -2747,14 +2731,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-        NavigationService.HomeSlider(function (data) {
+        NavigationService.HomeSlider(function(data) {
             $scope.dropDown = data.data.data.DestinationDropdown;
             TemplateService.removeLoader();
         });
 
         $scope.yesISEmpty = true;
-        $scope.getCartOnAcc = function () {
-            NavigationService.getCustCart(function (data) {
+        $scope.getCartOnAcc = function() {
+            NavigationService.getCustCart(function(data) {
                 $scope.getCustomisationDeta = data.data.data;
                 console.log('$scope.getCustomisationDetasssssssssssss', $scope.getCustomisationDeta.accomodation);
                 $scope.getCartActi = $scope.getCustomisationDeta.activities;
@@ -2774,9 +2758,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCartOnAcc();
 
 
-        $scope.checkCart = function (id) {
+        $scope.checkCart = function(id) {
             // console.log("aaa", id, $scope.getCartActi);
-            var indexF = _.findIndex($scope.getCartActi, function (key) {
+            var indexF = _.findIndex($scope.getCartActi, function(key) {
                 return key.activities._id == id;
             });
             // console.log("indexF", indexF);
@@ -2787,9 +2771,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         }
-        $scope.checkCartAcco = function (name) {
+        $scope.checkCartAcco = function(name) {
             console.log("aaa", $scope.getCartAcco);
-            var indexF = _.findIndex($scope.getCartAcco, function (key) {
+            var indexF = _.findIndex($scope.getCartAcco, function(key) {
                 return key.name == name;
             });
             // console.log("indexF", indexF);
@@ -2808,9 +2792,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.selectedAll = {};
         $scope.selectedAll.location = true;
-        $scope.checkAllLocation = function () {
+        $scope.checkAllLocation = function() {
             var toggleStatusLocation = $scope.selectedAll.location;
-            _.forEach($scope.locationArr, function (location) {
+            _.forEach($scope.locationArr, function(location) {
                 location.model = toggleStatusLocation;
             });
             $scope.searchExpert();
@@ -2828,9 +2812,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             imageClass: 'vector'
         }];
         $scope.noResult = false;
-        $scope.searchExpert = function () {
+        $scope.searchExpert = function() {
             var y = 0;
-            _.forEach($scope.locationArr, function (n) {
+            _.forEach($scope.locationArr, function(n) {
                 if (!n.model || n.model == false) {
                     $scope.selectedAll.location = false;
                 } else if (n.model == true) {
@@ -2845,10 +2829,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 type: []
             };
             console.log('$scope.locationArr', $scope.locationArr);
-            dataToSend.type = _.map(_.filter($scope.locationArr, function (n) {
+            dataToSend.type = _.map(_.filter($scope.locationArr, function(n) {
                 return n.model
             }), 'value');
-            NavigationService.getSearch(dataToSend, function (data) {
+            NavigationService.getSearch(dataToSend, function(data) {
                 console.log(data);
                 // $scope.viewMore = true;
                 if (data.data.data.Category.length > 6) {
@@ -2868,7 +2852,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.searchExpert();
-        $scope.goOnCust = function (id, name) {
+        $scope.goOnCust = function(id, name) {
             // $scope.nameofCust = name;
             //   console.log('idd', $scope.nameofCust);
             if (id == undefined) {
@@ -2883,7 +2867,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         }
-        $scope.loadMoreActivity = function () {
+        $scope.loadMoreActivity = function() {
             console.log('inside loadmore fun');
             $scope.more = true;
             $scope.viewMore = false;
@@ -2912,7 +2896,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
         // ==========================
         //==After changed=======
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/customisationCart.html",
@@ -2922,50 +2906,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.custDetailComplete = false;
         $scope.custDetail = {};
-        $scope.custDetailSubmit = function (input, myForm) {
-            console.log('input', input);
-            myForm.email.$touched = false;
-            myForm.name.$touched = false;
-            myForm.phone.$touched = false;
-            myForm.size.$touched = false;
-            myForm.from.$touched = false;
-            myForm.to.$touched = false;
-            myForm.plan.$touched = false;
-            myForm.budget.$touched = false;
-            NavigationService.cartCustomisationSubmit($scope.custDetail, function (data) {
-                console.log("data", data.data.value);
-                if (data.data.value === true) {
-                    // $scope.custDetailComplete = true;
-                    $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCartCustomisation(function (data) {
-                        console.log(data);
-                    })
-                    $scope.custDetail = {};
-                    $timeout(function () {
-                        // $scope.custDetailComplete = false;
+        $scope.custDetailSubmit = function(input, myForm) {
+                console.log('input', input);
+                myForm.email.$touched = false;
+                myForm.name.$touched = false;
+                myForm.phone.$touched = false;
+                myForm.size.$touched = false;
+                myForm.from.$touched = false;
+                myForm.to.$touched = false;
+                myForm.plan.$touched = false;
+                myForm.budget.$touched = false;
+                NavigationService.cartCustomisationSubmit($scope.custDetail, function(data) {
+                    console.log("data", data.data.value);
+                    if (data.data.value === true) {
+                        // $scope.custDetailComplete = true;
+                        $scope.cartSubmitPopup();
+                        NavigationService.deleteAllCartCustomisation(function(data) {
+                            console.log(data);
+                        })
                         $scope.custDetail = {};
-                        $scope.onSubmitCart.close();
-                        $state.reload();
-                    }, 5000);
-                }
-                // $state.reload();
-            });
-        }
-        // =========================
-        $scope.closeCart = function () {
+                        $timeout(function() {
+                            // $scope.custDetailComplete = false;
+                            $scope.custDetail = {};
+                            $scope.onSubmitCart.close();
+                            $state.reload();
+                        }, 5000);
+                    }
+                    // $state.reload();
+                });
+            }
+            // =========================
+        $scope.closeCart = function() {
             $scope.onSubmitCart.close();
             $state.reload();
         }
         $scope.custEnqComplete = false;
         $scope.custEnq = {};
-        $scope.custEnqSubmit = function (input) {
+        $scope.custEnqSubmit = function(input) {
             console.log('input', input);
-            NavigationService.enquiryForm($scope.custEnq, function (data) {
+            NavigationService.enquiryForm($scope.custEnq, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
                     $scope.custEnqComplete = true;
                     // $scope.custEnq = {};
-                    $timeout(function () {
+                    $timeout(function() {
                         $scope.custEnqComplete = false;
                         $scope.custEnq = {};
 
@@ -2976,7 +2960,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.selected = $stateParams.id;
         console.log($scope.selected);
-        $scope.dropDownClick = function (dataid) {
+        $scope.dropDownClick = function(dataid) {
             $state.go('customisation', {
                 id: dataid
             });
@@ -2989,10 +2973,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // ==========================cart integration Customization page After ===========
         $scope.getData = {};
 
-        $scope.addTocartOnAccomodation = function (type, dest, name, image, checkboxModel1) {
+        $scope.addTocartOnAccomodation = function(type, dest, name, image, checkboxModel1) {
             console.log(type, dest, name, image, checkboxModel1);
             if (checkboxModel1 == true) {
-                NavigationService.addCartAccomodation(type, dest, name, image, function (data) {
+                NavigationService.addCartAccomodation(type, dest, name, image, function(data) {
                     $scope.getData = data;
                     console.log('$scope.getData', data.data.data);
                     //  $scope.getCartFunCustomisation();
@@ -3000,7 +2984,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartOnAcc();
 
             } else {
-                NavigationService.deleteCartAccomodation(type, name, function (data) {
+                NavigationService.deleteCartAccomodation(type, name, function(data) {
                     console.log('deleted', data);
                     // $scope.getCartFunCustomisation();
                 });
@@ -3008,32 +2992,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-        $scope.addTocartOnCustPage = function (id, type, checkboxModel) {
-            console.log(id, type, checkboxModel);
-            if (checkboxModel == true) {
-                NavigationService.addCartActivityCustomisation(id, type, function (data) {
-                    $scope.getData = data;
-                    console.log('$scope.getData', data.data.data);
-                    // $scope.getCartFunCustomisation();
-                });
-                $scope.getCartOnAcc();
-            } else {
-                NavigationService.deleteCartCustomisation(type, id, function (data) {
-                    console.log('deleted', data);
-                    //  $scope.getCartFunCustomisation();
-                });
-                $scope.getCartOnAcc();
+        $scope.addTocartOnCustPage = function(id, type, checkboxModel) {
+                console.log(id, type, checkboxModel);
+                if (checkboxModel == true) {
+                    NavigationService.addCartActivityCustomisation(id, type, function(data) {
+                        $scope.getData = data;
+                        console.log('$scope.getData', data.data.data);
+                        // $scope.getCartFunCustomisation();
+                    });
+                    $scope.getCartOnAcc();
+                } else {
+                    NavigationService.deleteCartCustomisation(type, id, function(data) {
+                        console.log('deleted', data);
+                        //  $scope.getCartFunCustomisation();
+                    });
+                    $scope.getCartOnAcc();
+                }
             }
-        }
-        // console.log('$scope.getData0000', $scope.getData);
-        // ==========================End Cart ===========================
+            // console.log('$scope.getData0000', $scope.getData);
+            // ==========================End Cart ===========================
 
 
         // ======================filter changed======================
 
         $scope.selectedAll = {};
         $scope.selectedAll.location = true;
-        $scope.checkAllPackages = function () {
+        $scope.checkAllPackages = function() {
 
             $scope.searchAllPackages();
         };
@@ -3045,7 +3029,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.night = {};
         $scope.day.model = false;
         $scope.night.model = false;
-        $scope.searchAllPackages = function () {
+        $scope.searchAllPackages = function() {
 
             if ($scope.selectedAll.location == true) {
                 $scope.day.model = false;
@@ -3062,7 +3046,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     type: []
                 }
             }
-            NavigationService.getSearch(dataToSend, function (data) {
+            NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
                 if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
@@ -3082,7 +3066,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         };
-        $scope.searchDay = function () {
+        $scope.searchDay = function() {
             console.log('dayclick');
             $scope.night.model = false;
             $scope.day.model = true;
@@ -3091,7 +3075,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 destination: $stateParams.id,
                 type: ["day"]
             }
-            NavigationService.getSearch(dataToSend, function (data) {
+            NavigationService.getSearch(dataToSend, function(data) {
                 console.log('DTAA TO SEND', dataToSend);
                 if (data.data.data.Category.length > 8) {
                     $scope.viewMoreActivity = true;
@@ -3110,38 +3094,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         }
-        $scope.searchNight = function () {
-            console.log('nightclick');
-            $scope.day.model = false;
-            console.log('$scope.day.model', $scope.day.model);
-            $scope.night.model = true;
+        $scope.searchNight = function() {
+                console.log('nightclick');
+                $scope.day.model = false;
+                console.log('$scope.day.model', $scope.day.model);
+                $scope.night.model = true;
 
-            $scope.selectedAll.location = false;
-            var dataToSend = {
-                destination: $stateParams.id,
-                type: ["night"]
+                $scope.selectedAll.location = false;
+                var dataToSend = {
+                    destination: $stateParams.id,
+                    type: ["night"]
+                }
+                NavigationService.getSearch(dataToSend, function(data) {
+                    console.log('DTAA TO SEND', dataToSend);
+                    if (data.data.data.Category.length > 8) {
+                        $scope.viewMoreActivity = true;
+                    }
+
+                    if (data.data.data.Category.length == 0) {
+                        $scope.viewMoreActivity = false;
+                        $scope.noResult = true;
+                    } else {
+
+                        $scope.noResult = false;
+                        $scope.getActivity = data.data.data.Category;
+                        console.log('data.data.data', $scope.getActivity.length);
+                        $scope.getActivityArr = _.cloneDeep($scope.getActivity);
+                        console.log('  $scope.getActivityArr', $scope.getActivityArr);
+                        $scope.getActivity = _.take($scope.getActivity, 8);
+                    }
+                });
             }
-            NavigationService.getSearch(dataToSend, function (data) {
-                console.log('DTAA TO SEND', dataToSend);
-                if (data.data.data.Category.length > 8) {
-                    $scope.viewMoreActivity = true;
-                }
-
-                if (data.data.data.Category.length == 0) {
-                    $scope.viewMoreActivity = false;
-                    $scope.noResult = true;
-                } else {
-
-                    $scope.noResult = false;
-                    $scope.getActivity = data.data.data.Category;
-                    console.log('data.data.data', $scope.getActivity.length);
-                    $scope.getActivityArr = _.cloneDeep($scope.getActivity);
-                    console.log('  $scope.getActivityArr', $scope.getActivityArr);
-                    $scope.getActivity = _.take($scope.getActivity, 8);
-                }
-            });
-        }
-        // =======================filter end ===============================================
+            // =======================filter end ===============================================
 
 
 
@@ -3260,15 +3244,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('headerctrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-       
-            TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         $scope.template = TemplateService;
-        $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
 
         });
+
         // $scope.headerCartOpen10 = function() {
         //     console.log('cccccccccccccct');
         //     $scope.mycart10 = false;
@@ -3303,7 +3285,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.allEventsMore = false;
         $.fancybox.close(true);
         TemplateService.removeLoaderOn(3)
-        NavigationService.getAllDest(function (data) {
+        NavigationService.getAllDest(function(data) {
             $scope.onlyDest = _.take(data.data.data.allDestination, 49);
             $scope.onlyDest = _.chunk($scope.onlyDest, 10);
             console.log('data.data.data.allDestination', $scope.onlyDest);
@@ -3317,7 +3299,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             TemplateService.removeLoader();
         })
-        NavigationService.ActivityLand(function (data) {
+        NavigationService.ActivityLand(function(data) {
             $scope.allActivities = data.data.data.Images;
             if (data.data.data.Images.length > 5) {
                 $scope.allActivitiesMore = true;
@@ -3325,7 +3307,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.allActivities = _.take(data.data.data.Images, 5);
             TemplateService.removeLoader();
         });
-        NavigationService.whatsHot(function (data) {
+        NavigationService.whatsHot(function(data) {
             $scope.allEvents = data.data.data.Events;
             if (data.data.data.Events.length > 5) {
                 $scope.allEventsMore = true;
@@ -3336,14 +3318,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
         $scope.formData = {};
         $scope.formComplete = false;
-        $scope.formSubmit = function (formData) {
+        $scope.formSubmit = function(formData) {
             console.log("formData", formData);
-            NavigationService.subscribe(formData, function (data) {
+            NavigationService.subscribe(formData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
                     $scope.formComplete = true;
                 }
-                $timeout(function () {
+                $timeout(function() {
                     $scope.formComplete = false;
                     $scope.formData = {};
                 }, 2000);
@@ -3352,7 +3334,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         //  ===== MY CART START ========
-        $scope.cartSubmitPopup = function () {
+        $scope.cartSubmitPopup = function() {
             $scope.onSubmitCart = $uibModal.open({
                 animation: true,
                 templateUrl: "frontend/views/modal/mycart.html",
@@ -3362,17 +3344,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.submitCart = false;
         $scope.cartData = {};
-        $scope.cartSubmit = function (input, myForm) {
+        $scope.cartSubmit = function(input, myForm) {
             console.log('input', input);
             myForm.email.$touched = false;
             myForm.name.$touched = false;
             myForm.phone.$touched = false;
             myForm.size.$touched = false;
-            NavigationService.cart($scope.cartData, function (data) {
+            NavigationService.cart($scope.cartData, function(data) {
                 console.log("data", data.value);
                 if (data.value === true) {
                     $scope.cartSubmitPopup();
-                    NavigationService.deleteAllCart(function (data) {
+                    NavigationService.deleteAllCart(function(data) {
                         console.log(data);
                     })
                     $scope.submitCart = true;
@@ -3380,15 +3362,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.getCartFunHeader();
                 $scope.cartData = {};
             });
-            $timeout(function () {
+            $timeout(function() {
                 console.log('inside timeout');
                 $scope.submitCart = false;
                 $scope.onSubmitCart.close();
             }, 5000);
         }
-        $scope.getCartFunHeader = function () {
+        $scope.getCartFunHeader = function() {
             console.log('inside gettttttt cart');
-            NavigationService.getCart(function (data) {
+            NavigationService.getCart(function(data) {
                 $scope.getCartDataActivity10 = data.data.data.activities;
                 $scope.getCartDataPackage10 = data.data.data.package;
                 $scope.getCartDataWhatsHot = data.data.data.whatshot;
@@ -3403,32 +3385,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
         $scope.getCartFunHeader();
-        $scope.deleteCartAcco = function (type, name) {
+        $scope.deleteCartAcco = function(type, name) {
             console.log(type, name);
-            NavigationService.deleteCartAccomodation(type, name, function (data) {
+            NavigationService.deleteCartAccomodation(type, name, function(data) {
                 console.log('deleted', data);
                 $scope.getCartFunHeader();
             });
         }
 
     })
-    .controller('footerCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-          TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-     
+    .controller('footerCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         console.log("footerCtrl");
         $scope.subscribeData = {};
         $scope.subscribeComplete = false;
         $scope.alreadySubscribed = false;
-        $scope.subscribeSubmit = function (subscribeData) {
+        $scope.subscribeSubmit = function(subscribeData) {
             console.log("sadsadasdsads");
             console.log("subscribeData", subscribeData);
-            NavigationService.subscribe(subscribeData, function (data) {
+            NavigationService.subscribe(subscribeData, function(data) {
                 console.log("data", data.value);
                 if (data.data.data) {
                     console.log('hhhhhhhhh');
                     $scope.subscribeComplete = true;
-                    $timeout(function () {
+                    $timeout(function() {
                         $scope.subscribeComplete = false;
                         $scope.subscribeData = {};
                     }, 2000);
@@ -3436,7 +3415,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log('eeeeeeeeeee');
                     console.log('inside elseeee');
                     $scope.alreadySubscribed = true;
-                    $timeout(function () {
+                    $timeout(function() {
                         $scope.alreadySubscribed = false;
                         $scope.subscribeData = {};
                     }, 2000);
@@ -3446,10 +3425,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         }
     })
-    .controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
-     TemplateService.description = "May the bachelor in you rest in peace... And this is precisely where we come into the picture - to organise THE trip to bid adieu to your Bachelorhood! An event of a lifetime needs a trip that is on par with it, a trip you won’t be able to forget about but also the kind you wouldn’t be able to talk to everyone about..";
-        TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
-        $scope.changeLanguage = function () {
+    .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
+
+        $scope.changeLanguage = function() {
             // console.log("Language CLicked");
 
             if (!$.jStorage.get("language")) {
