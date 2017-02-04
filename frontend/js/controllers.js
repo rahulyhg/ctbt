@@ -71,6 +71,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("TBT-The Bachelor Trip | Home");
         TemplateService.header = "frontend/views/home_header.html";
         TemplateService.title = $scope.menutitle;
+
+        console.log("HOME TITELE",$scope.menutitle);
         TemplateService.description = "Looking for the perfect break before the big day? Celebrate the trip of a lifetime at the best bachelor party destinations with your friends only with TBT. ";
         TemplateService.keywords = "bachelor trip, bachelor party destinations , bachelor party, bachelor party planning, bachelor party themes";
 
@@ -1237,7 +1239,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("customdestination");
         $scope.menutitle = NavigationService.makeactive("customdestination");
         TemplateService.title = $scope.menutitle;
-
+// console.log("TITLE",$scope.menutitle);
         // ------------switch case for desc and keyword ----------
 
         switch ($stateParams.id) {
@@ -1247,6 +1249,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = "With dungeons, sports and nightlife like no other, Amsterdam offers you what most cities cannot. Take a walk to the wild side this bachelor party with TBT. ";
                 TemplateService.keywords = "bachelor night, bachelor party, bachelor trip, bachelor party themes, bachelor party games, bachelor party planning , bachelor party destinations in Amsterdam, bachelor party destinations Amsterdam";
+               console.log("TITLE",$scope.menutitle);
                 break;
                 //4//
             case '5820e0666f31bf5a0b18dc42':
