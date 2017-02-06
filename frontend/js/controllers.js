@@ -2050,7 +2050,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.currentDate = new Date();
         $scope.template = TemplateService.changecontent("pakage");
-        $scope.menutitle = NavigationService.makeactive("Pakage");
+        $scope.menutitle = NavigationService.makeactive("Package");
         TemplateService.title = $scope.menutitle;
         TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
         TemplateService.keywords = "bachelor trip, bachelor party, bachelor party destinations, bachelor trip destinations, bachelorhood, best party destinations";
@@ -2335,7 +2335,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.description = "A new year means new experiences with your best friends that no one will ever forget. Get that and more with a party in Macau on your bachelor night. ";
         TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
         break;
-        
+
          //56//
         case'58394561c4c7854ddcbdfd38':
         $scope.menutitle = NavigationService.makeactive("Sail and Cruise on this Vacation | The Bachelor Trip");
@@ -2343,7 +2343,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.description = "Dive into the deep water of the Mediterranean Sea or just float on them with this exotic cruise. Get a carnival on the sea with this bachelor party package. ";
         TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
         break;
-        
+
          //57//
          case'583946e4c4c7854ddcbdfdb7':
         $scope.menutitle = NavigationService.makeactive("Nothing Says Party like Tomorrowland | The Bachelor Trip");
@@ -2351,7 +2351,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.description = "The world’s largest and most popular music festival, Tomorrowland automatically becomes the best party destination of the year! Celebrate in the city of Boom.";
         TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
         break;
-        
+
          //58//
         case'58395294c4c7854ddcbdfe19':
         $scope.menutitle = NavigationService.makeactive("Know What’s Hot in the Year of 2017 | The Bachelor Trip");
