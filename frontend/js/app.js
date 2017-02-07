@@ -99,8 +99,8 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'PattayaCtrl'
         })
-        .state('pakage', {
-            url: "/pakage/:id",
+        .state('package', {
+            url: "/package/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'Pattaya2Ctrl'
         })

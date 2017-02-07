@@ -55,7 +55,7 @@
                                 <br>
                                 <span>{{data.duration}}</span>
                             </div>
-                            <div class="over-layer text-center" ui-sref="pakage({id:data._id})">
+                            <div class="over-layer text-center" ui-sref="package({id:data._id})">
                                 <div class="cart-sec">
                                     <button class="cart uppercase" ng-click="addTocartOnPackage(data._id,data.typeCart);">
                                     <i  ng-if="!isInWishlistPackage(data._id)" ng-click="cartd();"><img  src="frontend/img/cartremove.png" class="cartsi img-responsive" ></i>
@@ -63,7 +63,7 @@
                                 </button>
                                 </div>
                                 <div class="button-holder">
-                                    <button class="ext-detail" ui-sref="pakage({id:data._id})">KNOW MORE</button>
+                                    <button class="ext-detail" ui-sref="package({id:data._id})">KNOW MORE</button>
                                 </div>
                             </div>
                         </div>

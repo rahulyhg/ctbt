@@ -2049,7 +2049,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.subscribeSubmit = function(subscribeData) {}
         }
         $scope.currentDate = new Date();
-        $scope.template = TemplateService.changecontent("pakage");
+        $scope.template = TemplateService.changecontent("package");
         $scope.menutitle = NavigationService.makeactive("Package");
         TemplateService.title = $scope.menutitle;
         TemplateService.description = "Before the wedding bells signal the end of your bachelorhood, get out and take the trip of a lifetime! Your bachelor trip will be a once-in-a-lifetime event and we are here to make sure it turns out to be so crazy that you won't even be able to talk about it!";
