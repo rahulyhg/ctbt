@@ -701,7 +701,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.template = TemplateService.changecontent("activity");
-        $scope.menutitle = NavigationService.makeactive("A Wise Variety of Activities only with The Bachelor Trip");
+        $scope.menutitle = NavigationService.makeactive("A Wide Variety of Activities only with The Bachelor Trip");
         TemplateService.title = $scope.menutitle;
         TemplateService.description = "Can’t decide where you want to go for your ultimate bachelor party? We have a list of activities for you to choose from like cruises, spas or scuba diving. ";
         TemplateService.keywords = "Bachelor trip, bachelor party, bachelor party package, bachelor party ideas, bachelor party themes, bachelor party destinations, bachelorette party";
